@@ -1,0 +1,2601 @@
+{
+  "date": "2026-11-05",
+  "browser": "BrowserOS neo",
+  "scope": "逐页检查标题、媒体页13个比例卡、生成和文案页更多设置分组及弹窗关闭；不代表全部真实模型测试",
+  "total": 143,
+  "passed": 143,
+  "initialTimingFailures": [
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-31",
+      "mode": "text",
+      "more": true,
+      "name": "主图诊断与优选",
+      "pass": false,
+      "ratioCards": 0
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-01",
+      "mode": "generate",
+      "more": true,
+      "name": "款式创新",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-08",
+      "mode": "edit",
+      "more": true,
+      "name": "局部改款",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-09",
+      "mode": "generate",
+      "more": true,
+      "name": "工艺线稿",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-11",
+      "mode": "edit",
+      "more": true,
+      "name": "同款换拍",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-12",
+      "mode": "generate",
+      "more": true,
+      "name": "搭配矩阵图",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-02",
+      "mode": "generate",
+      "more": true,
+      "name": "平台套图",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-05",
+      "mode": "text",
+      "more": true,
+      "name": "A+ 与品牌故事",
+      "pass": false,
+      "ratioCards": 0
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-07",
+      "mode": "text",
+      "more": true,
+      "name": "SKU 批量上架包",
+      "pass": false,
+      "ratioCards": 0
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-04",
+      "mode": "generate",
+      "more": true,
+      "name": "节日海报",
+      "pass": false,
+      "ratioCards": 13
+    },
+    {
+      "closed": false,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-06",
+      "mode": "generate",
+      "more": true,
+      "name": "促销弹窗",
+      "pass": false,
+      "ratioCards": 13
+    }
+  ],
+  "results": [
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-01",
+      "mode": "generate",
+      "more": true,
+      "name": "商品套图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-02",
+      "mode": "generate",
+      "more": true,
+      "name": "电商详情页",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-03",
+      "mode": "generate",
+      "more": true,
+      "name": "商品主图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-04",
+      "mode": "generate",
+      "more": true,
+      "name": "主图拼图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-05",
+      "mode": "generate",
+      "more": true,
+      "name": "商品直通车图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-06",
+      "mode": "generate",
+      "more": true,
+      "name": "爆款图复刻",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-07",
+      "mode": "generate",
+      "more": true,
+      "name": "详情图复刻",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-08",
+      "mode": "generate",
+      "more": true,
+      "name": "商品 SKU 图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-09",
+      "mode": "edit",
+      "more": true,
+      "name": "修改封面",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-10",
+      "mode": "edit",
+      "more": true,
+      "name": "实拍转平铺",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-11",
+      "mode": "generate",
+      "more": true,
+      "name": "百变服饰图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-12",
+      "mode": "generate",
+      "more": true,
+      "name": "平铺转 3D",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-13",
+      "mode": "generate",
+      "more": true,
+      "name": "面料上身",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-14",
+      "mode": "edit",
+      "more": true,
+      "name": "材质增强",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-15",
+      "mode": "edit",
+      "more": true,
+      "name": "一键去皱",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-16",
+      "mode": "edit",
+      "more": true,
+      "name": "面料质感还原",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-17",
+      "mode": "edit",
+      "more": true,
+      "name": "产品替换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-18",
+      "mode": "generate",
+      "more": true,
+      "name": "种草网感复刻",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-19",
+      "mode": "generate",
+      "more": true,
+      "name": "一键种草图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-20",
+      "mode": "edit",
+      "more": true,
+      "name": "商品图合成",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-21",
+      "mode": "edit",
+      "more": true,
+      "name": "商品换背景",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-22",
+      "mode": "generate",
+      "more": true,
+      "name": "一键代言图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-23",
+      "mode": "generate",
+      "more": true,
+      "name": "一键卖点图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-24",
+      "mode": "generate",
+      "more": true,
+      "name": "商品多视角图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-25",
+      "mode": "generate",
+      "more": true,
+      "name": "三视图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-26",
+      "mode": "generate",
+      "more": true,
+      "name": "商品细节图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-27",
+      "mode": "generate",
+      "more": true,
+      "name": "一键细节图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-28",
+      "mode": "generate",
+      "more": true,
+      "name": "商品精修 Pro",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-29",
+      "mode": "generate",
+      "more": true,
+      "name": "商品光影棚",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-30",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 换布光",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-product-31",
+      "mode": "generate",
+      "more": true,
+      "name": "商品系列一致化",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-01",
+      "mode": "generate",
+      "more": true,
+      "name": "万物上身",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-02",
+      "mode": "generate",
+      "more": true,
+      "name": "专属模特套拍",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-03",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 智能搭配",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-04",
+      "mode": "generate",
+      "more": true,
+      "name": "模特图生图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-05",
+      "mode": "edit",
+      "more": true,
+      "name": "搭配融图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-06",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 试戴",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-07",
+      "mode": "generate",
+      "more": true,
+      "name": "手持商品",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-08",
+      "mode": "edit",
+      "more": true,
+      "name": "平铺/人台试衣",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-09",
+      "mode": "edit",
+      "more": true,
+      "name": "真人图试衣",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-10",
+      "mode": "edit",
+      "more": true,
+      "name": "鞋靴试穿",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-11",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 换模特",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-12",
+      "mode": "edit",
+      "more": true,
+      "name": "模特塑形",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-13",
+      "mode": "edit",
+      "more": true,
+      "name": "模特换姿势",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-14",
+      "mode": "generate",
+      "more": true,
+      "name": "模特多种换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-15",
+      "mode": "generate",
+      "more": true,
+      "name": "相机镜头",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-16",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 换脸",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-17",
+      "mode": "edit",
+      "more": true,
+      "name": "模拍换景",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-18",
+      "mode": "edit",
+      "more": true,
+      "name": "服饰换色",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-19",
+      "mode": "edit",
+      "more": true,
+      "name": "模特去 AI 感",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-20",
+      "mode": "generate",
+      "more": true,
+      "name": "服饰商拍套图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-21",
+      "mode": "generate",
+      "more": true,
+      "name": "套图裂变",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-22",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 配景",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-23",
+      "mode": "generate",
+      "more": true,
+      "name": "服饰种草图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-model-24",
+      "mode": "generate",
+      "more": true,
+      "name": "专属模特定妆照",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-pod-01",
+      "mode": "local",
+      "more": false,
+      "name": "图案裁剪",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-02",
+      "mode": "edit",
+      "more": true,
+      "name": "印花提取",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-03",
+      "mode": "edit",
+      "more": true,
+      "name": "满印提取",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-04",
+      "mode": "edit",
+      "more": true,
+      "name": "素材粘合",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-05",
+      "mode": "generate",
+      "more": true,
+      "name": "四方连续图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-06",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 印花设计",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-07",
+      "mode": "generate",
+      "more": true,
+      "name": "产品皮肤设计",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-08",
+      "mode": "generate",
+      "more": true,
+      "name": "履约制图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-09",
+      "mode": "generate",
+      "more": true,
+      "name": "图裂变",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-10",
+      "mode": "edit",
+      "more": true,
+      "name": "风格转绘",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-11",
+      "mode": "edit",
+      "more": true,
+      "name": "局部替换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-12",
+      "mode": "generate",
+      "more": true,
+      "name": "印花效果图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-13",
+      "mode": "edit",
+      "more": true,
+      "name": "智能抠图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-14",
+      "mode": "generate",
+      "more": true,
+      "name": "商品主图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-15",
+      "mode": "edit",
+      "more": true,
+      "name": "定向替换图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-16",
+      "mode": "generate",
+      "more": true,
+      "name": "商品尺寸图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-17",
+      "mode": "generate",
+      "more": true,
+      "name": "场景图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-18",
+      "mode": "text",
+      "more": true,
+      "name": "POD 标题提取",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-pod-19",
+      "mode": "text",
+      "more": true,
+      "name": "印花侵权检测",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-01",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 万能改图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-02",
+      "mode": "generate",
+      "more": true,
+      "name": "产品分解图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-03",
+      "mode": "generate",
+      "more": true,
+      "name": "设计 Logo",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-04",
+      "mode": "edit",
+      "more": true,
+      "name": "图片翻译",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-05",
+      "mode": "edit",
+      "more": true,
+      "name": "商品白底图",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-06",
+      "mode": "generate",
+      "more": true,
+      "name": "证件照制作",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-07",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 职业形象照",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-08",
+      "mode": "generate",
+      "more": true,
+      "name": "AI 艺术写真照",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-09",
+      "mode": "generate",
+      "more": true,
+      "name": "商品堆品图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-10",
+      "mode": "text",
+      "more": true,
+      "name": "投前检测",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-11",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 抠图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-12",
+      "mode": "edit",
+      "more": true,
+      "name": "无痕改字",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-13",
+      "mode": "edit",
+      "more": true,
+      "name": "通用多图融合",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-14",
+      "mode": "edit",
+      "more": true,
+      "name": "通用风格转换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-15",
+      "mode": "edit",
+      "more": true,
+      "name": "线稿提取与上色",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-16",
+      "mode": "edit",
+      "more": true,
+      "name": "智能版式适配",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-17",
+      "mode": "edit",
+      "more": true,
+      "name": "消除笔",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-18",
+      "mode": "edit",
+      "more": true,
+      "name": "图片超清",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-19",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 扩图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-20",
+      "mode": "edit",
+      "more": true,
+      "name": "AI 消除",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-21",
+      "mode": "edit",
+      "more": true,
+      "name": "手脚修复",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-22",
+      "mode": "edit",
+      "more": true,
+      "name": "服饰修复",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-23",
+      "mode": "edit",
+      "more": true,
+      "name": "鞋靴修复",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-24",
+      "mode": "local",
+      "more": false,
+      "name": "无损改尺寸",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-25",
+      "mode": "local",
+      "more": false,
+      "name": "在线拼图",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-26",
+      "mode": "local",
+      "more": false,
+      "name": "图片切图",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-27",
+      "mode": "local",
+      "more": false,
+      "name": "图片批量压缩",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-28",
+      "mode": "local",
+      "more": false,
+      "name": "图片批量修改尺寸",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-29",
+      "mode": "local",
+      "more": false,
+      "name": "批量图片格式转换",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "groups": [],
+      "heading": true,
+      "id": "ec-tools-30",
+      "mode": "local",
+      "more": false,
+      "name": "商品图片标注",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-tools-31",
+      "mode": "text",
+      "more": true,
+      "name": "主图诊断与优选",
+      "pass": true,
+      "ratioCards": 0,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-01",
+      "mode": "generate",
+      "more": true,
+      "name": "款式创新",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-02",
+      "mode": "generate",
+      "more": true,
+      "name": "款式融合",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-03",
+      "mode": "generate",
+      "more": true,
+      "name": "灵感改款",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-04",
+      "mode": "edit",
+      "more": true,
+      "name": "面料替换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-05",
+      "mode": "edit",
+      "more": true,
+      "name": "颜色替换",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-06",
+      "mode": "generate",
+      "more": true,
+      "name": "套系衍生",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-07",
+      "mode": "edit",
+      "more": true,
+      "name": "季节转款",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-08",
+      "mode": "edit",
+      "more": true,
+      "name": "局部改款",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-09",
+      "mode": "generate",
+      "more": true,
+      "name": "工艺线稿",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-10",
+      "mode": "edit",
+      "more": true,
+      "name": "线稿变实物",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-11",
+      "mode": "edit",
+      "more": true,
+      "name": "同款换拍",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-derivative-12",
+      "mode": "generate",
+      "more": true,
+      "name": "搭配矩阵图",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-01",
+      "mode": "text",
+      "more": true,
+      "name": "跨境 Listing 生成",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-02",
+      "mode": "generate",
+      "more": true,
+      "name": "平台套图",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-03",
+      "mode": "text",
+      "more": true,
+      "name": "Listing 本地化",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-04",
+      "mode": "edit",
+      "more": true,
+      "name": "多语言多尺寸",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-05",
+      "mode": "text",
+      "more": true,
+      "name": "A+ 与品牌故事",
+      "pass": true,
+      "ratioCards": 0,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-06",
+      "mode": "text",
+      "more": true,
+      "name": "Listing 合规检测",
+      "pass": true,
+      "ratioCards": 0
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-crossborder-07",
+      "mode": "text",
+      "more": true,
+      "name": "SKU 批量上架包",
+      "pass": true,
+      "ratioCards": 0,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-01",
+      "mode": "generate",
+      "more": true,
+      "name": "营销图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-02",
+      "mode": "generate",
+      "more": true,
+      "name": "智能设计",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-03",
+      "mode": "generate",
+      "more": true,
+      "name": "高转化主图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-04",
+      "mode": "generate",
+      "more": true,
+      "name": "节日海报",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-05",
+      "mode": "generate",
+      "more": true,
+      "name": "横版 Banner",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-06",
+      "mode": "generate",
+      "more": true,
+      "name": "促销弹窗",
+      "pass": true,
+      "ratioCards": 13,
+      "rerun": true,
+      "initialClosed": false
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-07",
+      "mode": "generate",
+      "more": true,
+      "name": "直播背景图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-08",
+      "mode": "generate",
+      "more": true,
+      "name": "社媒种草图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-09",
+      "mode": "generate",
+      "more": true,
+      "name": "营销海报复刻",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-10",
+      "mode": "generate",
+      "more": true,
+      "name": "营销创意裂变",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-11",
+      "mode": "generate",
+      "more": true,
+      "name": "大促整套物料",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-12",
+      "mode": "generate",
+      "more": true,
+      "name": "博主大字封面",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-13",
+      "mode": "generate",
+      "more": true,
+      "name": "图文封面生成",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-marketing-14",
+      "mode": "edit",
+      "more": true,
+      "name": "纯图加文案",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-design-01",
+      "mode": "generate",
+      "more": true,
+      "name": "自由海报",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-design-02",
+      "mode": "generate",
+      "more": true,
+      "name": "传单折页",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-design-03",
+      "mode": "generate",
+      "more": true,
+      "name": "信息图",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-design-04",
+      "mode": "generate",
+      "more": true,
+      "name": "封面设计",
+      "pass": true,
+      "ratioCards": 13
+    },
+    {
+      "closed": true,
+      "groups": [
+        "目标销售国家/地区",
+        "图片文案语言",
+        "目标平台",
+        "主题色",
+        "字体风格"
+      ],
+      "heading": true,
+      "id": "ec-design-05",
+      "mode": "generate",
+      "more": true,
+      "name": "设计长图",
+      "pass": true,
+      "ratioCards": 13
+    }
+  ]
+}

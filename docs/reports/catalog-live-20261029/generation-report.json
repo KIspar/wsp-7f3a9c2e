@@ -1,0 +1,109 @@
+{
+  "quotes": [
+    {
+      "purpose": "main",
+      "quote": {
+        "checkedAt": "2026-10-29T06:37:14.842Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.0395,
+        "maximum": 0.0858,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "video",
+      "quote": {
+        "checkedAt": "2026-10-29T06:37:15.048Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0.0858,
+        "available": 1.6242,
+        "minimum": 0.4118,
+        "maximum": 0.4118,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.4118,
+            "maximum": 0.4118,
+            "channels": 1
+          }
+        ]
+      }
+    }
+  ],
+  "productId": "product-b43dcf34-3809-49f5-ad93-dc99e0952e15",
+  "startedAt": "2026-10-29T06:37:14.557Z",
+  "attempts": [
+    {
+      "id": "attempt-c652eb2d-3257-4f5a-90e1-4b6a670085ab",
+      "batchId": "batch-21c749e1-eab6-4b70-a3fc-17bbdba86d98",
+      "status": "completed",
+      "upstreamTaskId": "194708509",
+      "assetId": "provider-attempt-c652eb2d-3257-4f5a-90e1-4b6a670085ab",
+      "billing": {
+        "cost": 0.0858,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default特价"
+      },
+      "model": "tt-image-2.5"
+    },
+    {
+      "id": "attempt-d5549957-4593-48f8-93d5-7242683c1f2e",
+      "batchId": "batch-e3afb9cd-da44-488a-8d5a-f015eea39e93",
+      "status": "completed",
+      "upstreamTaskId": "194708506",
+      "assetId": "provider-attempt-d5549957-4593-48f8-93d5-7242683c1f2e",
+      "billing": {
+        "cost": 0.4118,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "MC-omni"
+      },
+      "model": "omni-flash"
+    }
+  ],
+  "videoAnalysis": {
+    "id": "analysis-8093e5a5-f5fd-441a-b031-0f961c4a3b8c",
+    "status": "completed",
+    "upstreamTaskId": "194713781",
+    "usage": {
+      "inputTokens": 907,
+      "outputTokens": 503,
+      "totalTokens": 2336
+    },
+    "billing": {
+      "status": "final",
+      "cost": 0.0034,
+      "inputTokens": 907,
+      "outputTokens": 1429,
+      "checkedAt": "2026-10-29T06:39:41.355Z",
+      "isFinal": true,
+      "state": "success",
+      "refunded": false,
+      "refundedAmount": 0,
+      "channelGroup": "AM-cli"
+    },
+    "result": "## 镜头分析\n\n### [00:00 - 00:02]\n* **主体动作**：无头人台静止展示黑色加绒连帽外套，兜帽上带有一对毛绒兽耳。\n* **场景**：纯色米白摄影棚背景，光线均匀柔和。\n* **构图**：正面半身中景，人台居中放置。\n* **运镜**：镜头缓慢向前平推（Push-in）逼近兜帽及胸部细节。\n* **可辨识文案**：右下角带有半透明四角星芒水印图标。\n* **分镜提示词**：正面半身视角，人台静止展示黑色兽耳毛领连帽棉服，米白单色棚拍背景，镜头缓慢向前推进。\n\n### [00:02 - 00:04]\n* **主体动作**：展示外套兜帽侧面及毛绒边缘质感，主体保持静止。\n* **场景**：米白纯色摄影棚背景。\n* **构图**：侧面特写与近景。\n* **运镜**：由正面向右侧弧形运镜（Pan/Arc），聚焦侧面帽型与肩颈轮廓。\n* **可辨识文案**：右下角带有半透明四角星芒水印图标。\n* **分镜提示词**：侧近景特写，展示黑色外套的毛绒兽耳兜帽侧面结构与毛质细节，平滑侧向弧形运镜。\n\n## 整片提示词\n商拍展示视频，无头人台展示黑色连帽毛领棉服，帽子带毛绒兽耳造型，浅米色纯色背景，柔和棚拍光线。镜头由正面半身平缓向前推进，随后平滑转向侧面近景特写，清晰展示兜帽与毛绒细节。\n\n## 不确定信息\n* 外套面料的具体材质成分（如棉、聚酯纤维等）及毛领是否可拆卸无法确认。\n* 右下角星芒水印图标所代表的生成工具或平台来源无法确认。"
+  }
+}

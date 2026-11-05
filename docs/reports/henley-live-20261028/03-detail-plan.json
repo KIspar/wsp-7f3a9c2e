@@ -1,0 +1,331 @@
+{
+  "skillId": "detail-design",
+  "draft": {
+    "requirements": "商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。",
+    "modelId": "tt-image",
+    "aspectRatio": "3:4",
+    "count": 1,
+    "duration": 6,
+    "fields": {
+      "language": "简体中文",
+      "productName": "麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤",
+      "sellingPoints": "咖棕色；可见麦穗纹理；三粒扣亨利立领；长袖、宽松落肩。只使用这些可见特征，不推断面料成分、克重、尺码和功能。",
+      "platform": "抖音"
+    },
+    "parameters": {
+      "resolution": "1K",
+      "version": "flare",
+      "quality": "auto",
+      "background": "opaque"
+    },
+    "inputRoles": {
+      "product": [
+        "test-product-1",
+        "test-product-2",
+        "test-product-3"
+      ]
+    },
+    "selectedTargetIds": [],
+    "overrides": {},
+    "imageDesign": {
+      "groupCount": 1,
+      "screens": [
+        {
+          "id": "hero",
+          "type": "首屏主视觉",
+          "requirements": "成年男模正面半身，突出领口三扣和整体版型；标题“麦穗纹亨利领”。",
+          "facts": ""
+        },
+        {
+          "id": "selling",
+          "type": "核心卖点图",
+          "requirements": "突出可见麦穗纹与宽松落肩，保持真实款式；标题“纹理有型 · 从容穿搭”。",
+          "facts": ""
+        },
+        {
+          "id": "closeup",
+          "type": "商品细节图",
+          "requirements": "近景展示亨利领、三粒扣、门襟和织物纹理；标题“亨利领 · 三粒扣”。",
+          "facts": ""
+        }
+      ],
+      "bindings": [],
+      "nextNumber": 1
+    }
+  },
+  "plan": {
+    "total": 3,
+    "points": null,
+    "items": [
+      {
+        "index": 1,
+        "variant": 1,
+        "groupIndex": 1,
+        "screenId": "hero",
+        "screenType": "首屏主视觉",
+        "screenOrder": 1,
+        "targetLabel": "第 1 组 · 第 1 屏 · 首屏主视觉",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        },
+        "prompt": "为抖音设计同一商品的一组详情图。\n产品名：麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤\n已提供信息与设计要求：咖棕色；可见麦穗纹理；三粒扣亨利立领；长袖、宽松落肩。只使用这些可见特征，不推断面料成分、克重、尺码和功能。\n补充要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。\n成品文案语言：简体中文。严格使用已确认事实，未知尺寸、成分、售后政策、品牌故事和功效不能虚构。\n每次只输出当前一屏独立图片，整组统一商品、配色、字体表达及视觉风格；当前屏的类型、资料和组内顺序由执行计划补充。\n组内设计计划：商品为麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤；语言简体中文；全组统一产品结构、配色和字体表达。屏顺序：1.首屏主视觉 → 2.核心卖点图 → 3.商品细节图。组内共同要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。。\n当前第1组、第1屏，类型：首屏主视觉。\n局部要求：成年男模正面半身，突出领口三扣和整体版型；标题“麦穗纹亨利领”。\n已确认资料（精确引用，不改数值）：未提供额外资料，不编造\n每次输出当前一屏，禁止合成多屏联系表。"
+      },
+      {
+        "index": 2,
+        "variant": 1,
+        "groupIndex": 1,
+        "screenId": "selling",
+        "screenType": "核心卖点图",
+        "screenOrder": 2,
+        "targetLabel": "第 1 组 · 第 2 屏 · 核心卖点图",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        },
+        "prompt": "为抖音设计同一商品的一组详情图。\n产品名：麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤\n已提供信息与设计要求：咖棕色；可见麦穗纹理；三粒扣亨利立领；长袖、宽松落肩。只使用这些可见特征，不推断面料成分、克重、尺码和功能。\n补充要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。\n成品文案语言：简体中文。严格使用已确认事实，未知尺寸、成分、售后政策、品牌故事和功效不能虚构。\n每次只输出当前一屏独立图片，整组统一商品、配色、字体表达及视觉风格；当前屏的类型、资料和组内顺序由执行计划补充。\n组内设计计划：商品为麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤；语言简体中文；全组统一产品结构、配色和字体表达。屏顺序：1.首屏主视觉 → 2.核心卖点图 → 3.商品细节图。组内共同要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。。\n当前第1组、第2屏，类型：核心卖点图。\n局部要求：突出可见麦穗纹与宽松落肩，保持真实款式；标题“纹理有型 · 从容穿搭”。\n已确认资料（精确引用，不改数值）：未提供额外资料，不编造\n每次输出当前一屏，禁止合成多屏联系表。"
+      },
+      {
+        "index": 3,
+        "variant": 1,
+        "groupIndex": 1,
+        "screenId": "closeup",
+        "screenType": "商品细节图",
+        "screenOrder": 3,
+        "targetLabel": "第 1 组 · 第 3 屏 · 商品细节图",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        },
+        "prompt": "为抖音设计同一商品的一组详情图。\n产品名：麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤\n已提供信息与设计要求：咖棕色；可见麦穗纹理；三粒扣亨利立领；长袖、宽松落肩。只使用这些可见特征，不推断面料成分、克重、尺码和功能。\n补充要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。\n成品文案语言：简体中文。严格使用已确认事实，未知尺寸、成分、售后政策、品牌故事和功效不能虚构。\n每次只输出当前一屏独立图片，整组统一商品、配色、字体表达及视觉风格；当前屏的类型、资料和组内顺序由执行计划补充。\n组内设计计划：商品为麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤；语言简体中文；全组统一产品结构、配色和字体表达。屏顺序：1.首屏主视觉 → 2.核心卖点图 → 3.商品细节图。组内共同要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。统一为简约美式男装电商详情，咖棕与米白色系，成年男模，商品同款同色。屏内只使用简短准确中文标题，不出现价格、虚构标识、参数表。。\n当前第1组、第3屏，类型：商品细节图。\n局部要求：近景展示亨利领、三粒扣、门襟和织物纹理；标题“亨利领 · 三粒扣”。\n已确认资料（精确引用，不改数值）：未提供额外资料，不编造\n每次输出当前一屏，禁止合成多屏联系表。"
+      }
+    ],
+    "skillId": "detail-design",
+    "skillRevision": 1,
+    "skillHash": "485117f9367b6243bada08f0c2cd91d113df7fb1392baa91a9d141b6ae0b3e85",
+    "action": "generate",
+    "hash": "25320f605421cf46a8d4650ac276c5b1ffd130e016e488508150902398611971"
+  }
+}

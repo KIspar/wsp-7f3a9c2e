@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-28T10:39:25.014Z",
+  "method": "GET",
+  "paidRequests": 0,
+  "rows": [
+    {
+      "type": "image",
+      "total": 21,
+      "model": "tt-image-2.5",
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "parameterCount": 8,
+      "channelGroups": 33
+    },
+    {
+      "type": "video",
+      "total": 75,
+      "model": "seedance-2.0-anci",
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "parameterCount": 7,
+      "channelGroups": 1
+    },
+    {
+      "type": "audio",
+      "total": 8,
+      "model": "suno-v6",
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "parameterCount": 5,
+      "channelGroups": 1
+    }
+  ]
+}

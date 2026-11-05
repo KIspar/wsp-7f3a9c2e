@@ -1,0 +1,130 @@
+{
+  "skillId": "image-generate",
+  "draft": {
+    "requirements": "产品为麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤。商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。生成一张干净的男性上身电商主图，人物为成年男性，自然站姿，现代简约室内暖灰背景，腰部以上中景，写实服装摄影，主体完整，无文案。",
+    "modelId": "tt-image",
+    "aspectRatio": "3:4",
+    "count": 1,
+    "duration": 6,
+    "fields": {
+      "language": "简体中文",
+      "variation": "独立构图"
+    },
+    "parameters": {
+      "resolution": "1K",
+      "version": "flare",
+      "quality": "auto",
+      "background": "opaque"
+    },
+    "inputRoles": {
+      "product": [
+        "test-product-1",
+        "test-product-2",
+        "test-product-3"
+      ],
+      "reference": []
+    },
+    "selectedTargetIds": [],
+    "overrides": {},
+    "imageDesign": {
+      "groupCount": 1,
+      "screens": [],
+      "bindings": [],
+      "nextNumber": 1
+    }
+  },
+  "plan": {
+    "total": 1,
+    "points": null,
+    "items": [
+      {
+        "index": 1,
+        "variant": 1,
+        "prompt": "你是商品图片设计师。产品图片是商品真实外观依据，参考图只用于构图、场景或风格。\n要求：产品为麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤。商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。生成一张干净的男性上身电商主图，人物为成年男性，自然站姿，现代简约室内暖灰背景，腰部以上中景，写实服装摄影，主体完整，无文案。\n语言：简体中文。多图差异：独立构图。\n本图 1 / 1。只输出一张独立成品。\n保留商品结构、颜色、图案、Logo与可见细节。不推断未知成分、尺码、功效或销量。没有文案要求时不新增宣传文字。",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        }
+      }
+    ],
+    "skillId": "image-generate",
+    "skillRevision": 1,
+    "skillHash": "6f0f8da5cc9901c94f16a588930ddc910cf8c75f2e3d92b6d55e3d156393c116",
+    "action": "generate",
+    "hash": "a62c6f843cf33add1f2e774b7e583b0c7cb8488d481498e99bfc1c7624b92439"
+  }
+}

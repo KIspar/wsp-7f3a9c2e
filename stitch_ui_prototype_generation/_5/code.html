@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#c3c0ff","surface-variant":"#dae2fd","secondary":"#4648d4","surface":"#faf8ff","surface-tint":"#4d44e3","inverse-on-surface":"#eef0ff","secondary-fixed-dim":"#c0c1ff","error-container":"#ffdad6","error":"#ba1a1a","secondary-container":"#6063ee","on-tertiary-fixed":"#001e2f","surface-bright":"#faf8ff","outline":"#777587","on-surface":"#131b2e","outline-variant":"#c7c4d8","tertiary":"#004d70","background":"#faf8ff","on-secondary":"#ffffff","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#004c6e","secondary-fixed":"#e1e0ff","primary-fixed":"#e2dfff","on-tertiary-container":"#b8e0ff","surface-container-high":"#e2e7ff","surface-container-lowest":"#ffffff","on-error":"#ffffff","tertiary-container":"#006693","on-tertiary":"#ffffff","on-primary-container":"#dad7ff","surface-dim":"#d2d9f4","on-background":"#131b2e","on-secondary-fixed-variant":"#2f2ebe","on-primary-fixed-variant":"#3323cc","surface-container":"#eaedff","on-surface-variant":"#464555","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","on-secondary-fixed":"#07006c","tertiary-fixed":"#c9e6ff","surface-container-low":"#f2f3ff","on-secondary-container":"#fffbff","surface-container-highest":"#dae2fd","on-primary":"#ffffff","primary":"#3525cd","inverse-surface":"#283044","tertiary-fixed-dim":"#89ceff","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-dense":"0.5rem","gutter":"1rem","margin":"1.5rem","space-xs":"0.25rem","margin-dense":"1rem","space-2xl":"2rem","space-xl":"1.5rem","space-sm":"0.5rem","space-lg":"1rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"label-mono-md":["JetBrains Mono"],"headline-md":["Inter"],"headline-xl":["Inter"],"headline-lg":["Inter"],"label-mono-xs":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-mono-lg":["JetBrains Mono"]},"fontSize":{"body-lg":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-mono-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between select-none shadow-[2px_0_12px_rgba(15,23,42,0.12)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[18px]">neurology</span></div><span class="font-headline-md text-headline-md tracking-tight text-surface-container-lowest">AI 创作工作台</span></div><span class="font-label-mono-xs text-label-mono-xs px-space-xs py-0.5 rounded bg-surface-variant/20 text-inverse-primary">v1.0.0</span></div><div class="flex items-center gap-space-sm mt-space-xs"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-fixed"></span></span><span class="font-label-mono-xs text-label-mono-xs text-outline-variant">运行中 127.0.0.1:8080</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between p-space-xs bg-surface-variant/10 rounded-lg"><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-surface-container-lowest bg-primary-container font-medium" type="button">全部</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">图片</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">视频</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">智能体</button></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider uppercase px-space-sm">创作技能引擎</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="image-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">photo_library</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">图片生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">IMG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">多构图商品图快速生成</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="model-try-on" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">dry_cleaning</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">模特换装</span><span class="font-label-mono-xs text-label-mono-xs text-outline">OUT-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">自有商品智能局部替换</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="scene-replica" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">landscape</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">场景复刻</span><span class="font-label-mono-xs text-label-mono-xs text-outline">SCN-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">挂拍/平铺构图光影重塑</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="video-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">video_camera_back</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">视频生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">VID-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">提示词与商品参考成片</span></div></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-all group bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm" data-path="benchmark-agent" href="#"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">smart_toy</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate text-secondary-fixed">一键对标</span><span class="font-label-mono-xs text-label-mono-xs px-1 rounded bg-secondary-container/40 text-on-secondary-container">AG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">同行图集与白底流替换</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-space-xs"><div class="flex items-center justify-between text-outline-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-mono-xs text-label-mono-xs">NVMe Local</span></div><span class="font-label-mono-xs text-label-mono-xs text-inverse-on-surface">428 GB 可用</span></div><div class="w-full bg-surface-variant/20 rounded-full h-1"><div class="bg-secondary-fixed h-1 rounded-full w-[65%]"></div></div><div class="flex items-center justify-between text-outline"><span class="font-label-mono-xs text-label-mono-xs">环境运行安全</span><span class="material-symbols-outlined text-[14px] text-secondary-fixed">verified_user</span></div></div><div class="flex items-center justify-between px-space-xs pt-space-xs"><nav class="flex items-center gap-space-sm" data-active-classes="text-surface-container-lowest font-medium"><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>设置</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="model-library" href="#"><span class="material-symbols-outlined text-[16px]">deployed_code</span>模型</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="compute-diagnostic" href="#"><span class="material-symbols-outlined text-[16px]">speed</span>算力</a></nav><button class="text-outline-variant hover:text-surface-container-lowest transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">help</span></button></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface/85 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-sm text-body-sm text-on-surface-variant">工作区</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-body-sm text-body-sm text-primary font-medium">本地高性能调度</span></div><span class="h-3.5 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs px-2 py-0.5 rounded bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>活动生成槽: 4/20 (TT-Image: 3, Omni: 1)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[16px] text-tertiary">toll</span><span class="font-body-sm text-body-sm">参考余额: <strong class="font-label-mono-md text-label-mono-md text-primary">3,420 点</strong></span><span class="font-label-mono-xs text-label-mono-xs text-outline">(预计在途: 40点)</span></div><a class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant hover:text-on-surface transition-all text-on-surface" data-path="background-tasks" href="#"><span class="material-symbols-outlined text-[16px] text-secondary">sync_alt</span><span class="font-body-sm text-body-sm font-medium">后台任务</span><span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-mono-xs text-label-mono-xs font-semibold">2</span></a><span class="h-4 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs text-outline"><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">minimize</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">crop_square</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-error-container hover:text-error rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full px-space-lg min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-lg pb-28 pt-space-xs">
+<!-- 顶部全局流程状态栏 (PRD 9.5 全局管线看板) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-mono-xs text-label-mono-xs font-semibold tracking-wide">FLOW-AG-04</span>
+<span class="font-label-mono-md text-label-mono-md text-outline">#AG-FLOW-20261028-02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline-variant">Worker 池节点: Node-SH02-RTX4090x4</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight truncate">
+            羊毛开衫爆款跟款替换流程 · 批量对标运行态
+          </h1>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-medium" id="btnGlobalLogs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">terminal</span>
+<span>查看全局日志</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline px-1 rounded bg-surface-container-highest">240 行</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-on-primary hover:bg-secondary transition-all shadow-sm font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">folder_zip</span>
+<span>一键打包已完成产物 (2/4 ZIP)</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.5 rounded bg-surface-container-lowest/20">48.2 MB</span>
+</button>
+</div>
+</div>
+<!-- 管道进度多态条 -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container"></span>
+</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">全局调度状态：批量执行中</span>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs font-medium">已完成 2/4</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-mono-xs text-label-mono-xs font-semibold animate-pulse">1 项失败需处理 (Item #03)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs font-medium">1 项排队中 (Item #04)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md text-outline font-label-mono-xs text-label-mono-xs">
+<span>总计耗时: <strong class="text-on-surface font-label-mono-md text-label-mono-md">02m 44s</strong></span>
+<span>预计剩余: <strong class="text-secondary font-label-mono-md text-label-mono-md">01m 15s</strong></span>
+<span>Token 预算预扣: <strong class="text-tertiary font-label-mono-md text-label-mono-md">120 / 240 点</strong></span>
+</div>
+</div>
+<!-- 组合进度可视化槽 -->
+<div class="w-full bg-surface-container-highest rounded-full h-2 flex overflow-hidden">
+<div class="bg-secondary h-full transition-all duration-500" style="width: 50%;" title="已成功 2项"></div>
+<div class="bg-secondary-container h-full animate-pulse" style="width: 25%;" title="生成中 1项"></div>
+<div class="bg-error h-full" style="width: 15%;" title="异常挂起 1项"></div>
+<div class="bg-outline-variant/60 h-full" style="width: 10%;" title="排队待槽位 1项"></div>
+</div>
+</div>
+</section>
+<!-- 异常处置横幅 (PRD 9.7 白底失败挂起场景) -->
+<section class="bg-error-container text-on-error-container rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all duration-300" id="alertBanner">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-error text-on-error flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md tracking-tight font-bold">白底任务依赖异常提醒</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-on-error-container/15 font-semibold uppercase">PRD 9.7 Fault Fallback</span>
+</div>
+<p class="font-body-md text-body-md leading-relaxed text-on-error-container/90 max-w-4xl">
+              前置白底生成任务 <code class="font-label-mono-md text-label-mono-md px-1.5 py-0.5 rounded bg-surface-container-lowest/60 text-error font-bold">#WHT-901</code> 明确失败（上游超时错误 504 Gateway Timeout，服务无响应持续超过 45s）。受影响项：<span class="font-semibold underline">Item #03 (都市街道场景)</span>。系统已安全挂起该项生成槽位，避免资源空耗，请立即选择处置方案：
+            </p>
+</div>
+</div>
+<button class="shrink-0 flex items-center gap-1 font-label-mono-xs text-label-mono-xs underline text-on-error-container hover:text-error transition-colors" onclick="document.getElementById('item03Card').scrollIntoView({behavior: 'smooth'})">
+<span>定位 Item #03</span>
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</button>
+</div>
+<!-- PRD 9.7 严格指定的 3 个处置入口 -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs pl-12">
+<!-- 选项 A -->
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all shadow-sm font-body-sm text-body-sm font-medium group" onclick="handleOptionA()">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:rotate-180 transition-transform">replay</span>
+<span>重新发起白底生成</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline px-1 rounded bg-surface-container-high">重试分配槽位</span>
+</button>
+<!-- 选项 B -->
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all shadow-sm font-body-sm text-body-sm font-medium" onclick="handleOptionB()">
+<span class="material-symbols-outlined text-[16px] text-tertiary">image</span>
+<span>改用自有商品原图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline px-1 rounded bg-surface-container-high">解除白底依赖直跑</span>
+</button>
+<!-- 选项 C -->
+<label class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-on-error-container text-surface-container-lowest hover:opacity-90 transition-all shadow-sm font-body-sm text-body-sm font-medium cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+<span>手动上传已有白底图</span>
+<input accept="image/*" class="hidden" onchange="handleManualUpload(this)" type="file"/>
+<span class="font-label-mono-xs text-label-mono-xs opacity-80 px-1 rounded bg-surface-container-lowest/20">立即恢复绑定</span>
+</label>
+</div>
+</section>
+<!-- 主展示区：四项流程单项运行态卡片 (三栏布局: 对标原图 | 配置锁定/快照 | 输出/实时状态) -->
+<div class="flex flex-col gap-space-lg">
+<!-- ================= ITEM #01 已完成并入库 ================= -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- 卡片元信息头部 -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-mono-md text-label-mono-md font-bold text-on-surface">Item #01</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">咖啡馆内景模特 · 羊毛开衫精细平替</span>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs">PID: 981140</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 成功保存入库
+            </span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">完成于 14:20:18 (耗时 34s)</span>
+</div>
+</div>
+<!-- 三栏布局 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-stretch">
+<!-- 左栏 (35% / 4 cols): 同行原图 -->
+<div class="md:col-span-4 flex flex-col gap-space-xs bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">同行对标基准图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary">竞品 SKU: CRD-7701</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high group">
+<img class="w-full h-full object-cover" data-alt="A chic fashion catalog photograph of a female model standing inside a warm sunlit Parisian coffee house holding a ceramic cup, wearing a dark gray knitted cardigan, natural ambient cafe lighting with soft bokeh background and wooden architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChtu6fJCzA1xivJQD3O56IKTTy7qqlMj_22gUqqk42iwLEPmCyyHGU0u9lFRpspmRf282_Nt6I2BbjwRHWRcM4SRrHvIGbo_DsJ5ZWa3Lo_4yD24NdmE2UzA7U9jOUN430hRGfAGmlva2NSQZ37lI-cOhxARR8t-r1h2CjmC_QKlLNtCCmu4T9On2ksYzf72mu0TWAkHGyBL-pU0rq-oIrCv3SBnR4hCD6Y47AzoE"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs backdrop-blur-sm">
+                基准画幅 3:4
+              </div>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-label-mono-xs text-label-mono-xs">
+                骨骼姿态锁定: 98.4%
+              </div>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">参考源：竞争对手秋季爆款主图 01 (抓取自 10-24)</span>
+</div>
+<!-- 中栏 (40% / 5 cols): 锁定配置 -->
+<div class="md:col-span-5 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold uppercase tracking-wider">只读配置快照</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface">快照修订 rev.3</span>
+</div>
+<!-- 参数网格 -->
+<div class="grid grid-cols-2 gap-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">替换模型</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">FLUX.1-D Fashion Inpaint</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">白底依赖</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium truncate">已合并 #WHT-899</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">LoRA 权重矩阵</span>
+<span class="text-on-surface font-medium">Cashmere_Wool_V3 @ 0.85</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">采样配置</span>
+<span class="text-on-surface font-medium">Euler a / 30 steps / CFG 4.5</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-lowest flex flex-col gap-1">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">执行 Prompt 指令:</span>
+<p class="font-label-mono-xs text-label-mono-xs text-on-surface-variant leading-relaxed line-clamp-3">
+                  (photorealistic:1.3), replacement clothing: luxury camel wool oversized cardigan with subtle horn buttons, delicate knit texture, realistic fabric draping, keeping cafe lighting coherence, 8k uhd.
+                </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span> 锁定时间: 14:19:42
+              </span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary">Seed: 4099218841</span>
+</div>
+</div>
+<!-- 右栏 (25% / 3 cols): 成品缩略图 & 操作 -->
+<div class="md:col-span-3 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">生成成品入库</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed-dim">已归档</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high group">
+<img class="w-full h-full object-cover" data-alt="A flawless fashion e-commerce lookbook photograph of the model inside the cafe now wearing an authentic camel beige luxury wool cardigan with realistic textile weave and horn buttons, natural matching lighting from coffee shop windows, ultra high resolution catalog standard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMe-A3MlJXdlwoX-O3n7RELybN026pNAWldSQHNt34o6tBxVyrGGL3IIcPQR347RS3NUE4NFpYTvBoQKfO5u2B12--ZptYvex85oRbuRNpEgtzvPS_WWDpda87bUynrQhkSj3ZusH1mzcoV1wqOla9R2RU2MBO1cFBMkJhA_uk4WbsisMheZUVAj4b50XFOqEnLmfqDbV_QxwWvQpZ7mq8AF-kQnQjZxJHBdwUdd0"/>
+<div class="absolute inset-0 bg-inverse-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" title="查看高清大图">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" title="对比原图">
+<span class="material-symbols-outlined text-[18px]">compare</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-space-sm">
+<div class="grid grid-cols-2 gap-1.5">
+<button class="flex items-center justify-center gap-1 px-2 py-1.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-body-sm text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[14px]">open_in_full</span>
+<span>查看大图</span>
+</button>
+<button class="flex items-center justify-center gap-1 px-2 py-1.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-body-sm text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>复制提示词</span>
+</button>
+</div>
+<button class="w-full flex items-center justify-center gap-1 px-2 py-1.5 rounded bg-surface-container-highest text-on-surface hover:bg-surface-variant font-body-sm text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[14px] text-outline">refresh</span>
+<span>单项重新生成 (创建分支)</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= ITEM #02 上游生成中 / 排队锁定临界区 ================= -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-mono-md text-label-mono-md font-bold text-on-surface">Item #02</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">公园长椅外景 · 姿态复刻与光照烘焙</span>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs">PID: 981141</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-secondary-container/20 text-secondary font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] animate-spin">sync</span> Worker 查询中 · 临界区锁定
+            </span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">分配给 Worker-03 (Slot 2)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-stretch">
+<!-- 左栏: 同行原图 -->
+<div class="md:col-span-4 flex flex-col gap-space-xs bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">同行对标基准图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary">竞品 SKU: CRD-7702</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A fashion photography image of a stylish model sitting casually on a green city park bench under soft autumn dappled tree sunlight, wearing a casual knitted sweater, lush foliage background in gentle focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwicNCCvwJ4tnyECLTUbClGB5400hloZOicYmBIbFmRVNHxIqHSUTUWlLiblA_yjW_PBWXSr3Bq_lA67WoVBQcBTmkWhQyXoSi_pu-lPMkcJ-Iq_hK_dPIRCOOFwKkQ26Axy8xZVqey1u6yJShm0jEVf-39j9nKEXgwm2A-XT7s09mBuPVJu-lxaRIJzJfv5UpkOxeJwCZZPhVy0GrW9SmF939Vu4_LGkDiV_zk-0"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">
+                基准画幅 3:4
+              </div>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">参考源：竞争对手外景街拍 02</span>
+</div>
+<!-- 中栏: 临界区锁定态 (只读提示) -->
+<div class="md:col-span-5 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">lock_reset</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold uppercase tracking-wider">排队修改锁定临界区</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface">只读锁定</span>
+</div>
+<!-- 严格依照 PRD 9.6 警示提示条 -->
+<div class="p-3 rounded-lg bg-surface-container-highest text-on-surface flex items-start gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-body-sm text-body-sm font-semibold text-primary">已进入执行临界流水线</span>
+<p class="font-label-mono-xs text-label-mono-xs text-on-surface-variant leading-relaxed">
+                    Worker 已领取任务并锁定显存上下文。当前参数已固化，如需调整请等待完成后点击“创建新尝试分支”。
+                  </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">白底依赖</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">已就绪 #WHT-900</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">步骤批次进度</span>
+<span class="text-on-surface font-medium">Step 19 / 30</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-lowest font-label-mono-xs text-label-mono-xs text-outline line-clamp-2">
+                Prompt: cashmere garment swap, autumn park lighting integration, high fidelity weave texture, accurate shadow projection.
+              </div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-mono-xs text-label-mono-xs">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span> GPU Tensor 运算中
+              </span>
+<span>显存占用: 18.2 GB</span>
+</div>
+</div>
+<!-- 右栏: 65% 进度条与 Worker 查询中 -->
+<div class="md:col-span-3 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">实时渲染流</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold">65%</span>
+</div>
+<!-- 渲染中带骨架动效的视口 -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high flex flex-col items-center justify-center p-space-md text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/80 flex items-center justify-center mb-2 shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-secondary animate-spin">cyclone</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">去噪扩散计算中...</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-1">剩余约 18 秒</span>
+<!-- 进度指示条 -->
+<div class="absolute bottom-0 left-0 right-0 h-1.5 bg-surface-container-highest">
+<div class="bg-secondary h-full transition-all duration-300" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-space-sm">
+<button class="w-full flex items-center justify-center gap-1 px-2 py-2 rounded bg-surface-container-high text-outline font-body-sm text-body-sm cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span>等待流水线返回...</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= ITEM #03 等待白底图处理中 (白底失败挂起) ================= -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md ring-2 ring-error/50" id="item03Card">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-mono-md text-label-mono-md font-bold">Item #03</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">都市街道转角 · 挂起等待前置依赖</span>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs">PID: 981142</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-error text-on-error font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> 等待白底图处理中 (已挂起)
+            </span>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-medium">挂起槽位已保活</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-stretch">
+<!-- 左栏: 同行原图 -->
+<div class="md:col-span-4 flex flex-col gap-space-xs bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">同行对标基准图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary">竞品 SKU: CRD-7703</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Fashion street style photograph of a model crossing a modern urban city street crossing in bright daylight, wearing a knitted outerwear top with handbag, towering glass building backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0PJvtw7r5pFllbNueYY58y1etE4SedX6vmHn6T-ynX8-5IQ3nOYM54dLAxdDSZRWnDXpwFReGUxzGpvk4p3j_0BdSbIiQuW0qQ2qQ2H02WjxYqpdjcQAI_tdjkv7xzc3FAQRIZGnNoYYDRZuJ1jZ8ID1qbF-gKUKT7OpPstRUYSzIjIUR8R_a8r_S7yEq_CiPdVTq5D9E6O0MucCgsnB-AoTMHob080QWkpFV5HA"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">
+                基准画幅 3:4
+              </div>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">参考源：竞争对手都会系列街道图 03</span>
+</div>
+<!-- 中栏: 黄色/红色预警，关联白底失败 -->
+<div class="md:col-span-5 flex flex-col justify-between bg-error-container/20 rounded-lg p-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[16px]">sync_problem</span>
+<span class="font-label-mono-xs text-label-mono-xs font-bold uppercase tracking-wider">上游白底图服务失效</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-error text-on-error font-semibold">Err 504</span>
+</div>
+<!-- 失败详情提示 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-error">白底生成子流程 #WHT-901 熔断</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">超时 45s</span>
+</div>
+<p class="font-label-mono-xs text-label-mono-xs text-on-surface-variant leading-relaxed">
+                  上游服务集群在抠取衣服并合成白底时返回网关超时。为保障整体批次不被阻塞，本任务已暂停注入当前提示词与主模型。
+                </p>
+<div class="pt-1 flex items-center gap-2">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">关联本品白底源:</span>
+<span class="font-label-mono-xs text-label-mono-xs text-error underline">wool_cardigan_raw_09.png</span>
+</div>
+</div>
+<!-- 备选参数草稿 -->
+<div class="grid grid-cols-2 gap-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">目标尺寸</span>
+<span class="text-on-surface font-medium">1080 x 1440 (3:4)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">光影重塑模式</span>
+<span class="text-on-surface font-medium">日光直射 45° 保持</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-error flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">pause_circle</span> 槽位保活中 (不计空耗费)
+              </span>
+<button class="font-label-mono-xs text-label-mono-xs text-primary underline hover:text-secondary" onclick="handleOptionB()">快速跳过白底</button>
+</div>
+</div>
+<!-- 右栏: 挂起态展示 & 重选引用操作 -->
+<div class="md:col-span-3 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">输出状态</span>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold">挂起停滞</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high flex flex-col items-center justify-center p-space-md text-center">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[24px]">image_not_supported</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-error">等待白底图处理</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-1">需在上游处置完成或重选输入源</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-space-sm">
+<button class="w-full flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-variant font-body-sm text-body-sm font-medium transition-colors" onclick="openReselectModal()">
+<span class="material-symbols-outlined text-[16px] text-tertiary">tune</span>
+<span>重选引用素材库</span>
+</button>
+<button class="w-full flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-primary text-on-primary hover:bg-secondary font-body-sm text-body-sm font-medium transition-colors shadow-sm" onclick="handleOptionA()">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>立即重新发起该项</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= ITEM #04 排队就绪且支持保存编辑 (PRD 9.6 排队可编辑) ================= -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-mono-md text-label-mono-md font-bold text-on-surface">Item #04</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">居家阳台场景 · 支持实时参数修改</span>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs">PID: 981143</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">schedule</span> 排队就绪中 (等待槽位释放)
+            </span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-medium">已保存草稿 rev.4</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-stretch">
+<!-- 左栏: 同行原图 -->
+<div class="md:col-span-4 flex flex-col gap-space-xs bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">同行对标基准图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary">竞品 SKU: CRD-7704</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Cozy lifestyle fashion photograph of a woman relaxing by an airy apartment balcony with potted plants, soft morning sunrise glow, wearing an unbuttoned knitted lightweight sweater over a silk camisole." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8cDhM3eN-_uiSFpPWfcagCdE9F4w6y2WGYV6GrKa0Jmn47C7cUlyWce8DHCUkRq8iDG4ClX3aAMzoqntCc0MN3zM8A6KH96BXpYjqBclbPUESOI180VacdlmsfKYdCU02IiMnSZfQYED9I8tcwiRygmOUVONjXKfCPmnBHWoPyrD-9G6ym8LYrYKMp9wbiE6wyVkDZfmoBgypMTr4Ruc21mq_5LkD1CC07IQJJoo"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">
+                原始画幅 3:4
+              </div>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">参考源：竞争对手家居自然光组图 04</span>
+</div>
+<!-- 中栏: 处于可编辑状态 (PRD 9.6 排队中可自由调整画幅、采样) -->
+<div class="md:col-span-5 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span class="font-label-mono-xs text-label-mono-xs font-bold uppercase tracking-wider">参数配置 (排队期间可实时变更)</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">自动同步云端</span>
+</div>
+<!-- 画幅选择器交互 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest flex flex-col gap-2 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">输出画幅微调:</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold" id="aspectStatusBadge">当前设定: 16:9 横版主图</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="aspect-btn py-1.5 px-2 rounded font-label-mono-xs text-label-mono-xs bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" onclick="setAspectRatio('3:4', this)" type="button">
+                    3:4 (商详页)
+                  </button>
+<button class="aspect-btn py-1.5 px-2 rounded font-label-mono-xs text-label-mono-xs bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" onclick="setAspectRatio('1:1', this)" type="button">
+                    1:1 (方形网格)
+                  </button>
+<button class="aspect-btn py-1.5 px-2 rounded font-label-mono-xs text-label-mono-xs bg-primary text-on-primary font-bold shadow-sm" onclick="setAspectRatio('16:9', this)" type="button">
+                    16:9 (首页横幅)
+                  </button>
+</div>
+</div>
+<!-- Prompt 编辑输入 -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">局部调整提示词微调:</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">已保存 rev.4</span>
+</div>
+<input class="w-full px-2.5 py-1.5 rounded bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface focus:outline-none focus:bg-surface-container-high transition-colors" id="promptInput04" type="text" value="home balcony morning sunlight, fine wool texture replacement, 16:9 wide landscape, warm atmosphere"/>
+</div>
+<div class="grid grid-cols-2 gap-space-xs font-label-mono-xs text-label-mono-xs">
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">排队序号</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">第 1 位 (紧随 Item #02)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">预计出图耗时</span>
+<span class="text-on-surface font-medium">约 26 秒</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-outline font-label-mono-xs text-label-mono-xs">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check</span> 配置自动固化至草稿箱
+              </span>
+<button class="font-label-mono-xs text-label-mono-xs text-primary font-semibold hover:underline" onclick="saveDraftNotification()">手动强制保存快照</button>
+</div>
+</div>
+<!-- 右栏: 排队就绪待槽位释放 -->
+<div class="md:col-span-3 flex flex-col justify-between bg-surface-container-low rounded-lg p-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">执行槽位状态</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">待分配</span>
+</div>
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high flex flex-col items-center justify-center p-space-md text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center mb-2 shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-outline">hourglass_empty</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">排队等待空闲算力</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-1">Item #02 完成后将立即自动调度</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-space-sm">
+<button class="w-full flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-variant font-body-sm text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+<span>置顶插队 (优先运行)</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- 底部浮动批量操作小工具栏 (PRD 9.5 & 9.7 自动恢复流水线提示) -->
+<aside class="fixed bottom-6 left-[280px] right-6 max-w-5xl mx-auto z-30">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-space-md shadow-2xl backdrop-blur-md bg-opacity-95 flex items-center justify-between flex-wrap gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-semibold text-surface-container-lowest">后台调度协同引擎</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-variant/20 text-inverse-primary">心跳正常 100ms</span>
+</div>
+<p class="font-label-mono-xs text-label-mono-xs text-outline-variant">
+            受影响项（Item #03）处理完毕后将自动恢复后台流水调度，无缝拼接队列，无需刷新页面。
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-secondary font-body-sm text-body-sm font-medium transition-colors flex items-center gap-1" onclick="handleOptionA()">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+<span>恢复所有挂起任务</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-variant/15 text-inverse-on-surface hover:bg-surface-variant/25 font-body-sm text-body-sm font-medium transition-colors" onclick="showToast('已取消Item #03并释放排队槽位')">
+          放弃单项并直接结转
+        </button>
+</div>
+</div>
+</aside>
+<!-- 全局轻量 Toast 容器 -->
+<div class="fixed top-16 right-8 z-50 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="bg-on-surface text-surface-container-lowest px-4 py-3 rounded-lg shadow-xl flex items-center gap-2 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed" id="toastIcon">check_circle</span>
+<span id="toastMessage">已完成操作</span>
+</div>
+</div>
+</div>
+<script>
+  function showToast(msg, icon = 'check_circle') {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+    toastMsg.textContent = msg;
+    toastIcon.textContent = icon;
+    toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.add('translate-y-[-100px]', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2800);
+  }
+
+  function handleOptionA() {
+    showToast('已为 Item #03 重新派发白底提取任务 #WHT-902，正在拉取 Worker...');
+    const card = document.getElementById('item03Card');
+    if (card) {
+      card.classList.remove('ring-error/50');
+      card.classList.add('ring-secondary/50');
+    }
+  }
+
+  function handleOptionB() {
+    showToast('已解除白底图强校验，改用自有驼色开衫原图直接注入扩散流水线');
+    const card = document.getElementById('item03Card');
+    if (card) {
+      card.classList.remove('ring-error/50');
+    }
+  }
+
+  function handleManualUpload(input) {
+    if (input.files && input.files[0]) {
+      showToast(`已成功上传本地白底图 ${input.files[0].name}，依赖已绑定恢复`);
+      const card = document.getElementById('item03Card');
+      if (card) {
+        card.classList.remove('ring-error/50');
+        card.classList.add('ring-secondary-fixed/50');
+      }
+    }
+  }
+
+  function setAspectRatio(ratio, btn) {
+    document.querySelectorAll('.aspect-btn').forEach(b => {
+      b.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+      b.classList.add('bg-surface-container', 'text-on-surface');
+    });
+    btn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+    btn.classList.remove('bg-surface-container', 'text-on-surface');
+    document.getElementById('aspectStatusBadge').textContent = `当前设定: ${ratio} 横版主图`;
+    showToast(`Item #04 排队画幅已更新为 ${ratio} (已同步修订 rev.4)`);
+  }
+
+  function saveDraftNotification() {
+    showToast('Item #04 参数快照已手动强制固化为 rev.4-manual');
+  }
+
+  function openReselectModal() {
+    showToast('正在打开本品模特资产库，选择新的源图...', 'photo_library');
+  }
+
+  document.getElementById('btnGlobalLogs').addEventListener('click', () => {
+    showToast('已导出近 5 分钟 240 条 Worker 调度心跳日志', 'terminal');
+  });
+</script></main></div></body></html>

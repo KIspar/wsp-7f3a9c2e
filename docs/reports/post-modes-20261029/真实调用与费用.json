@@ -1,0 +1,222 @@
+{
+  "checkedAt": "2026-10-29T15:28:44.475Z",
+  "environment": "isolated real calls; production drafts and works unchanged",
+  "productId": "product-post-modes-live-20261029",
+  "sourceUrl": "https://pc.jp0663.com/detail/d0b3ba64301b48a0aab8c2439b3cc0fd?site=www",
+  "analysis": {
+    "id": "analysis-1c02a362-0588-4eb1-8b8b-d2f3abcc0722",
+    "providerTaskId": "195587584",
+    "model": "tt-6.1-sol",
+    "action": "reference-inspiration",
+    "input": {
+      "action": "reference-inspiration",
+      "text": "为这件黑色猫耳毛领棉服制作一张都市街头穿搭图，保留商品外观和颜色。不要添加材质、价格或功效承诺。",
+      "productName": "黑色猫耳朵毛领棉服加厚外套女2025冬装新款超好看复古座山雕棉衣",
+      "assetIds": [
+        "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f"
+      ],
+      "idempotencyKey": "05b700fc-6b75-4305-a2c3-9e83bcd24695"
+    },
+    "usage": {
+      "inputTokens": 2380,
+      "outputTokens": 504,
+      "totalTokens": 2884
+    },
+    "billing": {
+      "status": "final",
+      "cost": 0.0027,
+      "inputTokens": 332,
+      "outputTokens": 504,
+      "checkedAt": "2026-10-29T15:21:05.279Z",
+      "isFinal": true,
+      "state": "success",
+      "refunded": false,
+      "refundedAmount": 0,
+      "channelGroup": "ZG-Codex-TT-1"
+    },
+    "result": "参考 IMAGE 1 的猫耳帽型、浅灰色毛领与黑色衣身形成的视觉对比，以及戴帽、微侧身、手插口袋的自然姿态，将室内双人展示转为单人成年女性的都市街头穿搭图。场景选用浅灰建筑外墙与简洁人行道，远处街景轻度虚化，避开醒目招牌和杂乱路人；采用竖版全身构图，人物居中略偏左，完整保留帽顶猫耳与鞋履，外套成为画面主要视觉焦点。严格依据商品参考保留黑色衣身、猫耳形状、浅灰毛领的颜色与分布，以及可见的衣长、宽松轮廓、袖型和门襟细节，不新增装饰或改变款式；帽子戴起，长发自然垂落但不遮住毛领与门襟，身体轻微侧转，一手插袋、一手自然下垂，避免手机遮挡商品。下装可搭简洁黑色短裤、深灰连裤袜与黑色短靴，以低干扰搭配突出上装。使用阴天柔和自然光，适度提亮黑色衣身的层次，保留毛领边缘细节，避免黑色过曝发灰或暗部糊成一片；整体以黑、灰及少量肤色构成克制的街头配色。单张画面的视觉顺序安排为猫耳与面部、毛领与衣身、下装与街景，不复刻原图的双人并列、镜面自拍和室内背景；不加文案、价格、标识或功效承诺，让商品外观与穿搭姿态承担画面表达。\n"
+  },
+  "generations": [
+    {
+      "mode": "creative",
+      "workId": "work-36964306-1c3d-4b55-8dc7-732a10cdc3a8",
+      "versionId": "version-fe8b5297-679a-40f3-bc93-e4cbe4b7c66a",
+      "batchId": "batch-453f2b4e-7dad-4ce4-b463-f309b208c9b4",
+      "attemptId": "attempt-80fe6fa8-ba01-4e05-8ffb-03d649c16b8a",
+      "providerTaskId": "195593359",
+      "status": "completed",
+      "simulated": false,
+      "references": [
+        "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f"
+      ],
+      "outputKeys": [
+        "promotion-product-post-modes-live-20261029-post-creative-1"
+      ],
+      "prompt": "你是商品图片设计师。产品图片是商品真实外观依据，参考图只用于构图、场景或风格。\n要求：为这件黑色猫耳毛领棉服制作一张都市街头穿搭图，保留商品外观和颜色。不要添加材质、价格或功效承诺。\n分析期间补充：画面不要添加价格标签。\n\n参考画面建议\n参考 IMAGE 1 的猫耳帽型、浅灰色毛领与黑色衣身形成的视觉对比，以及戴帽、微侧身、手插口袋的自然姿态，将室内双人展示转为单人成年女性的都市街头穿搭图。场景选用浅灰建筑外墙与简洁人行道，远处街景轻度虚化，避开醒目招牌和杂乱路人；采用竖版全身构图，人物居中略偏左，完整保留帽顶猫耳与鞋履，外套成为画面主要视觉焦点。严格依据商品参考保留黑色衣身、猫耳形状、浅灰毛领的颜色与分布，以及可见的衣长、宽松轮廓、袖型和门襟细节，不新增装饰或改变款式；帽子戴起，长发自然垂落但不遮住毛领与门襟，身体轻微侧转，一手插袋、一手自然下垂，避免手机遮挡商品。下装可搭简洁黑色短裤、深灰连裤袜与黑色短靴，以低干扰搭配突出上装。使用阴天柔和自然光，适度提亮黑色衣身的层次，保留毛领边缘细节，避免黑色过曝发灰或暗部糊成一片；整体以黑、灰及少量肤色构成克制的街头配色。单张画面的视觉顺序安排为猫耳与面部、毛领与衣身、下装与街景，不复刻原图的双人并列、镜面自拍和室内背景；不加文案、价格、标识或功效承诺，让商品外观与穿搭姿态承担画面表达。\n语言：简体中文。多图差异：独立构图。\n本图 1 / 1。只输出一张独立成品。\n保留商品结构、颜色、图案、Logo与可见细节。不推断未知成分、尺码、功效或销量。没有文案要求时不新增宣传文字。\n这是有序图文中的第1页，本次只输出这一页。逐页内容与要求：按共同要求制作本页\n\n用户载入的商品资料（接单快照）：黑色猫耳朵毛领棉服加厚外套女2025冬装新款超好看复古座山雕棉衣\n用户确认卖点：毛领连帽，宽松廓形；以实物为准。\n参数（保留来源，需核实）：\n功能：保暖,抗静电,易清洁,耐磨,轻便,防水,防紫外线,防风（来源提供，未核实）\n面料：聚酯纤维（来源提供，未核实）\n上市年份季节：2026年冬季（来源提供，未核实）\n填充物材质：聚酯纤维（来源提供，未核实）\n衣长：长款（来源提供，未核实）\n版型：宽松型（来源提供，未核实）\n领型：连帽（来源提供，未核实）\n适用对象：通用（来源提供，未核实）\n品牌：无品牌/无注册商标（来源提供，未核实）\n风格：中性风（来源提供，未核实）\n厚薄：加厚（来源提供，未核实）\n适用场景：户外,日常,旅游,通勤,居家,雨天,运动,宴会,沙滩,婚礼,商务,休闲,舞蹈（来源提供，未核实）\n是否商场同款：商场同款(线上线下都销售)（来源提供，未核实）\n不得补造未提供的成分、尺码或功效。",
+      "billing": {
+        "cost": 0.0395,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default-特惠分组"
+      },
+      "asset": {
+        "id": "provider-attempt-80fe6fa8-ba01-4e05-8ffb-03d649c16b8a",
+        "filename": "creative.png",
+        "bytes": 2272331
+      },
+      "snapshot": {
+        "generation": {
+          "requirements": "为这件黑色猫耳毛领棉服制作一张都市街头穿搭图，保留商品外观和颜色。不要添加材质、价格或功效承诺。\n分析期间补充：画面不要添加价格标签。\n\n参考画面建议\n参考 IMAGE 1 的猫耳帽型、浅灰色毛领与黑色衣身形成的视觉对比，以及戴帽、微侧身、手插口袋的自然姿态，将室内双人展示转为单人成年女性的都市街头穿搭图。场景选用浅灰建筑外墙与简洁人行道，远处街景轻度虚化，避开醒目招牌和杂乱路人；采用竖版全身构图，人物居中略偏左，完整保留帽顶猫耳与鞋履，外套成为画面主要视觉焦点。严格依据商品参考保留黑色衣身、猫耳形状、浅灰毛领的颜色与分布，以及可见的衣长、宽松轮廓、袖型和门襟细节，不新增装饰或改变款式；帽子戴起，长发自然垂落但不遮住毛领与门襟，身体轻微侧转，一手插袋、一手自然下垂，避免手机遮挡商品。下装可搭简洁黑色短裤、深灰连裤袜与黑色短靴，以低干扰搭配突出上装。使用阴天柔和自然光，适度提亮黑色衣身的层次，保留毛领边缘细节，避免黑色过曝发灰或暗部糊成一片；整体以黑、灰及少量肤色构成克制的街头配色。单张画面的视觉顺序安排为猫耳与面部、毛领与衣身、下装与街景，不复刻原图的双人并列、镜面自拍和室内背景；不加文案、价格、标识或功效承诺，让商品外观与穿搭姿态承担画面表达。",
+          "modelId": "tt-image",
+          "aspectRatio": "3:4",
+          "count": 1,
+          "duration": 6,
+          "fields": {
+            "language": "简体中文",
+            "variation": "独立构图"
+          },
+          "parameters": {
+            "resolution": "1K",
+            "version": "flare",
+            "quality": "auto",
+            "background": "opaque"
+          },
+          "inputRoles": {
+            "product": [
+              "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f"
+            ]
+          },
+          "selectedTargetIds": [],
+          "overrides": {},
+          "imageDesign": {
+            "groupCount": 1,
+            "screens": [],
+            "bindings": [],
+            "nextNumber": 1
+          }
+        },
+        "outputKeys": [
+          "promotion-product-post-modes-live-20261029-post-creative-1"
+        ],
+        "script": "",
+        "pageRequirements": {},
+        "postMode": "creative",
+        "inspirationImages": [
+          "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f"
+        ],
+        "selectedBenchmarkIds": [],
+        "replacementObject": "",
+        "targetSettings": {},
+        "analysisEpoch": "initial",
+        "benchmarkImages": [],
+        "referenceSourceUrl": "",
+        "videoWorkflow": "direct",
+        "title": "",
+        "body": ""
+      }
+    },
+    {
+      "mode": "replicate",
+      "workId": "work-408a660a-2723-444f-9fa8-1c6694d055b7",
+      "versionId": "version-248deea4-530b-4ec2-b103-2981f3a094db",
+      "batchId": "batch-ac8ff132-49e8-4772-93fc-87ccdb2f4d77",
+      "attemptId": "attempt-1e483bf3-f54d-46c4-b837-7ce6ca290126",
+      "providerTaskId": "195592126",
+      "status": "completed",
+      "simulated": false,
+      "references": [
+        "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f",
+        "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f"
+      ],
+      "outputKeys": [
+        "0a8f7906-9794-40fc-bfed-6bc9cf03e445"
+      ],
+      "prompt": "你是商品图片设计师。产品图片是商品真实外观依据，参考图只用于构图、场景或风格。\n要求：保留原图人物姿态、场景、光线与构图，换成自有商品。保留黑色外套、猫耳毛领与衣服可见细节，不添加文字。\n语言：简体中文。多图差异：独立构图。\n本图 1 / 1。只输出一张独立成品。\n保留商品结构、颜色、图案、Logo与可见细节。不推断未知成分、尺码、功效或销量。没有文案要求时不新增宣传文字。\n这是有序图文中的第1页，本次只输出这一页。逐页内容与要求：替换对象：模特身上的整件黑色毛领棉服外套。默认保留同行画面的场景、人物可见外观、姿态、机位和构图，替换指定商品；商品颜色、版型、可见细节以自有图为准，不承诺人物绝对一致。\n\n人物与背景位置以本张对标原图为准，保持竖版完整穿搭。\n本页共 2 张输入图片。图1是自有商品外观依据；图2是第1页的同行对标图，仅用于人物、构图和场景参考，不将同行商品作为目标商品。\n\n用户载入的商品资料（接单快照）：黑色猫耳朵毛领棉服加厚外套女2025冬装新款超好看复古座山雕棉衣\n用户确认卖点：毛领连帽，宽松廓形；以实物为准。\n参数（保留来源，需核实）：\n功能：保暖,抗静电,易清洁,耐磨,轻便,防水,防紫外线,防风（来源提供，未核实）\n面料：聚酯纤维（来源提供，未核实）\n上市年份季节：2026年冬季（来源提供，未核实）\n填充物材质：聚酯纤维（来源提供，未核实）\n衣长：长款（来源提供，未核实）\n版型：宽松型（来源提供，未核实）\n领型：连帽（来源提供，未核实）\n适用对象：通用（来源提供，未核实）\n品牌：无品牌/无注册商标（来源提供，未核实）\n风格：中性风（来源提供，未核实）\n厚薄：加厚（来源提供，未核实）\n适用场景：户外,日常,旅游,通勤,居家,雨天,运动,宴会,沙滩,婚礼,商务,休闲,舞蹈（来源提供，未核实）\n是否商场同款：商场同款(线上线下都销售)（来源提供，未核实）\n不得补造未提供的成分、尺码或功效。",
+      "billing": {
+        "cost": 0.0858,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default特价"
+      },
+      "asset": {
+        "id": "provider-attempt-1e483bf3-f54d-46c4-b837-7ce6ca290126",
+        "filename": "replicate.png",
+        "bytes": 2138921
+      },
+      "snapshot": {
+        "generation": {
+          "requirements": "保留原图人物姿态、场景、光线与构图，换成自有商品。保留黑色外套、猫耳毛领与衣服可见细节，不添加文字。",
+          "modelId": "tt-image",
+          "aspectRatio": "3:4",
+          "count": 1,
+          "duration": 6,
+          "fields": {
+            "language": "简体中文",
+            "variation": "独立构图"
+          },
+          "parameters": {
+            "resolution": "1K",
+            "version": "flare",
+            "quality": "auto",
+            "background": "opaque"
+          },
+          "inputRoles": {
+            "product": [
+              "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f"
+            ],
+            "reference": []
+          },
+          "selectedTargetIds": [],
+          "overrides": {},
+          "imageDesign": {
+            "groupCount": 1,
+            "screens": [],
+            "bindings": [],
+            "nextNumber": 1
+          }
+        },
+        "outputKeys": [
+          "0a8f7906-9794-40fc-bfed-6bc9cf03e445"
+        ],
+        "script": "",
+        "pageRequirements": {},
+        "postMode": "replicate",
+        "inspirationImages": [],
+        "selectedBenchmarkIds": [
+          "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f"
+        ],
+        "replacementObject": "模特身上的整件黑色毛领棉服外套",
+        "targetSettings": {
+          "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f": {
+            "outputKey": "0a8f7906-9794-40fc-bfed-6bc9cf03e445",
+            "requirements": "人物与背景位置以本张对标原图为准，保持竖版完整穿搭。"
+          }
+        },
+        "analysisEpoch": "initial",
+        "benchmarkImages": [
+          "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f"
+        ],
+        "referenceSourceUrl": "",
+        "videoWorkflow": "direct",
+        "title": "",
+        "body": ""
+      }
+    }
+  ],
+  "totalCost": 0.128,
+  "paidAnalysisCalls": 1,
+  "paidImageCalls": 2,
+  "automaticPaidRetries": 0,
+  "checks": {
+    "creativeImageAttachmentsExcludeInspiration": true,
+    "onlySelectedPeerGenerated": true,
+    "allRealFilesSaved": true,
+    "finalCostsRecorded": true
+  }
+}

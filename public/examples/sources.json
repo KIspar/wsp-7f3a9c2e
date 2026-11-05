@@ -1,0 +1,62 @@
+[
+  {
+    "file": "10-1.jpg",
+    "source": "stitch_ui_prototype_generation/_10/screen.png",
+    "description": "正面穿搭",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "10-2.jpg",
+    "source": "stitch_ui_prototype_generation/_10/screen.png",
+    "description": "侧身穿搭",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "10-3.jpg",
+    "source": "stitch_ui_prototype_generation/_10/screen.png",
+    "description": "面料细节",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "10-4.jpg",
+    "source": "stitch_ui_prototype_generation/_10/screen.png",
+    "description": "室内穿搭",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "6-1.jpg",
+    "source": "stitch_ui_prototype_generation/_6/screen.png",
+    "description": "商品正面",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "6-2.jpg",
+    "source": "stitch_ui_prototype_generation/_6/screen.png",
+    "description": "商品上身",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "6-3.jpg",
+    "source": "stitch_ui_prototype_generation/_6/screen.png",
+    "description": "商品面料",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "6-4.jpg",
+    "source": "stitch_ui_prototype_generation/_6/screen.png",
+    "description": "户外对标",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "6-5.jpg",
+    "source": "stitch_ui_prototype_generation/_6/screen.png",
+    "description": "街头对标",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  },
+  {
+    "file": "9-1.jpg",
+    "source": "stitch_ui_prototype_generation/_10/screen.png",
+    "description": "视频演示封面",
+    "usage": "原型截图中的演示素材，非模型生成结果"
+  }
+]

@@ -1,0 +1,4 @@
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "./ui/alert-dialog";
+export function ConfirmDialog({open,onClose,onConfirm,title,description,confirmLabel="确认",cancelLabel="取消"}:{open:boolean;onClose:()=>void;onConfirm:()=>void;title:string;description:string;confirmLabel?:string;cancelLabel?:string}) {
+  return <AlertDialog open={open} onOpenChange={next=>{if(!next)onClose();}}><AlertDialogContent><AlertDialogHeader><AlertDialogTitle>{title}</AlertDialogTitle><AlertDialogDescription>{description}</AlertDialogDescription></AlertDialogHeader><AlertDialogFooter><AlertDialogCancel>{cancelLabel}</AlertDialogCancel><AlertDialogAction onClick={onConfirm}>{confirmLabel}</AlertDialogAction></AlertDialogFooter></AlertDialogContent></AlertDialog>;
+}

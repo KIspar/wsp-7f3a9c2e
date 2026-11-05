@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "source": "https://webapi.designkit.cn/v1/hackathon/get_init_data",
+  "scenes": [
+    "纯色棚拍",
+    "都市街头",
+    "街角咖啡",
+    "自然草坪",
+    "度假海滩",
+    "温馨居家",
+    "艺术展馆"
+  ],
+  "models": [
+    {
+      "id": "wear-model-24b86a58a01e9b03",
+      "name": "模特 01",
+      "filename": "wear-model-24b86a58a01e9b03.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/296d71c0fe0910e63bf3cd10cafe2114.png",
+      "hash": "25213bd719b56160508e0c944a48695359a763725efe5992054754d8d9e3a424",
+      "bytes": 84640,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-d81e7c387cde7494",
+      "name": "模特 02",
+      "filename": "wear-model-d81e7c387cde7494.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/af0365ac163f4ce851af248e7290d368.png",
+      "hash": "f90d52f541c818d57614ed80a6319875e8fe5f06d57d35d413791097f4807e88",
+      "bytes": 64180,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-b731d2bbf57c6a19",
+      "name": "模特 03",
+      "filename": "wear-model-b731d2bbf57c6a19.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/93bb1bb35715e703e45ecf475e928960.png",
+      "hash": "99402ad19ece20c25d6440ec9cea4e0ff96efcf64b4db44abd29a220cc8c16c3",
+      "bytes": 76690,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-11d136dfc5283cac",
+      "name": "模特 04",
+      "filename": "wear-model-11d136dfc5283cac.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/7f1bbce8d4e7c6eab4c4ce520fbc4359.png",
+      "hash": "4582f8b5a173fcaf603b25bf11ab69c86abcde896910e829f7714b9fa261932c",
+      "bytes": 75422,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-6bde1554f467623e",
+      "name": "模特 05",
+      "filename": "wear-model-6bde1554f467623e.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/abf657269fea635934364a4f33f3ee74.png",
+      "hash": "558af77137c559f3f456fbf5f5aaef19a3d2df3bcebf7bcaf8c8154e1dc13b4c",
+      "bytes": 82704,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-d8d86d30aed20b60",
+      "name": "模特 06",
+      "filename": "wear-model-d8d86d30aed20b60.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/18e9d453d226966892123157eb43caa6.png",
+      "hash": "4cb96d6885634cde5f1370c55f1315c39b2f698bef3c7fd03687c95a710c82ba",
+      "bytes": 79456,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-868d9ad8ec13403d",
+      "name": "模特 07",
+      "filename": "wear-model-868d9ad8ec13403d.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/10ceb15ec0ad430b9ef9ac0eb92d9c5e.png",
+      "hash": "8b04649b8a95b069e0f16998136161178b4d21b2033b7d8ca034846056b3519d",
+      "bytes": 67884,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-5dbf62878ad5bfeb",
+      "name": "模特 08",
+      "filename": "wear-model-5dbf62878ad5bfeb.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/97ed9e1e562c697e9e693c9765e39ed7.png",
+      "hash": "928a3714e2029b99d875f1c5e4b7ce548c36c8931f1146e8dadd53573d86b1e9",
+      "bytes": 65446,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-d6b4ffb6df2d3e40",
+      "name": "模特 09",
+      "filename": "wear-model-d6b4ffb6df2d3e40.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/652401272e8274e381b2a01f92e6d1d2.png",
+      "hash": "2fc3575921b81632fd6ba03e01c7a039664dd561035cf52e95e3665f7925da80",
+      "bytes": 58758,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-1f6b1ad3e9539cb9",
+      "name": "模特 10",
+      "filename": "wear-model-1f6b1ad3e9539cb9.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/c2168ccb6a4b4829ae6476f54502b7f2.png",
+      "hash": "4442fd875b6eba5e673f737e4f7e1792f07b3a451631c69566573698520820e7",
+      "bytes": 55626,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-f399271837b004fb",
+      "name": "模特 11",
+      "filename": "wear-model-f399271837b004fb.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/9a20be85d4cc9df5393d0a2bf56ae393.png",
+      "hash": "5af7a7549c8dffe41ecfc7e99a133b6c653c0a2f1b17e2dbf39a6ba2a7658d2e",
+      "bytes": 78476,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-6b65b84443b7f840",
+      "name": "模特 12",
+      "filename": "wear-model-6b65b84443b7f840.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/2dc021c209110df11f4c689473b72294.png",
+      "hash": "1f40dcba7382eac09912fb639b1c49bd3aa035efd2b36d79580d665d1adfd3eb",
+      "bytes": 63932,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-ec68ee241f53d07c",
+      "name": "模特 13",
+      "filename": "wear-model-ec68ee241f53d07c.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/aeddca98b3d35b633566ffb3789c9706.png",
+      "hash": "8432a27369bda4812e8d7162ea45eb2fe2a0072ec6036cfe4415db84e879adff",
+      "bytes": 71734,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-d6a7161ffedfead9",
+      "name": "模特 14",
+      "filename": "wear-model-d6a7161ffedfead9.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/d0409c74d78262c25e4b3964c229708b.png",
+      "hash": "b1e1fff71e947d3f9ebe06fe4fa4ad68d67a4d2f7d9517449fa8e19b4873c67d",
+      "bytes": 87436,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-e171a971fcbc5882",
+      "name": "模特 15",
+      "filename": "wear-model-e171a971fcbc5882.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/14b359841edb4d50028a3244e134d0af.png",
+      "hash": "7258adaa4ddf03f38c9e83d3ddab543fb289c3b338a0bf722285e60773e3b8dc",
+      "bytes": 80690,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-a3a18b1efa7ea537",
+      "name": "模特 16",
+      "filename": "wear-model-a3a18b1efa7ea537.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/a9ff82de3ba38df9ae382a277757a8b3.png",
+      "hash": "8fe395f6bfcecde3d2dd74456a844d5e480a864f277595cd7c2c9b83f597cc4a",
+      "bytes": 84496,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-5712edd5e92009f3",
+      "name": "模特 17",
+      "filename": "wear-model-5712edd5e92009f3.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/6af4f1a648faa00cfdd80a6112b0c99e.png",
+      "hash": "d567237b0ff3eb27420502dc97f5a3e68ea5ae35dde5b6e95746b965c5f5d8a3",
+      "bytes": 76426,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-622ffbaadfb36896",
+      "name": "模特 18",
+      "filename": "wear-model-622ffbaadfb36896.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/2e17466edd26f4978075214894e42640.png",
+      "hash": "cc2c2e08b3da9dc5fe0e6c84dc7bcd93a4a2f4fd2efda38d017848c474c05684",
+      "bytes": 67854,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-a78cb8dc2ffac419",
+      "name": "模特 19",
+      "filename": "wear-model-a78cb8dc2ffac419.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/84fc2055d7e95d1932ca4c6330e57ef1.png",
+      "hash": "633a2f1a41bb2054ae021b9d3d939d91e8aa210ed65e52223e15749d5ef1e176",
+      "bytes": 60972,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-1c36a30f678c2cca",
+      "name": "模特 20",
+      "filename": "wear-model-1c36a30f678c2cca.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/39f1306b5af144696b21c8ad191970b0.png",
+      "hash": "cb872c7855932c87a54c9e4a2dfaffad82e48d98e15fe37cc417eecadd225958",
+      "bytes": 82806,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-bd0c9075d6f0f9aa",
+      "name": "模特 21",
+      "filename": "wear-model-bd0c9075d6f0f9aa.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/c5d4cc970d81154c33c931dcbf529c94.png",
+      "hash": "1ac21245f46b9d233373a61f6fdada8534e1f025afd78db80c1c7746f2474472",
+      "bytes": 63668,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-541d0782009f8c5f",
+      "name": "模特 22",
+      "filename": "wear-model-541d0782009f8c5f.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/a382dab2122d923cdf8577f900a26ed1.png",
+      "hash": "00b441ee8d70d2a922468fdccabec43833760529d8b1e121ce727e5c1bc298b0",
+      "bytes": 78288,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-943da4429a1d2f8b",
+      "name": "模特 23",
+      "filename": "wear-model-943da4429a1d2f8b.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/e23dc2083b24e38f876940da012848da.png",
+      "hash": "c2b2d43f909179e962bd183eff37c8abc69da8b52de9be4b2604d267d3831b9a",
+      "bytes": 68412,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-718c32ea2068d8ea",
+      "name": "模特 24",
+      "filename": "wear-model-718c32ea2068d8ea.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/625f66cb1f35c116e5ee352227631ed8.png",
+      "hash": "b02f01ee047ad3434840f6a61d0ce395e23804e164eed8810b8d0d646e86839d",
+      "bytes": 56966,
+      "width": 765,
+      "height": 1024
+    },
+    {
+      "id": "wear-model-c1b6d709d5b46f83",
+      "name": "模特 25",
+      "filename": "wear-model-c1b6d709d5b46f83.webp",
+      "sourceUrl": "https://xiuxiu-pro-new.meitudata.com/poster/33ec87f1da0b60b18ad6e93a0698061f.png",
+      "hash": "d00a66b28f9c9557ce6510def0e7ab20fcdfe370687096cadb35b7c873f3230d",
+      "bytes": 65854,
+      "width": 765,
+      "height": 1024
+    }
+  ]
+}

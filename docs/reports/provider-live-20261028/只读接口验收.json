@@ -1,0 +1,175 @@
+{
+  "checkedAt": "2026-10-28T10:35:43.110Z",
+  "method": "GET",
+  "base": "http://127.0.0.1:4310",
+  "totalQueries": 16,
+  "analysisJobCountBefore": 8,
+  "analysisJobCountAfter": 8,
+  "paidRequests": 0,
+  "rows": [
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "balance",
+      "status": 200,
+      "checked": {
+        "balanceReturned": true,
+        "unit": "算力",
+        "unlimitedKeyQuota": true
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "key",
+      "status": 200,
+      "checked": {
+        "readOnly": true,
+        "keyMaterialOmitted": true
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "usage",
+      "status": 200,
+      "checked": {
+        "scope": "key",
+        "mode": "summary",
+        "modelCount": 1
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "usage",
+      "status": 200,
+      "checked": {
+        "scope": "user",
+        "mode": "records",
+        "recordCount": 2
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "task",
+      "status": 200,
+      "checked": {
+        "taskId": 193571161,
+        "state": "success",
+        "isFinal": true,
+        "hasReply": true,
+        "hasTokenUsage": true
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "models",
+      "status": 200,
+      "checked": {
+        "total": 81,
+        "returned": 81,
+        "includesEligibility": true
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "model",
+      "status": 200,
+      "checked": {
+        "name": "tt-6.1-sol",
+        "parameterCount": 1,
+        "hasApiFormat": true
+      }
+    },
+    {
+      "credentialId": "tt-6.1-sol",
+      "endpoint": "pricing",
+      "status": 200,
+      "checked": {
+        "channelGroups": 9,
+        "active": 4,
+        "paused": 5,
+        "tokenRateGroups": 9
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "balance",
+      "status": 200,
+      "checked": {
+        "balanceReturned": true,
+        "unit": "算力",
+        "unlimitedKeyQuota": true
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "key",
+      "status": 200,
+      "checked": {
+        "readOnly": true,
+        "keyMaterialOmitted": true
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "usage",
+      "status": 200,
+      "checked": {
+        "scope": "key",
+        "mode": "summary",
+        "modelCount": 1
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "usage",
+      "status": 200,
+      "checked": {
+        "scope": "user",
+        "mode": "records",
+        "recordCount": 2
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "task",
+      "status": 200,
+      "checked": {
+        "taskId": 193571161,
+        "state": "success",
+        "isFinal": true,
+        "hasReply": true,
+        "hasTokenUsage": true
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "models",
+      "status": 200,
+      "checked": {
+        "total": 81,
+        "returned": 81,
+        "includesEligibility": true
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "model",
+      "status": 200,
+      "checked": {
+        "name": "gem-3.8-flash",
+        "parameterCount": 1,
+        "hasApiFormat": true
+      }
+    },
+    {
+      "credentialId": "gem-3.8-flash",
+      "endpoint": "pricing",
+      "status": 200,
+      "checked": {
+        "channelGroups": 32,
+        "active": 12,
+        "paused": 20,
+        "tokenRateGroups": 32
+      }
+    }
+  ]
+}

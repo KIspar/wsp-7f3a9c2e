@@ -1,0 +1,758 @@
+{
+  "startedAt": "2026-10-28T10:02:57.760Z",
+  "mode": "real-api-analysis",
+  "jobs": [
+    {
+      "name": "tt-vision-probe",
+      "input": {
+        "text": "",
+        "productName": "",
+        "assetIds": [
+          "upload-21375337-afa5-4a0c-88f7-94d6c2664f89"
+        ],
+        "action": "verify-image",
+        "verificationModel": "tt-6.1-sol",
+        "expectedTerms": [
+          "棕",
+          "扣",
+          "纹"
+        ],
+        "idempotencyKey": "9a8028b8-141a-4175-ac12-cee589578f36"
+      },
+      "submissionStarted": "2026-10-28T10:02:57.885Z",
+      "id": "analysis-06c074d9-624c-43ae-bc4c-64e3879c0bff",
+      "job": {
+        "id": "analysis-06c074d9-624c-43ae-bc4c-64e3879c0bff",
+        "input": {
+          "action": "verify-image",
+          "text": "",
+          "productName": "",
+          "assetIds": [
+            "upload-21375337-afa5-4a0c-88f7-94d6c2664f89"
+          ],
+          "idempotencyKey": "9a8028b8-141a-4175-ac12-cee589578f36",
+          "verificationModel": "tt-6.1-sol",
+          "expectedTerms": [
+            "棕",
+            "扣",
+            "纹"
+          ]
+        },
+        "fingerprint": "d683a222eb2585d1cadda52b7a1bc711c6636f6fd51318eed9df2758bb9127ab",
+        "model": {
+          "id": "tt-6.1-sol",
+          "name": "TT-6.1 sol",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "unverified"
+          }
+        },
+        "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4",
+        "assets": [
+          {
+            "id": "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+            "url": "/media/upload-21375337-afa5-4a0c-88f7-94d6c2664f89.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 324726,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:02:57.843Z",
+            "sha256": "821160310f1cfc7990530585a3247e74cb3bd8e4443ffadc06e8bebd92436ddc"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:02:57.891Z",
+        "updatedAt": "2026-10-28T10:03:07.223Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0011,
+          "inputTokens": 496,
+          "outputTokens": 106,
+          "checkedAt": "2026-10-28T10:03:07.223Z"
+        },
+        "preview": {
+          "url": "/media/analysis-preview-3285a13207a385160e501dfa.jpg",
+          "bytes": 30052,
+          "width": 384,
+          "height": 512,
+          "sha256": "3285a13207a385160e501dfae2ae613c3530c2e5346acc9ea64129a48a162e81"
+        },
+        "upstreamTaskId": "193556923",
+        "usage": {
+          "inputTokens": 4464,
+          "outputTokens": 106,
+          "totalTokens": 4570
+        },
+        "result": "- **颜色**：上衣呈深棕色，略带灰调。\n- **领口**：窄边小立领，前中有短开口，连接短扣门襟。\n- **扣子数量**：图片中可见门襟上有 **3 颗扣子**。\n- **纹理**：衣身和袖子可见细密的斜向纹路，交错形成类似人字形的肌理。"
+      }
+    },
+    {
+      "name": "gem-vision-probe",
+      "input": {
+        "text": "",
+        "productName": "",
+        "assetIds": [
+          "upload-21375337-afa5-4a0c-88f7-94d6c2664f89"
+        ],
+        "action": "verify-image",
+        "verificationModel": "gem-3.8-flash",
+        "expectedTerms": [
+          "棕",
+          "扣",
+          "纹"
+        ],
+        "idempotencyKey": "42f564c7-0875-455d-940b-c3051071018f"
+      },
+      "submissionStarted": "2026-10-28T10:03:07.933Z",
+      "id": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+      "job": {
+        "id": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+        "input": {
+          "action": "verify-image",
+          "text": "",
+          "productName": "",
+          "assetIds": [
+            "upload-21375337-afa5-4a0c-88f7-94d6c2664f89"
+          ],
+          "idempotencyKey": "42f564c7-0875-455d-940b-c3051071018f",
+          "verificationModel": "gem-3.8-flash",
+          "expectedTerms": [
+            "棕",
+            "扣",
+            "纹"
+          ]
+        },
+        "fingerprint": "2d2b082d788cfb30c19262bd61ad44da1b6b1fd6ad4f4934252419f405d3e490",
+        "model": {
+          "id": "gem-3.8-flash",
+          "name": "GEM 3.8 flash",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "unverified"
+          }
+        },
+        "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57",
+        "assets": [
+          {
+            "id": "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+            "url": "/media/upload-21375337-afa5-4a0c-88f7-94d6c2664f89.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 324726,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:02:57.843Z",
+            "sha256": "821160310f1cfc7990530585a3247e74cb3bd8e4443ffadc06e8bebd92436ddc"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:03:07.937Z",
+        "updatedAt": "2026-10-28T10:03:15.782Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0017,
+          "inputTokens": 1390,
+          "outputTokens": 509,
+          "checkedAt": "2026-10-28T10:03:15.782Z"
+        },
+        "preview": {
+          "url": "/media/analysis-preview-3285a13207a385160e501dfa.jpg",
+          "bytes": 30052,
+          "width": 384,
+          "height": 512,
+          "sha256": "3285a13207a385160e501dfae2ae613c3530c2e5346acc9ea64129a48a162e81"
+        },
+        "upstreamTaskId": "193557248",
+        "usage": {
+          "inputTokens": 1390,
+          "outputTokens": 92,
+          "totalTokens": 1899
+        },
+        "result": "基于图片，该商品的可见特征如下：\n\n* **颜色**：棕色 / 深棕色。\n* **领口**：小立领（亨利领款式），前胸带有半开门襟。\n* **扣子数量**：前门襟上可见 3 粒垂直排列的扣子。\n* **纹理**：衣身表面带有清晰的人字纹（V形交错纹理）。"
+      }
+    },
+    {
+      "name": "gem-native-video",
+      "input": {
+        "text": "描述时间顺序、颜色变化、物体动作及运动方向。没有音轨，不要编造声音。",
+        "productName": "",
+        "assetIds": [
+          "video-e988170c-6178-4641-8ff5-29bae0a787fd"
+        ],
+        "action": "reverse-video",
+        "idempotencyKey": "dae5210c-8df0-411e-a999-ceef2257fa53"
+      },
+      "submissionStarted": "2026-10-28T10:03:15.964Z",
+      "id": "analysis-0f17b776-19ca-46de-a7cb-cf7ddee00bcf",
+      "job": {
+        "id": "analysis-0f17b776-19ca-46de-a7cb-cf7ddee00bcf",
+        "input": {
+          "action": "reverse-video",
+          "text": "描述时间顺序、颜色变化、物体动作及运动方向。没有音轨，不要编造声音。",
+          "productName": "",
+          "assetIds": [
+            "video-e988170c-6178-4641-8ff5-29bae0a787fd"
+          ],
+          "idempotencyKey": "dae5210c-8df0-411e-a999-ceef2257fa53"
+        },
+        "fingerprint": "2cfb19fc34f18f8a8949bb109226bcd222cc7fd73f09030d1e27ad92cd7608c0",
+        "model": {
+          "id": "gem-3.8-flash",
+          "name": "GEM 3.8 flash",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57"
+          }
+        },
+        "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57",
+        "assets": [
+          {
+            "id": "video-e988170c-6178-4641-8ff5-29bae0a787fd",
+            "url": "/media/video-e988170c-6178-4641-8ff5-29bae0a787fd.mp4",
+            "type": "video",
+            "mime": "video/mp4",
+            "bytes": 12582,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:02:57.880Z",
+            "duration": 6,
+            "sha256": "03fb2143ff952b5b3cefd4d6b97f1d3d81b75848cd422a9c851edc7a8088ab19"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:03:15.967Z",
+        "updatedAt": "2026-10-28T10:03:25.156Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0022,
+          "inputTokens": 889,
+          "outputTokens": 858,
+          "checkedAt": "2026-10-28T10:03:25.156Z"
+        },
+        "upstreamTaskId": "193557531",
+        "usage": {
+          "inputTokens": 889,
+          "outputTokens": 489,
+          "totalTokens": 1747
+        },
+        "result": "## 镜头分析\n\n### [00:00-00:03]\n- **主体动作**：纯红色正方形块自画面左侧水平向右匀速平移，在 00:01 时穿过中心，于 00:03 前停留在右侧。\n- **场景**：纯白色平面背景，极简2D矢量空间。\n- **构图**：居中水平线构图，主体位置由左至右横向变化。\n- **运镜**：固定镜头（Static）。\n- **可辨识文案**：无。\n- **分镜提示词**：Minimalist 2D flat animation, a solid red square moving horizontally from left to right on a pure white background, fixed camera, smooth motion.\n\n### [00:03-00:06]\n- **主体动作**：方块在右侧突变为纯蓝色，随后自右向左水平匀速平移，在 00:04 经过中心，最终停在画面偏左侧。\n- **场景**：纯白色平面背景，极简2D矢量空间。\n- **构图**：居中水平线构图，主体位置由右至左横向变化。\n- **运镜**：固定镜头（Static）。\n- **可辨识文案**：无。\n- **分镜提示词**：The square instantly changes color from red to blue, then smoothly moves horizontally from right to left across a pure white background, centered framing, static camera.\n\n## 整片提示词\nMinimalist 2D motion graphic, solid color square on pure white background. A red square glides horizontally from left to right, suddenly turns solid blue at the right side, then glides back from right to left. Static camera, clean flat design, high contrast, seamless vector movement.\n\n## 不确定信息\n- 该视频无音轨，无法确认是否原本配有音效或背景音乐。\n- 颜色转变及运动方向的切换无明显过渡特效（为硬切/直接变色反向），无法断定是否为循环动画的一环。"
+      }
+    },
+    {
+      "name": "tt-text-polish",
+      "input": {
+        "text": "男士上身主图，保留三扣和纹理，背景米灰，成年男模自然站姿，无文字。",
+        "productName": "",
+        "assetIds": [],
+        "action": "polish",
+        "idempotencyKey": "dd87e7cc-6d9a-4f42-9884-df44c9e49804"
+      },
+      "submissionStarted": "2026-10-28T10:04:35.344Z",
+      "id": "analysis-64c841a5-f4e4-4ff6-b093-7ac0af0014dd",
+      "job": {
+        "id": "analysis-64c841a5-f4e4-4ff6-b093-7ac0af0014dd",
+        "input": {
+          "action": "polish",
+          "text": "男士上身主图，保留三扣和纹理，背景米灰，成年男模自然站姿，无文字。",
+          "productName": "",
+          "assetIds": [],
+          "idempotencyKey": "dd87e7cc-6d9a-4f42-9884-df44c9e49804"
+        },
+        "fingerprint": "7533f6af476ed1e7c799ed3ec2a67642b44d891d1136e3ca55cd157f5f15ba1c",
+        "model": {
+          "id": "tt-6.1-sol",
+          "name": "TT-6.1 sol",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-06c074d9-624c-43ae-bc4c-64e3879c0bff",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4"
+          }
+        },
+        "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4",
+        "assets": [],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:04:35.349Z",
+        "updatedAt": "2026-10-28T10:04:41.738Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0011,
+          "inputTokens": 556,
+          "outputTokens": 95,
+          "checkedAt": "2026-10-28T10:04:41.738Z"
+        },
+        "upstreamTaskId": "193559818",
+        "usage": {
+          "inputTokens": 4360,
+          "outputTokens": 95,
+          "totalTokens": 4455
+        },
+        "result": "男士上身产品主图，采用成年男模自然站立的姿态，清晰展示上身服装及产品细节。保留服装的三扣设计与原有面料纹理，避免纽扣缺失、数量变化或纹理失真。背景使用简洁的米灰色，光线柔和均匀，突出服装质感。画面不添加任何文字。"
+      }
+    },
+    {
+      "name": "tt-selling-points",
+      "input": {
+        "text": "只提供产品名和原图，没有提供面料成分或实际尺码数据。",
+        "productName": "麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤",
+        "assetIds": [
+          "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+          "upload-9ec1b579-db91-4648-9383-d8acecc61bff",
+          "upload-6974e97c-6d38-4ecb-aa44-13c2b9a619e6"
+        ],
+        "action": "selling-points",
+        "idempotencyKey": "9f7cfb2b-3c51-4c96-934b-acd87e7625f4"
+      },
+      "submissionStarted": "2026-10-28T10:04:42.393Z",
+      "id": "analysis-a6a72ea7-e2f3-4780-9a21-8cee3396e0f5",
+      "job": {
+        "id": "analysis-a6a72ea7-e2f3-4780-9a21-8cee3396e0f5",
+        "input": {
+          "action": "selling-points",
+          "text": "只提供产品名和原图，没有提供面料成分或实际尺码数据。",
+          "productName": "麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤",
+          "assetIds": [
+            "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+            "upload-9ec1b579-db91-4648-9383-d8acecc61bff",
+            "upload-6974e97c-6d38-4ecb-aa44-13c2b9a619e6"
+          ],
+          "idempotencyKey": "9f7cfb2b-3c51-4c96-934b-acd87e7625f4"
+        },
+        "fingerprint": "6a6df52ae637dae3377ea7a71ebccd37a9955c161b94955c736ede979d2a328e",
+        "model": {
+          "id": "tt-6.1-sol",
+          "name": "TT-6.1 sol",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-06c074d9-624c-43ae-bc4c-64e3879c0bff",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4"
+          }
+        },
+        "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4",
+        "assets": [
+          {
+            "id": "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+            "url": "/media/upload-21375337-afa5-4a0c-88f7-94d6c2664f89.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 324726,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:02:57.843Z",
+            "sha256": "821160310f1cfc7990530585a3247e74cb3bd8e4443ffadc06e8bebd92436ddc"
+          },
+          {
+            "id": "upload-9ec1b579-db91-4648-9383-d8acecc61bff",
+            "url": "/media/upload-9ec1b579-db91-4648-9383-d8acecc61bff.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 138141,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:04:42.384Z",
+            "sha256": "bc3897a0be4e8d75049a7dde5e05c72af58ef1065dade6b838ae5a6e3850da27"
+          },
+          {
+            "id": "upload-6974e97c-6d38-4ecb-aa44-13c2b9a619e6",
+            "url": "/media/upload-6974e97c-6d38-4ecb-aa44-13c2b9a619e6.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 773819,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:04:42.390Z",
+            "sha256": "5eb0bb8dee7a2b0aeb529b7f65c242244381adefdc3c86ee73057e79b9ac2a13"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:04:42.397Z",
+        "updatedAt": "2026-10-28T10:05:06.852Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0047,
+          "inputTokens": 1562,
+          "outputTokens": 666,
+          "checkedAt": "2026-10-28T10:05:06.852Z"
+        },
+        "preview": {
+          "url": "/media/analysis-preview-50ebc0949c2731cfe8719452.jpg",
+          "bytes": 96008,
+          "width": 1024,
+          "height": 1024,
+          "sha256": "50ebc0949c2731cfe8719452beb8bad1aced88fe49a01f27ebaf94346d43f604"
+        },
+        "upstreamTaskId": "193560039",
+        "usage": {
+          "inputTokens": 5658,
+          "outputTokens": 666,
+          "totalTokens": 6324
+        },
+        "result": "## 可见特征\n\n- **IMAGE 1：**上衣呈棕褐色，衣身可见细密、重复排列的斜向纹理。领口为短立领形态，前中设短门襟，可见三颗纽扣；肩部及衣身两侧有拼接线。长袖自然垂下，衣身呈较宽松的视觉效果，下摆自然垂落，搭配白色长裤。\n- **IMAGE 2：**展示上衣正面穿着效果，整体呈棕色，短立领与纽扣门襟清晰可见，肩部和衣身两侧可见拼接线。袖子被推至前臂附近，下摆位于裤腰下方，搭配深色牛仔裤。此图中的表面纹理不如另外两张清晰。\n- **IMAGE 3：**近距离展示领口、门襟及衣身纹理。棕色衣面可见连续的人字形、麦穗状纹路，肩部有拼接线；门襟上方敞开，可见三颗纽扣。衣身有自然褶皱，一侧下摆被手拉起，搭配浅蓝色牛仔裤。\n\n## 用户提供的参数\n\n- **产品名：**麦穗纹亨利领卫衣男款2026春季新款大码潮牌痞帅美式立领长袖T恤。\n- **素材数量：**3张，分别对应 IMAGE 1、IMAGE 2、IMAGE 3。\n- **已知信息范围：**用户仅提供产品名及原图，未提供面料成分或实际尺码数据。\n- **名称中的产品定位：**“男款”“2026春季新款”“大码”“潮牌”“痞帅美式”等均来自用户提供的产品名，不作为图片识别结论。\n- **待确认：**面料成分、实际尺码及尺寸表、克重、功能性描述、售后政策；“大码”的具体覆盖范围也需以实际尺码数据确认。\n\n## 表达建议\n\n建议围绕图片中可见的纹理、领口和搭配效果展开，避免延伸为柔软、透气、保暖、不起球或显瘦等未经验证的承诺。\n\n可用营销短句：\n\n- “麦穗状纹理，让棕色穿搭更有细节。”\n- “短立领配纽扣门襟，领口细节清晰有型。”\n- “从肩部拼接到衣身纹路，近看也有看点。”\n- “配白裤简洁，搭牛仔随性。”\n- “棕色调与立体感纹路，穿出复古休闲氛围。”\n\n如需使用“2026春季新款”“大码”等表述，应依据用户提供的产品信息，并在发布前确认上新信息及实际尺码范围。"
+      }
+    },
+    {
+      "name": "gem-reference-reverse",
+      "input": {
+        "text": "",
+        "productName": "",
+        "assetIds": [
+          "upload-a579d250-1dca-43c2-8558-aacd358ebf3c"
+        ],
+        "action": "reverse-image",
+        "idempotencyKey": "f922b261-2eb8-49d8-b88c-0087b7f75d76"
+      },
+      "submissionStarted": "2026-10-28T10:05:07.473Z",
+      "id": "analysis-b1beb13e-d82e-4c88-b243-3c0582732d7e",
+      "job": {
+        "id": "analysis-b1beb13e-d82e-4c88-b243-3c0582732d7e",
+        "input": {
+          "action": "reverse-image",
+          "text": "",
+          "productName": "",
+          "assetIds": [
+            "upload-a579d250-1dca-43c2-8558-aacd358ebf3c"
+          ],
+          "idempotencyKey": "f922b261-2eb8-49d8-b88c-0087b7f75d76"
+        },
+        "fingerprint": "3e03c579c6f31ca426dd1b02bc9a11577c6bcfdb2eca3b7ee98f972716c5bf4d",
+        "model": {
+          "id": "gem-3.8-flash",
+          "name": "GEM 3.8 flash",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57"
+          }
+        },
+        "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57",
+        "assets": [
+          {
+            "id": "upload-a579d250-1dca-43c2-8558-aacd358ebf3c",
+            "url": "/media/upload-a579d250-1dca-43c2-8558-aacd358ebf3c.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 989705,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:05:07.468Z",
+            "sha256": "f7c6fad1e0699ad3abcd870ded181c142a82e2a6c920d8b772f71d0e05bd7758"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:05:07.477Z",
+        "updatedAt": "2026-10-28T10:05:19.612Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0032,
+          "inputTokens": 1462,
+          "outputTokens": 1212,
+          "checkedAt": "2026-10-28T10:05:19.612Z"
+        },
+        "preview": {
+          "url": "/media/analysis-preview-3422f34e43640361410199d6.jpg",
+          "bytes": 100000,
+          "width": 1024,
+          "height": 1024,
+          "sha256": "3422f34e43640361410199d6f35956b5c61479df2533e45c3bdcfdfc652bac72"
+        },
+        "upstreamTaskId": "193560802",
+        "usage": {
+          "inputTokens": 1462,
+          "outputTokens": 375,
+          "totalTokens": 2674
+        },
+        "result": "### 图像反推分析\n\n*   **主体**：一套搭配完整的休闲街头穿搭平铺组合，包含米白色拼深棕翻领夹克、深棕色长袖衬衫、深棕色宽松长裤、黑白配色复古平底板鞋及一副银棕色头戴式耳机。\n*   **场景**：室内背景，置于具有细密纹理的浅驼色地毯上。\n*   **构图**：俯视平铺构图（Flat Lay），衣物按人形轮廓工整折叠摆放，各单品比例协调、层次分明。\n*   **色彩**：复古大地色系，以米白与深巧克力棕为主色调，辅以少许黑、灰、银金属色。\n*   **光线**：柔和弥散的自然光，无明显硬阴影，衣物面料与褶皱质感清晰。\n*   **可辨识文字**：\n    *   夹克左胸处文字：“STAY CURIOUS”\n    *   衣领内标、裤腰织带标及鞋垫标志字体过小，辨识不清。\n\n---\n\n### 可复用图片提示词 (Prompt)\n\n```text\nA top-down flat lay photograph of a stylish casual outfit arranged on a textured beige carpet. The set features an off-white casual jacket with a dark brown collar and \"STAY CURIOUS\" printed on the chest, a layered dark brown collared shirt underneath, loose dark brown trousers, a pair of classic white sneakers with black stripes, and silver over-ear headphones placed beside. Soft diffused indoor lighting, clean aesthetic, minimal shadows, earth tone color palette, high fashion product photography.\n```"
+      }
+    },
+    {
+      "name": "gem-native-video-zh",
+      "input": {
+        "text": "所有内容和整片、分镜提示词请使用简体中文。描述实际看见的时间顺序、颜色、动作、运动方向；无音轨。",
+        "productName": "",
+        "assetIds": [
+          "video-7f3811d2-a2bf-4325-8ad1-70958151fda4"
+        ],
+        "action": "reverse-video",
+        "idempotencyKey": "9558c882-141b-4480-b960-f5e0919ce0bb"
+      },
+      "submissionStarted": "2026-10-28T10:11:44.928Z",
+      "id": "analysis-5a48ec79-c1b1-4192-b465-675ef8d30b8a",
+      "job": {
+        "id": "analysis-5a48ec79-c1b1-4192-b465-675ef8d30b8a",
+        "input": {
+          "action": "reverse-video",
+          "text": "所有内容和整片、分镜提示词请使用简体中文。描述实际看见的时间顺序、颜色、动作、运动方向；无音轨。",
+          "productName": "",
+          "assetIds": [
+            "video-7f3811d2-a2bf-4325-8ad1-70958151fda4"
+          ],
+          "idempotencyKey": "9558c882-141b-4480-b960-f5e0919ce0bb"
+        },
+        "fingerprint": "4b15deb7d8b046121704eefba64c72cab9dcea9ba28209bf95a82cbe52b4521d",
+        "model": {
+          "id": "gem-3.8-flash",
+          "name": "GEM 3.8 flash",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57"
+          }
+        },
+        "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57",
+        "assets": [
+          {
+            "id": "video-7f3811d2-a2bf-4325-8ad1-70958151fda4",
+            "url": "/media/video-7f3811d2-a2bf-4325-8ad1-70958151fda4.mp4",
+            "type": "video",
+            "mime": "video/mp4",
+            "bytes": 7793,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:11:44.923Z",
+            "duration": 6,
+            "sha256": "ea712e1a69e5f32c941df42ecd0b60bf4ed7eca17de54c9477d93391f631ae6b"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:11:44.934Z",
+        "updatedAt": "2026-10-28T10:12:03.038Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0021,
+          "inputTokens": 941,
+          "outputTokens": 803,
+          "checkedAt": "2026-10-28T10:12:03.038Z"
+        },
+        "upstreamTaskId": "193571161",
+        "usage": {
+          "inputTokens": 941,
+          "outputTokens": 432,
+          "totalTokens": 1744
+        },
+        "result": "## 镜头分析\n\n**[00:00-00:03]**\n- **主体动作**：一个纯红色实心正方形在画面中沿水平方向由左向右直线平移。\n- **场景**：纯白色背景。\n- **构图**：极简平面构图，主体位于纵向居中位置水平穿行。\n- **运镜**：固定镜头。\n- **可辨识文案**：无。\n- **分镜提示词**：极简扁平动画，纯白背景，一个红色实心正方形水平从左平移至右侧，固定机位，平面2D风格。\n\n**[00:03-00:06]**\n- **主体动作**：方块变为纯蓝色，沿水平方向由右向左反向直线平移。\n- **场景**：纯白色背景。\n- **构图**：极简平面构图，主体水平由右侧向左侧移动。\n- **运镜**：固定镜头。\n- **可辨识文案**：无。\n- **分镜提示词**：极简扁平动画，纯白背景，蓝色实心正方形水平从右向左匀速平移，固定机位，平面2D风格。\n\n---\n\n## 整片提示词\n\n极简2D运动图形动画，纯白背景。先是一个红色正方形自左向右匀速水平移动；随后变为蓝色正方形，自右向左水平移动返回。固定平面视角，色彩纯净，无阴影与多余纹理。\n\n---\n\n## 不确定信息\n\n- 视频无音轨，无法判断是否存在音频匹配设计。\n- 00:03处方块颜色与运动方向的转换属于直接切镜还是同镜头内状态突变，画面视觉上为硬切过渡。"
+      }
+    },
+    {
+      "name": "gem-reference-reverse-zh",
+      "input": {
+        "text": "分析和可复用提示词全部使用简体中文。",
+        "productName": "",
+        "assetIds": [
+          "upload-a579d250-1dca-43c2-8558-aacd358ebf3c"
+        ],
+        "action": "reverse-image",
+        "idempotencyKey": "1f9102b5-af89-468c-b346-398ceaf766f4"
+      },
+      "submissionStarted": "2026-10-28T10:12:03.996Z",
+      "id": "analysis-531479d8-b57f-4bd1-84d7-dce1fe50e8ab",
+      "job": {
+        "id": "analysis-531479d8-b57f-4bd1-84d7-dce1fe50e8ab",
+        "input": {
+          "action": "reverse-image",
+          "text": "分析和可复用提示词全部使用简体中文。",
+          "productName": "",
+          "assetIds": [
+            "upload-a579d250-1dca-43c2-8558-aacd358ebf3c"
+          ],
+          "idempotencyKey": "1f9102b5-af89-468c-b346-398ceaf766f4"
+        },
+        "fingerprint": "ed89a781c1627a9e4ac65ab1f5cde6a3078fd5e69e44d7b7b682900b55f4d200",
+        "model": {
+          "id": "gem-3.8-flash",
+          "name": "GEM 3.8 flash",
+          "enabled": true,
+          "revision": 1,
+          "capabilities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "credentialConfigured": true,
+          "vision": {
+            "status": "passed",
+            "jobId": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+            "reason": "识图内容、输入 token 与最终费用通过小图核验",
+            "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57"
+          }
+        },
+        "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57",
+        "assets": [
+          {
+            "id": "upload-a579d250-1dca-43c2-8558-aacd358ebf3c",
+            "url": "/media/upload-a579d250-1dca-43c2-8558-aacd358ebf3c.jpg",
+            "type": "image",
+            "mime": "image/jpeg",
+            "bytes": 989705,
+            "source": "upload",
+            "createdAt": "2026-10-28T10:05:07.468Z",
+            "sha256": "f7c6fad1e0699ad3abcd870ded181c142a82e2a6c920d8b772f71d0e05bd7758"
+          }
+        ],
+        "status": "completed",
+        "createdAt": "2026-10-28T10:12:04.002Z",
+        "updatedAt": "2026-10-28T10:12:20.269Z",
+        "simulated": false,
+        "billing": {
+          "status": "final",
+          "cost": 0.0026,
+          "inputTokens": 1513,
+          "outputTokens": 939,
+          "checkedAt": "2026-10-28T10:12:20.269Z"
+        },
+        "preview": {
+          "url": "/media/analysis-preview-3422f34e43640361410199d6.jpg",
+          "bytes": 100000,
+          "width": 1024,
+          "height": 1024,
+          "sha256": "3422f34e43640361410199d6f35956b5c61479df2533e45c3bdcfdfc652bac72"
+        },
+        "upstreamTaskId": "193571657",
+        "usage": {
+          "inputTokens": 1513,
+          "outputTokens": 456,
+          "totalTokens": 2452
+        },
+        "result": "### 图像分析 (IMAGE 1)\n\n* **主体**：整套日系复古休闲男士穿搭组合。包含一件米白色拼接深棕色翻领的工装夹克、深棕色内搭衬衫、深棕色宽松直筒休闲长裤、一副银灰色配棕色耳罩的头戴式耳机，以及一双黑白三条纹复古德训鞋。\n* **场景**：浅驼色/燕麦色细密纹理地毯地面，室内平铺（Flat lay）展示环境。\n* **构图**：俯视平铺构图。衣物模拟人体形态舒展摆放，耳机位于左上，鞋子位于左下，裤装居右，整体布局平衡对称、整洁紧凑。\n* **色彩**：大地色系与奶油色调为主。深棕色、奶油白、燕麦驼色交织，沉稳且具复古质感。\n* **光线**：柔和的室内自然漫射光，物体边缘带有轻微柔和投影，质感立体。\n* **排版与文字**：\n  * 夹克左胸位置印有英文：“STAY CURIOUS”\n  * 内搭领标、裤绳吊牌及鞋舌细节文字：模糊不可辨识\n\n---\n\n### 可复用图片提示词\n\n俯视平铺穿搭摄影（Flat lay），极简日系复古工装风格。浅驼色细纹理地毯背景上，整齐摆放一套男士休闲服饰：一件米白色翻领工装夹克（拼接深棕色翻领与按扣，左胸带有“STAY CURIOUS”字样），内搭一件深棕色衬衫；右侧平铺一条深棕色宽松休闲长裤；夹克左上方摆放一副银色头戴式耳机；左下方摆放一双黑白条纹经典复古运动板鞋。柔和的自然漫射光，浅淡阴影，色调高级干净，面料纹理细腻，商业产品摄影质感。"
+      }
+    }
+  ],
+  "assets": {
+    "product": "upload-21375337-afa5-4a0c-88f7-94d6c2664f89",
+    "video": "video-e988170c-6178-4641-8ff5-29bae0a787fd",
+    "product2": "upload-9ec1b579-db91-4648-9383-d8acecc61bff",
+    "product3": "upload-6974e97c-6d38-4ecb-aa44-13c2b9a619e6",
+    "competitor": "upload-a579d250-1dca-43c2-8558-aacd358ebf3c",
+    "linear-video": "video-7f3811d2-a2bf-4325-8ad1-70958151fda4"
+  },
+  "videoTruth": "0–3s: red square on white moving horizontally; 3–6s: blue square on white moving in the opposite direction. No audio. Native whole-video inline_data, not extracted stills.",
+  "config": {
+    "models": [
+      {
+        "id": "gem-3.8-flash",
+        "name": "GEM 3.8 flash",
+        "enabled": true,
+        "revision": 1,
+        "capabilities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "credentialConfigured": true,
+        "vision": {
+          "status": "passed",
+          "jobId": "analysis-4b1c88ce-5cff-4e0f-8b9b-72041036be5d",
+          "reason": "识图内容、输入 token 与最终费用通过小图核验",
+          "credentialVersion": "cfc85882-3cc8-46e8-9fd8-3807df4f9e57"
+        }
+      },
+      {
+        "id": "tt-6.1-sol",
+        "name": "TT-6.1 sol",
+        "enabled": true,
+        "revision": 1,
+        "capabilities": [
+          "text",
+          "image"
+        ],
+        "credentialConfigured": true,
+        "vision": {
+          "status": "passed",
+          "jobId": "analysis-06c074d9-624c-43ae-bc4c-64e3879c0bff",
+          "reason": "识图内容、输入 token 与最终费用通过小图核验",
+          "credentialVersion": "fed93d0f-5c75-4779-b183-e614fdd36aa4"
+        }
+      }
+    ],
+    "settings": {
+      "defaultModelId": "tt-6.1-sol",
+      "concurrency": 1,
+      "language": "zh-CN"
+    }
+  },
+  "finishedAt": "2026-10-28T10:12:20.274Z",
+  "videoFixtures": [
+    {
+      "file": "motion-sequence.mp4",
+      "purpose": "首次原生视频调用；滚动动画",
+      "sha256": "03fb2143ff952b5b3cefd4d6b97f1d3d81b75848cd422a9c851edc7a8088ab19"
+    },
+    {
+      "file": "motion-linear-zh.mp4",
+      "duration": 6,
+      "purpose": "最终中文原生视频动态验收",
+      "truth": "0–3 秒红方块 x=40+160t 由左至右；3–6 秒蓝方块 x=1000-160t 由右至左。白底、固定机位、无文字、无音轨。未将这些颜色/方向特征发给模型。",
+      "sha256": "ea712e1a69e5f32c941df42ecd0b60bf4ed7eca17de54c9477d93391f631ae6b"
+    }
+  ],
+  "acceptance": {
+    "unitTests": 34,
+    "productionBuild": "passed",
+    "legacySevenSkillBrowser": "passed",
+    "analysisBrowser": "passed",
+    "widths": [
+      1280,
+      1440,
+      1920
+    ],
+    "browserErrors": 0,
+    "finalDefaultModel": "tt-6.1-sol",
+    "credentials": "two separate encrypted local credentials; secrets excluded from this report/ordinary backup",
+    "noAutomaticPaidRetry": true
+  }
+}

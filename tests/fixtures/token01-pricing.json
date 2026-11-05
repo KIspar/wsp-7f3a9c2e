@@ -1,0 +1,10 @@
+{
+ "success":true,
+ "group_ratio":{"2.41折":0.241,"2.4折":0.24,"default":1,"1.0001折":0.1,"1.00011折":0.1,"1.000111折":0.1,"1.0001111折":0.1,"1.00011111折":0.1,"default_we":1,"default_ld":1},
+ "data":[{"model_name":"MiniMax-H3","enable_groups":["2.41折","2.4折","default"]},{"model_name":"MiniMax-H3-Fast","enable_groups":["1.0001折","1.00011折","1.000111折","1.0001111折","1.00011111折","default_we","default_ld"]}],
+ "video_pricing":{
+  "unrelated-audio":{"unit":"per_10k_chars","price":0.1},
+  "MiniMax-H3":{"unit":"per_second","tiers":[{"resolution":"768p","price":0.5},{"resolution":"2k","price":0.8,"excluded_groups":["2.41折"]},{"price":0.8}],"input_image_price":0.02,"free_input_images":5},
+  "MiniMax-H3-Fast":{"unit":"per_second","tiers":[{"resolution":"480p","price":0.5,"off_peak_price":0.4,"excluded_groups":["default_we","default_ld"]},{"resolution":"768p","price":0.6,"off_peak_price":0.5,"group_prices":{"default_we":0.04,"default_ld":0.08}},{"resolution":"1080p","price":0.7,"off_peak_price":0.6,"excluded_groups":["1.0001折","1.00011折","1.000111折","1.0001111折","1.00011111折","default_ld"],"group_prices":{"default_we":0.06}},{"price":0.8,"off_peak_price":0.8}]}
+ }
+}

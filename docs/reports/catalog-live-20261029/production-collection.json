@@ -1,0 +1,19 @@
+{
+  "id": "collection-25879be6-a111-4032-94c4-ca1ff800ad92",
+  "key": "catalog-production-example-20261029",
+  "fingerprint": "13ebf1ce42914aebf0907c2f804912515df0453f3e713723b68272ac89e5bfcc",
+  "createdAt": "2026-10-29T07:10:18.022Z",
+  "updatedAt": "2026-10-29T07:10:19.993Z",
+  "items": [
+    {
+      "id": "collection-item-40646c09-df1a-4532-ad0d-0abe515547bb",
+      "url": "https://pc.jp0663.com/detail/d0b3ba64301b48a0aab8c2439b3cc0fd?site=www",
+      "productId": "product-9c05979e-6ea4-4216-81ea-0ebfa327a12d",
+      "status": "completed",
+      "completed": 13,
+      "total": 13,
+      "recollection": false,
+      "snapshotId": "source-d927ff2e-3751-433b-9f1b-e57a9ec0589e"
+    }
+  ]
+}

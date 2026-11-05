@@ -1,0 +1,147 @@
+{
+  "skillId": "image-edit",
+  "draft": {
+    "requirements": "图1是待编辑图，图2和图3仅用于核对衣服。保留图1的成年男模身份、眼镜、发型、姿态和完整衣服，只把室内走廊背景替换为干净米灰色摄影棚背景，自然光，去除画面边框。商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。参考图2/图3核对纹理和领口，不将辅助图人物加入画面，无文案。",
+    "modelId": "tt-image",
+    "aspectRatio": "3:4",
+    "count": 1,
+    "duration": 6,
+    "fields": {
+      "language": "简体中文"
+    },
+    "parameters": {
+      "resolution": "1K",
+      "version": "flare",
+      "quality": "auto",
+      "background": "opaque"
+    },
+    "inputRoles": {
+      "targets": [
+        "test-product-2"
+      ],
+      "reference": [
+        "test-product-1",
+        "test-product-3"
+      ]
+    },
+    "selectedTargetIds": [
+      "test-product-2"
+    ],
+    "overrides": {},
+    "imageDesign": {
+      "groupCount": 1,
+      "screens": [],
+      "bindings": [
+        {
+          "assetId": "test-product-2",
+          "number": 1
+        },
+        {
+          "assetId": "test-product-1",
+          "number": 2
+        },
+        {
+          "assetId": "test-product-3",
+          "number": 3
+        }
+      ],
+      "nextNumber": 4
+    }
+  },
+  "plan": {
+    "total": 1,
+    "points": null,
+    "items": [
+      {
+        "index": 1,
+        "variant": 1,
+        "targetId": "test-product-2",
+        "targetLabel": "图1",
+        "prompt": "只编辑当前目标：图1，本图版本1。\n编辑要求：图1是待编辑图，图2和图3仅用于核对衣服。保留图1的成年男模身份、眼镜、发型、姿态和完整衣服，只把室内走廊背景替换为干净米灰色摄影棚背景，自然光，去除画面边框。商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。参考图2/图3核对纹理和领口，不将辅助图人物加入画面，无文案。\n成品文字语言：简体中文。根据请求附带的稳定图片编号映射定位图片，辅助参考不产生独立输出。\n只修改用户指定内容，尽量保留其他商品、人物姿态、构图和背景；原图不覆盖。不增加未提供的宣传数字或产品事实。\n图片映射：请求图片1 = 图1（待编辑）；请求图片2 = 图2（辅助参考）；请求图片3 = 图3（辅助参考）。本项只输出图1，其余图片只作为参照。",
+        "references": [
+          "test-product-2",
+          "test-product-1",
+          "test-product-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        }
+      }
+    ],
+    "skillId": "image-edit",
+    "skillRevision": 1,
+    "skillHash": "dc0a67761fb75d30e99e78daccd29f69f8e594fb954ceaf19bdd850178bb5f81",
+    "action": "generate",
+    "hash": "7f034072cc345d43eea12e2c36059d4acb4b5d96e8609576112eb38bb5385a3c"
+  }
+}

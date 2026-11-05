@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-29T09:05:58.596Z",
+  "environment": "output/catalog-live-20261029 (隔离验收)",
+  "providerBatches": [
+    {
+      "id": "batch-21c749e1-eab6-4b70-a3fc-17bbdba86d98",
+      "purpose": "main",
+      "createdAt": "2026-10-29T06:37:14.963Z"
+    },
+    {
+      "id": "batch-437c0e46-a941-435a-b3bc-7317a03352fe",
+      "purpose": "post",
+      "createdAt": "2026-10-29T06:56:35.418Z"
+    },
+    {
+      "id": "batch-7118ca44-d3ed-46b4-ba5b-2464379a6e88",
+      "purpose": "sku",
+      "createdAt": "2026-10-29T06:56:35.287Z"
+    },
+    {
+      "id": "batch-d72ee4cf-8595-499a-9227-a7fa638c2914",
+      "purpose": "detail",
+      "createdAt": "2026-10-29T06:56:34.454Z"
+    },
+    {
+      "id": "batch-e3afb9cd-da44-488a-8d5a-f015eea39e93",
+      "purpose": "video",
+      "createdAt": "2026-10-29T06:37:15.290Z"
+    }
+  ],
+  "works": [
+    {
+      "id": "legacy-work-batch-437c0e46-a941-435a-b3bc-7317a03352fe",
+      "type": "post",
+      "confirmedVersionId": "version-b3543951-7f68-4a1a-999f-64e7c698a180"
+    },
+    {
+      "id": "legacy-work-batch-e3afb9cd-da44-488a-8d5a-f015eea39e93",
+      "type": "video",
+      "confirmedVersionId": "legacy-version-batch-e3afb9cd-da44-488a-8d5a-f015eea39e93"
+    }
+  ],
+  "versions": [
+    {
+      "id": "legacy-version-batch-437c0e46-a941-435a-b3bc-7317a03352fe",
+      "workId": "legacy-work-batch-437c0e46-a941-435a-b3bc-7317a03352fe",
+      "confirmed": true,
+      "legacy": true,
+      "mediaCount": 2
+    },
+    {
+      "id": "legacy-version-batch-e3afb9cd-da44-488a-8d5a-f015eea39e93",
+      "workId": "legacy-work-batch-e3afb9cd-da44-488a-8d5a-f015eea39e93",
+      "confirmed": true,
+      "legacy": true,
+      "mediaCount": 1
+    },
+    {
+      "id": "version-b3543951-7f68-4a1a-999f-64e7c698a180",
+      "workId": "legacy-work-batch-437c0e46-a941-435a-b3bc-7317a03352fe",
+      "confirmed": true,
+      "legacy": true,
+      "mediaCount": 2
+    }
+  ],
+  "performance": [
+    {
+      "versionId": "version-b3543951-7f68-4a1a-999f-64e7c698a180",
+      "plays": 0,
+      "likes": null,
+      "manual": true
+    }
+  ],
+  "draftBackups": 1,
+  "newPaidCalls": 0
+}

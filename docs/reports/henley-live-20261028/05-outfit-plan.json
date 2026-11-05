@@ -1,0 +1,132 @@
+{
+  "skillId": "model-outfit",
+  "draft": {
+    "requirements": "商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。前三张为产品，最后一张为模特目标。保持同行双栏构图、男模身份、发型、眼镜、姿态、室内场景、阔腿裤与配饰，只将两栏黑色拉链上衣替换为商品同款咖棕色亨利领三粒扣长袖T恤。两栏衣服必须一致，去掉原拉链，保留新品麦穗纹。无手机UI、无边框、无新增文案。",
+    "modelId": "tt-image",
+    "aspectRatio": "3:4",
+    "count": 1,
+    "duration": 6,
+    "fields": {
+      "replacementMode": "整件换装",
+      "targetDescription": "双栏画面中的同一位成年男模身上的黑色拉链上衣，两栏均需要替换",
+      "newCopy": ""
+    },
+    "parameters": {
+      "resolution": "1K",
+      "version": "flare",
+      "quality": "auto",
+      "background": "opaque"
+    },
+    "inputRoles": {
+      "product": [
+        "test-product-1",
+        "test-product-2",
+        "test-product-3"
+      ],
+      "targets": [
+        "test-competitor-3"
+      ]
+    },
+    "selectedTargetIds": [
+      "test-competitor-3"
+    ],
+    "overrides": {}
+  },
+  "plan": {
+    "total": 1,
+    "points": null,
+    "items": [
+      {
+        "index": 1,
+        "variant": 1,
+        "targetId": "test-competitor-3",
+        "targetLabel": "目标图 1",
+        "prompt": "将当前模特参考图中的指定服装替换为用户商品。商品图只代表同一款商品，不将不同角度当成不同款式。\n\n当前参考：目标图 1；替换对象：双栏画面中的同一位成年男模身上的黑色拉链上衣，两栏均需要替换。\n换装模式：整件换装。\n补充要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。前三张为产品，最后一张为模特目标。保持同行双栏构图、男模身份、发型、眼镜、姿态、室内场景、阔腿裤与配饰，只将两栏黑色拉链上衣替换为商品同款咖棕色亨利领三粒扣长袖T恤。两栏衣服必须一致，去掉原拉链，保留新品麦穗纹。无手机UI、无边框、无新增文案。。\n新宣传文案：。\n本图变体：1。\n\n整件换装时，新商品的领型、版型、袖长、衣长、口袋、印花、Logo、颜色与可见材质纹理以商品参考为准，不继承旧衣服结构。只换图案或颜色时，保留原服装版型和褶皱关系，仅替换明确指定的元素。\n\n保持指定人物身份、面部、体型、姿态、背景和镜头关系；其他人物与非目标服装不修改。结合真实遮挡与人体结构表现穿着，避免肢体变形和图案漂移。新品与原姿态冲突时做必要且克制的穿着调整，不虚构背面结构。\n\n去除旧广告文案、价格、旧品牌及促销标记，商品本体印字以用户新品为准。未提供新文案则不新增文字。一次只输出当前目标的一张成品。",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3",
+          "test-competitor-3"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        }
+      }
+    ],
+    "skillId": "model-outfit",
+    "skillRevision": 1,
+    "skillHash": "b01e83b85b6d719ca99d7252e031cfda1b18d1c38a60504ca2ad4845f205ff12",
+    "action": "generate",
+    "hash": "c493a8620dd9560a5937678c4447c39018ea1ed705b27f52c66cd56ab74ec662"
+  }
+}

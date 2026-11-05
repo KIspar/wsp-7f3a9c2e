@@ -1,0 +1,270 @@
+{
+  "checkedAt": "2026-10-29T02:01:22.497Z",
+  "upstreamMethods": [
+    "GET balance",
+    "GET model pricing"
+  ],
+  "localMethod": "POST /api/generation/estimate (read-only)",
+  "paidRequests": 0,
+  "draftsUnchanged": true,
+  "batchesUnchanged": true,
+  "rows": [
+    {
+      "skillId": "image-generate",
+      "label": "1 张，提示词为空",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.174Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.0395,
+        "maximum": 0.0858,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "image-generate",
+      "label": "3 张",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.227Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.1185,
+        "maximum": 0.2574,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 2,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 3,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "video-generate",
+      "label": "4 秒，1 项",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.285Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.4118,
+        "maximum": 0.4118,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.4118,
+            "maximum": 0.4118,
+            "channels": 1
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "video-generate",
+      "label": "6 秒，1 项",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.336Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.6177,
+        "maximum": 0.6177,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.6177,
+            "maximum": 0.6177,
+            "channels": 1
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "video-generate",
+      "label": "10 秒，1 项",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.385Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 1.0296,
+        "maximum": 1.0296,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "detail-design",
+      "label": "2 屏 × 3 组",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.436Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 0.237,
+        "maximum": 0.5148,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 2,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 3,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 4,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 5,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 6,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "skillId": "video-generate",
+      "label": "10 秒 × 10 项，验证余额不足",
+      "quote": {
+        "checkedAt": "2026-10-29T02:01:22.487Z",
+        "balance": 1.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.71,
+        "minimum": 10.296,
+        "maximum": 10.296,
+        "affordable": false,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 2,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 3,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 4,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 5,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 6,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 7,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 8,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 9,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          },
+          {
+            "index": 10,
+            "minimum": 1.0296,
+            "maximum": 1.0296,
+            "channels": 1
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#c3c0ff","surface-variant":"#dae2fd","secondary":"#4648d4","surface":"#faf8ff","surface-tint":"#4d44e3","inverse-on-surface":"#eef0ff","secondary-fixed-dim":"#c0c1ff","error-container":"#ffdad6","error":"#ba1a1a","secondary-container":"#6063ee","on-tertiary-fixed":"#001e2f","surface-bright":"#faf8ff","outline":"#777587","on-surface":"#131b2e","outline-variant":"#c7c4d8","tertiary":"#004d70","background":"#faf8ff","on-secondary":"#ffffff","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#004c6e","secondary-fixed":"#e1e0ff","primary-fixed":"#e2dfff","on-tertiary-container":"#b8e0ff","surface-container-high":"#e2e7ff","surface-container-lowest":"#ffffff","on-error":"#ffffff","tertiary-container":"#006693","on-tertiary":"#ffffff","on-primary-container":"#dad7ff","surface-dim":"#d2d9f4","on-background":"#131b2e","on-secondary-fixed-variant":"#2f2ebe","on-primary-fixed-variant":"#3323cc","surface-container":"#eaedff","on-surface-variant":"#464555","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","on-secondary-fixed":"#07006c","tertiary-fixed":"#c9e6ff","surface-container-low":"#f2f3ff","on-secondary-container":"#fffbff","surface-container-highest":"#dae2fd","on-primary":"#ffffff","primary":"#3525cd","inverse-surface":"#283044","tertiary-fixed-dim":"#89ceff","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-dense":"0.5rem","gutter":"1rem","margin":"1.5rem","space-xs":"0.25rem","margin-dense":"1rem","space-2xl":"2rem","space-xl":"1.5rem","space-sm":"0.5rem","space-lg":"1rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"label-mono-md":["JetBrains Mono"],"headline-md":["Inter"],"headline-xl":["Inter"],"headline-lg":["Inter"],"label-mono-xs":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-mono-lg":["JetBrains Mono"]},"fontSize":{"body-lg":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-mono-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between select-none shadow-[2px_0_12px_rgba(15,23,42,0.12)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[18px]">neurology</span></div><span class="font-headline-md text-headline-md tracking-tight text-surface-container-lowest">AI 创作工作台</span></div><span class="font-label-mono-xs text-label-mono-xs px-space-xs py-0.5 rounded bg-surface-variant/20 text-inverse-primary">v1.0.0</span></div><div class="flex items-center gap-space-sm mt-space-xs"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-fixed"></span></span><span class="font-label-mono-xs text-label-mono-xs text-outline-variant">运行中 127.0.0.1:8080</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between p-space-xs bg-surface-variant/10 rounded-lg"><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-surface-container-lowest bg-primary-container font-medium" type="button">全部</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">图片</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">视频</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">智能体</button></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider uppercase px-space-sm">创作技能引擎</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="image-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">photo_library</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">图片生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">IMG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">多构图商品图快速生成</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="model-try-on" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">dry_cleaning</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">模特换装</span><span class="font-label-mono-xs text-label-mono-xs text-outline">OUT-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">自有商品智能局部替换</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="scene-replica" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">landscape</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">场景复刻</span><span class="font-label-mono-xs text-label-mono-xs text-outline">SCN-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">挂拍/平铺构图光影重塑</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="video-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">video_camera_back</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">视频生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">VID-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">提示词与商品参考成片</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="benchmark-agent" href="#"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">smart_toy</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate text-secondary-fixed">一键对标</span><span class="font-label-mono-xs text-label-mono-xs px-1 rounded bg-secondary-container/40 text-on-secondary-container">AG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">同行图集与白底流替换</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-space-xs"><div class="flex items-center justify-between text-outline-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-mono-xs text-label-mono-xs">NVMe Local</span></div><span class="font-label-mono-xs text-label-mono-xs text-inverse-on-surface">428 GB 可用</span></div><div class="w-full bg-surface-variant/20 rounded-full h-1"><div class="bg-secondary-fixed h-1 rounded-full w-[65%]"></div></div><div class="flex items-center justify-between text-outline"><span class="font-label-mono-xs text-label-mono-xs">环境运行安全</span><span class="material-symbols-outlined text-[14px] text-secondary-fixed">verified_user</span></div></div><div class="flex items-center justify-between px-space-xs pt-space-xs"><nav class="flex items-center gap-space-sm" data-active-classes="text-surface-container-lowest font-medium"><a aria-current="page" class="transition-colors flex items-center gap-1 text-surface-container-lowest font-medium" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>设置</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="model-library" href="#"><span class="material-symbols-outlined text-[16px]">deployed_code</span>模型</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="compute-diagnostic" href="#"><span class="material-symbols-outlined text-[16px]">speed</span>算力</a></nav><button class="text-outline-variant hover:text-surface-container-lowest transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">help</span></button></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface/85 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-sm text-body-sm text-on-surface-variant">工作区</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-body-sm text-body-sm text-primary font-medium">本地高性能调度</span></div><span class="h-3.5 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs px-2 py-0.5 rounded bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>活动生成槽: 4/20 (TT-Image: 3, Omni: 1)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[16px] text-tertiary">toll</span><span class="font-body-sm text-body-sm">参考余额: <strong class="font-label-mono-md text-label-mono-md text-primary">3,420 点</strong></span><span class="font-label-mono-xs text-label-mono-xs text-outline">(预计在途: 40点)</span></div><a class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant hover:text-on-surface transition-all text-on-surface" data-path="background-tasks" href="#"><span class="material-symbols-outlined text-[16px] text-secondary">sync_alt</span><span class="font-body-sm text-body-sm font-medium">后台任务</span><span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-mono-xs text-label-mono-xs font-semibold">2</span></a><span class="h-4 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs text-outline"><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">minimize</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">crop_square</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-error-container hover:text-error rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full px-space-lg min-h-screen bg-surface"><div class="flex flex-col w-full pb-16">
+<!-- Top Command Header -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md py-space-md mb-space-lg bg-surface-container-low px-space-xl rounded-xl shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-mono-xs text-label-mono-xs font-semibold">SK-02 STUDIO</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">技能协议与发布管理 (Skill Studio)</h1>
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>未发布修改 (Draft Rev.4)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-mono-md text-label-mono-md">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">terminal</span>
+<span>当前编辑: <strong class="text-on-surface">模特换装</strong></span>
+<span class="text-outline">`skills/model-outfit/技能提示词.md`</span>
+</span>
+<span class="h-3 w-px bg-outline-variant"></span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">history_toggle_off</span>
+<span>线上生效: <strong class="text-tertiary font-semibold">v1.2.0 (Rev.3)</strong></span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-center">
+<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container font-label-mono-xs text-label-mono-xs text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>静态语法校验: 通过</span>
+</div>
+<button class="flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span>撤销修改</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-lg py-1.5 rounded-lg bg-primary hover:bg-secondary text-on-primary font-body-sm text-body-sm font-semibold transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+<span>发布新修订 (Publish v1.3)</span>
+</button>
+</div>
+</section>
+<!-- Workspace Grid: 50% High-Fidelity Editor vs 50% Live Preview -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-space-xl items-start">
+<!-- LEFT: Code Editor Pane -->
+<div class="flex flex-col bg-inverse-surface rounded-xl shadow-xl overflow-hidden">
+<!-- Editor Top Bar -->
+<div class="flex items-center justify-between px-space-lg py-space-sm bg-surface-variant/10 text-inverse-on-surface">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-error inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-fixed inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed inline-block"></span>
+</div>
+<span class="h-4 w-px bg-outline-variant/30"></span>
+<div class="flex items-center gap-1.5 text-inverse-primary font-label-mono-xs text-label-mono-xs">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>YAML + Markdown Engine (Strict Schema)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm font-label-mono-xs text-label-mono-xs text-outline-variant">
+<span>UTF-8</span>
+<span>•</span>
+<span>LF</span>
+<span>•</span>
+<span class="text-secondary-fixed">87 行</span>
+</div>
+</div>
+<!-- Editor Work Area with Line Numbers -->
+<div class="flex p-space-md font-label-mono-md text-label-mono-md leading-relaxed selection:bg-secondary-container selection:text-on-secondary-container overflow-x-auto">
+<!-- Line Numbers Column -->
+<div class="select-none text-right pr-space-md text-outline font-label-mono-xs text-label-mono-xs flex flex-col space-y-0.5 opacity-60">
+<span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span>
+<span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+<span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+<span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span>
+<span>33</span><span>34</span><span>35</span>
+</div>
+<!-- Syntactically Styled Content -->
+<div class="flex-1 pl-space-xs text-inverse-on-surface whitespace-pre font-label-mono-md text-label-mono-md">
+<span class="text-outline">---</span>
+<span class="text-inverse-primary font-semibold">id</span>: <span class="text-secondary-fixed">model-outfit</span>
+<span class="text-inverse-primary font-semibold">name</span>: <span class="text-surface-container-lowest">模特换装</span>
+<span class="text-inverse-primary font-semibold">category</span>: <span class="text-secondary-fixed">image</span>
+<span class="text-inverse-primary font-semibold">executor</span>: <span class="text-secondary-fixed">media</span>
+<span class="text-inverse-primary font-semibold">inputs</span>:
+  - <span class="text-inverse-primary">role</span>: <span class="text-secondary-fixed">product_ref</span>
+<span class="text-inverse-primary">label</span>: <span class="text-surface-container-lowest">自有商品图</span>
+<span class="text-inverse-primary">type</span>: <span class="text-secondary-fixed">image_group</span>
+<span class="text-inverse-primary">min</span>: <span class="text-secondary-fixed-dim">1</span>
+<span class="text-inverse-primary">max</span>: <span class="text-secondary-fixed-dim">8</span>
+  - <span class="text-inverse-primary">role</span>: <span class="text-secondary-fixed">target_model</span>
+<span class="text-inverse-primary">label</span>: <span class="text-surface-container-lowest">模特目标图</span>
+<span class="text-inverse-primary">type</span>: <span class="text-secondary-fixed">image_multi</span>
+<span class="text-inverse-primary">min</span>: <span class="text-secondary-fixed-dim">1</span>
+<span class="text-inverse-primary font-semibold">parameters</span>:
+  - <span class="text-inverse-primary">key</span>: <span class="text-secondary-fixed">outfit_scope</span>
+<span class="text-inverse-primary">label</span>: <span class="text-surface-container-lowest">换装范围</span>
+<span class="text-inverse-primary">type</span>: <span class="text-secondary-fixed">enum</span>
+<span class="text-inverse-primary">options</span>: [<span class="text-secondary-fixed">full_outfit</span>, <span class="text-secondary-fixed">pattern_only</span>]
+    <span class="text-inverse-primary">default</span>: <span class="text-secondary-fixed">full_outfit</span>
+<span class="text-outline">---</span>
+<span class="text-tertiary-fixed font-headline-md text-headline-md font-semibold"># System Execution Prompt</span>
+<span class="text-inverse-primary font-headline-md text-headline-md">## 角色与转换约束</span>
+将 <span class="bg-primary/30 px-1 py-0.5 rounded text-inverse-primary">target_model</span> 身上明确指定的服装替换为 <span class="bg-primary/30 px-1 py-0.5 rounded text-inverse-primary">product_ref</span> 中的实物款式。
+保持原有相机的焦段视角、动态站姿及物理光照环境一致。
+
+<span class="text-inverse-primary font-headline-md text-headline-md">## 严苛保留项 (Strict Invariance)</span>
+<span class="text-error-container">1. 严禁改变模特的面容特征、发型、发色及人体肌理质感。</span>
+2. 保留原图环境背景（包括景深光晕与阴影投射角度）。
+3. 严格遵循 <span class="bg-primary/30 px-1 py-0.5 rounded text-inverse-primary">outfit_scope</span> 边界，不得破坏下装或配饰。
+        </div>
+</div>
+<!-- Editor Console Footer -->
+<div class="flex items-center justify-between px-space-lg py-2 bg-surface-variant/20 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-space-sm text-outline-variant">
+<span class="inline-flex w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>Schema Validation: Ready (Valid AST)</span>
+</div>
+<div class="flex items-center gap-space-md text-outline-variant">
+<span>Auto-Save Enabled</span>
+<button class="text-inverse-primary hover:text-surface-container-lowest transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">format_align_left</span>格式化文档
+          </button>
+</div>
+</div>
+</div>
+<!-- RIGHT: Live Form & Execution Plan Preview (50%) -->
+<div class="flex flex-col gap-space-lg">
+<!-- Sub-panel 1: Real-time UI Form Generation -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md p-space-xl">
+<div class="flex items-center justify-between pb-space-md mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">dynamic_form</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">实时表单控件渲染预览 (Dynamic Form)</h2>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface">根据 inputs / parameters 动态装配</span>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Input 1: product_ref -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-lg text-body-lg text-on-surface font-medium flex items-center gap-1.5">
+<span>自有商品图 (product_ref)</span>
+<span class="text-error text-body-sm">*</span>
+</label>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">已选 3 / 限 1-8 张</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm mt-1">
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up of a luxury tailored beige wool coat hanging against a clean minimal white studio studio background, crisp stitching and fine cloth texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN0z4YKpDp6OekMojDykKvZVT7v66LRbK7Q1AGM_gTihnUAziWxfchI41yUVE5amUp2dnyq96VGpnjzwWaYZpQsh-Cu6IWheVwHKSG5yDvHqwofT9CNyPeY_6M5HKII1hNSUiMmvRwCBDQVAaEFQQfwoDuVYkodz3OhSrOF1X98uxmopNnPhkZfGgZs2dKZS4JpfxBgxnHajrgEo6HkKa4A5tMH3SUyahb8jkVQas"/>
+<span class="absolute bottom-1 left-1 px-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs rounded">正面</span>
+</div>
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Side profile angle of a modern oversized wool coat showing the sleeve silhouette and collar construction against neutral warm gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw-2blXy7wS8_KgZMNDCIgUdz_aoEu85707WqGbLS33vk14i8c-bqYUYvE8toeCreMOBohYLXcXWB968Ck6EvX74lHFF87XZ_jEdo237KadtJzdU5DDzLZuj12hrsSiMOh2ANk3pfQMU7WKk-WLdKakYeZ4ze4jcMBiDiVOv3xnsRoFk9gHd0XiXk0sXJ9BL5ReMHF8bRb7nXsTZpBOqkalhC5g9eSv72NCglHSzc"/>
+<span class="absolute bottom-1 left-1 px-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs rounded">侧面</span>
+</div>
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Back perspective detail of the tailored woolen coat highlighting shoulder drop and center seam on high-key lighting setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Sfz3_8GROTHRVbEZb-dk0hWlCkHWmtk8Ex5cr3ylfC1ic6wMN4tKzR6SLuXwZ-SOsVp1g-8dn9jDdNtiL2AyT7sRZUEk0p_jipY6v7EYlBpOPX1_t1W079K_XZZkOGcpbnaX98Ep9CEYA7Dsz8vNfRZI1wOw7V2S5cYE2hAi0HufVfZxMsA85I16JfPZtP4So0e3s9_s76zcIXsin0zVihq9GkWyve0JJxp-Y4Q"/>
+<span class="absolute bottom-1 left-1 px-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs rounded">背面</span>
+</div>
+<button class="aspect-square flex flex-col items-center justify-center rounded-lg bg-surface-container-high hover:bg-surface-variant text-primary transition-all gap-1" type="button">
+<span class="material-symbols-outlined text-[20px]">add_photo_alternate</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold">+ 加图</span>
+</button>
+</div>
+</div>
+<!-- Input 2: target_model -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-lg text-body-lg text-on-surface font-medium flex items-center gap-1.5">
+<span>模特目标图 (target_model)</span>
+<span class="text-error text-body-sm">*</span>
+</label>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">已选 2 / 最少 1 张</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm mt-1">
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Editorial lookbook photograph of an elegant female fashion model walking on city concrete street, wearing a casual outfit under natural overcast light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmsRMsykOcYl3Lj2qL-iZ6fTGPnrWqdMFHqNcmg6fN4dnt3tHmRh1xnfN0ObDH31k8b92ZUZb-xtPXWR5FgCaVbIjGPrh8XEcs6eYlItW2y6hAn-6JfaPhzFLkYYIokVDR3Eam6149FnO8SKLkmENUMe5ak4NWTZxUVkv3zsGBGoTPGWiu5wrixORJ3Dfy0qjkFfqPPGwwE3ytngn8_P2wrVVSgM4ft8fhFxB4FOk"/>
+<span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs">1</span>
+</div>
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="High fashion studio pose of a model seated on a sleek wooden stool in a bright loft interior, clear gaze towards camera with soft natural illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBShyXWyXPyg30CoC0WU1wyOLX7OdL1CQ19xbwi9g-QOOalKPGuQtgKdPQvZz95oUmzIT2Byxa0DD5zBpUMMcXJnh55meHrfDnjQsgUbWeLMdU1rc6UsEZ7diW7_qmoAgZICBWmaAd6r8uEhvuFfS36YyoYD1lcxl7ICvEitQqIYqwZ3lGnqboUTtdp4GxGHj4x6fpJiErVyAx2M93N35GKAl28F3XQB-hrzk17qmg"/>
+<span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs">2</span>
+</div>
+<button class="aspect-square flex flex-col items-center justify-center rounded-lg bg-surface-container-high hover:bg-surface-variant text-primary transition-all gap-1" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold">+ 添加模特</span>
+</button>
+</div>
+</div>
+<!-- Parameter 1: outfit_scope -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-body-lg text-body-lg text-on-surface font-medium">换装范围 (outfit_scope)</label>
+<div class="grid grid-cols-2 gap-space-md mt-1">
+<label class="flex items-center justify-between p-space-md rounded-lg bg-primary-fixed text-on-primary-fixed shadow-sm cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold">整套换装 (full_outfit)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">替换模特上身或全身指定主廓形</span>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface shadow-sm cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">radio_button_unchecked</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold">仅迁移图案 (pattern_only)</span>
+<span class="font-body-sm text-body-sm text-outline">保持原版型，仅更替印花面料</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-panel 2: Batch Calculation & Task Expansion Plan -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md p-space-xl">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">数量展开计算与执行计划</h2>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-semibold">Formula: N(prod) × N(target) × Variants</span>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md p-space-md bg-surface-container-high rounded-xl">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">商品图切片</span>
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-on-surface">3 角度</span>
+</div>
+<span class="font-headline-md text-headline-md text-outline">×</span>
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">目标模特</span>
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-on-surface">2 张</span>
+</div>
+<span class="font-headline-md text-headline-md text-outline">×</span>
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">候选版次</span>
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-on-surface">2 版</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-headline-md text-headline-md text-primary">=</span>
+<div class="px-space-md py-1.5 bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="font-label-mono-xs text-label-mono-xs text-outline">派发子作业</div>
+<div class="font-label-mono-lg text-label-mono-lg font-bold text-primary">4 独立生成任务</div>
+</div>
+<div class="px-space-md py-1.5 bg-primary-container text-on-primary rounded-lg shadow-sm">
+<div class="font-label-mono-xs text-label-mono-xs opacity-90">算力预扣</div>
+<div class="font-label-mono-lg text-label-mono-lg font-bold">40 点</div>
+</div>
+</div>
+</div>
+<!-- Visual Flow Pipeline Tracker (SVG Data Mini-Graph) -->
+<div class="mt-space-md p-space-md bg-surface-container-low rounded-lg flex items-center justify-between text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Step 1: 模特骨骼姿态提取</span>
+</div>
+<svg class="w-8 h-4 text-outline" fill="none" stroke="currentColor" viewbox="0 0 32 16">
+<path d="M0 8h28m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Step 2: 质感结构几何重映</span>
+</div>
+<svg class="w-8 h-4 text-outline" fill="none" stroke="currentColor" viewbox="0 0 32 16">
+<path d="M0 8h28m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Step 3: 光影与衣褶自洽渲染</span>
+</div>
+</div>
+</div>
+<!-- Sub-panel 3: Prompt Hydration & Compatibility Diagnostics -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Rendered Prompt Sample -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">chat</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">执行提示词样本预览</h3>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">已替换占位符</span>
+</div>
+<div class="p-space-md bg-surface-container rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface leading-relaxed flex-1 select-all">
+            `SYSTEM: Transfer garment from ref_01(front_view.jpg) onto target_02(sitting_pose.jpg). Preserve model identity, facial landmark, room light angle. Mode: full_outfit replacement. Quality: masterwork, e-commerce catalog high sharpness.`
+          </div>
+</div>
+<!-- Compatibility & Security Report -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">兼容性静态诊断</h3>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed">100% 达标</span>
+</div>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-2 rounded">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>目标引擎适配</span>
+</span>
+<span class="font-label-mono-xs text-label-mono-xs font-semibold text-primary">TT Image 2.5 Omni</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-2 rounded">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>有向无环图校验 (DAG)</span>
+</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">无循环依赖引用</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-2 rounded">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>指令安全扫描</span>
+</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">未检测到越权指令</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Notification Status Bar -->
+<div class="mt-space-xl p-space-md rounded-xl bg-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm shadow-md">
+<div class="flex items-center gap-space-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<p class="font-body-md text-body-md">
+<strong>提示：</strong>文件保存即自动生成本地未发布草稿。点击上方<span class="text-primary font-semibold">“发布新修订”</span>方可无感更新至生产端工作台运行时。
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-auto">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">节点通道: local-daemon:8080</span>
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,198 @@
+{
+  "tt-image-2.5": {
+    "name": "tt-image-2.5",
+    "available_for_this_key": true,
+    "channel_groups": [
+      {
+        "group_id": 1875,
+        "group_name": "BR-default-特惠分组",
+        "is_active": true,
+        "in_key_whitelist": true,
+        "excluded_for_this_key": false,
+        "billing_method": "按次",
+        "base_price": 0.0395,
+        "min_price": 0.0395,
+        "input_token_price": 0,
+        "output_token_price": 0,
+        "input_image_price": 0,
+        "input_image_free_count": 0,
+        "option_prices": [],
+        "unsupported": [
+          "该渠道不支持透明背景",
+          "该渠道不支持超高 / 极致画质，按自动画质出图"
+        ],
+        "current_time_discount": 1,
+        "with_video_output_token_price": 0,
+        "reference_video_price_per_second": 0,
+        "reference_video_billed_as_output": false,
+        "reference_video_output_multiplier": 0,
+        "reference_video_min_two_thirds": false,
+        "success_rate_24h": 98.66,
+        "avg_response_seconds": 33.18,
+        "supported_options": {
+          "background": [
+            "opaque",
+            "auto"
+          ]
+        },
+        "capability_rules": [
+          {
+            "effect": "reject",
+            "when": [
+              {
+                "param": "background",
+                "op": "in",
+                "values": [
+                  "transparent"
+                ]
+              }
+            ],
+            "message": "该渠道不支持透明背景"
+          },
+          {
+            "effect": "ignore",
+            "when": [
+              {
+                "param": "quality",
+                "op": "in",
+                "values": [
+                  "xhigh",
+                  "max"
+                ]
+              }
+            ],
+            "message": "该渠道不支持超高 / 极致画质，按自动画质出图"
+          }
+        ]
+      },
+      {
+        "group_id": 1747,
+        "group_name": "BR-default特价",
+        "is_active": true,
+        "in_key_whitelist": true,
+        "excluded_for_this_key": false,
+        "billing_method": "按次",
+        "base_price": 0.0858,
+        "min_price": 0.0858,
+        "input_token_price": 0,
+        "output_token_price": 0,
+        "input_image_price": 0,
+        "input_image_free_count": 0,
+        "option_prices": [],
+        "unsupported": [
+          "该渠道不支持透明背景",
+          "该渠道不支持超高 / 极致画质，按自动画质出图"
+        ],
+        "current_time_discount": 1,
+        "with_video_output_token_price": 0,
+        "reference_video_price_per_second": 0,
+        "reference_video_billed_as_output": false,
+        "reference_video_output_multiplier": 0,
+        "reference_video_min_two_thirds": false,
+        "success_rate_24h": 95.71,
+        "avg_response_seconds": 35.2,
+        "supported_options": {
+          "background": [
+            "opaque",
+            "auto"
+          ]
+        },
+        "capability_rules": [
+          {
+            "effect": "reject",
+            "when": [
+              {
+                "param": "background",
+                "op": "in",
+                "values": [
+                  "transparent"
+                ]
+              }
+            ],
+            "message": "该渠道不支持透明背景"
+          },
+          {
+            "effect": "ignore",
+            "when": [
+              {
+                "param": "quality",
+                "op": "in",
+                "values": [
+                  "xhigh",
+                  "max"
+                ]
+              }
+            ],
+            "message": "该渠道不支持超高 / 极致画质，按自动画质出图"
+          }
+        ]
+      }
+    ]
+  },
+  "omni-flash": {
+    "name": "omni-flash",
+    "available_for_this_key": true,
+    "channel_groups": [
+      {
+        "group_id": 822,
+        "group_name": "MC-omni",
+        "is_active": true,
+        "in_key_whitelist": true,
+        "excluded_for_this_key": false,
+        "billing_method": "按次",
+        "base_price": 0.4118,
+        "min_price": 0.4118,
+        "input_token_price": 0,
+        "output_token_price": 0,
+        "input_image_price": 0,
+        "input_image_free_count": 0,
+        "option_prices": [
+          {
+            "param_name": "duration",
+            "option_label": "6秒",
+            "option_value": "6",
+            "price_multiplier": 1,
+            "price_addition": 0.2059,
+            "final_price": 0.6177,
+            "price_impact": "+0.2059算力"
+          },
+          {
+            "param_name": "duration",
+            "option_label": "8秒",
+            "option_value": "8",
+            "price_multiplier": 1,
+            "price_addition": 0.4118,
+            "final_price": 0.8236,
+            "price_impact": "+0.4118算力"
+          },
+          {
+            "param_name": "duration",
+            "option_label": "10秒",
+            "option_value": "10",
+            "price_multiplier": 1,
+            "price_addition": 0.6178,
+            "final_price": 1.0296,
+            "price_impact": "+0.6178算力"
+          },
+          {
+            "param_name": "duration",
+            "option_label": "4秒",
+            "option_value": "4",
+            "price_multiplier": 1,
+            "price_addition": 0,
+            "final_price": 0.4118,
+            "price_impact": "基础价格"
+          }
+        ],
+        "current_time_discount": 1,
+        "with_video_output_token_price": 0,
+        "reference_video_price_per_second": 0,
+        "reference_video_billed_as_output": false,
+        "reference_video_output_multiplier": 0,
+        "reference_video_min_two_thirds": false,
+        "success_rate_24h": 92.73,
+        "avg_response_seconds": 143.94
+      }
+    ]
+  }
+}

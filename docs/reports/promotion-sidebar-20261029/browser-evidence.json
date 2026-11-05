@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "viewportResults": [
+    {
+      "width": 1280,
+      "height": 900,
+      "sidebarWidth": 380,
+      "horizontalOverflow": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "sidebarWidth": 400,
+      "horizontalOverflow": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "sidebarWidth": 440,
+      "horizontalOverflow": 0
+    }
+  ],
+  "benchmarkReferences": 2,
+  "postPages": 2,
+  "postRecoveredAfterVideoSwitch": true,
+  "videoReference": "Existing real 4-second MP4",
+  "videoAnalysisModel": "GEM 3.8 flash",
+  "videoAnalysisNotSubmitted": true,
+  "collapse": {
+    "width": 56,
+    "ariaHidden": true
+  },
+  "restartedServerOldPageSaved": true,
+  "customDropdownOpenCount": 1,
+  "newPaidCalls": 0
+}

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#c3c0ff","surface-variant":"#dae2fd","secondary":"#4648d4","surface":"#faf8ff","surface-tint":"#4d44e3","inverse-on-surface":"#eef0ff","secondary-fixed-dim":"#c0c1ff","error-container":"#ffdad6","error":"#ba1a1a","secondary-container":"#6063ee","on-tertiary-fixed":"#001e2f","surface-bright":"#faf8ff","outline":"#777587","on-surface":"#131b2e","outline-variant":"#c7c4d8","tertiary":"#004d70","background":"#faf8ff","on-secondary":"#ffffff","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#004c6e","secondary-fixed":"#e1e0ff","primary-fixed":"#e2dfff","on-tertiary-container":"#b8e0ff","surface-container-high":"#e2e7ff","surface-container-lowest":"#ffffff","on-error":"#ffffff","tertiary-container":"#006693","on-tertiary":"#ffffff","on-primary-container":"#dad7ff","surface-dim":"#d2d9f4","on-background":"#131b2e","on-secondary-fixed-variant":"#2f2ebe","on-primary-fixed-variant":"#3323cc","surface-container":"#eaedff","on-surface-variant":"#464555","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","on-secondary-fixed":"#07006c","tertiary-fixed":"#c9e6ff","surface-container-low":"#f2f3ff","on-secondary-container":"#fffbff","surface-container-highest":"#dae2fd","on-primary":"#ffffff","primary":"#3525cd","inverse-surface":"#283044","tertiary-fixed-dim":"#89ceff","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-dense":"0.5rem","gutter":"1rem","margin":"1.5rem","space-xs":"0.25rem","margin-dense":"1rem","space-2xl":"2rem","space-xl":"1.5rem","space-sm":"0.5rem","space-lg":"1rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"label-mono-md":["JetBrains Mono"],"headline-md":["Inter"],"headline-xl":["Inter"],"headline-lg":["Inter"],"label-mono-xs":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-mono-lg":["JetBrains Mono"]},"fontSize":{"body-lg":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-mono-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between select-none shadow-[2px_0_12px_rgba(15,23,42,0.12)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[18px]">neurology</span></div><span class="font-headline-md text-headline-md tracking-tight text-surface-container-lowest">AI 创作工作台</span></div><span class="font-label-mono-xs text-label-mono-xs px-space-xs py-0.5 rounded bg-surface-variant/20 text-inverse-primary">v1.0.0</span></div><div class="flex items-center gap-space-sm mt-space-xs"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-fixed"></span></span><span class="font-label-mono-xs text-label-mono-xs text-outline-variant">运行中 127.0.0.1:8080</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between p-space-xs bg-surface-variant/10 rounded-lg"><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-surface-container-lowest bg-primary-container font-medium" type="button">全部</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">图片</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">视频</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">智能体</button></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider uppercase px-space-sm">创作技能引擎</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="image-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">photo_library</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">图片生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">IMG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">多构图商品图快速生成</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="model-try-on" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">dry_cleaning</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">模特换装</span><span class="font-label-mono-xs text-label-mono-xs text-outline">OUT-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">自有商品智能局部替换</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="scene-replica" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">landscape</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">场景复刻</span><span class="font-label-mono-xs text-label-mono-xs text-outline">SCN-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">挂拍/平铺构图光影重塑</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="video-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">video_camera_back</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">视频生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">VID-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">提示词与商品参考成片</span></div></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-all group bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm" data-path="benchmark-agent" href="#"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">smart_toy</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate text-secondary-fixed">一键对标</span><span class="font-label-mono-xs text-label-mono-xs px-1 rounded bg-secondary-container/40 text-on-secondary-container">AG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">同行图集与白底流替换</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-space-xs"><div class="flex items-center justify-between text-outline-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-mono-xs text-label-mono-xs">NVMe Local</span></div><span class="font-label-mono-xs text-label-mono-xs text-inverse-on-surface">428 GB 可用</span></div><div class="w-full bg-surface-variant/20 rounded-full h-1"><div class="bg-secondary-fixed h-1 rounded-full w-[65%]"></div></div><div class="flex items-center justify-between text-outline"><span class="font-label-mono-xs text-label-mono-xs">环境运行安全</span><span class="material-symbols-outlined text-[14px] text-secondary-fixed">verified_user</span></div></div><div class="flex items-center justify-between px-space-xs pt-space-xs"><nav class="flex items-center gap-space-sm" data-active-classes="text-surface-container-lowest font-medium"><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>设置</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="model-library" href="#"><span class="material-symbols-outlined text-[16px]">deployed_code</span>模型</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="compute-diagnostic" href="#"><span class="material-symbols-outlined text-[16px]">speed</span>算力</a></nav><button class="text-outline-variant hover:text-surface-container-lowest transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">help</span></button></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface/85 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-sm text-body-sm text-on-surface-variant">工作区</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-body-sm text-body-sm text-primary font-medium">本地高性能调度</span></div><span class="h-3.5 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs px-2 py-0.5 rounded bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>活动生成槽: 4/20 (TT-Image: 3, Omni: 1)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[16px] text-tertiary">toll</span><span class="font-body-sm text-body-sm">参考余额: <strong class="font-label-mono-md text-label-mono-md text-primary">3,420 点</strong></span><span class="font-label-mono-xs text-label-mono-xs text-outline">(预计在途: 40点)</span></div><a class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant hover:text-on-surface transition-all text-on-surface" data-path="background-tasks" href="#"><span class="material-symbols-outlined text-[16px] text-secondary">sync_alt</span><span class="font-body-sm text-body-sm font-medium">后台任务</span><span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-mono-xs text-label-mono-xs font-semibold">2</span></a><span class="h-4 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs text-outline"><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">minimize</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">crop_square</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-error-container hover:text-error rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full px-space-lg min-h-screen bg-surface"><div class="flex flex-col w-full pb-16">
+<!-- Top Workflow Status Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md p-space-lg rounded-xl bg-surface-container-low shadow-sm mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary text-on-primary uppercase font-semibold">AG-01 对标引擎</span>
+<span class="font-label-mono-md text-label-mono-md text-outline">#AG-FLOW-20261028-01</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-body-sm text-body-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          草稿编辑中 · 待提交
+        </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">2026冬款羽绒服对标爆款替换</h1>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+        历史对标记录
+      </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container text-outline hover:text-error hover:bg-error-container/30 transition-colors font-body-sm text-body-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+        清空重置
+      </button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-body-sm text-body-sm font-semibold shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+        保存草稿
+      </button>
+</div>
+</div>
+<!-- Step 1: Material Preparation Area -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">1</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">素材准备区</h2>
+<span class="font-label-mono-xs text-label-mono-xs text-outline font-medium tracking-wide">RAW INGEST & BENCHMARK SOURCE</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">已绑定自有SKU档案与竞品对标原图</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Own Merchandise Assets (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col rounded-xl bg-surface-container-lowest shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low/60 -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">checkroom</span>
+<span class="font-headline-md text-headline-md text-on-surface">自有商品资料</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold tracking-tight">商品款式真理源</span>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-md text-label-mono-md text-primary font-bold">SKU-M9022</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">已核验 3 组角度</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">男款极寒充绒工装羽绒服 - 极光黑</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant">防风三防面料 / 磁吸门襟 / 900+蓬松度白鹅绒</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm mb-space-md">
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative group bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Professional studio flat lay photography of a high-tech black hooded winter parka down jacket with magnetic storm flap on neutral background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOp196ezCGWOSDl8cwYC32iDItH4SlUOwan2f8qC5YKfinrUI7OMimOT6QtpuM9ZxRva5dunXqUlH49VIXJ95QUTLgW46R1IywnVDilxh90A9sA81PsDIuXDgdWKNZ-L_U2J3qvqhiQphj8vn_r_nDSdEpq5_dz-pwbbb4sbkjpaWixTFCpg0HhOm-QNbNmUPvuwgOWBrXolZR6YLy6Mnwu2SPRkVA02oGB1wOWE"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">正面平铺</span>
+<span class="absolute bottom-1 right-1 px-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs">#SKU-01</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center text-outline">款式基底</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative group bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Front view male fashion model wearing heavy black technical down parka outerwear in minimalist commercial lighting showing natural drape and chest fit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYR9TUENqZww2etKHg_pEylmme-uJpK55BCdTqXIoC6JN2V8z4KgAcIxo3HGESZu1-dJ91yqsL9x9x72Zu1OaY2rX1LAW18VIaIKIf9Jw5vHVMfe5pIehCxELC6yyGd-AyR9c0EM9dLZ_bC7vCkAGzNFNdc3c7EzzGEss21kVi_qaabpqOkzAm_LDuZdm7u2iUl1qjLq0VlhdY1yUTKJMGbAi4Hs3SwaX_XWDkDXE"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">模特上身</span>
+<span class="absolute bottom-1 right-1 px-1 rounded bg-surface-container-highest text-on-surface font-label-mono-xs text-label-mono-xs">#SKU-02</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center text-outline">版型结构</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative group bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Macro extreme close-up of matte waterproof breathable tactical down jacket fabric texture showing micro-ripstop weave and water repellent beadlets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb6dSX0oHisQg9MVUtzBHaL3l2A9BGP3RJVd55Wehi-1havXDD0eZB9_sIQe_XQcMTHdyIAbcFJviHp2M1F0TZNipzTbpQSWj9Z8Hq6-UVak1JV6FYAg5WG2LEsugejq94Ip4C6_3mbSnbHUsWKcfe5qQeNi4XI5AzB9yDLmtzysILilFv2AhpRCy4-EYEEOVfvrolwlFz4Wx6siNZdJUB9hHFrbB3FIGgoZvbdHY"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-mono-xs text-label-mono-xs">面料特写</span>
+<span class="absolute bottom-1 right-1 px-1 rounded bg-surface-container-highest text-on-surface font-label-mono-xs text-label-mono-xs">#SKU-03</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center text-outline">防风科技纹理</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg text-on-surface-variant">
+<span class="font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+            模型特征权重锚定锁死
+          </span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">权重: 1.0x</span>
+</div>
+</div>
+<!-- Right Column: Competitor Lookbook and Origin (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col rounded-xl bg-surface-container-lowest shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low/60 -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">dynamic_feed</span>
+<span class="font-headline-md text-headline-md text-on-surface">同行图集与来源</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm" type="button">全选 (6)</button>
+<button class="px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed font-body-sm text-body-sm font-semibold" type="button">仅选前4张</button>
+</div>
+</div>
+<!-- Reference Link Memo -->
+<div class="flex items-center justify-between gap-space-sm px-space-md py-2 rounded-lg bg-surface-container-low mb-space-md">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline">link</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">来源链接记录:</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface truncate">https://v.douyin.com/iR3qLm9/ (2026年Q4爆款短视频截流图集)</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline/80 shrink-0">只读备忘</span>
+</div>
+<!-- 6 Competitor Assets Matrix -->
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-space-sm mb-space-xs">
+<!-- Competitor Item 1 -->
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container group">
+<img class="w-full h-full object-cover" data-alt="Competitor fashion commercial shoot of male model in winter snowfield forest wearing bulky olive green puffer coat with dramatic cold sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2oAKGzTrQVzTsx48IRC1__MZyfKsv-X2AJbgjTnnW-pxpNXcbMqeNnjhnDvRNS3yF-N2V-3Coc-5fu_fFaqMQQ8Srno8BUpxRyX7CQApQiOy5622lvEHt62jqjoRaeVnk8T--IsrCm5SydV_NsxI2UcGGKjmjFhrkySZIfg99dZxidiJahHgIDomCJ9YgnPMNP9cKvYoWRDvQZAQPrGxrPA8ukT364bPrCHwTRd8"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">✓</span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#01</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-on-surface font-medium">雪地场景</span>
+</div>
+<!-- Competitor Item 2 -->
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container group">
+<img class="w-full h-full object-cover" data-alt="Street style snapshot of model walking at night in illuminated neon city avenue wearing silver oversized down coat, cinematic reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBfVNf0YQDmPHQsarXsgKXxLwE4otSPYt-JC77yEM1x7fz4qndLGvSZPFPM1-GGRn2Es8nMoWtqb5gQtNXSB-aaI57dGVKmL4tcUgGeZvh0ncbcxIzkoWDhIbpmExcAq0r9dEFGxyiRGNez_qT0x88MvE4W6OYn_550rpuJ9rbFIOmPMWKcq78wbxPjZVA1Z_sSckQyEMSga5O9yJL8kYQ24GOsHOyaSTF4SccPFc"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">✓</span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#02</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-on-surface font-medium">霓虹街拍</span>
+</div>
+<!-- Competitor Item 3 -->
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container group">
+<img class="w-full h-full object-cover" data-alt="Outdoor lifestyle lookbook shot of hiker standing by orange tent in misty mountain ridge wearing blue hooded down jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs_jA22nH_G3ZUtbgA5KkIUuOLqnm41562gdGB9AFdtGc0UpvSHioG5rbetx2FKx_eL2vMFVuT_4CGzuVNVpnoEowx61LPVNc5Pm340ux6PRQdZLftVV6yzNY1zI5p0JMkmEgZsrvBGI3b02eF8li_pA7yVirfofoZIzYc8e_MRrk9hMJcZvMIsopA2UVgTAjI6bJSOdJr2GWAoYbMAMzBsDwcYRGBULcO3YSR1f0"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">✓</span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#03</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-on-surface font-medium">山系露营</span>
+</div>
+<!-- Competitor Item 4 -->
+<div class="flex flex-col gap-1">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container group">
+<img class="w-full h-full object-cover" data-alt="Warm indoor lifestyle catalog photo of male model drinking coffee next to industrial loft window wearing charcoal insulated jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJXRkQFWzW_o1vYCDU6TNU69fjY8uVHEliLYTY0_Osw2N_OnDcfftuoVS1Yxsuv2rMh3n77PkdFitBkjWWcML1c1P6MgeAXELm_mrKRKATZd0pBx83Z4c_q_aSXxdCmQdgytf0-W29wYyYzbNXnvtdeTd0PcbG6BEh_EKeyB7f1O_T_vWurm3K3JxGTPWiA7aauYMy05hwHtciW-1z7XmN8GLhyZFJykHyaW_GLGM"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">✓</span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#04</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-on-surface font-medium">暖光室内</span>
+</div>
+<!-- Competitor Item 5 (Unchecked) -->
+<div class="flex flex-col gap-1 opacity-45">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container">
+<img class="w-full h-full object-cover grayscale" data-alt="Subway platform fashion shoot of male in beige down coat waiting for train, high key contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNvSmeDuA7I-jwR2TCkoFzyiIC52DAy5R09KHAPuVjWvZt_0FU-RU2h4avEM0HaAm5iUOVc7i2u2zYTssVVQc2SDO3Q2iBpuOyG915_p_4ZRkUDQSiVutQ2NE8FWCc8b7O2U_CWClfWtpqwCqv0aFcK8g-DFTfH1D3tdPm2vd4HNCgS1y2wN5oopwE9aTkaRu6L0nq3SwhalhhaamVIV27jJrefEjG6CJTLMiw-ZY"/>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-surface-variant text-outline flex items-center justify-center font-label-mono-xs text-label-mono-xs"></span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/60 text-inverse-on-surface px-1 rounded">#05</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-outline">地铁过道</span>
+</div>
+<!-- Competitor Item 6 (Unchecked) -->
+<div class="flex flex-col gap-1 opacity-45">
+<div class="aspect-[3/4] rounded-lg overflow-hidden relative bg-surface-container">
+<img class="w-full h-full object-cover grayscale" data-alt="Close crop torso detail of winter down jacket zipper and chest pocket in automotive parking lot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdT_FJiUpil4L31teiEvctLUIMdOkoUFYBHwMX3jXrCaxYMgn422yXlElKm-XVBryrSFCEVbEa9C91fd4WgZmaw74VupkBhNXAg0zI7NmptHT07F2ajdju_MCLsFCprbpUDKnkxOAodh-kaJIZVjbSZ3zeVjEOQVcvtTeMPOZktjH9hwxGOkBEhCIJ5mxaNGyJ6oeaYIU8CR-0BJaLSEOn210W3eq84-KDtIc4SU8"/>
+<span class="absolute top-1 left-1 w-4 h-4 rounded bg-surface-variant text-outline flex items-center justify-center font-label-mono-xs text-label-mono-xs"></span>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/60 text-inverse-on-surface px-1 rounded">#06</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-center truncate text-outline">门襟特写</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-space-xs text-outline font-label-mono-xs text-label-mono-xs">
+<span>批量勾选将激活对应工作区生成项</span>
+<span>已勾选 4 / 6 图</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Global Configuration & Independent White-Background Flow -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">2</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">公共配置与独立白底流控制条</h2>
+<span class="font-label-mono-xs text-label-mono-xs text-outline font-medium tracking-wide">STANDALONE WHITE ISOLATION & INFERENCE GLOBAL</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">PRD 9.2 独立白底流隔离标准</span>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-lg">
+<!-- Upper Section: Reference Origin Radio Group & Standalone White Flow -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-center">
+<!-- Radio Button Group (7 Cols) -->
+<div class="xl:col-span-6 flex flex-col gap-space-xs">
+<label class="font-body-sm text-body-sm text-outline font-medium">【商品参考来源配置】</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<label class="flex items-center gap-space-xs p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="accent-primary w-4 h-4" name="product_ref_mode" type="radio"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">直接使用商品原图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline truncate">默认 · 无额外调用</span>
+</div>
+</label>
+<label class="flex items-center gap-space-xs p-2.5 rounded-lg bg-primary-fixed/20 hover:bg-primary-fixed/30 cursor-pointer transition-colors shadow-sm">
+<input class="accent-primary w-4 h-4" name="product_ref_mode" type="radio"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">使用已有白底图</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary truncate">高保真纯净流</span>
+</div>
+</label>
+<label class="flex items-center gap-space-xs p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="accent-primary w-4 h-4" name="product_ref_mode" type="radio"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">启动白底图任务</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline truncate">实时新算力</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Standalone White Flow Action & Ready Badge (6 Cols) -->
+<div class="xl:col-span-6 p-space-md rounded-xl bg-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-0 w-full sm:w-auto">
+<!-- White Thumbnail Preview -->
+<div class="w-12 h-14 rounded-lg bg-surface-container-lowest shrink-0 overflow-hidden relative shadow-sm">
+<img class="w-full h-full object-contain p-1" data-alt="Pure crisp isolated white background product photography of a black hooded winter parka jacket with clean edges and zero shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQL5bnUb9m6-kkkbNp6QmMLcp5ivi5OhDiyby0TG2MPtoImGQxEqK6z8-EIJ0cdXtZ5F5qGlK566ce76om9EetUy9A5M855CH-GAQFmaAtEdTvOc3aP3tjq-8GRF_ol8mTCQZwq6ZffG0YtiRp_xZCwAN1WKCj_HokX5Ep0etOGiT6gRrIKT61EQXb274X2-bYJf3hIGuSH5KAKH5OSEbo8i_MdQX1M8eFWfPrdgo"/>
+<span class="absolute bottom-0 inset-x-0 bg-primary text-on-primary text-[8px] text-center font-label-mono-xs leading-tight">#WHT-001</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">白底已就绪: #WHT-001</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-medium">纯白不透明已校验 (Alpha 100% Locked)</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">※ 仅生成白底不自动替换整批</span>
+</div>
+</div>
+<button class="shrink-0 w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-secondary-container text-on-secondary-container hover:bg-secondary transition-all font-body-sm text-body-sm font-semibold shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+            单独生成白底图 (1次生成/10点)
+          </button>
+</div>
+</div>
+<!-- Lower Section: Global Execution Parameters -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-md bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">替换对象</span>
+<div class="flex items-center gap-1 font-body-md text-body-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">strikethrough_s</span>
+            整件羽绒服
+          </div>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">换装范围</span>
+<div class="flex items-center gap-1 font-body-md text-body-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">crop_portrait</span>
+            整套替换 (Top & Torso)
+          </div>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">每图候选版本数</span>
+<div class="flex items-center gap-1 font-body-md text-body-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">filter_1</span>
+            1 版 (推荐标准质检)
+          </div>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">底层生图模型</span>
+<div class="flex items-center gap-1 font-body-md text-body-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">model_training</span>
+            TT-Image 2.5 (Fashion Pro)
+          </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3: Core Three-Column Item Workspace (PRD 9.3) -->
+<div class="flex flex-col gap-space-md">
+<!-- Workspace Subheader & Batch Queue Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-high shadow-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-mono-xs text-label-mono-xs font-bold">3</div>
+<span class="font-headline-md text-headline-md text-on-surface">核心三栏 item 工作区</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<span class="font-body-sm text-body-sm text-on-surface">
+          已勾选 <strong class="font-label-mono-md text-label-mono-md text-primary font-bold">4/6</strong> 张同行图
+          <span class="text-outline mx-1">|</span>
+<strong class="font-label-mono-md text-label-mono-md text-primary font-bold">4</strong> 个生成 item
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface">
+          预计总消耗: <strong class="text-primary font-bold">40 算力点</strong> (白底已完成不计入)
+        </span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors font-body-sm text-body-sm font-medium shadow-sm" type="button">
+          批量应用公共配置
+        </button>
+<button class="flex items-center gap-1.5 px-5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-body-sm text-body-sm font-semibold shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+          一键替换入队 (Submit 4 items)
+        </button>
+</div>
+</div>
+<!-- Column Headers Guide -->
+<div class="hidden lg:grid grid-cols-12 gap-space-md px-space-lg py-1 font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">
+<div class="col-span-3">左栏: 同行目标图 (BENCHMARK SOURCE)</div>
+<div class="col-span-6">中栏: 本项配置与提示词绑定 (NODE MATRIX)</div>
+<div class="col-span-3">右栏: 状态与产物 (OUTPUT PREVIEW)</div>
+</div>
+<!-- Items Grid Container -->
+<div class="flex flex-col gap-space-md">
+<!-- Item #01 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<!-- Left Column: Competitor Target -->
+<div class="lg:col-span-3 flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<input checked="" class="accent-primary w-4 h-4 mt-1 rounded shrink-0" type="checkbox"/>
+<div class="w-20 h-28 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Competitor fashion commercial shoot of male model in winter snowfield forest wearing bulky olive green puffer coat with dramatic cold sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7AL3yFh04ZXcHdBMaNhfk2DVLAZRj2SAhgkPDiGX4OSJj7fjN0zYf-C1f_44zkXXBzH5OESsSZbxWkusSF0QPUXlZAs2nFGJmgMbWSIdUFqimg03Cm2cEVcre3vWmttUoeoyx41WA9ChW5FSARxNruoksWx0SD9JwWl_TBH3xNtUeyIPjgkNQOTf62XiWqefsXJXQBYMbAo5IryXBMq52K1fzHxJYjls_kU1YDgA"/>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#01</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-md text-label-mono-md font-bold text-on-surface">ITEM #01</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-surface-variant text-on-surface-variant">3:4 画幅</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface mt-1">雪地场景模特</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">原图尺寸: 1440×1920</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">光影: 强直射侧光雪景</span>
+</div>
+</div>
+<!-- Center Column: Node Config & Binding -->
+<div class="lg:col-span-6 flex flex-col justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">已绑定 SKU #SKU-01</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">+ 白底辅助 #WHT-001</span>
+</div>
+<button class="text-primary hover:text-secondary font-body-sm text-body-sm font-medium flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                编辑提示词覆盖
+              </button>
+</div>
+<!-- Inherited Prompt Card -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest font-label-mono-xs text-label-mono-xs text-on-surface leading-relaxed shadow-sm">
+<span class="text-outline font-semibold">Prompt: </span>
+              替换雪地模特羽绒服为自有黑色工装羽绒服，精准匹配 SKU-M9022 充绒绗缝间距与磁吸门襟细节，保留原雪景松林冷调直射光，维持原模特正面微侧视线与雪地脚印构图。
+            </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-mono-xs text-label-mono-xs pt-1">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              去噪强度: 0.65 | CFG: 7.0 | Sampler: Euler A
+            </span>
+<span class="text-primary font-medium">消耗: 10 算力点</span>
+</div>
+</div>
+<!-- Right Column: Status & Deliverable -->
+<div class="lg:col-span-3 flex flex-col justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">执行状态</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              就绪 · 待提交排队
+            </span>
+</div>
+<div class="flex items-center gap-space-sm py-2">
+<div class="w-14 h-16 rounded border-dashed border-2 border-outline-variant flex flex-col items-center justify-center text-outline bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">hourglass_empty</span>
+<span class="text-[9px] font-label-mono-xs">待渲染</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">排队预分配槽位 #01</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">提交后预计耗时 ~9.2 秒</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface" type="button">单项预审</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary hover:bg-primary-container font-body-sm text-body-sm font-semibold" type="button">单独提交</button>
+</div>
+</div>
+</div>
+<!-- Item #02 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<!-- Left Column: Competitor Target -->
+<div class="lg:col-span-3 flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<input checked="" class="accent-primary w-4 h-4 mt-1 rounded shrink-0" type="checkbox"/>
+<div class="w-20 h-28 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Street style snapshot of model walking at night in illuminated neon city avenue wearing silver oversized down coat, cinematic reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9q-Uw8rGIL852DofQFjMw7mHI2LeQBu2uMO72qtlJGtvqblou2lGCNSifA3xdSBgtrZ5wx41tZBgjgwWZwMFX_NYcDCkZc3UF38M-c3_srgpDOQF6sl8ccyCw-TpRxRrhwhwlb5kkznI4daH_al3uXqz-lN0SSV08erKCCCVVO59Xk9KTWbgsQcND8YaFwyhp5FVjEc4zkZ6EOduRhLvG4mbcWq1Q4fU_wNvl_OI"/>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#02</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-md text-label-mono-md font-bold text-on-surface">ITEM #02</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">9:16 (覆盖)</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface mt-1">城市街拍夜景模特</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">原图尺寸: 1080×1920</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">光影: 霓虹冷暖对比侧逆光</span>
+</div>
+</div>
+<!-- Center Column: Node Config & Binding -->
+<div class="lg:col-span-6 flex flex-col justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">已绑定 SKU #SKU-01</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-secondary text-on-secondary font-bold">独立覆盖提示词</span>
+</div>
+<button class="text-primary hover:text-secondary font-body-sm text-body-sm font-medium flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                编辑提示词覆盖
+              </button>
+</div>
+<!-- Overridden Prompt Card -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest font-label-mono-xs text-label-mono-xs text-on-surface leading-relaxed shadow-sm">
+<span class="text-secondary font-semibold">Overridden Prompt: </span>
+              保留霓虹夜景街区与潮湿地面漫反射，将银色羽绒服精准重构为极光黑色极寒羽绒服，面料微反光呈哑光质感，保留模特行走动态与肩部轮廓。
+            </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-mono-xs text-label-mono-xs pt-1">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              去噪强度: 0.70 | 画幅: 9:16 抖音竖屏 | Sampler: DPM++ 2M Karras
+            </span>
+<span class="text-primary font-medium">消耗: 10 算力点</span>
+</div>
+</div>
+<!-- Right Column: Status & Deliverable -->
+<div class="lg:col-span-3 flex flex-col justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">执行状态</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              就绪 · 待提交排队
+            </span>
+</div>
+<div class="flex items-center gap-space-sm py-2">
+<div class="w-14 h-16 rounded border-dashed border-2 border-outline-variant flex flex-col items-center justify-center text-outline bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">hourglass_empty</span>
+<span class="text-[9px] font-label-mono-xs">待渲染</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">排队预分配槽位 #02</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">提交后预计耗时 ~10.4 秒</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface" type="button">单项预审</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary hover:bg-primary-container font-body-sm text-body-sm font-semibold" type="button">单独提交</button>
+</div>
+</div>
+</div>
+<!-- Item #03 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<!-- Left Column: Competitor Target -->
+<div class="lg:col-span-3 flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<input checked="" class="accent-primary w-4 h-4 mt-1 rounded shrink-0" type="checkbox"/>
+<div class="w-20 h-28 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Outdoor lifestyle lookbook shot of hiker standing by orange tent in misty mountain ridge wearing blue hooded down jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWiBWELwg1htmiUjU6hR0TaIoJ8Denfs9cbKjJTljbHF_DwBwo0PNYbsfZMvdZC6Os-7AkeN3OTAz-Ej4AlUI7rB8TQf-1RwXBU1zeCPcH5T7S8-sMXV_aXe00hMcofwfKLWP9S1TyB3YThZMBzuTLJVPWDN-GIms1vG_9BCnuFXFEn62M8K8aYoLAJKppL0f6oCF6X7xgo_Rq-UI0l7y8HnIKKLUYChoT6oNwiHQ"/>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/80 text-inverse-on-surface px-1 rounded">#03</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-md text-label-mono-md font-bold text-on-surface">ITEM #03</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-surface-variant text-on-surface-variant">3:4 画幅</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface mt-1">户外露营山系场景</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">原图尺寸: 1440×1920</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">光影: 晨雾漫射光 / 暖色营地灯</span>
+</div>
+</div>
+<!-- Center Column: Node Config & Binding -->
+<div class="lg:col-span-6 flex flex-col justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">已绑定 SKU #SKU-01</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">+ 白底辅助 #WHT-001</span>
+</div>
+<button class="text-primary hover:text-secondary font-body-sm text-body-sm font-medium flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                编辑提示词覆盖
+              </button>
+</div>
+<!-- Inherited Prompt Card -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest font-label-mono-xs text-label-mono-xs text-on-surface leading-relaxed shadow-sm">
+<span class="text-outline font-semibold">Prompt: </span>
+              替换蓝色羽绒服为黑色极寒工装羽绒服，维持帐篷与山雾背景，强化面料防风科技质感与兜帽立体剪裁，融合环境晨雾微冷色调。
+            </div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-mono-xs text-label-mono-xs pt-1">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              去噪强度: 0.65 | CFG: 7.0 | Sampler: Euler A
+            </span>
+<span class="text-primary font-medium">消耗: 10 算力点</span>
+</div>
+</div>
+<!-- Right Column: Status & Deliverable -->
+<div class="lg:col-span-3 flex flex-col justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">执行状态</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-mono-xs text-label-mono-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              就绪 · 待提交排队
+            </span>
+</div>
+<div class="flex items-center gap-space-sm py-2">
+<div class="w-14 h-16 rounded border-dashed border-2 border-outline-variant flex flex-col items-center justify-center text-outline bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">hourglass_empty</span>
+<span class="text-[9px] font-label-mono-xs">待渲染</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">排队预分配槽位 #03</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">提交后预计耗时 ~9.0 秒</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface" type="button">单项预审</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary hover:bg-primary-container font-body-sm text-body-sm font-semibold" type="button">单独提交</button>
+</div>
+</div>
+</div>
+<!-- Item #04 (Unchecked / Disabled State) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md p-space-md rounded-xl bg-surface-container-lowest/60 opacity-60 shadow-none">
+<!-- Left Column: Competitor Target -->
+<div class="lg:col-span-3 flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low/40">
+<input class="accent-primary w-4 h-4 mt-1 rounded shrink-0" type="checkbox"/>
+<div class="w-20 h-28 rounded-lg overflow-hidden shrink-0 relative bg-surface-container grayscale">
+<img class="w-full h-full object-cover" data-alt="Warm indoor lifestyle catalog photo of male model drinking coffee next to industrial loft window wearing charcoal insulated jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX4M3iz4neBIctMqbuIYspml9UZUR7heMaNTqVfWTcVAK4m8umKBjCGv1ndBMUufJFUxvFewJpkl50C1SraZemR9T_8ImgH3NxwiXa4uPGlfcqiur0Ak57tJMpPPKqU40E3RIJNRJKzIazSNWKCUp9Y4D2z1eYjlMopJqDKJ2HkR2LS34R1bFjD219yuQG6kBwum2cmN_8a_WEsrfnWELF2M4_0odg3kXR07UrdKE"/>
+<span class="absolute bottom-1 right-1 font-label-mono-xs text-label-mono-xs bg-inverse-surface/60 text-inverse-on-surface px-1 rounded">#04</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-md text-label-mono-md font-bold text-outline">ITEM #04</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-surface-variant text-outline">未勾选</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-outline mt-1">暖光室内模特</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline mt-0.5">原图尺寸: 1440×1920</span>
+</div>
+</div>
+<!-- Center Column: Node Config (Disabled) -->
+<div class="lg:col-span-6 flex flex-col justify-between gap-space-sm p-space-sm rounded-lg bg-surface-container-low/20">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-variant text-outline">已脱离调度队列</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">点击左侧复选框重新加入批次</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container font-label-mono-xs text-label-mono-xs text-outline italic">
+              当前未勾选此项同行图，本项生成节点已处于挂起状态。
+            </div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">预估算力点扣除: 0 点</span>
+</div>
+<!-- Right Column: Explicit Unchecked Banner -->
+<div class="lg:col-span-3 flex flex-col items-center justify-center p-space-sm rounded-lg bg-surface-container-low/30 text-center gap-1">
+<span class="material-symbols-outlined text-[24px] text-outline">block</span>
+<span class="font-body-sm text-body-sm font-semibold text-outline">未勾选，不生成、不计点</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">跳过此项推理流水线</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footnote Architectural Indicator: Strict No Generic Bottom Bar -->
+<div class="mt-space-xl flex items-center justify-between p-space-md rounded-lg bg-surface-container-low text-outline font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">terminal</span>
+<span>AG-01/02/03 AGENT RUNTIME PIPELINE VERIFIED · LOCAL DISPATCH PORT: 8080</span>
+</div>
+<span class="text-on-surface-variant font-medium">无通用底部输入框 · 标准专业三栏 item 调度引擎</span>
+</div>
+</div></main></div></body></html>

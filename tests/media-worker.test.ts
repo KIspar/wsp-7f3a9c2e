@@ -1,0 +1,46 @@
+import {beforeEach,afterEach,describe,it,expect,vi} from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import sharp from 'sharp';
+import {createStore,type Store} from '../apps/server/store';
+import {createMediaWorker} from '../apps/server/media-worker';
+import {credentialVault} from '../apps/server/credentials';
+import {compilePlan,submit,retryAttempt} from '../apps/server/engine';
+import {defaultDraft,type Attempt,type Asset} from '../packages/contracts';
+let s:Store,dir:string;
+beforeEach(()=>{dir=fs.mkdtempSync(path.join(os.tmpdir(),'media-worker-'));s=createStore(dir,process.cwd());credentialVault(dir).set('tt-image','sk-isolated-test-1234567890123456789');});
+afterEach(()=>{s.close();fs.rmSync(dir,{recursive:true,force:true});});
+function accept(){const d={...defaultDraft(s.skills().find(s=>s.id==='image-generate')!,s.models()),requirements:'产品真实生成测试'},plan=compilePlan(s,'image-generate',d);return submit(s,{skillId:'image-generate',draft:d,planHash:plan.hash,action:'generate',idempotencyKey:crypto.randomUUID(),expectedDraftRevision:0},undefined,false).batch.attempts[0];}
+const attempt=(id:string)=>s.get<Attempt>('attempt',id)!;
+describe('真实媒体队列：付费提交与恢复边界',()=>{
+ it('renders confirmed detail facts locally while preserving the original provider file',async()=>{
+  const skill=s.skills().find(x=>x.id==='detail-design')!;
+  const draft=defaultDraft(skill,s.models());
+  const originalScreen=draft.imageDesign!.screens[0];
+  draft.fields.productName='测试商品';
+  draft.inputRoles={product:['example-6-1']};
+  draft.imageDesign!.screens=[{...originalScreen,type:'详细规格/参数表',facts:'尺码：L\n衣长：72 cm',scopeLabel:'红色 · L码'}];
+  const plan=compilePlan(s,'detail-design',draft);
+  const batch=submit(s,{skillId:'detail-design',draft,planHash:plan.hash,action:'generate',idempotencyKey:crypto.randomUUID(),expectedDraftRevision:0},undefined,false).batch;
+  const a=batch.attempts[0];
+  const providerImage=await sharp({create:{width:240,height:240,channels:3,background:'#e9edf2'}}).png().toBuffer();
+  const w=createMediaWorker(s,{pollMs:0,transport:async(_url,init)=>init.method==='POST'?Response.json({task_id:'detail-facts-task'}):Response.json({task_id:'detail-facts-task',state:'success',is_final:true,cost:.05,result_url:'https://cdn.example/detail-facts.png'}),remote:async url=>({bytes:providerImage,mime:'image/png',url})});
+  await w.tick(); await w.tick();
+  const saved=attempt(a.id);
+  expect(saved.status).toBe('completed');
+  const output=s.get<Asset>('asset',saved.assetId!)!;
+  expect(output.mime).toBe('image/png');
+  const outputMeta=await sharp(path.join(dir,'media',path.basename(output.url))).metadata();
+  expect(outputMeta.height).toBeGreaterThan(240);
+  expect(fs.existsSync(path.join(dir,'media',`provider-${a.id}-original.png`))).toBe(true);
+  expect(fs.readFileSync(path.join(dir,'media',`provider-${a.id}-original.png`))).toEqual(providerImage);
+ });
+ it('persists the submission marker before the POST, submits once and saves only verified provider bytes',async()=>{const a=accept(),bytes=await sharp({create:{width:200,height:300,channels:3,background:'#234'}}).png().toBuffer();let posts=0;const worker=createMediaWorker(s,{pollMs:0,transport:vi.fn(async(url,init)=>{if(init.method==='POST'){posts++;expect(attempt(a.id).step).toContain('提交真实');expect(JSON.parse(String(init.body)).model).toBe('tt-image-2.5');return Response.json({task_id:'real-test-task'});}return Response.json({task_id:'real-test-task',state:'success',is_final:true,result_url:'https://cdn.example/result.png',cost:.08});}),remote:async url=>({bytes,mime:'image/png',url})});await worker.tick();await Promise.all([worker.tick(),worker.tick()]);expect(posts).toBe(1);expect(attempt(a.id)).toMatchObject({status:'completed',simulated:false,upstreamTaskId:'real-test-task',billing:{cost:.08,isFinal:true}});expect(s.snapshot().ledger).toHaveLength(1);expect(s.snapshot().ledger[0].simulated).toBe(false);expect(s.get('asset',attempt(a.id).assetId!)).toMatchObject({source:'provider'});});
+ it('never automatically resubmits on ambiguous network response or after restart',async()=>{const a=accept(),transport=vi.fn(async()=>{throw Error('network disconnected');});const worker=createMediaWorker(s,{transport});await worker.tick();await worker.tick();expect(transport).toHaveBeenCalledTimes(1);expect(attempt(a.id).status).toBe('pending_verification');s.close();s=createStore(dir,process.cwd());const reopened=createMediaWorker(s,{transport});reopened.start();await reopened.tick();await reopened.stop();expect(transport).toHaveBeenCalledTimes(1);expect(attempt(a.id).status).toBe('pending_verification');});
+ it('recovers a task number from response headers even when the body is malformed',async()=>{const a=accept(),worker=createMediaWorker(s,{transport:async()=>new Response('bad upstream gateway body',{status:502,headers:{'X-Task-Id':'header-task'}})});await worker.tick();expect(attempt(a.id)).toMatchObject({status:'generating',upstreamTaskId:'header-task'});});
+ it('marks an interrupted submission unknown on startup but leaves known upstream tasks queryable',async()=>{const a=accept();s.put('attempt',a.id,{...a,status:'generating',step:'正在提交真实生成请求'});const worker=createMediaWorker(s);worker.start();await worker.stop();expect(attempt(a.id).status).toBe('pending_verification');});
+ it('retries local saving without generating again and clears upstream identifiers on an explicitly new paid attempt',async()=>{const a=accept();let posts=0,downloadFail=true;const image=await sharp({create:{width:200,height:200,channels:3,background:'white'}}).png().toBuffer();const w=createMediaWorker(s,{pollMs:0,transport:async(_url,init)=>{if(init.method==='POST'){posts++;return Response.json({task_id:'paid-task'});}return Response.json({task_id:'paid-task',state:'success',is_final:true,cost:.04,result_url:'https://cdn.example/result.png'});},remote:async url=>{if(downloadFail)throw Error('download failure');return {bytes:image,mime:'image/png',url};}});await w.tick();await w.tick();expect(attempt(a.id)).toMatchObject({status:'failed',step:'保存失败',upstreamTaskId:'paid-task'});downloadFail=false;const same=retryAttempt(s,a.id,attempt(a.id).revision);expect(same.id).toBe(a.id);await w.tick();expect(posts).toBe(1);const done=attempt(a.id);const fresh=retryAttempt(s,a.id,done.revision);expect(fresh.upstreamTaskId).toBeUndefined();expect(fresh.resultUrl).toBeUndefined();expect(fresh.billing).toBeUndefined();expect(fresh.status).toBe('queued');});
+ it('records terminal failure and refunds without creating simulated files',async()=>{const a=accept(),w=createMediaWorker(s,{pollMs:0,transport:async(_url,init)=>init.method==='POST'?Response.json({task_id:'failed-task'}):Response.json({task_id:'failed-task',state:'failed',is_final:true,cost:0,refunded:true,refunded_amount:.08,error:'provider failed'})});await w.tick();await w.tick();expect(attempt(a.id)).toMatchObject({status:'failed',billing:{refunded:true,refundedAmount:.08}});expect(s.snapshot().ledger[0]).toMatchObject({simulated:false,refunded:true,cost:0});expect(attempt(a.id).assetId).toBeUndefined();});
+ it('keeps saved content when billing is late and uses the original credential version after rotation',async()=>{const a=accept(),old=a.credentialVersion,bytes=await sharp({create:{width:100,height:100,channels:3,background:'white'}}).png().toBuffer();credentialVault(dir).set('tt-image','sk-rotated-credential-12345678901234');let queries=0;const w=createMediaWorker(s,{pollMs:0,transport:async(_url,init)=>{expect(init.headers).toMatchObject({Authorization:'Bearer sk-isolated-test-1234567890123456789'});if(init.method==='POST')return Response.json({task_id:'late-cost'});queries++;return Response.json({task_id:'late-cost',state:'success',is_final:true,result_url:'https://cdn.example/x.png',...(queries>1?{cost:.09}:{})});},remote:async url=>({bytes,mime:'image/png',url})});await w.tick();await w.tick();const saved=attempt(a.id);expect(saved.status).toBe('completed');expect(saved.billing?.isFinal).toBe(false);s.put('attempt',a.id,{...saved,nextPollAt:0});await w.tick();expect(attempt(a.id)).toMatchObject({status:'completed',assetId:saved.assetId,credentialVersion:old,billing:{cost:.09,isFinal:true}});expect(s.snapshot().ledger).toHaveLength(1);});
+});

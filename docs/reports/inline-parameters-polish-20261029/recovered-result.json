@@ -1,0 +1,20 @@
+{
+  "jobId": "analysis-478b5b46-ebca-457b-a8bf-2c34404b5933",
+  "providerTaskId": "195214792",
+  "correlation": "本次独立测试：相同模型、创建时间相差小于1秒，且本地与供应商记录各唯一",
+  "status": "completed",
+  "resultLength": 259,
+  "billing": {
+    "status": "final",
+    "cost": 0.0017,
+    "inputTokens": 468,
+    "outputTokens": 237,
+    "checkedAt": "2026-10-29T10:08:57.006Z",
+    "isFinal": true,
+    "state": "success",
+    "refunded": false,
+    "refundedAmount": 0,
+    "channelGroup": "ZG-Codex-TT-1"
+  },
+  "paidResubmits": 0
+}

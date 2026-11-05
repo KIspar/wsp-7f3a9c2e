@@ -1,0 +1,168 @@
+{
+  "file": "catalog-export-f350ca8b-10e5-40bf-a224-9642409655c6.zip",
+  "integrityError": null,
+  "productRevision": 10,
+  "bindings": [
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-0",
+      "assetId": "collected-d54dbe0195a0d798e4b0431b97c52eb977df4c7d0d629fbeecdfe31aaf64cf28",
+      "kind": "detail",
+      "label": "详情 1",
+      "order": 0
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-1",
+      "assetId": "collected-263bb9224c2a691e79205d99320f8bec069ac3a782c18411d229f261fca65a30",
+      "kind": "detail",
+      "label": "详情 2",
+      "order": 1
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-2",
+      "assetId": "collected-2913698f0998f44fb96db0da3f40850d9890a108137c84e6e794e5b610eebb97",
+      "kind": "detail",
+      "label": "详情 3",
+      "order": 2
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-3",
+      "assetId": "collected-e09ee25766252950370295eb6b49c821cff1ac10da977fac6924769e33bc35d3",
+      "kind": "detail",
+      "label": "详情 4",
+      "order": 3
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-4",
+      "assetId": "collected-4944127122209687ea87c3863229e60d6d9d08d81e28fb4b3ee678f846bd0519",
+      "kind": "detail",
+      "label": "详情 5",
+      "order": 4
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-5",
+      "assetId": "collected-d94a8ee2a9a4420da0811f858a723e79f25ca96b3f6765d0490f751d3d263bc2",
+      "kind": "detail",
+      "label": "详情 6",
+      "order": 5
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-6",
+      "assetId": "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f",
+      "kind": "detail",
+      "label": "详情 7",
+      "order": 6
+    },
+    {
+      "id": "video-1",
+      "assetId": "provider-attempt-d5549957-4593-48f8-93d5-7242683c1f2e",
+      "kind": "video",
+      "label": "视频创作 1",
+      "order": 0,
+      "attemptId": "attempt-d5549957-4593-48f8-93d5-7242683c1f2e"
+    },
+    {
+      "id": "acceptance-first",
+      "assetId": "provider-attempt-c56ec1c8-00dd-4f43-a44c-28a3efa9b513",
+      "kind": "detail",
+      "label": "首屏主视觉",
+      "order": 7,
+      "attemptId": "attempt-c56ec1c8-00dd-4f43-a44c-28a3efa9b513"
+    },
+    {
+      "id": "acceptance-cover",
+      "assetId": "provider-attempt-2ef21e32-65cd-4850-b53b-3b048ddfd454",
+      "kind": "post",
+      "label": "图文创作 1",
+      "order": 0,
+      "attemptId": "attempt-2ef21e32-65cd-4850-b53b-3b048ddfd454"
+    },
+    {
+      "id": "acceptance-detail",
+      "assetId": "provider-attempt-6945c628-0e0f-4ed9-9625-5d72516c4f0f",
+      "kind": "post",
+      "label": "图文创作 2",
+      "order": 1,
+      "attemptId": "attempt-6945c628-0e0f-4ed9-9625-5d72516c4f0f"
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-0",
+      "assetId": "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f",
+      "kind": "main",
+      "label": "主图 1",
+      "order": 0
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-1",
+      "assetId": "collected-44960d3d519d7d5f99dbbcc4dde31cb13f6ea2fd2bb63be3b6559e216048ee1e",
+      "kind": "main",
+      "label": "主图 2",
+      "order": 1
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-2",
+      "assetId": "collected-cc2900ca404d5d899df9e4c44eec531d23c97edd805dd87c4a4562d4cec79d1e",
+      "kind": "main",
+      "label": "主图 3",
+      "order": 2
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-3",
+      "assetId": "collected-b7b3255912034a301a1522deb57e0bb58581d244504b555296a609397c3d55da",
+      "kind": "main",
+      "label": "主图 4",
+      "order": 3
+    },
+    {
+      "id": "main-6",
+      "assetId": "provider-attempt-c652eb2d-3257-4f5a-90e1-4b6a670085ab",
+      "kind": "main",
+      "label": "主图制作 1",
+      "order": 4,
+      "attemptId": "attempt-c652eb2d-3257-4f5a-90e1-4b6a670085ab"
+    },
+    {
+      "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-4",
+      "assetId": "collected-1fdf3e8fc1f15c19d2ff558c072ccc9d463c434a3de24abad339581fc964117b",
+      "kind": "main",
+      "label": "主图 5",
+      "order": 5
+    },
+    {
+      "id": "color-1",
+      "assetId": "provider-attempt-8d6b9e77-80ae-4723-b480-c418c8982350",
+      "kind": "color",
+      "label": "黑色优化图",
+      "order": 0,
+      "targetId": "color-1",
+      "attemptId": "attempt-8d6b9e77-80ae-4723-b480-c418c8982350"
+    }
+  ],
+  "files": [
+    "详情/详情长图.png",
+    "商品资料与采用版本.json",
+    "推广图文/标题与正文.md",
+    "脚本与提示词.md",
+    "详情/01-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-0.jpg",
+    "推广图文/01-acceptance-cover.png",
+    "推广视频/01-video-1.mp4",
+    "主图/01-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-0.jpg",
+    "详情/02-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-1.jpg",
+    "推广图文/02-acceptance-detail.png",
+    "主图/02-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-1.jpg",
+    "SKU-颜色/01-color-1.png",
+    "详情/04-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-3.jpg",
+    "主图/04-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-3.jpg",
+    "详情/03-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-2.jpg",
+    "主图/03-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-2.jpg",
+    "详情/05-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-4.jpg",
+    "主图/05-main-6.png",
+    "详情/06-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-5.jpg",
+    "详情/07-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-6.jpg",
+    "详情/08-acceptance-first.png",
+    "主图/06-source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-4.jpg"
+  ],
+  "longImageDimensions": [
+    750,
+    7325
+  ]
+}

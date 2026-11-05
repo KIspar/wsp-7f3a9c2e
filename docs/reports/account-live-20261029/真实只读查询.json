@@ -1,0 +1,253 @@
+{
+  "checkedAt": "2026-10-29T01:41:22.268Z",
+  "requests": [
+    {
+      "route": "/api/account",
+      "status": 200,
+      "data": {
+        "balance": 1.71,
+        "unit": "算力",
+        "fetchedAt": "2026-10-29T01:41:22.412Z"
+      }
+    },
+    {
+      "route": "/api/account/usage?days=7",
+      "status": 200,
+      "data": {
+        "from": "2026-10-22T16:00:00.000Z",
+        "to": "2026-10-29T01:41:22.421Z",
+        "fetchedAt": "2026-10-29T01:41:22.556Z",
+        "scope": "user",
+        "unit": "算力",
+        "totals": {
+          "cost": 6.877,
+          "count": 97,
+          "success_count": 92,
+          "failed_count": 5,
+          "refunded_cost": 2.8826,
+          "refunded_count": 4
+        },
+        "daily": [
+          {
+            "date": "2026-10-23",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-24",
+            "cost": 1.1672,
+            "count": 19
+          },
+          {
+            "date": "2026-10-25",
+            "cost": 2.506,
+            "count": 40
+          },
+          {
+            "date": "2026-10-26",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-27",
+            "cost": 1.4828,
+            "count": 16
+          },
+          {
+            "date": "2026-10-28",
+            "cost": 1.721,
+            "count": 22
+          },
+          {
+            "date": "2026-10-29",
+            "cost": 0,
+            "count": 0
+          }
+        ]
+      }
+    },
+    {
+      "route": "/api/account/usage?days=30",
+      "status": 200,
+      "data": {
+        "from": "2026-09-29T16:00:00.000Z",
+        "to": "2026-10-29T01:41:22.558Z",
+        "fetchedAt": "2026-10-29T01:41:22.645Z",
+        "scope": "user",
+        "unit": "算力",
+        "totals": {
+          "cost": 8.1124,
+          "count": 100,
+          "success_count": 95,
+          "failed_count": 5,
+          "refunded_cost": 2.8826,
+          "refunded_count": 4
+        },
+        "daily": [
+          {
+            "date": "2026-09-30",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-01",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-02",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-03",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-04",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-05",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-06",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-07",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-08",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-09",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-10",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-11",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-12",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-13",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-14",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-15",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-16",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-17",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-18",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-19",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-20",
+            "cost": 1.2354,
+            "count": 3
+          },
+          {
+            "date": "2026-10-21",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-22",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-23",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-24",
+            "cost": 1.1672,
+            "count": 19
+          },
+          {
+            "date": "2026-10-25",
+            "cost": 2.506,
+            "count": 40
+          },
+          {
+            "date": "2026-10-26",
+            "cost": 0,
+            "count": 0
+          },
+          {
+            "date": "2026-10-27",
+            "cost": 1.4828,
+            "count": 16
+          },
+          {
+            "date": "2026-10-28",
+            "cost": 1.721,
+            "count": 22
+          },
+          {
+            "date": "2026-10-29",
+            "cost": 0,
+            "count": 0
+          }
+        ]
+      }
+    },
+    {
+      "route": "/api/account/records?days=7&limit=10&offset=10",
+      "status": 200,
+      "total": 97,
+      "offset": 10,
+      "limit": 10,
+      "returned": 10,
+      "models": [
+        "tt-image-2.5",
+        "omni-flash"
+      ]
+    }
+  ]
+}

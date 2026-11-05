@@ -1,0 +1,508 @@
+{
+  "job": {
+    "id": "collection-8a4a31f9-50d4-494e-8a4a-2ff8d5df065c",
+    "key": "live-collection-20261029",
+    "fingerprint": "13ebf1ce42914aebf0907c2f804912515df0453f3e713723b68272ac89e5bfcc",
+    "createdAt": "2026-10-29T06:31:44.653Z",
+    "updatedAt": "2026-10-29T06:31:46.136Z",
+    "items": [
+      {
+        "id": "collection-item-31505d73-e939-4a66-80e8-71aa0eefb419",
+        "url": "https://pc.jp0663.com/detail/d0b3ba64301b48a0aab8c2439b3cc0fd?site=www",
+        "productId": "product-b43dcf34-3809-49f5-ad93-dc99e0952e15",
+        "status": "completed",
+        "completed": 13,
+        "total": 13,
+        "recollection": false,
+        "snapshotId": "source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741"
+      }
+    ]
+  },
+  "products": [
+    {
+      "id": "product-b43dcf34-3809-49f5-ad93-dc99e0952e15",
+      "revision": 2,
+      "site": "jp0663",
+      "sourceId": "d0b3ba64301b48a0aab8c2439b3cc0fd",
+      "sourceUrl": "https://pc.jp0663.com/detail/d0b3ba64301b48a0aab8c2439b3cc0fd?site=www",
+      "title": "黑色猫耳朵毛领棉服加厚外套女2025冬装新款超好看复古座山雕棉衣",
+      "supplier": "潮乐邦服饰",
+      "itemNumber": "2210",
+      "wholesaleCost": 70,
+      "salePrice": null,
+      "sellingPoints": "",
+      "parameters": [
+        {
+          "name": "功能",
+          "value": "保暖,抗静电,易清洁,耐磨,轻便,防水,防紫外线,防风",
+          "origin": "source"
+        },
+        {
+          "name": "面料",
+          "value": "聚酯纤维",
+          "origin": "source"
+        },
+        {
+          "name": "上市年份季节",
+          "value": "2026年冬季",
+          "origin": "source"
+        },
+        {
+          "name": "填充物材质",
+          "value": "聚酯纤维",
+          "origin": "source"
+        },
+        {
+          "name": "衣长",
+          "value": "长款",
+          "origin": "source"
+        },
+        {
+          "name": "版型",
+          "value": "宽松型",
+          "origin": "source"
+        },
+        {
+          "name": "领型",
+          "value": "连帽",
+          "origin": "source"
+        },
+        {
+          "name": "适用对象",
+          "value": "通用",
+          "origin": "source"
+        },
+        {
+          "name": "品牌",
+          "value": "无品牌/无注册商标",
+          "origin": "source"
+        },
+        {
+          "name": "风格",
+          "value": "中性风",
+          "origin": "source"
+        },
+        {
+          "name": "厚薄",
+          "value": "加厚",
+          "origin": "source"
+        },
+        {
+          "name": "适用场景",
+          "value": "户外,日常,旅游,通勤,居家,雨天,运动,宴会,沙滩,婚礼,商务,休闲,舞蹈",
+          "origin": "source"
+        },
+        {
+          "name": "是否商场同款",
+          "value": "商场同款(线上线下都销售)",
+          "origin": "source"
+        }
+      ],
+      "colors": [
+        {
+          "id": "color-1",
+          "name": "黑色"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "skus": [
+        {
+          "id": "8fd99fb220afcb477b695ea42c645263",
+          "colorId": "color-1",
+          "size": "S",
+          "cost": 70
+        },
+        {
+          "id": "264b62544b4687b0e0b03de5a58f8fb0",
+          "colorId": "color-1",
+          "size": "M",
+          "cost": 70
+        },
+        {
+          "id": "096201519aa4437704a1e82b4e7dc12e",
+          "colorId": "color-1",
+          "size": "L",
+          "cost": 70
+        },
+        {
+          "id": "7838c6de6d71910745c86121fe1ae206",
+          "colorId": "color-1",
+          "size": "XL",
+          "cost": 70
+        }
+      ],
+      "bindings": [
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-0",
+          "assetId": "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f",
+          "kind": "main",
+          "label": "主图 1",
+          "order": 0
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-1",
+          "assetId": "collected-44960d3d519d7d5f99dbbcc4dde31cb13f6ea2fd2bb63be3b6559e216048ee1e",
+          "kind": "main",
+          "label": "主图 2",
+          "order": 1
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-2",
+          "assetId": "collected-cc2900ca404d5d899df9e4c44eec531d23c97edd805dd87c4a4562d4cec79d1e",
+          "kind": "main",
+          "label": "主图 3",
+          "order": 2
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-3",
+          "assetId": "collected-b7b3255912034a301a1522deb57e0bb58581d244504b555296a609397c3d55da",
+          "kind": "main",
+          "label": "主图 4",
+          "order": 3
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-main-4",
+          "assetId": "collected-1fdf3e8fc1f15c19d2ff558c072ccc9d463c434a3de24abad339581fc964117b",
+          "kind": "main",
+          "label": "主图 5",
+          "order": 4
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-0",
+          "assetId": "collected-d54dbe0195a0d798e4b0431b97c52eb977df4c7d0d629fbeecdfe31aaf64cf28",
+          "kind": "detail",
+          "label": "详情 1",
+          "order": 0
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-1",
+          "assetId": "collected-263bb9224c2a691e79205d99320f8bec069ac3a782c18411d229f261fca65a30",
+          "kind": "detail",
+          "label": "详情 2",
+          "order": 1
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-2",
+          "assetId": "collected-2913698f0998f44fb96db0da3f40850d9890a108137c84e6e794e5b610eebb97",
+          "kind": "detail",
+          "label": "详情 3",
+          "order": 2
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-3",
+          "assetId": "collected-e09ee25766252950370295eb6b49c821cff1ac10da977fac6924769e33bc35d3",
+          "kind": "detail",
+          "label": "详情 4",
+          "order": 3
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-4",
+          "assetId": "collected-4944127122209687ea87c3863229e60d6d9d08d81e28fb4b3ee678f846bd0519",
+          "kind": "detail",
+          "label": "详情 5",
+          "order": 4
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-5",
+          "assetId": "collected-d94a8ee2a9a4420da0811f858a723e79f25ca96b3f6765d0490f751d3d263bc2",
+          "kind": "detail",
+          "label": "详情 6",
+          "order": 5
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-detail-6",
+          "assetId": "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f",
+          "kind": "detail",
+          "label": "详情 7",
+          "order": 6
+        },
+        {
+          "id": "source-source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741-color-color-1",
+          "assetId": "collected-2b58f1dfe073702b70a00b98a50b72abfacae40dce855dfa7c04e87c50c8c6e2",
+          "kind": "color",
+          "label": "黑色",
+          "order": 0,
+          "targetId": "color-1"
+        }
+      ],
+      "postTitle": "",
+      "postBody": "",
+      "archived": false,
+      "collectionStatus": "completed",
+      "createdAt": "2026-10-29T06:31:44.653Z",
+      "updatedAt": "2026-10-29T06:31:46.135Z",
+      "latestSnapshotId": "source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741",
+      "sourceSnapshotId": "source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741"
+    }
+  ],
+  "snapshots": [
+    {
+      "title": "黑色猫耳朵毛领棉服加厚外套女2025冬装新款超好看复古座山雕棉衣",
+      "itemNumber": "2210",
+      "supplier": "潮乐邦服饰",
+      "wholesaleCost": 70,
+      "colors": [
+        {
+          "id": "color-1",
+          "name": "黑色"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "skus": [
+        {
+          "id": "8fd99fb220afcb477b695ea42c645263",
+          "colorId": "color-1",
+          "size": "S",
+          "cost": 70
+        },
+        {
+          "id": "264b62544b4687b0e0b03de5a58f8fb0",
+          "colorId": "color-1",
+          "size": "M",
+          "cost": 70
+        },
+        {
+          "id": "096201519aa4437704a1e82b4e7dc12e",
+          "colorId": "color-1",
+          "size": "L",
+          "cost": 70
+        },
+        {
+          "id": "7838c6de6d71910745c86121fe1ae206",
+          "colorId": "color-1",
+          "size": "XL",
+          "cost": 70
+        }
+      ],
+      "parameters": [
+        {
+          "name": "功能",
+          "value": "保暖,抗静电,易清洁,耐磨,轻便,防水,防紫外线,防风",
+          "origin": "source"
+        },
+        {
+          "name": "面料",
+          "value": "聚酯纤维",
+          "origin": "source"
+        },
+        {
+          "name": "上市年份季节",
+          "value": "2026年冬季",
+          "origin": "source"
+        },
+        {
+          "name": "填充物材质",
+          "value": "聚酯纤维",
+          "origin": "source"
+        },
+        {
+          "name": "衣长",
+          "value": "长款",
+          "origin": "source"
+        },
+        {
+          "name": "版型",
+          "value": "宽松型",
+          "origin": "source"
+        },
+        {
+          "name": "领型",
+          "value": "连帽",
+          "origin": "source"
+        },
+        {
+          "name": "适用对象",
+          "value": "通用",
+          "origin": "source"
+        },
+        {
+          "name": "品牌",
+          "value": "无品牌/无注册商标",
+          "origin": "source"
+        },
+        {
+          "name": "风格",
+          "value": "中性风",
+          "origin": "source"
+        },
+        {
+          "name": "厚薄",
+          "value": "加厚",
+          "origin": "source"
+        },
+        {
+          "name": "适用场景",
+          "value": "户外,日常,旅游,通勤,居家,雨天,运动,宴会,沙滩,婚礼,商务,休闲,舞蹈",
+          "origin": "source"
+        },
+        {
+          "name": "是否商场同款",
+          "value": "商场同款(线上线下都销售)",
+          "origin": "source"
+        }
+      ],
+      "media": [
+        {
+          "key": "main-0",
+          "url": "https://img.jp0663.com/linshiimg/ec6088f930cd4bf9870e271443587f01.jpg",
+          "kind": "main",
+          "label": "主图 1",
+          "order": 0,
+          "assetId": "collected-99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f",
+          "hash": "99bab9ccc3e53c5931df199681861bf60cad9aa3972fbe6c90d6511a2645977f",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "key": "main-1",
+          "url": "https://img.jp0663.com/linshiimg/cb46abdcf84a4f6c9dcb32794f9a87a6.jpg",
+          "kind": "main",
+          "label": "主图 2",
+          "order": 1,
+          "assetId": "collected-44960d3d519d7d5f99dbbcc4dde31cb13f6ea2fd2bb63be3b6559e216048ee1e",
+          "hash": "44960d3d519d7d5f99dbbcc4dde31cb13f6ea2fd2bb63be3b6559e216048ee1e",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "key": "main-2",
+          "url": "https://img.jp0663.com/linshiimg/0cf7bb6d06364824be70796a9908a7e4.jpg",
+          "kind": "main",
+          "label": "主图 3",
+          "order": 2,
+          "assetId": "collected-cc2900ca404d5d899df9e4c44eec531d23c97edd805dd87c4a4562d4cec79d1e",
+          "hash": "cc2900ca404d5d899df9e4c44eec531d23c97edd805dd87c4a4562d4cec79d1e",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "key": "main-3",
+          "url": "https://img.jp0663.com/linshiimg/9e8075c6c652481fa31176d19eb55fd6.jpg",
+          "kind": "main",
+          "label": "主图 4",
+          "order": 3,
+          "assetId": "collected-b7b3255912034a301a1522deb57e0bb58581d244504b555296a609397c3d55da",
+          "hash": "b7b3255912034a301a1522deb57e0bb58581d244504b555296a609397c3d55da",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "key": "main-4",
+          "url": "https://img.jp0663.com/linshiimg/0f7d2f7de99b40b3a6eb52a1870f00a4.jpg",
+          "kind": "main",
+          "label": "主图 5",
+          "order": 4,
+          "assetId": "collected-1fdf3e8fc1f15c19d2ff558c072ccc9d463c434a3de24abad339581fc964117b",
+          "hash": "1fdf3e8fc1f15c19d2ff558c072ccc9d463c434a3de24abad339581fc964117b",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "key": "detail-0",
+          "url": "https://img.jp0663.com/linshiimg/05e11801c9374eadb98c5bc2ba93e394.jpg",
+          "kind": "detail",
+          "label": "详情 1",
+          "order": 0,
+          "assetId": "collected-d54dbe0195a0d798e4b0431b97c52eb977df4c7d0d629fbeecdfe31aaf64cf28",
+          "hash": "d54dbe0195a0d798e4b0431b97c52eb977df4c7d0d629fbeecdfe31aaf64cf28",
+          "width": 1056,
+          "height": 984
+        },
+        {
+          "key": "detail-1",
+          "url": "https://img.jp0663.com/linshiimg/bb8c7b4e1e9e450399179e87ace4e475.jpg",
+          "kind": "detail",
+          "label": "详情 2",
+          "order": 1,
+          "assetId": "collected-263bb9224c2a691e79205d99320f8bec069ac3a782c18411d229f261fca65a30",
+          "hash": "263bb9224c2a691e79205d99320f8bec069ac3a782c18411d229f261fca65a30",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "key": "detail-2",
+          "url": "https://img.jp0663.com/linshiimg/e2e06efb0598492cae964abf1ef901d5.jpg",
+          "kind": "detail",
+          "label": "详情 3",
+          "order": 2,
+          "assetId": "collected-2913698f0998f44fb96db0da3f40850d9890a108137c84e6e794e5b610eebb97",
+          "hash": "2913698f0998f44fb96db0da3f40850d9890a108137c84e6e794e5b610eebb97",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "key": "detail-3",
+          "url": "https://img.jp0663.com/linshiimg/fe620329b9a24fa99b4173b9a57a22b0.jpg",
+          "kind": "detail",
+          "label": "详情 4",
+          "order": 3,
+          "assetId": "collected-e09ee25766252950370295eb6b49c821cff1ac10da977fac6924769e33bc35d3",
+          "hash": "e09ee25766252950370295eb6b49c821cff1ac10da977fac6924769e33bc35d3",
+          "width": 1500,
+          "height": 2252
+        },
+        {
+          "key": "detail-4",
+          "url": "https://img.jp0663.com/linshiimg/3bbb559a45e44ee3bb128feda8c68fb5.jpg",
+          "kind": "detail",
+          "label": "详情 5",
+          "order": 4,
+          "assetId": "collected-4944127122209687ea87c3863229e60d6d9d08d81e28fb4b3ee678f846bd0519",
+          "hash": "4944127122209687ea87c3863229e60d6d9d08d81e28fb4b3ee678f846bd0519",
+          "width": 1440,
+          "height": 1920
+        },
+        {
+          "key": "detail-5",
+          "url": "https://img.jp0663.com/linshiimg/8ee910385b804504aae8cf81e55a7c4a.jpg",
+          "kind": "detail",
+          "label": "详情 6",
+          "order": 5,
+          "assetId": "collected-d94a8ee2a9a4420da0811f858a723e79f25ca96b3f6765d0490f751d3d263bc2",
+          "hash": "d94a8ee2a9a4420da0811f858a723e79f25ca96b3f6765d0490f751d3d263bc2",
+          "width": 1440,
+          "height": 1920
+        },
+        {
+          "key": "detail-6",
+          "url": "https://img.jp0663.com/linshiimg/7531967bb0894e588f978dd02d81dbec.jpg",
+          "kind": "detail",
+          "label": "详情 7",
+          "order": 6,
+          "assetId": "collected-36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f",
+          "hash": "36fc5e83e6eca22fcf011fdd589e79cd58c5cd915b669f98461e3fdc4d7ff63f",
+          "width": 1440,
+          "height": 1920
+        },
+        {
+          "key": "color-color-1",
+          "url": "https://img.jp0663.com/linshiimg/eb53e8deb3624194af317b83de1256e9.jpg",
+          "kind": "color",
+          "label": "黑色",
+          "order": 0,
+          "targetId": "color-1",
+          "assetId": "collected-2b58f1dfe073702b70a00b98a50b72abfacae40dce855dfa7c04e87c50c8c6e2",
+          "hash": "2b58f1dfe073702b70a00b98a50b72abfacae40dce855dfa7c04e87c50c8c6e2",
+          "width": 1500,
+          "height": 1500
+        }
+      ],
+      "warnings": [],
+      "adapterVersion": "jp0663-public-v1",
+      "id": "source-1e92cd92-6b96-4a3c-9bf4-1de7d2e82741",
+      "productId": "product-b43dcf34-3809-49f5-ad93-dc99e0952e15",
+      "sourceUrl": "https://pc.jp0663.com/detail/d0b3ba64301b48a0aab8c2439b3cc0fd?site=www",
+      "createdAt": "2026-10-29T06:31:44.815Z"
+    }
+  ]
+}

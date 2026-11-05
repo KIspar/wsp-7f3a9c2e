@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "商品工坊 · 抖音采集助手",
+  "version": "0.1.0",
+  "description": "在用户已登录的抖音网页采集商品研究素材，保存到已配对的本地商品工坊。",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*", "https://*.douyin.com/*", "https://*.douyinpic.com/*", "https://*.douyinvod.com/*", "https://*.byteimg.com/*", "https://*.ibytedtos.com/*"],
+  "background": {"service_worker": "background.js", "type": "module"},
+  "action": {"default_popup": "popup.html", "default_title": "商品工坊采集助手"}
+}

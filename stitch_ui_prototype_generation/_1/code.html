@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#c3c0ff","surface-variant":"#dae2fd","secondary":"#4648d4","surface":"#faf8ff","surface-tint":"#4d44e3","inverse-on-surface":"#eef0ff","secondary-fixed-dim":"#c0c1ff","error-container":"#ffdad6","error":"#ba1a1a","secondary-container":"#6063ee","on-tertiary-fixed":"#001e2f","surface-bright":"#faf8ff","outline":"#777587","on-surface":"#131b2e","outline-variant":"#c7c4d8","tertiary":"#004d70","background":"#faf8ff","on-secondary":"#ffffff","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#004c6e","secondary-fixed":"#e1e0ff","primary-fixed":"#e2dfff","on-tertiary-container":"#b8e0ff","surface-container-high":"#e2e7ff","surface-container-lowest":"#ffffff","on-error":"#ffffff","tertiary-container":"#006693","on-tertiary":"#ffffff","on-primary-container":"#dad7ff","surface-dim":"#d2d9f4","on-background":"#131b2e","on-secondary-fixed-variant":"#2f2ebe","on-primary-fixed-variant":"#3323cc","surface-container":"#eaedff","on-surface-variant":"#464555","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","on-secondary-fixed":"#07006c","tertiary-fixed":"#c9e6ff","surface-container-low":"#f2f3ff","on-secondary-container":"#fffbff","surface-container-highest":"#dae2fd","on-primary":"#ffffff","primary":"#3525cd","inverse-surface":"#283044","tertiary-fixed-dim":"#89ceff","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-dense":"0.5rem","gutter":"1rem","margin":"1.5rem","space-xs":"0.25rem","margin-dense":"1rem","space-2xl":"2rem","space-xl":"1.5rem","space-sm":"0.5rem","space-lg":"1rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"label-mono-md":["JetBrains Mono"],"headline-md":["Inter"],"headline-xl":["Inter"],"headline-lg":["Inter"],"label-mono-xs":["JetBrains Mono"],"body-sm":["Inter"],"body-md":["Inter"],"label-mono-lg":["JetBrains Mono"]},"fontSize":{"body-lg":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-mono-md":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between select-none shadow-[2px_0_12px_rgba(15,23,42,0.12)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[18px]">neurology</span></div><span class="font-headline-md text-headline-md tracking-tight text-surface-container-lowest">AI 创作工作台</span></div><span class="font-label-mono-xs text-label-mono-xs px-space-xs py-0.5 rounded bg-surface-variant/20 text-inverse-primary">v1.0.0</span></div><div class="flex items-center gap-space-sm mt-space-xs"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-fixed"></span></span><span class="font-label-mono-xs text-label-mono-xs text-outline-variant">运行中 127.0.0.1:8080</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between p-space-xs bg-surface-variant/10 rounded-lg"><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-surface-container-lowest bg-primary-container font-medium" type="button">全部</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">图片</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">视频</button><button class="flex-1 text-center py-1 rounded font-body-sm text-body-sm text-outline-variant hover:text-surface-container-lowest transition-colors" type="button">智能体</button></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider uppercase px-space-sm">创作技能引擎</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-surface-variant/20 text-surface-container-lowest font-medium shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="image-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">photo_library</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">图片生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">IMG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">多构图商品图快速生成</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="model-try-on" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">dry_cleaning</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">模特换装</span><span class="font-label-mono-xs text-label-mono-xs text-outline">OUT-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">自有商品智能局部替换</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="scene-replica" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">landscape</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">场景复刻</span><span class="font-label-mono-xs text-label-mono-xs text-outline">SCN-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">挂拍/平铺构图光影重塑</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="video-generation" href="#"><span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-inverse-primary">video_camera_back</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate">视频生成</span><span class="font-label-mono-xs text-label-mono-xs text-outline">VID-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">提示词与商品参考成片</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-outline-variant hover:bg-surface-variant/10 hover:text-surface-container-lowest transition-all group" data-path="benchmark-agent" href="#"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">smart_toy</span><div class="flex flex-col flex-1 min-w-0"><div class="flex items-center justify-between"><span class="font-body-md text-body-md truncate text-secondary-fixed">一键对标</span><span class="font-label-mono-xs text-label-mono-xs px-1 rounded bg-secondary-container/40 text-on-secondary-container">AG-01</span></div><span class="font-label-mono-xs text-label-mono-xs text-outline/80 truncate">同行图集与白底流替换</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="bg-surface-variant/10 rounded-lg p-space-sm flex flex-col gap-space-xs"><div class="flex items-center justify-between text-outline-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-mono-xs text-label-mono-xs">NVMe Local</span></div><span class="font-label-mono-xs text-label-mono-xs text-inverse-on-surface">428 GB 可用</span></div><div class="w-full bg-surface-variant/20 rounded-full h-1"><div class="bg-secondary-fixed h-1 rounded-full w-[65%]"></div></div><div class="flex items-center justify-between text-outline"><span class="font-label-mono-xs text-label-mono-xs">环境运行安全</span><span class="material-symbols-outlined text-[14px] text-secondary-fixed">verified_user</span></div></div><div class="flex items-center justify-between px-space-xs pt-space-xs"><nav class="flex items-center gap-space-sm" data-active-classes="text-surface-container-lowest font-medium"><a aria-current="page" class="transition-colors flex items-center gap-1 text-surface-container-lowest font-medium" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>设置</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="model-library" href="#"><span class="material-symbols-outlined text-[16px]">deployed_code</span>模型</a><a class="text-outline-variant hover:text-surface-container-lowest transition-colors flex items-center gap-1 font-body-sm text-body-sm" data-path="compute-diagnostic" href="#"><span class="material-symbols-outlined text-[16px]">speed</span>算力</a></nav><button class="text-outline-variant hover:text-surface-container-lowest transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">help</span></button></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface/85 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-sm text-body-sm text-on-surface-variant">工作区</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-body-sm text-body-sm text-primary font-medium">本地高性能调度</span></div><span class="h-3.5 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs px-2 py-0.5 rounded bg-surface-container font-label-mono-xs text-label-mono-xs text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>活动生成槽: 4/20 (TT-Image: 3, Omni: 1)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[16px] text-tertiary">toll</span><span class="font-body-sm text-body-sm">参考余额: <strong class="font-label-mono-md text-label-mono-md text-primary">3,420 点</strong></span><span class="font-label-mono-xs text-label-mono-xs text-outline">(预计在途: 40点)</span></div><a class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant hover:text-on-surface transition-all text-on-surface" data-path="background-tasks" href="#"><span class="material-symbols-outlined text-[16px] text-secondary">sync_alt</span><span class="font-body-sm text-body-sm font-medium">后台任务</span><span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-mono-xs text-label-mono-xs font-semibold">2</span></a><span class="h-4 w-px bg-outline-variant/60"></span><div class="flex items-center gap-space-xs text-outline"><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">minimize</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container-high rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">crop_square</span></button><button class="w-7 h-7 flex items-center justify-center hover:bg-error-container hover:text-error rounded text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full px-space-lg min-h-screen bg-surface"><div class="flex flex-col w-full pb-16">
+<!-- System Status Top Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md py-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">系统运行、存储与备份诊断</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">ST-01/02/03 & LC-01</span>
+</div>
+<div class="flex items-center gap-space-md text-outline flex-wrap font-label-mono-xs text-label-mono-xs">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">terminal</span>
+          Windows 11 x64
+        </span>
+<span class="text-outline-variant">/</span>
+<span>Node 24.8.0</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface">本地实例 PID: <strong class="text-primary font-medium">18420</strong></span>
+<span class="text-outline-variant">/</span>
+<span>端口: 127.0.0.1:8080 (单实例健康运行)</span>
+</div>
+</div>
+<!-- Health Badge & Actions -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-highest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">本地环境就绪 · 磁盘空间充足</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">守护进程状态正常 (Heartbeat: 400ms)</span>
+</div>
+</div>
+<button class="flex items-center gap-1 px-3 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors shadow-sm" onclick="refreshMetrics()" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">sync</span>
+<span>实时轮询</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid 1: Concurrency and Storage Overview -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-lg">
+<!-- Zone 1: Concurrency & Fair Dispatch (xl:col-span-7) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">任务并发与公平调度配置</h2>
+<p class="font-body-sm text-body-sm text-outline">Concurrency & Fair Dispatch · PRD §17.2 核心限制器</p>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-1 rounded bg-surface-container text-outline font-medium">全局有界令牌桶</span>
+</div>
+<!-- Slider 1: Image Dispatch Slots -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-lg text-body-lg text-on-surface font-medium">图片全局活动生成槽 (Image Slots)</span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-help" title="白底扣图与图片生成共享配额">info</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-mono-md text-label-mono-md text-outline">活跃占用:</span>
+<span class="font-label-mono-lg text-label-mono-lg text-primary font-semibold">4 / <span id="imgSlotVal">20</span></span>
+</div>
+</div>
+<!-- Slider Bar UI -->
+<div class="flex items-center gap-space-md">
+<span class="font-label-mono-xs text-label-mono-xs text-outline w-4">1</span>
+<input class="w-full h-1.5 bg-surface-container-high rounded cursor-pointer accent-primary" id="imgSlider" max="50" min="1" oninput="document.getElementById('imgSlotVal').innerText=this.value" type="range" value="20"/>
+<span class="font-label-mono-xs text-label-mono-xs text-outline w-6 text-right">50</span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-mono-xs text-label-mono-xs pt-1">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            白底与图片技能共用，下调不取消在途任务
+          </span>
+<span>高负荷建议: 16 ~ 24 槽</span>
+</div>
+</div>
+<!-- Slider 2: Video Slots -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-lg text-body-lg text-on-surface font-medium">视频全局活动生成槽 (Video Slots)</span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-help" title="显存开销极大，建议本地限制 1~4">info</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-mono-md text-label-mono-md text-outline">活跃占用:</span>
+<span class="font-label-mono-lg text-label-mono-lg text-secondary font-semibold">1 / 3</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high rounded h-1.5 relative overflow-hidden">
+<div class="h-full bg-secondary rounded" style="width: 33.3%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-mono-xs text-label-mono-xs text-outline">
+<span>重型管道配额保护 (显存峰值约 18.2 GB/任务)</span>
+<span>固定上限: 3 并发</span>
+</div>
+</div>
+<!-- Thread Pool Isolation Matrix -->
+<div class="p-space-md rounded bg-surface-container-high/50 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm font-semibold text-on-surface">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">shield_lock</span>
+            吞吐与文件保护：独立有界线程池隔离
+          </span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary font-semibold">防止满槽饿死落盘</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          本地架构确保文件上传、素材拉取、WebP 缩略图渲染及商用 ZIP 异步打包拥有独立进程池，不与扩散模型计算资源竞争，保障后台快速出库。
+        </p>
+<div class="grid grid-cols-4 gap-space-xs pt-space-xs font-label-mono-xs text-label-mono-xs text-outline">
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col gap-0.5">
+<span class="text-on-surface font-medium">上传管线</span>
+<span class="text-primary font-mono">4 队列 (空闲)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col gap-0.5">
+<span class="text-on-surface font-medium">缩略图生成</span>
+<span class="text-secondary font-mono">8 线程 (正常)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col gap-0.5">
+<span class="text-on-surface font-medium">ZIP 打包队列</span>
+<span class="text-primary font-mono">2 工作槽</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest flex flex-col gap-0.5">
+<span class="text-on-surface font-medium">SQLite WAL 写</span>
+<span class="text-secondary font-mono">专用线程 (就绪)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Zone 2: Storage Protection & NVMe Health (xl:col-span-5) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">hard_drive_2</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">本地数据存储与磁盘底线保护</h2>
+<p class="font-body-sm text-body-sm text-outline">Storage Protection · NVMe 空间监管</p>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">NVMe SSD</span>
+</div>
+<!-- Storage Path Card -->
+<div class="px-space-md py-space-sm rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-xs text-label-mono-xs text-outline">本地核心持久化根路径</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold truncate">D:\AICreationStudio\data\</span>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high font-body-sm text-body-sm text-on-surface transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">folder_open</span>
+<span>在资源管理器中浏览</span>
+</button>
+</div>
+<!-- Donut / Usage Metric Strip -->
+<div class="p-space-md rounded bg-surface-container-low flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 flex items-center justify-center shrink-0">
+<svg class="w-16 h-16 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.8"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="58, 100" stroke-linecap="round" stroke-width="3.8"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md font-bold text-on-surface leading-none">58%</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline scale-75">已使用</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">428 GB</span>
+<span class="font-body-sm text-body-sm text-outline">剩余可用</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">总容量 1,024 GB (已分配 596 GB)</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-end">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container text-secondary font-semibold">健康状态稳定</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">I/O 延迟: 0.12 ms</span>
+</div>
+</div>
+<!-- Warning Thresholds & Safety Mechanisms -->
+<div class="p-space-md rounded bg-surface-container-high/40 flex flex-col gap-space-xs font-body-sm text-body-sm">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">gavel</span>
+<span>磁盘安全底线预警与任务保护机制</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1 font-label-mono-xs text-label-mono-xs">
+<div class="p-2 rounded bg-surface-container-lowest">
+<div class="flex items-center justify-between text-outline">
+<span>软预警红线</span>
+<span class="text-tertiary font-bold">< 20 GB</span>
+</div>
+<span class="text-on-surface-variant block mt-0.5">控制台触发持久通知，限制非关键批量重跑</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest">
+<div class="flex items-center justify-between text-outline">
+<span>硬暂停底线</span>
+<span class="text-error font-bold">< 5 GB</span>
+</div>
+<span class="text-on-surface-variant block mt-0.5">暂停新扣点任务，优先竭力保障在途结果落盘</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+<strong class="text-on-surface">依赖锁保护：</strong>执行中任务关联合成模型权重、源白底与输入图谱在生命周期内处于物理加锁状态，用户主动或计划清理无法将其误删。
+        </p>
+</div>
+<!-- Cache Eviction Action -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 text-outline font-label-mono-xs text-label-mono-xs">
+<span class="material-symbols-outlined text-[14px]">cleaning_services</span>
+<span>预计可释放无引用缓存: <strong class="text-primary font-medium">1.8 GB</strong></span>
+</div>
+<button class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm flex items-center gap-1" onclick="evictCache(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+<span>清理无引用临时缓存</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid 2: Backup and Recovery & System Diagnostics -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Zone 3: Full Backup & Checkpoint Recovery (xl:col-span-7) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">history_toggle_off</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">完整备份与检查点恢复</h2>
+<p class="font-body-sm text-body-sm text-outline">Full Backup & Checkpoint Recovery · SQLite WAL / Media Artifacts</p>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">原子级检查点</span>
+</div>
+<!-- Explanatory Callout -->
+<div class="p-space-md rounded bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col gap-1">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">维护窗口完整封存机制</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            触发备份时，系统将等待所有当前在途生成落盘到稳定检查点，然后对 SQLite 主数据库、媒体生成素材、成品目录及各微调技能修订版本进行原子化全量打包封装。
+          </p>
+</div>
+</div>
+<!-- Backup Inventory Table -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-mono-xs text-label-mono-xs text-outline px-1">
+<span>现有可用备份档案 (2 项)</span>
+<span>校验哈希: SHA-256</span>
+</div>
+<!-- Row 1: Auto Backup -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">archive</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-bold">#BKP-20261028-0400</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-surface-container-highest text-primary">定时自动封存</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-mono-xs text-label-mono-xs text-outline mt-0.5">
+<span>体积: <strong class="text-on-surface">12.4 GB</strong></span>
+<span>•</span>
+<span>包含 1,420 个成品与数据库</span>
+<span>•</span>
+<span>2026-10-28 04:00:12</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-variant text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+              100% 完整校验
+            </span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+              回滚验证
+            </button>
+</div>
+</div>
+<!-- Row 2: Manual Backup -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded bg-surface-container-high text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">save</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-bold">#BKP-20261027-1800</span>
+<span class="font-label-mono-xs text-label-mono-xs px-1.5 py-0.2 rounded bg-surface-container-high text-secondary">手工快照</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-mono-xs text-label-mono-xs text-outline mt-0.5">
+<span>体积: <strong class="text-on-surface">11.8 GB</strong></span>
+<span>•</span>
+<span>包含 1,388 个成品与配置</span>
+<span>•</span>
+<span>2026-10-27 18:00:45</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-center">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container text-outline font-semibold">就绪存档</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+              回滚验证
+            </button>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between pt-space-xs flex-wrap gap-space-sm">
+<button class="px-3.5 py-2 rounded bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:opacity-95 transition-opacity flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>立即创建完整检查点备份</span>
+</button>
+<button class="px-3.5 py-2 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-colors flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+<span>导入外部备份并校验</span>
+</button>
+</div>
+</div>
+<!-- Zone 4: System Diagnostics & Desensitized Logs (xl:col-span-5) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">系统诊断与脱敏日志</h2>
+<p class="font-body-sm text-body-sm text-outline">Diagnostics · 本地组件矩阵 & 安全脱敏</p>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-1 rounded bg-surface-container text-outline font-medium">Auto-Redact</span>
+</div>
+<!-- Matrix of Components -->
+<div class="grid grid-cols-2 gap-space-xs font-body-sm text-body-sm">
+<div class="p-3 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">API Server</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">FastAPI / Uvicorn</span>
+</div>
+<span class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            正常
+          </span>
+</div>
+<div class="p-3 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Background Worker</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">Asyncio Loop (Local)</span>
+</div>
+<span class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            正常
+          </span>
+</div>
+<div class="p-3 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">FFmpeg 7.0</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">HW Accel: NVENC</span>
+</div>
+<span class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            已就绪
+          </span>
+</div>
+<div class="p-3 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">SQLite WAL</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">Journal Mode / Sync=1</span>
+</div>
+<span class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            正常
+          </span>
+</div>
+</div>
+<!-- Security Notice Card -->
+<div class="p-space-md rounded bg-surface-container-high/40 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">lock</span>
+<div class="flex flex-col gap-1">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">敏感信息保护声明 (PII Protection)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            所有导出的运行日志均通过内置正则引擎，已对 API 密钥 (OpenAI/Anthropic/Midjourney)、本地局域网凭证及账号标识完成单向脱敏处理 (SHA256 盐值脱敏)，可安全提供给研发排查。
+          </p>
+</div>
+</div>
+<!-- Export Diagnostic Action -->
+<div class="mt-auto pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full py-2.5 px-space-md rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm" onclick="exportDiagnosticPackage(this)" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">sim_card_download</span>
+<span>生成脱敏运行诊断包 (ZIP)</span>
+</button>
+<span class="font-label-mono-xs text-label-mono-xs text-outline text-center">
+          包含系统配置清单、近 24 小时 WAL 诊断、硬件显存调用波形
+        </span>
+</div>
+</div>
+</div>
+<!-- Interactive Scripts -->
+<script>
+    function refreshMetrics() {
+      const btn = event.currentTarget;
+      const icon = btn.querySelector('.material-symbols-outlined');
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+      }, 700);
+    }
+
+    function evictCache(btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span> <span>清理中...</span>';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-secondary">check</span> <span>已释放 1.8 GB 临时文件</span>';
+      }, 1200);
+    }
+
+    function exportDiagnosticPackage(btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary animate-spin">autorenew</span> <span>打包脱敏中...</span>';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">download_done</span> <span>诊断包已保存至 Downloads</span>';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 3000);
+      }, 1500);
+    }
+  </script>
+</div></main></div></body></html>

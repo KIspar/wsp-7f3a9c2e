@@ -1,0 +1,362 @@
+{
+  "date": "2026-10-30T09:26:10.975Z",
+  "sourceProduct": "product-6c22dc78-e998-404d-98a5-ea7985378115",
+  "submissions": [
+    {
+      "skillId": "product-kit",
+      "key": "unified-real-product-kit-1793352371526",
+      "batchId": "batch-5a26bd7d-038e-4be8-bb77-3969b0c08086",
+      "quote": {
+        "credentialVersion": "86858b26-e655-45ee-a9c2-524c8e3299af",
+        "checkedAt": "2026-10-30T09:26:11.523Z",
+        "balance": 2.71,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 2.71,
+        "minimum": 0.2765,
+        "maximum": 0.6006,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 2,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 3,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 4,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 5,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 6,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 7,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      },
+      "sourceImages": [
+        "collected-7d34e3e1ff75cf6757ba33601409ffcadd55908726bb3774251b9b47d0f974a4",
+        "collected-8352d2586728514e8f29443310b9a520399db93ad471f854b9799f18566fc51b"
+      ],
+      "results": [
+        {
+          "id": "attempt-d4c24103-cc93-45d0-a60e-4afc2b3e19ab",
+          "status": "completed",
+          "upstreamTaskId": "196841900",
+          "assetId": "provider-attempt-d4c24103-cc93-45d0-a60e-4afc2b3e19ab",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        },
+        {
+          "id": "attempt-014c7aea-8035-4c21-8e75-a0f2eb7f1bc8",
+          "status": "completed",
+          "upstreamTaskId": "196841942",
+          "assetId": "provider-attempt-014c7aea-8035-4c21-8e75-a0f2eb7f1bc8",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        },
+        {
+          "id": "attempt-70edc31d-07bc-4879-99ca-2198e2d1dba9",
+          "status": "completed",
+          "upstreamTaskId": "196841932",
+          "assetId": "provider-attempt-70edc31d-07bc-4879-99ca-2198e2d1dba9",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-250a7735-3a34-4a6b-a1b7-8e27633beda5",
+          "status": "completed",
+          "upstreamTaskId": "196841902",
+          "assetId": "provider-attempt-250a7735-3a34-4a6b-a1b7-8e27633beda5",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        },
+        {
+          "id": "attempt-aef795f7-f7fc-473a-970d-629416931733",
+          "status": "completed",
+          "upstreamTaskId": "196841903",
+          "assetId": "provider-attempt-aef795f7-f7fc-473a-970d-629416931733",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        },
+        {
+          "id": "attempt-f60335da-7ba7-44ce-bb7e-4ad1e87b5151",
+          "status": "completed",
+          "upstreamTaskId": "196841914",
+          "assetId": "provider-attempt-f60335da-7ba7-44ce-bb7e-4ad1e87b5151",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-c675d605-6258-43a7-b4be-810cb8592b24",
+          "status": "completed",
+          "upstreamTaskId": "196841904",
+          "assetId": "provider-attempt-c675d605-6258-43a7-b4be-810cb8592b24",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        }
+      ],
+      "finalCost": 0.4617
+    },
+    {
+      "skillId": "detail-design",
+      "key": "unified-real-detail-design-1793352372126",
+      "batchId": "batch-1bda41e1-8d09-49a8-be9e-32e918991b7e",
+      "quote": {
+        "credentialVersion": "86858b26-e655-45ee-a9c2-524c8e3299af",
+        "checkedAt": "2026-10-30T09:26:12.124Z",
+        "balance": 2.71,
+        "keyRemaining": null,
+        "reserved": 0.6006,
+        "available": 2.1094,
+        "minimum": 0.237,
+        "maximum": 0.5148,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 2,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 3,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 4,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 5,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 6,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      },
+      "sourceImages": [
+        "collected-7d34e3e1ff75cf6757ba33601409ffcadd55908726bb3774251b9b47d0f974a4",
+        "collected-8352d2586728514e8f29443310b9a520399db93ad471f854b9799f18566fc51b"
+      ],
+      "results": [
+        {
+          "id": "attempt-10f16cf4-addc-4df5-93bb-e6af6d5904e2",
+          "status": "completed",
+          "upstreamTaskId": "196841949",
+          "assetId": "provider-attempt-10f16cf4-addc-4df5-93bb-e6af6d5904e2",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        },
+        {
+          "id": "attempt-b833deb4-4b43-4638-a562-28863cceab01",
+          "status": "completed",
+          "upstreamTaskId": "196842030",
+          "assetId": "provider-attempt-b833deb4-4b43-4638-a562-28863cceab01",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-d210d49b-c0a5-48d3-be22-fbaae4e47a16",
+          "status": "completed",
+          "upstreamTaskId": "196841972",
+          "assetId": "provider-attempt-d210d49b-c0a5-48d3-be22-fbaae4e47a16",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-aa484a01-d13d-4453-bd5e-5553380b6549",
+          "status": "completed",
+          "upstreamTaskId": "196841945",
+          "assetId": "provider-attempt-aa484a01-d13d-4453-bd5e-5553380b6549",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-2d0ea41f-b5a9-4cb9-90a5-7f6ba183b0a0",
+          "status": "completed",
+          "upstreamTaskId": "196841936",
+          "assetId": "provider-attempt-2d0ea41f-b5a9-4cb9-90a5-7f6ba183b0a0",
+          "billing": {
+            "cost": 0.0395,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default-特惠分组"
+          }
+        },
+        {
+          "id": "attempt-5a0279a9-d2a3-47d6-81b0-9a2b5c8c5c6c",
+          "status": "completed",
+          "upstreamTaskId": "196842048",
+          "assetId": "provider-attempt-5a0279a9-d2a3-47d6-81b0-9a2b5c8c5c6c",
+          "billing": {
+            "cost": 0.0858,
+            "isFinal": true,
+            "refunded": false,
+            "refundedAmount": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "channelGroup": "BR-default特价"
+          }
+        }
+      ],
+      "finalCost": 0.3296
+    }
+  ],
+  "analysis": {
+    "id": "analysis-34009dc7-c46a-499b-9f8b-55eb13c3f018",
+    "key": "unified-visual-1793352372559",
+    "estimate": {
+      "modelId": "tt-6.1-sol",
+      "modelName": "TT-6.1 sol",
+      "inputTokens": 8000,
+      "outputTokens": 4096,
+      "estimated": 0.026416019199999998,
+      "available": 1.5945999999999998,
+      "affordable": true
+    },
+    "result": {
+      "status": "failed",
+      "upstreamTaskId": "196841924",
+      "billing": {
+        "status": "final",
+        "cost": 0.0136,
+        "inputTokens": 1196,
+        "outputTokens": 2690,
+        "checkedAt": "2026-10-30T09:27:23.886Z",
+        "isFinal": true,
+        "state": "success",
+        "refunded": false,
+        "refundedAmount": 0,
+        "channelGroup": "ZG-Codex-TT-1"
+      },
+      "error": "分析结果不符合版本化输出规范，原始内容已保留，未改动草稿",
+      "hasResult": true
+    }
+  }
+}

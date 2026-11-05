@@ -1,0 +1,133 @@
+{
+  "skillId": "scene-recreate",
+  "draft": {
+    "requirements": "商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。产品图为前三张，最后一张是构图参照。复刻参照的俯拍穿搭平铺、暖米色地毯和柔和光线，将白色夹克替换为咖棕色亨利领长袖T恤，不保留原夹克的拉链/翻领/抽绳/印字。以平铺方式完整展示新品，搭配深棕阔腿裤、无明显品牌运动鞋、头戴耳机。不要模特、手机UI、边框和广告文案。",
+    "modelId": "tt-image",
+    "aspectRatio": "3:4",
+    "count": 1,
+    "duration": 6,
+    "fields": {
+      "language": "简体中文",
+      "copyPolicy": "去除旧宣传文案"
+    },
+    "parameters": {
+      "resolution": "1K",
+      "version": "flare",
+      "quality": "auto",
+      "background": "opaque"
+    },
+    "inputRoles": {
+      "product": [
+        "test-product-1",
+        "test-product-2",
+        "test-product-3"
+      ],
+      "reference": [
+        "test-competitor-4"
+      ]
+    },
+    "selectedTargetIds": [],
+    "overrides": {},
+    "imageDesign": {
+      "groupCount": 1,
+      "screens": [],
+      "bindings": [],
+      "nextNumber": 1
+    }
+  },
+  "plan": {
+    "total": 1,
+    "points": null,
+    "items": [
+      {
+        "index": 1,
+        "variant": 1,
+        "prompt": "参考单张参考图的构图、机位、光影和视觉层级，以产品图片中的自有商品重新创作。\n额外要求：商品只以产品图为准：咖棕色，通身麦穗/人字纹理，短立领亨利领，前中三粒纽扣短门襟，长袖宽松落肩；不能改成拉链、翻领、V领或纯平面针织，不能沿用同行衣服的结构。禁止新增Logo，不编造面料成分、尺码数值、功效和品牌信息。产品图为前三张，最后一张是构图参照。复刻参照的俯拍穿搭平铺、暖米色地毯和柔和光线，将白色夹克替换为咖棕色亨利领长袖T恤，不保留原夹克的拉链/翻领/抽绳/印字。以平铺方式完整展示新品，搭配深棕阔腿裤、无明显品牌运动鞋、头戴耳机。不要模特、手机UI、边框和广告文案。\n成品语言：简体中文；文案处理：去除旧宣传文案。\n产品外观以产品图为准，不继承旧商品结构。删除参考图的旧广告品牌、价格与促销信息，商品本体标识按自有商品图保留；用户有明确修改要求时按要求执行。\n不编造营销数字、材质性能或不可见商品角度。一次输出一张，当前第1张，共1张。",
+        "references": [
+          "test-product-1",
+          "test-product-2",
+          "test-product-3",
+          "test-competitor-4"
+        ],
+        "model": {
+          "id": "tt-image",
+          "name": "TT Image 2.5",
+          "upstreamId": "tt-image-2.5",
+          "category": "image",
+          "provider": "simulator",
+          "revision": 1,
+          "enabled": true,
+          "maxReferences": 16,
+          "aspectRatios": [
+            "3:4",
+            "1:1",
+            "9:16",
+            "16:9",
+            "4:3",
+            "2:3",
+            "3:2"
+          ],
+          "durations": [],
+          "points": null,
+          "parameters": {
+            "resolution": {
+              "label": "输出分辨率",
+              "type": "select",
+              "default": "1K",
+              "options": [
+                "1K",
+                "2K",
+                "4K",
+                "auto"
+              ]
+            },
+            "version": {
+              "label": "模型版本",
+              "type": "select",
+              "default": "flare",
+              "options": [
+                "flare",
+                "sunburst"
+              ]
+            },
+            "quality": {
+              "label": "质量档位",
+              "type": "select",
+              "default": "auto",
+              "options": [
+                "auto",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            },
+            "background": {
+              "label": "背景模式",
+              "type": "select",
+              "default": "opaque",
+              "options": [
+                "opaque",
+                "transparent",
+                "auto"
+              ]
+            }
+          }
+        },
+        "parameters": {
+          "resolution": "1K",
+          "version": "flare",
+          "quality": "auto",
+          "background": "opaque",
+          "aspectRatio": "3:4"
+        }
+      }
+    ],
+    "skillId": "scene-recreate",
+    "skillRevision": 1,
+    "skillHash": "1ed2f517801ecd62070e8d33c1ad1b550f4da3da504de4b97fedacc45513fa14",
+    "action": "generate",
+    "hash": "1a83cf75e0904682658c09fceb186ce0b148cc3f3e7107cd4febd59963365998"
+  }
+}

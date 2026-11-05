@@ -1,0 +1,169 @@
+{
+  "quotes": [
+    {
+      "purpose": "detail",
+      "quote": {
+        "credentialVersion": "81179a7b-8365-4730-951b-79f24ba74dae",
+        "checkedAt": "2026-10-29T06:56:34.316Z",
+        "balance": 1.21,
+        "keyRemaining": null,
+        "reserved": 0,
+        "available": 1.21,
+        "minimum": 0.0395,
+        "maximum": 0.0858,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "sku",
+      "quote": {
+        "credentialVersion": "81179a7b-8365-4730-951b-79f24ba74dae",
+        "checkedAt": "2026-10-29T06:56:34.645Z",
+        "balance": 1.21,
+        "keyRemaining": null,
+        "reserved": 0.0858,
+        "available": 1.1242,
+        "minimum": 0.0395,
+        "maximum": 0.0858,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "post",
+      "quote": {
+        "credentialVersion": "81179a7b-8365-4730-951b-79f24ba74dae",
+        "checkedAt": "2026-10-29T06:56:35.350Z",
+        "balance": 1.21,
+        "keyRemaining": null,
+        "reserved": 0.1716,
+        "available": 1.0384,
+        "minimum": 0.079,
+        "maximum": 0.1716,
+        "affordable": true,
+        "unit": "算力",
+        "items": [
+          {
+            "index": 1,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          },
+          {
+            "index": 2,
+            "minimum": 0.0395,
+            "maximum": 0.0858,
+            "channels": 2
+          }
+        ]
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "purpose": "post",
+      "id": "attempt-2ef21e32-65cd-4850-b53b-3b048ddfd454",
+      "status": "completed",
+      "upstreamTaskId": "194759079",
+      "assetId": "provider-attempt-2ef21e32-65cd-4850-b53b-3b048ddfd454",
+      "billing": {
+        "cost": 0.0395,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default-特惠分组"
+      },
+      "file": {
+        "bytes": 1234524,
+        "format": "png",
+        "width": 864,
+        "height": 1152
+      }
+    },
+    {
+      "purpose": "post",
+      "id": "attempt-6945c628-0e0f-4ed9-9625-5d72516c4f0f",
+      "status": "completed",
+      "upstreamTaskId": "194759060",
+      "assetId": "provider-attempt-6945c628-0e0f-4ed9-9625-5d72516c4f0f",
+      "billing": {
+        "cost": 0.0395,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default-特惠分组"
+      },
+      "file": {
+        "bytes": 2115045,
+        "format": "png",
+        "width": 864,
+        "height": 1152
+      }
+    },
+    {
+      "purpose": "sku",
+      "id": "attempt-8d6b9e77-80ae-4723-b480-c418c8982350",
+      "status": "completed",
+      "upstreamTaskId": "194759125",
+      "assetId": "provider-attempt-8d6b9e77-80ae-4723-b480-c418c8982350",
+      "billing": {
+        "cost": 0.0395,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default-特惠分组"
+      },
+      "file": {
+        "bytes": 1383153,
+        "format": "png",
+        "width": 864,
+        "height": 1152
+      }
+    },
+    {
+      "purpose": "detail",
+      "id": "attempt-c56ec1c8-00dd-4f43-a44c-28a3efa9b513",
+      "status": "completed",
+      "upstreamTaskId": "194759034",
+      "assetId": "provider-attempt-c56ec1c8-00dd-4f43-a44c-28a3efa9b513",
+      "billing": {
+        "cost": 0.0395,
+        "isFinal": true,
+        "refunded": false,
+        "refundedAmount": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "channelGroup": "BR-default-特惠分组"
+      },
+      "file": {
+        "bytes": 1941532,
+        "format": "png",
+        "width": 864,
+        "height": 1152
+      }
+    }
+  ]
+}

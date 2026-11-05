@@ -1,0 +1,201 @@
+{
+  "result": {
+    "data": {
+      "productTitle": {
+        "fields": {
+          "title": "手部防护用品电竞指套游戏不断王者吃鸡防滑丝滑超薄防汗手游款",
+          "shopInfo": {
+            "companyName": "义乌市想观贸易有限公司"
+          }
+        }
+      },
+      "gallery": {
+        "fields": {
+          "offerId": 1055711634785,
+          "mainImage": [
+            "https://cbu01.alicdn.com/img/ibank/O1CN01eesUu72ILGHJgp4Sp_!!2220310999269-0-cib.jpg",
+            "https://cbu01.alicdn.com/img/ibank/O1CN01G2hw5A2ILGHJgofVF_!!2220310999269-0-cib.jpg",
+            "https://cbu01.alicdn.com/img/ibank/O1CN01Jxu59m2ILGHFNuqbe_!!2220310999269-0-cib.jpg",
+            "https://cbu01.alicdn.com/img/ibank/O1CN01B9qH3i2ILGHKVCRxo_!!2220310999269-0-cib.jpg",
+            "https://cbu01.alicdn.com/img/ibank/O1CN01a8QcJ42ILGHK2RA1m_!!2220310999269-0-cib.jpg"
+          ],
+          "video": {
+            "videoUrl": "https://cloud.video.taobao.com/play/u/2220310999269/p/2/e/6/t/1/531199416011.mp4"
+          }
+        }
+      },
+      "description": {
+        "fields": {
+          "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss282019696110859ac28cd7d4bd"
+        }
+      },
+      "Root": {
+        "fields": {
+          "dataJson": {
+            "offerBaseInfo": {
+              "offerId": 1055711634785
+            },
+            "skuModel": {
+              "skuProps": [
+                {
+                  "fid": 3216,
+                  "prop": "颜色",
+                  "value": [
+                    {
+                      "name": "彩色指套-碳纤维-黑浅灰色-10只/袋"
+                    },
+                    {
+                      "name": "彩色指套-碳纤维-冰银色-10只/袋"
+                    }
+                  ]
+                }
+              ],
+              "skuInfoMap": {
+                "彩色指套-碳纤维-黑浅灰色-10只/袋": {
+                  "skuId": 6262520231569,
+                  "price": "1.01",
+                  "specAttrs": "彩色指套-碳纤维-黑浅灰色-10只/袋"
+                },
+                "彩色指套-碳纤维-冰银色-10只/袋": {
+                  "skuId": 6262520231570,
+                  "price": "1.01",
+                  "specAttrs": "彩色指套-碳纤维-冰银色-10只/袋"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "global": {
+      "globalData": {
+        "model": {
+          "offerDetail": {
+            "offerId": 1055711634785,
+            "subject": "手部防护用品电竞指套游戏不断王者吃鸡防滑丝滑超薄防汗手游款",
+            "status": "PUBLISHED",
+            "skuProps": [
+              {
+                "fid": 3216,
+                "prop": "颜色",
+                "value": [
+                  {
+                    "name": "彩色指套-碳纤维-黑浅灰色-10只/袋"
+                  },
+                  {
+                    "name": "彩色指套-碳纤维-冰银色-10只/袋"
+                  }
+                ]
+              }
+            ],
+            "featureAttributes": [
+              {
+                "name": "材质",
+                "value": "其他"
+              },
+              {
+                "name": "品牌",
+                "value": "朋意"
+              },
+              {
+                "name": "孔数",
+                "value": "其他"
+              },
+              {
+                "name": "表面处理",
+                "value": "其他"
+              },
+              {
+                "name": "调性",
+                "value": "其他"
+              },
+              {
+                "name": "细分",
+                "value": "其他"
+              },
+              {
+                "name": "货号",
+                "value": "CSZT"
+              },
+              {
+                "name": "型号",
+                "value": "其他"
+              },
+              {
+                "name": "规格",
+                "value": "其他"
+              },
+              {
+                "name": "包装",
+                "value": "其他"
+              },
+              {
+                "name": "盖板材质",
+                "value": "其他"
+              },
+              {
+                "name": "产地",
+                "value": "义乌"
+              },
+              {
+                "name": "音孔材质",
+                "value": "其他"
+              },
+              {
+                "name": "系列",
+                "value": "其他"
+              },
+              {
+                "name": "形象",
+                "value": "其他"
+              },
+              {
+                "name": "适用场景",
+                "value": "其他"
+              },
+              {
+                "name": "主要下游平台",
+                "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA,其他"
+              },
+              {
+                "name": "主要销售地区",
+                "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他"
+              },
+              {
+                "name": "有可授权的自有品牌",
+                "value": "否"
+              },
+              {
+                "name": "是否跨境出口专供货源",
+                "value": "否"
+              },
+              {
+                "name": "专利类型",
+                "value": "无"
+              },
+              {
+                "name": "外贸出口认证",
+                "value": "其他"
+              },
+              {
+                "name": "质检报告编号",
+                "value": "其他"
+              },
+              {
+                "name": "颜色",
+                "value": "彩色指套-碳纤维-黑浅灰色-10只/袋,彩色指套-碳纤维-冰银色-10只/袋"
+              }
+            ],
+            "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss282019696110859ac28cd7d4bd"
+          },
+          "sellerModel": {
+            "companyName": "义乌市想观贸易有限公司"
+          },
+          "tradeModel": {
+            "minPrice": "1.01"
+          }
+        }
+      }
+    }
+  }
+}
