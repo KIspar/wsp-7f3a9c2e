@@ -41,14 +41,16 @@ import {createToken01Account,token01SmsSchema,token01PhoneLoginSchema} from './t
 import {createRelayCatalog} from './relay-catalog';
 import {createToken01Keys} from './token01-keys';
 import {createToken01Routing} from './token01-routing';
+import {publicAccessFromEnv,validBasicAuth,type PublicAccess} from './access';
 
 import {createMediaWorker} from './media-worker';
 import {registerCatalogRoutes} from './catalog';
 import {registerPromotionRoutes} from './promotion';
 import { DEFAULT_WORKSPACE_ID } from './store';
 
-export async function createApp(store: Store, options: { worker?: boolean; providerTransport?: ProviderTransport; analysisService?: AnalysisService; mediaRemote?: RemoteReader } = {}) {
+export async function createApp(store: Store, options: { worker?: boolean; providerTransport?: ProviderTransport; analysisService?: AnalysisService; mediaRemote?: RemoteReader; publicAccess?: PublicAccess | null } = {}) {
   const app = Fastify({ logger: false, bodyLimit: 1024 * 1024 });
+  const publicAccess = options.publicAccess === undefined ? publicAccessFromEnv() : options.publicAccess;
   const token = randomBytes(32).toString("hex");
   const worker = createMediaWorker(store,{transport:options.providerTransport,remote:options.mediaRemote});
   const generationPricing=createGenerationPricing(store,options.providerTransport);
@@ -59,16 +61,23 @@ export async function createApp(store: Store, options: { worker?: boolean; provi
   const token01Routing=createToken01Routing(store,options.providerTransport);
   const localHost = (host: string) => ["127.0.0.1", "localhost", "[::1]"].includes(host);
   app.addHook("onRequest", async (request, reply) => {
+    if (request.url === "/healthz" && request.method === "GET") return;
     const requestedWorkspace = request.headers["x-studio-workspace"];
     const workspaceId = typeof requestedWorkspace === "string" && /^[a-zA-Z0-9_-]{1,120}$/.test(requestedWorkspace) ? requestedWorkspace : DEFAULT_WORKSPACE_ID;
     store.enterWorkspace(workspaceId);
     const host = new URL(`http://${request.headers.host || "invalid"}`);
-    if (!localHost(host.hostname)) return reply.code(403).send({ message: "仅接受本机访问" });
+    if (publicAccess) {
+      if (host.host.toLowerCase() !== publicAccess.host.toLowerCase()) return reply.code(403).send({ message: "访问地址不匹配" });
+    } else if (!localHost(host.hostname)) return reply.code(403).send({ message: "仅接受本机访问" });
     if(request.url.startsWith('/api/research-extension/')){guardResearchExtension(store,request,reply);return;}
+    if (publicAccess && !validBasicAuth(request.headers.authorization, publicAccess)) {
+      return reply.header("WWW-Authenticate", 'Basic realm="AI Creative Studio", charset="UTF-8"')
+        .code(401).send({ message: "请登录工作台" });
+    }
     const origin = request.headers.origin;
     if (origin) {
       let valid = false;
-      try { const url = new URL(origin); valid = localHost(url.hostname) && url.protocol === "http:"; } catch { /* Invalid origins are rejected. */ }
+      try { const url = new URL(origin); valid = publicAccess ? origin === publicAccess.origin : localHost(url.hostname) && url.protocol === "http:"; } catch { /* Invalid origins are rejected. */ }
       if (!valid) return reply.code(403).send({ message: "来源不被允许" });
     }
     if (!["GET", "HEAD"].includes(request.method) && request.headers["x-studio-token"] !== token) {
@@ -87,6 +96,7 @@ export async function createApp(store: Store, options: { worker?: boolean; provi
   await app.register(multipart, { limits: { fileSize: 30 * 1024 * 1024, files: 1, fields: 0, parts: 1 } });
   await app.register(serveStatic, { root: path.join(store.dataDir, "media"), prefix: "/media/", decorateReply: true });
   await app.register(serveStatic, { root: path.join(store.projectRoot, "public/examples"), prefix: "/examples/", decorateReply: false });
+  app.get("/healthz", async () => ({ ok: true }));
   const health = () => {
     let freeBytes: number | null = null;
     try { const stats = fs.statfsSync(store.dataDir); freeBytes = stats.bavail * stats.bsize; } catch { /* Some filesystems do not report capacity. */ }

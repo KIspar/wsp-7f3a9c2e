@@ -2,11 +2,15 @@ import path from "node:path";
 import fs from "node:fs";
 import { createStore } from "./store";
 import { createApp } from "./app";
+import { publicAccessFromEnv } from "./access";
 
+const publicAccess = publicAccessFromEnv();
 const root = path.resolve(process.env.STUDIO_ROOT || ".");
 const dataDir = path.resolve(process.env.STUDIO_DATA || path.join(root, "data"));
 fs.mkdirSync(dataDir, { recursive: true });
 const lock = path.join(dataDir, "server.lock");
+const lockManaged = process.env.STUDIO_LOCK_MANAGED === "1";
+if (!lockManaged) {
 if (fs.existsSync(lock)) {
   const pid = Number(fs.readFileSync(lock, "utf8"));
   try {
@@ -18,6 +22,7 @@ if (fs.existsSync(lock)) {
   }
 }
 fs.writeFileSync(lock, String(process.pid), { flag: "wx" });
+}
 const store = createStore(dataDir, root);
 const app = await createApp(store);
 let closing = false;
@@ -27,12 +32,12 @@ async function close() {
   closing = true;
   await app.close();
   store.close();
-  fs.rmSync(lock, { force: true });
+  if (!lockManaged) fs.rmSync(lock, { force: true });
 }
 process.on("SIGINT", () => void close().then(() => process.exit(0)));
 process.on("SIGTERM", () => void close().then(() => process.exit(0)));
 try {
-  const url = await app.listen({ host: "127.0.0.1", port: Number(process.env.PORT || 4310) });
+  const url = await app.listen({ host: publicAccess ? "0.0.0.0" : "127.0.0.1", port: Number(process.env.PORT || 4310) });
   console.log(`AI 创作工作台 API: ${url} · 真实媒体生成 / 商品采集 / AI 辅助按需调用`);
 } catch (error) {
   await close();

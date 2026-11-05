@@ -61,6 +61,10 @@ npm test -- --maxWorkers=2
 
 GitHub 仓库链接用于访问代码和文档。直接在互联网使用工作台还需要单独部署前端、后台与持久化存储，并配置登录权限；当前源码服务默认只接受本机连接。
 
+## 线上部署
+
+仓库提供 [Dockerfile](Dockerfile) 和[线上部署说明](docs/线上部署说明.md)。线上实例需要独立的 HTTPS 地址、持久化数据卷，以及至少 20 位的访问密码。部署前将 STUDIO_PUBLIC_ORIGIN、STUDIO_ACCESS_PASSWORD 和 STUDIO_DATA=/data 配置在托管平台；不要把密码或供应商 API Key 提交到仓库。线上实例保持单副本运行，模型密钥在工作台内配置。
+
 ## 文档
 
 - [产品需求](PRD.md)与[领域术语](CONTEXT.md)
