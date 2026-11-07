@@ -37,8 +37,6 @@ export function CreativeComposer({ skill, pending, onSubmit, onParameters, onRes
   const resolution = String(draft.parameters.resolution || "auto");
   const variation = skill.fields.variation;
   const update = (patch: Partial<Draft>) => studio.updateDraft(skill.id, { ...studio.draft(skill.id), ...patch });
-  const savedTime = status.savedAt && new Intl.DateTimeFormat("zh-CN", { hour: "2-digit", minute: "2-digit", hour12: false }).format(status.savedAt);
-  const saveLabel = status.error ? "草稿已存本地，服务同步失败" : status.pending ? "正在自动保存草稿…" : `草稿已自动保存${savedTime ? `于 ${savedTime}` : ""}`;
   const suggestions=creationSuggestions(skill,draft);
   const selected=suggestions.filter(s=>draft.requirements.split(/\r?\n/).includes(s.prompt)).map(s=>s.label);
   const toggleSuggestions=(labels:string[])=>{
@@ -55,9 +53,7 @@ export function CreativeComposer({ skill, pending, onSubmit, onParameters, onRes
     <div className="composer-header">
       <div className="composer-context">
         <h2>创作设置</h2>
-        <span className={`composer-save${status.error ? " save-error" : ""}`} role="status">
-          {status.error ? <CloudOff /> : status.pending ? <LoaderCircle className="spin" /> : <CloudUpload />}<span>{saveLabel}</span>
-        </span>
+        {status.error&&<span className="composer-save save-error" role="alert"><CloudOff/><span>草稿同步失败，请重试</span></span>}
       </div>
       <div className="composer-header-actions"><PromptTemplatePicker categories={[isVideo?'video':'image']} kinds={isVideo?videoPromptKinds:imagePromptKinds} productName={draft.productContext?.name} disabled={pending} onApply={(a,o)=>{studio.updateDraft(skill.id,applySkillTemplate(studio.draft(skill.id),a,o,skill,studio.boot.models));}}/></div>
     </div>

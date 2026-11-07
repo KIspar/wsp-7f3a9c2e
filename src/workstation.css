@@ -1,0 +1,131 @@
+/* Shared workstation rules. Page-specific geometry stays with its component. */
+body { line-height:1.55; }
+input,textarea { caret-color:var(--primary); }
+input::placeholder,textarea::placeholder { opacity:1; }
+* { scrollbar-width:thin; scrollbar-color:#b6bdc8 transparent; }
+[data-slot=field-label] { color:var(--text-label); font-weight:550; }
+[data-slot=select-trigger] { min-height:38px; background:var(--card); border-color:var(--input); box-shadow:none; }
+[data-slot=dialog-content],[data-slot=sheet-content] { border-color:var(--border); }
+[data-slot=dialog-title],[data-slot=sheet-title] { font-weight:650; letter-spacing:-.02em; }
+[data-slot=dialog-description],[data-slot=sheet-description] { color:var(--muted-foreground); line-height:1.6; }
+
+.app-shell .topbar { border-bottom:1px solid var(--border); }
+.app-shell .studio-feature-toggle { flex:none; color:var(--text-label); }
+.app-shell .execution-indicator { border:0; background:transparent; font-size:12px; }
+.app-shell .local-status,.app-shell .sidebar-storage { background:transparent; border:0; font-size:12px; padding-inline:2px; }
+.app-shell .local-status { padding-top:0; }
+.app-shell .help-button { font-size:13px; }
+.app-shell .workspace-heading .page-eyebrow,.app-shell .workspace-heading .eyebrow { display:none; }
+.app-shell .settings-panel { box-shadow:none; border-radius:12px; }
+.app-shell .settings-panel .section-heading h2,.app-shell .panel-heading h2 { font-size:17px; font-weight:650; }
+.app-shell .settings-panel .section-heading { align-items:flex-start; gap:16px; }
+.app-shell .settings-panel .section-heading .muted { margin-top:6px; line-height:1.6; }
+.app-shell .management-heading { margin-bottom:24px; }
+.app-shell .workspace-empty { border-radius:12px; }
+.app-shell .sample-strip img { transform:none; box-shadow:none; border-width:1px; }
+.app-shell .creative-sidebar-composer,.app-shell .product-design-composer { border-radius:12px; }
+.app-shell .composer-header { background:var(--card); border-bottom:1px solid var(--border); }
+.app-shell .composer-header h2 { font-size:16px; font-weight:650; }
+.app-shell .composer-header .muted { font-size:12px; }
+.app-shell .unified-image-sidebar [data-slot=field-label] { color:var(--text-label); font-size:13px; }
+.app-shell .unified-image-sidebar textarea { font-size:14px; line-height:1.7; }
+.app-shell .unified-image-sidebar .creative-block-heading { font-size:14px; color:var(--foreground); }
+
+/* Results occupy the workspace; filters stay on a quiet, compact toolbar. */
+.app-shell .feed-toolbar { padding:0 0 16px; margin-bottom:20px; gap:12px; border:0; border-bottom:1px solid var(--border); border-radius:0; background:transparent; box-shadow:none; }
+.app-shell .feed-toolbar [data-slot=toggle-group] { padding:3px; border:1px solid var(--border); background:var(--card); border-radius:8px; }
+.app-shell .feed-toolbar [data-slot=toggle-group-item] { min-width:0; font-size:13px; padding-inline:10px; color:var(--text-label); }
+.app-shell .feed-toolbar [data-slot=toggle-group-item][data-state=on] { color:var(--accent-foreground); background:var(--accent); box-shadow:none; }
+.app-shell .feed-search { flex-wrap:wrap; gap:8px; }
+.app-shell .feed-search>div input { width:190px; height:36px; border-radius:6px; background:var(--card); font-size:13px; }
+.app-shell .batch-block { border:0; border-radius:0; background:transparent; box-shadow:none; padding:0; }
+.app-shell .batch-block+.batch-block { padding-top:24px; border-top:1px solid var(--border); }
+.app-shell .batch-header { border:0; padding-bottom:0; margin-bottom:14px; }
+.app-shell .batch-media-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); gap:20px; }
+.app-shell .batch-identity { gap:10px; }
+.app-shell .batch-identity>strong { font-family:var(--font-family-ui); font-size:14px; font-weight:650; }
+.app-shell .attempt-tile { border-radius:8px; }
+.app-shell .attempt-meta { padding:10px 12px; }
+.app-shell .attempt-footer { min-height:46px; gap:8px; }
+.app-shell .attempt-footer [data-slot=button] { width:30px; height:30px; color:var(--text-label); }
+.app-shell .result-media { background:#e8ebef; }
+.app-shell .result-media-trigger:focus-visible { outline:2px solid var(--ring); outline-offset:-3px; }
+.app-shell .promotion-thumbnails>span { width:144px; height:180px; }
+.app-shell .promotion-thumbnails .promotion-video-thumb { width:280px; height:180px; }
+
+/* Relay accounts stay separate; credentials are progressive configuration. */
+.relay-connections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; margin-bottom:24px; }
+.app-shell .relay-connection { margin:0; padding:24px; }
+.relay-connection>.section-heading { flex-wrap:wrap; }
+.relay-connection>.section-heading>.muted { max-width:52ch; }
+.relay-account-summary { align-items:flex-start; gap:16px; padding:20px 0; margin-bottom:0; border-bottom:0; }
+.relay-account-summary>div:first-child { flex:1 0 100%; }
+.relay-account-summary>div:last-child { gap:8px; }
+.relay-account-amount strong { font-size:32px; font-weight:650; }
+.relay-credential-details { border-top:1px solid var(--border); }
+.relay-credential-details>summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:52px; font-size:14px; font-weight:550; cursor:pointer; list-style:none; }
+.relay-credential-details>summary::-webkit-details-marker { display:none; }
+.relay-credential-details>summary>svg { width:16px; height:16px; color:var(--muted-foreground); transition:transform 150ms; }
+.relay-credential-details[open]>summary>svg { transform:rotate(180deg); }
+.relay-credential-details>summary>span { margin-left:auto; font-size:12px; color:var(--muted-foreground); font-weight:400; }
+.relay-credential-details>[data-slot=field] { margin:8px 0 20px; }
+.relay-credential-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.relay-credential-actions>[data-slot=input] { flex-basis:100%; }
+.management-page>.settings-panel[aria-labelledby=media-model-heading] { border:0; padding:8px 0 0; background:transparent; }
+.media-model-card { background:var(--card); }
+.media-model-tile { background:transparent; padding:20px; gap:9px; }
+.media-model-tile strong { font-size:16px; font-weight:650; }
+.media-model-status { font-size:12px; }
+.media-model-status.is-enabled { color:var(--success); }
+.media-model-tile-bottom { color:var(--text-label); }
+.canvas-generator-settings>[data-slot=select-trigger] { min-height:32px; }
+
+@media(max-width:1440px) {
+  .app-shell .topbar .execution-indicator { display:none; }
+  .relay-connections { grid-template-columns:minmax(0,1fr); }
+  .relay-account-summary>div:first-child { flex:1 1 200px; }
+}
+@media(max-width:1000px) {
+  .ecommerce-controls-scroll>section { padding:20px; }
+}
+@media(max-width:960px) {
+  .studio-feature-rail>nav { display:flex; gap:12px; }
+  .studio-feature-rail section { flex:none; }
+  .app-shell .batch-media-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr)); }
+}
+@media(max-width:760px) {
+  .app-shell .topbar { gap:6px; }
+  .studio-category-tabs>a { font-size:13px; }
+  .app-shell .settings-panel { padding:18px; }
+  .app-shell .relay-connection { padding:18px; }
+  .relay-account-summary>div:first-child { flex-basis:100%; }
+  .app-shell .feed-search { width:100%; }
+  .app-shell .feed-search>div { flex:1; min-width:0; }
+  .app-shell .feed-search>div input { width:100%; }
+  .ecommerce-page-heading h1 { font-size:22px; }
+  .ecommerce-page-grid { gap:24px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  [data-slot=button],[data-slot=input],[data-slot=textarea] { transition:none; }
+}
+
+/* Template scope stays readable without expanding every card into instructions. */
+.prompt-card-info > .prompt-card-scope {
+  min-height: 0;
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 550;
+  -webkit-line-clamp: 2;
+}
+.prompt-detail-meta { flex-wrap: wrap; }
+.prompt-detail-meta > span { font-size: 12px; color: var(--muted-foreground); }
+.prompt-card h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+@media (max-width: 720px) {
+  .prompt-page-heading { gap: 12px; margin-bottom: 20px; }
+  .prompt-toolbar { padding-bottom: 16px; margin-bottom: 18px; }
+}

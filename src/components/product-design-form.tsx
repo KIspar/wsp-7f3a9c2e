@@ -19,6 +19,8 @@ import {FormSelect} from './form-select';
 import {Modal,MediaModal,Properties,IconButton} from './common';
 import {MaterialInputRow} from './catalog/materials';
 import {DirectPolishButton} from './direct-polish';
+import {PromptTemplatePicker} from './prompt-library';
+import {applySkillTemplate,skillTemplateKinds} from '@/lib/prompt-templates';
 const factScreens=new Set(['品牌故事图','效果对比图','工艺制作图','配件/赠品图','售后保障图','尺寸/容量/尺码图','详细规格/参数表','商品成分图']);
 export function ReplicaSettings({type='电商商品图',fidelity='高度复刻',onChange,disabled=false}:{type?:string;fidelity?:string;onChange:(type:string,fidelity:string)=>void;disabled?:boolean}){
  return <section className="design-form-section"><h3>复刻方式</h3><label>复刻类型<FormSelect aria-label="复刻类型" value={type} options={[...replicaTypes]} disabled={disabled} onValueChange={v=>onChange(v,fidelity)}/></label><div className="replica-fidelity" role="group" aria-label="复刻程度">{replicaFidelities.map(v=><button type="button" key={v} aria-pressed={v===fidelity} disabled={disabled} onClick={()=>onChange(type,v)}><strong>{v}{v===fidelity&&<Check size={15}/>}</strong><span>{fidelityDescriptions[v]}</span></button>)}</div></section>;
@@ -30,11 +32,12 @@ export function ProductDesignForm({skill,draft,onChange,models,assets,onUpload,m
  const layoutOptions=layoutQuery.data?.items.slice().sort((a,b)=>a.template.id.localeCompare(b.template.id)).map(e=>({id:e.template.id,version:e.version.number,name:e.version.value.name,rules:e.version.value.prompt,preview:layoutQuery.data!.assets.find(a=>a.id===e.version.value.exampleIds[0])}))||[];
  const [layoutView,setLayoutView]=useState<Asset>();
  const slots=isKit?kitSlots(kit):[];
- function changeKit(p:Partial<typeof kit>){const next={...kit,...p};onChange({productKit:next,count:kitSlots(next).length});}
+ function changeKit(p:Partial<typeof kit>){const next={...kit,...p};onChange({productKit:next,count:kitSlots(next).length,...(p.layouts&&kit.layouts.some(l=>l.id===draft.promptTemplate?.id)&&!next.layouts.some(l=>l.id===draft.promptTemplate?.id)?{promptTemplate:undefined}:{})});}
  function setScreens(screens:typeof design.screens){onChange({imageDesign:{...design,screens}});}
  function move(id:string,to:number){const next=[...design.screens],from=next.findIndex(s=>s.id===id);if(from<0||to<0||to>=next.length)return;next.splice(to,0,next.splice(from,1)[0]);setScreens(next);}
  const count=isKit?slots.length:detail?design.screens.length*design.groupCount:replica?draft.selectedTargetIds.length:draft.count;
  return <div className="product-design-composer">{heading}<div className="product-design-scroll">{context}
+ <div className="prompt-composer-entry"><PromptTemplatePicker categories={['image']} kinds={skillTemplateKinds(skill)} appliedTemplate={draft.promptTemplate} productName={productName||draft.productContext?.name} onApply={(applied,options)=>onChange(applySkillTemplate(draft,applied,options,skill,models))}/></div>
  {productInput===undefined?(<MaterialInputRow purpose="product" label="商品原图" ids={draft.inputRoles.product||[]} assets={assets} max={model?.maxReferences||6} onUpload={onUpload} onChange={ids=>onChange({inputRoles:{...draft.inputRoles,product:ids}})}/>) : productInput}
  {!detail&&<MaterialInputRow label={replica?'对标原图':'风格参考图 · 可选'} ids={draft.inputRoles[replica?'targets':'reference']||[]} selectedIds={replica?draft.selectedTargetIds:undefined} onSelection={replica?selectedTargetIds=>onChange({selectedTargetIds}):undefined} assets={assets} max={replica?Math.min(20,maxBatch):skill.inputs.reference?.cardinality==='single'?1:4} onUpload={onUpload} onChange={ids=>onChange({inputRoles:{...draft.inputRoles,[replica?'targets':'reference']:ids},...(replica?{selectedTargetIds:ids.filter(id=>!(draft.inputRoles.targets||[]).includes(id)||draft.selectedTargetIds.includes(id))}:{})})}/>}
  {replica&&<ReplicaSettings type={String(draft.fields.replicationType||'电商商品图')} fidelity={String(draft.fields.replicationFidelity||'高度复刻')} onChange={(replicationType,replicationFidelity)=>onChange({fields:{...draft.fields,replicationType,replicationFidelity}})}/>}

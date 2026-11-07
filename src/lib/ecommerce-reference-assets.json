@@ -4271,12 +4271,12 @@
     "roles": {},
     "cases": [
       {
-        "alt": "无损改尺寸",
+        "alt": "图片改尺寸",
         "src": "/ecommerce-reference/a12ea02f55d4-toolbox-lossless-resize.png.webp"
       }
     ],
     "cover": {
-      "alt": "无损改尺寸",
+      "alt": "图片改尺寸",
       "src": "/ecommerce-reference/a12ea02f55d4-toolbox-lossless-resize.png.webp"
     }
   },

@@ -1,3 +1,4 @@
+import {useBackgroundDraft} from '@/lib/use-background-draft';
 import { useEffect, useRef, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Copy, Download, LoaderCircle, RefreshCw, Sparkles } from 'lucide-react';
@@ -46,13 +47,13 @@ function JobState({job}:{job:AnalysisJob}){
   </div>;
 }
 export function AnalysisResult({job,onText}:{job:AnalysisJob;onText?:(text:string)=>void}){
-  const [text,setText]=useState(()=>localStorage.getItem('analysis-edit-'+job.id)||job.result||'');
-  useEffect(()=>{setText(localStorage.getItem('analysis-edit-'+job.id)||job.result||'');},[job.id,job.result]);
+  const [text,setText]=useBackgroundDraft('analysis-edit-'+job.id+(job.result?'':':pending'),()=>localStorage.getItem('analysis-edit-'+job.id)||job.result||'');
+
   useEffect(()=>{onText?.(text);},[text]);
   return <>
     <JobState job={job}/>
     {job.preview&&<a className="analysis-preview-link" href={job.preview.url} target="_blank" rel="noreferrer"><img src={job.preview.url} alt="实际发送的带图号分析预览"/><span>实际发送预览 · {job.preview.width}×{job.preview.height} · {Math.ceil(job.preview.bytes/1024)}KB</span></a>}
-    {!!job.result&&<Field><FieldLabel htmlFor={'result-'+job.id}>候选内容 · 可编辑</FieldLabel><Textarea id={'result-'+job.id} className="analysis-result" value={text} maxLength={64000} onChange={e=>{setText(e.target.value);localStorage.setItem('analysis-edit-'+job.id,e.target.value);}}/><div className="flex flex-wrap gap-2"><Button type="button" size="sm" variant="outline" onClick={()=>void copy(text)}><Copy />复制</Button><Button type="button" size="sm" variant="outline" onClick={()=>downloadMarkdown(text,job.id)}><Download />下载 Markdown</Button></div></Field>}
+    {!!job.result&&<Field><FieldLabel htmlFor={'result-'+job.id}>候选内容 · 可编辑</FieldLabel><Textarea id={'result-'+job.id} className="analysis-result" value={text} maxLength={64000} onChange={e=>{setText(e.target.value);}}/><div className="flex flex-wrap gap-2"><Button type="button" size="sm" variant="outline" onClick={()=>void copy(text)}><Copy />复制</Button><Button type="button" size="sm" variant="outline" onClick={()=>downloadMarkdown(text,job.id)}><Download />下载 Markdown</Button></div></Field>}
   </>;
 }
 type AiAssistProps={skill:Skill;action?:AnalysisInput['action'];field?:string;assetIds?:string[];label?:string;iconOnly?:boolean;disabled?:boolean};

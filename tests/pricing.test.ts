@@ -13,6 +13,7 @@ import type {ProviderPricing,ProviderPriceGroup,ProviderBalance} from '../packag
 import fixtures from './fixtures/media-pricing.json';
 import {withChuheRouting} from '../packages/chuhe-routing';
 import providerFixture from './fixtures/provider.json';
+import {emptyCanvas} from '../packages/canvas';
 
 let store:Store,dir:string,balance:ProviderBalance,prices:ProviderPricing;
 beforeEach(()=>{dir=fs.mkdtempSync(path.join(os.tmpdir(),'studio-price-'));store=createStore(dir,process.cwd());const vault=credentialVault(dir);vault.set('tt-image','sk-test-image-12345678901234567890');vault.set('omni','sk-test-video-12345678901234567890');balance={balance:1.71,unit:'算力',api_key_quota:{limit:0,used:0}};prices=structuredClone(fixtures['tt-image-2.5']);});
@@ -27,6 +28,38 @@ const group=(patch:Partial<ProviderPriceGroup>={}):ProviderPriceGroup=>({group_i
 const pricing=(g:ProviderPriceGroup[]):ProviderPricing=>({available_for_this_key:true,channel_groups:g});
 const item=(parameters:Record<string,unknown>={},references:string[]=[])=>({parameters,references});
 describe('supplier price calculation and admission',()=>{
+  it.each(['image-generate','video-generate'])('submits %s from its selected board through the HTTP contract and isolates replay by board',async skillId=>{
+    const read=transport(),app=await createApp(store,{worker:false,providerTransport:read});
+    const boardId=crypto.randomUUID(),otherBoardId=crypto.randomUUID(),nodeId=crypto.randomUUID();
+    const r={...request(draft(skillId),skillId),canvasNodeId:nodeId,canvasBoardId:boardId,expectedDraftRevision:undefined};
+    const node={id:nodeId,kind:'tool',title:'AI 生成',toolId:skillId==='image-generate'?'ai-image':'ai-video',text:r.draft.requirements,x:0,y:0};
+    store.put('canvas',boardId,{...emptyCanvas,nodes:[node]});
+    try{
+      const token=(await app.inject('/api/bootstrap')).json().token,headers={'x-studio-token':token};
+      const accepted=await app.inject({method:'POST',url:'/api/submit',headers,payload:r});
+      expect(accepted.statusCode).toBe(200);
+      const batch=accepted.json().batch;
+      expect(batch).toMatchObject({canvasNodeId:nodeId,canvasBoardId:boardId});
+      expect((await app.inject({method:'POST',url:'/api/submit',headers,payload:r})).json().batch.id).toBe(batch.id);
+      const wrongReplay=await app.inject({method:'POST',url:'/api/submit',headers,payload:{...r,canvasBoardId:otherBoardId}});
+      expect(wrongReplay.statusCode).toBe(409);
+      const missingNode=await app.inject({method:'POST',url:'/api/submit',headers,payload:{...r,idempotencyKey:crypto.randomUUID(),canvasBoardId:otherBoardId}});
+      expect(missingNode.statusCode).toBe(409);expect(missingNode.json().message).toContain('画布生成节点已变化');
+      expect(store.snapshot().batches).toHaveLength(1);
+      expect(read.mock.calls.every(([,init])=>init.method==='GET')).toBe(true);
+    }finally{await app.close();}
+  });
+  it('keeps legacy main-board submissions working and rejects a removed or changed node before pricing',async()=>{
+    const r={...request(),canvasNodeId:crypto.randomUUID(),expectedDraftRevision:undefined};
+    const node={id:r.canvasNodeId,kind:'tool',title:'AI 绘图',toolId:'ai-image',text:r.draft.requirements,x:0,y:0};
+    store.put('canvas','main',{...emptyCanvas,nodes:[node]});
+    const read=transport(),service=createGenerationPricing(store,read);
+    expect((await service.admit(r)).batch.canvasBoardId).toBe('main');
+    store.put('canvas','main',{...emptyCanvas,nodes:[{...node,toolId:'ai-video'}]});
+    const calls=read.mock.calls.length;
+    await expect(service.admit({...r,idempotencyKey:crypto.randomUUID()})).rejects.toMatchObject({statusCode:409});
+    expect(read).toHaveBeenCalledTimes(calls);expect(store.snapshot().batches).toHaveLength(1);
+  });
   it('quotes actual eligible route range without using local manual model points',async()=>{
     const model=store.models()[0];store.put('model',model.id,{...model,points:999});
     const d=draft();d.count=3;const plan=compilePlan(store,'image-generate',d),result=await createPricingService(store,transport()).quote(plan.items);

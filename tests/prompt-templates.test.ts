@@ -8,7 +8,7 @@ import { capturePrompt, savePrompt, promptDetail } from '../apps/server/prompts'
 import { emptyPrompt, promptCategory, promptTemplateInputSchema, expandPrompt, promptVariables, promptScript, type AppliedPrompt } from '../packages/prompts';
 import { defaultDraft, draftSchema, type Asset, type Attempt, type Batch } from '../packages/contracts';
 import { promotionValueSchema } from '../packages/promotion';
-import { applyPromotionTemplate, applySkillTemplate, mergePrompt } from '../src/lib/prompt-templates';
+import { applyPromotionTemplate, applySkillTemplate, mergePrompt, requestedTemplateVersion, skillTemplateDestination, skillTemplateKinds } from '../src/lib/prompt-templates';
 import {expandPostPages} from '../packages/post-plan';
 import { remakeInputSchema } from '../packages/video-remake';
 
@@ -117,6 +117,58 @@ describe('模板中心持久化与接口', () => {
 });
 
 describe('模板应用与商品隔离', () => {
+  it('routes compatible ecommerce templates to the current pages and excludes workspaces without consumers', () => {
+    const get = (id:string) => store.skills().find(s=>s.id===id)!;
+    expect(skillTemplateDestination(get('ec-product-01'),applied().value)?.path).toBe('/ecommerce/ec-product-01');
+    expect(skillTemplateDestination(get('image-generate'),applied().value)?.path).toBe('/studio/image-generate');
+    expect(skillTemplateDestination(get('product-kit'),applied('image-layout').value)?.path).toBe('/studio/product-kit');
+    expect(skillTemplateDestination(get('ec-product-01'),applied('image-layout').value)).toBeUndefined();
+    expect(skillTemplateDestination(get('image-generate'),{...applied().value,category:'post'})).toBeUndefined();
+    expect(skillTemplateDestination(get('video-generate'),applied().value)).toBeUndefined();
+    expect(skillTemplateDestination(get('video-generate'),applied('video-storyboard').value)?.path).toBe('/studio/video-generate');
+    expect(skillTemplateDestination(get('video-generate'),applied('video-remake').value)).toBeUndefined();
+    expect(skillTemplateKinds(get('model-outfit'))).toEqual([]);
+    expect(skillTemplateKinds(get('scene-recreate'))).toEqual([]);
+    expect(skillTemplateKinds({...get('ec-product-01'),id:'ec-tools-24'})).toEqual([]);
+    expect(skillTemplateKinds({...get('ec-product-01'),executor:'workflow'})).toEqual([]);
+  });
+  it('uses the linked immutable version and refuses missing or foreign versions', () => {
+    const first=savePrompt(store,value());
+    const latest=savePrompt(store,{...value(),prompt:'新版'},first.template.id,1);
+    const detail=promptDetail(store,first.template.id);
+    expect(requestedTemplateVersion(detail,first.version.id)?.value.prompt).toBe(value().prompt);
+    expect(requestedTemplateVersion(detail)?.id).toBe(latest.version.id);
+    expect(requestedTemplateVersion(detail,'missing')).toBeUndefined();
+    const other=savePrompt(store,{...value(),name:'其他'});
+    expect(requestedTemplateVersion({...detail,versions:[...detail.versions,other.version]},other.version.id)).toBeUndefined();
+  });
+  it('adds a versioned layout once and preserves materials, requirements and output counts', () => {
+    const skill=store.skills().find(s=>s.id==='product-kit')!, current=defaultDraft(skill,store.models());
+    current.inputRoles.product=['own']; current.requirements='保留当前卖点';
+    const template=applied('image-layout');template.template.versionNumber=2;
+    const options={mode:'append' as const,references:false,settings:false};
+    const next=applySkillTemplate(current,template,options,skill,store.models());
+    const twice=applySkillTemplate(next,template,options,skill,store.models());
+    expect(twice.productKit?.layouts).toEqual([{id:'template',version:2}]);
+    expect(twice.requirements).toBe(current.requirements);expect(twice.count).toBe(current.count);
+    expect(twice.inputRoles).toEqual(current.inputRoles);expect(current.productKit?.layouts).toEqual([]);
+    expect(twice.promptTemplate?.versionId).toBe(template.template.versionId);
+    expect(()=>applySkillTemplate(current,{...template,variables:{商品名称:'测试'}},options,skill,store.models())).toThrow('暂不支持变量');
+    const full={...current,productKit:{...current.productKit!,sellingPoints:1,layouts:[{id:'other',version:1}]}};
+    expect(()=>applySkillTemplate(full,template,options,skill,store.models())).toThrow('超过');
+  });
+  it('limits imported ecommerce references and preserves manually selected edit originals', () => {
+    const skill=store.skills().find(s=>s.id==='ec-product-01')!, current=defaultDraft(skill,store.models()), template=applied();
+    current.inputRoles.product=['own'];template.value.referenceIds=Array.from({length:7},(_,i)=>`reference-${i}`);
+    const options={mode:'append' as const,references:true,settings:false};
+    expect(()=>applySkillTemplate(current,template,options,skill,store.models())).toThrow('6 张');
+    template.value.referenceIds=['style'];current.ecommerceTemplateAssets={old:'old-asset'};
+    const next=applySkillTemplate(current,template,options,skill,store.models());
+    expect(next.inputRoles).toEqual({product:['own'],reference:['style']});expect(next.ecommerceTemplateAssets).toEqual({});
+    const edit=store.skills().find(s=>s.id==='image-edit')!, editDraft=defaultDraft(edit,store.models());
+    expect(()=>applySkillTemplate(editDraft,{...template,value:{...template.value,kind:'image-replica'}},options,edit,store.models())).toThrow('原图需手动');
+    expect(store.list('batch')).toHaveLength(0);
+  });
   it('fills literal values in ordered scripts without interpreting replacement tokens', () => {
     const v = { ...value(), kind: 'video-storyboard' as const, shots: [{ title: '{{场景}}', duration: 4, scene: '', action: '{{商品名称}}', camera: '', dialogue: '', framePrompt: '', prompt: '推进到 {{商品名称}}' }] };
     expect(promptVariables(v)).toEqual(['商品名称', '场景']);

@@ -6942,8 +6942,8 @@
       {
         "id": "switch-2",
         "label": "脸朝向·姿势自然贴合原图",
-        "step": "生成配置",
-        "english": "CREATE",
+        "step": "姿态保留",
+        "english": "POSE",
         "order": 200,
         "type": "boolean",
         "default": true
@@ -6951,8 +6951,8 @@
       {
         "id": "switch-3",
         "label": "手脚自动修复",
-        "step": "生成配置",
-        "english": "CREATE",
+        "step": "结构修复",
+        "english": "REPAIR",
         "order": 300,
         "type": "boolean",
         "default": false
@@ -12628,7 +12628,7 @@
       {
         "id": "choice-4",
         "label": "视觉风格",
-        "step": "ogo 风格",
+        "step": "Logo 风格",
         "english": "REFERENCE",
         "order": 300,
         "type": "choice",

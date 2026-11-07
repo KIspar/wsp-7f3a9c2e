@@ -178,7 +178,7 @@ export function compilePlan(store: Store, skillId: string, draft: Draft, action:
   return { ...base, hash: digest(canonical(base)) };
 }
 
-const submissionFingerprint=(request:Submission)=>digest({ ...(request.creativeContext?{creativeContext:request.creativeContext}:{}), ...(request.wearContext?{wearContext:request.wearContext}:{}), skillId: request.skillId, action: request.action, draft: request.draft, planHash: request.planHash,...(request.maximumCost!==undefined?{maximumCost:request.maximumCost}:{}) });
+const submissionFingerprint=(request:Submission)=>digest({ ...(request.creativeContext?{creativeContext:request.creativeContext}:{}), ...(request.wearContext?{wearContext:request.wearContext}:{}), ...(request.canvasNodeId?{canvasNodeId:request.canvasNodeId,...(request.canvasBoardId&&request.canvasBoardId!=='main'?{canvasBoardId:request.canvasBoardId}:{})}:{}), skillId: request.skillId, action: request.action, draft: request.draft, planHash: request.planHash,...(request.maximumCost!==undefined?{maximumCost:request.maximumCost}:{}) });
 export function replaySubmission(store:Store,request:Submission){
   const fingerprint=submissionFingerprint(request);
   const previous = store.db.prepare("SELECT batch_id, fingerprint FROM workspace_idempotency WHERE workspace_id=? AND key=?").get(store.currentWorkspace(), request.idempotencyKey);
@@ -208,10 +208,11 @@ export function submit(store: Store, request: Submission,quote?:import('../../pa
       if(workshopSkill(context.purpose,d)!==skill.id||digest(canonical(context.promotionWorkId?promotionGeneration(store,product,d as import('../../packages/promotion').PromotionDraft):workshopGeneration(store,product,d)))!==digest(canonical(request.draft))||digest(context.promotionWorkId?submittedPromotionValue(d as import('../../packages/promotion').PromotionDraft).outputKeys:d.value.outputKeys)!==digest(context.outputKeys))fail('商品创作快照与计划不一致',409);
       if(context.outputKeys.length!==plan.items.length)fail('输出位置数量与生成计划不一致');
     }
-    if (!context&&!request.wearContext&&request.expectedDraftRevision !== current.revision) fail("草稿版本已变更，请保留输入并重新预览", 409);
+    if (!context&&!request.wearContext&&!request.canvasNodeId&&request.expectedDraftRevision !== current.revision) fail("草稿版本已变更，请保留输入并重新预览", 409);
     const now = new Date().toISOString();
     const batch: Batch = {
       id: store.id("batch"), skillId: skill.id, skillName: skill.name, skillRevision: skill.revision,
+      ...(request.canvasNodeId?{canvasNodeId:request.canvasNodeId,canvasBoardId:request.canvasBoardId||'main'}:{}),
       action: request.action, createdAt: now, draft: request.draft, simulated, attempts: [], ...(request.wearContext?{wearContext:request.wearContext}:{}), ...(context?{creativeContext:context,productSnapshot:getCatalogProduct(store,context.productId)}:{}),
     };
     store.put("batch", batch.id, batch);
@@ -232,7 +233,7 @@ export function submit(store: Store, request: Submission,quote?:import('../../pa
     }
     if(context?.remakeJobId)admitRemake(store,batch);
     else if(context?.promotionWorkId)admitPromotion(store,batch);
-    const saved = !context&&!request.wearContext&&skill.executor === "media" ? store.saveDraft(skill.id, defaultDraft(skill, store.models()), current.revision) : current;
+    const saved = !context&&!request.wearContext&&!request.canvasNodeId&&skill.executor === "media" ? store.saveDraft(skill.id, defaultDraft(skill, store.models()), current.revision) : current;
     store.db.prepare("INSERT INTO workspace_idempotency(workspace_id,key,batch_id,fingerprint) VALUES (?,?,?,?)").run(store.currentWorkspace(), request.idempotencyKey, batch.id, fingerprint);
     return { batch: store.readBatch(batch.id)!, draft: saved, replayed: false };
   });

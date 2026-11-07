@@ -15,6 +15,7 @@ const subgroupRanges:Record<string,[string,number][]>= {
 };
 const ecommerceSections:Section[]=ecommerceGroups.map(group=>({id:group.id,label:group.name,icon:ecommerceIcons[group.id],entries:group.features.map((feature,index)=>{let end=0;const subgroup=subgroupRanges[group.id]?.find(([,count])=>{end+=count;return index<end;})?.[0];return {path:`/ecommerce/${feature.id}`,label:feature.name,icon:ecommerceIcons[group.id],subgroup};})}));
 const sections:Section[] = [
+  {id:'canvas',label:'无限画布',icon:Layers3,entries:[{path:'/canvas',label:'自由画布',icon:Layers3}]},
   ...ecommerceSections,
   {id:'video',label:'视频创作',icon:Clapperboard,entries:[
     {path:'/studio/video-generate',label:'视频生成',icon:Clapperboard},
@@ -38,10 +39,10 @@ const sections:Section[] = [
 ];
 function matches(path:string, entry:Entry){return path===entry.path||path.startsWith(entry.path+'/');}
 function currentSection(path:string){
-  if(['/studio/product-kit','/studio/detail-design','/studio/image-replica'].includes(path))return sections[0];
-  if(path==='/studio/model-outfit')return sections[1];
-  if(['/studio/image-generate','/studio/image-edit'].includes(path))return sections[3];
-  return sections.find(s=>s.entries.some(e=>matches(path,e)))||sections[0];
+  if(['/studio/product-kit','/studio/detail-design','/studio/image-replica'].includes(path))return ecommerceSections[0];
+  if(path==='/studio/model-outfit')return ecommerceSections[1];
+  if(['/studio/image-generate','/studio/image-edit'].includes(path))return ecommerceSections[3];
+  return sections.find(s=>s.entries.some(e=>matches(path,e)))||ecommerceSections[0];
 }
 
 export function StudioCategoryTabs(){
@@ -53,6 +54,7 @@ export function StudioCategoryTabs(){
 export function StudioPrimaryNavigation(){
   const {pathname}=useLocation(),current=currentSection(pathname);
   const groups=[
+    {label:'无限画布',path:'/canvas',icon:Layers3,active:current.id==='canvas'},
     {label:'电商设计',path:'/ecommerce/ec-product-01',icon:Layers3,active:ecommerceSections.some(s=>s.id===current.id)},
     {label:'视频创作',path:'/studio/video-generate',icon:Clapperboard,active:current.id==='video'},
     {label:'智能体',path:'/agents/prompt-workbench',icon:Sparkles,active:current.id==='agent'},
@@ -70,7 +72,7 @@ export function StudioFeatureNavigation(){
   const query=search.trim().toLocaleLowerCase();
   const source=query?sections.map(s=>({...s,entries:s.entries.filter(e=>e.label.toLocaleLowerCase().includes(query))})).filter(s=>s.entries.length):[current];
   const visible=source.flatMap(s=>{const names=[...new Set(s.entries.map(e=>e.subgroup||s.label))];return names.map(label=>({...s,id:`${s.id}-${label}`,label,entries:s.entries.filter(e=>(e.subgroup||s.label)===label)}));});
-  return <aside className="studio-feature-rail" aria-label="功能列表">
+  return <aside id="studio-feature-navigation" className="studio-feature-rail" aria-label="功能列表">
     <div className="studio-feature-heading">功能列表<span>{query?'搜索':current.label}</span></div>
     <div className="studio-feature-search"><Search/><Input aria-label="搜索功能" placeholder="搜索功能…" value={search} onChange={e=>setSearch(e.target.value)}/></div>
     <nav aria-label="当前分类功能">{visible.map(s=><section key={s.id}><h2>{s.label}<span>{s.entries.length}</span></h2>{s.entries.map(e=><NavLink key={e.path} to={e.path} onClick={()=>setSearch('')} className={matches(pathname,e)?'is-current':''} aria-current={matches(pathname,e)?'page':undefined}><e.icon/><span>{e.label}</span></NavLink>)}</section>)}{!visible.length&&<p className="studio-feature-empty">没有匹配功能</p>}</nav>

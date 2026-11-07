@@ -1,4 +1,10 @@
 import {afterEach,beforeEach,describe,it,expect,vi} from 'vitest';
+// Session policy is independent of Worker transport. Keep these assertions on
+// exact request/replay semantics while the real Worker is exercised in browser QA.
+vi.mock('../src/lib/background-persistence',()=>({backgroundRequest:async(url:string,method:string,headers:Record<string,string>,body:unknown)=>{
+ const response=await fetch(url,{method,headers,body:body===undefined?undefined:JSON.stringify(body)});
+ return {status:response.status,ok:response.ok,value:await response.json()};
+}}));
 beforeEach(()=>vi.resetModules());afterEach(()=>vi.unstubAllGlobals());
 const json=(body:unknown,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json'}});
 describe('本地服务重启后的会话恢复',()=>{

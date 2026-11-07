@@ -42,6 +42,23 @@ describe("工作台数据隔离", () => {
       for(const url of ['/api/assets/ph-download/download',`/api/batches/${batch.id}/download`])expect((await app.inject({url,headers:{'x-studio-workspace':DEFAULT_WORKSPACE_ID}})).statusCode).toBe(404);
     }finally{await app.close();}
   });
+  it('downloads an export from its owning workspace through a native link while rejecting an explicit foreign scope', async () => {
+    fs.writeFileSync(path.join(directory,'exports','scoped-delivery.zip'),'PK scoped delivery');
+    store.withWorkspace('tiktok-ph-3c',()=>store.put('export','scoped-delivery',{filename:'scoped-delivery.zip',mime:'application/zip'}));
+    const app=await createApp(store,{worker:false});
+    try {
+      const native=await app.inject('/api/exports/scoped-delivery/download');
+      expect(native.statusCode).toBe(200);
+      expect(native.body).toBe('PK scoped delivery');
+      expect(native.headers['content-type']).toContain('application/zip');
+      expect(native.headers['content-disposition']).toContain('scoped-delivery.zip');
+      const owner=await app.inject({url:'/api/exports/scoped-delivery/download',headers:{'x-studio-workspace':'tiktok-ph-3c'}});
+      expect(owner.statusCode).toBe(200);
+      const foreign=await app.inject({url:'/api/exports/scoped-delivery/download',headers:{'x-studio-workspace':DEFAULT_WORKSPACE_ID}});
+      expect(foreign.statusCode).toBe(404);
+      expect((await app.inject('/api/exports/missing-delivery/download')).statusCode).toBe(404);
+    } finally {await app.close();}
+  });
   it("partitions user documents and assets while keeping model and prompt definitions global", () => {
     store.withWorkspace(DEFAULT_WORKSPACE_ID, () => {
       store.put("product", "cn-product", product("cn-product"));

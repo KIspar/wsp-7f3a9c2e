@@ -28,7 +28,7 @@ if(process.argv.includes('--stop')){
  if(process.argv.includes('--check')){console.log('Node、SQLite、图像库、本地视频工具及离线模型检查通过。');process.exit(0);}
  let port=4310;for(;port<4400;port++){const free=await new Promise(resolve=>{const s=net.createServer();s.on('error',()=>resolve(false));s.listen(port,'127.0.0.1',()=>s.close(()=>resolve(true)));});if(free)break;}
  if(port>=4400)throw Error('没有可用本地端口');env.PORT=String(port);
- const log=fs.openSync('data/logs/server.log','a');const child=spawn(node,['dist-server/index.js'],{env,stdio:['inherit',log,log],windowsHide:true});
+ const log=fs.openSync('data/logs/server.log','a');const child=spawn(node,['scripts/start.mjs'],{env,stdio:['inherit',log,log],windowsHide:true});
  child.on('error',e=>{console.error(e.message);process.exitCode=1;});
  child.on('exit',code=>{process.exitCode=code||0;});
  for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{try{const b=await fetch('http://127.0.0.1:'+port+'/api/bootstrap').then(r=>r.json());await fetch('http://127.0.0.1:'+port+'/api/local/shutdown',{method:'POST',headers:{'X-Studio-Token':b.token}});}catch{child.kill();}});

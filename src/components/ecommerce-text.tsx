@@ -1,3 +1,4 @@
+import {useBackgroundDraft} from '@/lib/use-background-draft';
 import {useEffect,useState} from 'react';
 import {useQuery} from '@tanstack/react-query';
 import {ArrowRight,Copy,FileText,LoaderCircle,RefreshCw,Sparkles} from 'lucide-react';
@@ -22,12 +23,11 @@ const blank:TextDraft={name:'',facts:'',requirements:'',market:'菲律宾',langu
 const activeStatuses=['queued','preparing','submitting'];
 export function EcommerceTextPage({feature}:{feature:EcommerceFeature}){
   const studio=useStudio();
-  const [draft,setDraft]=useState<TextDraft>(()=>{try{return {...blank,...JSON.parse(localStorage.getItem(`ecommerce-text:${feature.id}`)||'{}')};}catch{return blank;}});
+  const [draft,setDraft]=useBackgroundDraft<TextDraft>(`ecommerce-text:${feature.id}`,()=>{try{return {...blank,...JSON.parse(localStorage.getItem(`ecommerce-text:${feature.id}`)||'{}')};}catch{return blank;}});
   const jobStorageKey=`ecommerce-text:job:${feature.id}`;
   const [jobId,setJobId]=useState<string|undefined>(()=>localStorage.getItem(jobStorageKey)||undefined);
   const [confirm,setConfirm]=useState(false);
   const [submitting,setSubmitting]=useState(false);
-  useEffect(()=>{localStorage.setItem(`ecommerce-text:${feature.id}`,JSON.stringify(draft));},[draft,feature.id]);
   useEffect(()=>{if(jobId)localStorage.setItem(jobStorageKey,jobId);else localStorage.removeItem(jobStorageKey);},[jobId,jobStorageKey]);
   const quote=useQuery({queryKey:['ecommerce-text-estimate'],queryFn:()=>api<{modelName:string;estimated:number;available:number;affordable:boolean}>('/analysis/estimate'),retry:false,staleTime:15000});
   const job=useQuery({queryKey:['ecommerce-text-job',jobId],queryFn:()=>api<AnalysisJob>(`/analysis/jobs/${jobId}`),enabled:!!jobId,refetchInterval:q=>q.state.data&&activeStatuses.includes(q.state.data.status)?1500:false,retry:false});
@@ -54,7 +54,7 @@ export function EcommerceTextPage({feature}:{feature:EcommerceFeature}){
       <section><EcommerceStepHeading number={2} english="MARKET" title="市场与风格"/><EcommerceMoreSettings values={{...draft.fields,market:draft.market,language:draft.language,platform:draft.platform}} onChange={({market,language,platform,...fields})=>update({market:String(market),language:String(language),platform:String(platform),fields})}/></section>
       <section><EcommerceStepHeading number={3} english="BRIEF" title="输出要求"/><EcommerceFields feature={feature} values={draft.fields||{}} onChange={fields=>update({fields})} exclude={ecommerceCommonKeys}/><Textarea aria-label="输出要求" rows={5} maxLength={8000} value={draft.requirements} onChange={e=>update({requirements:e.target.value})} placeholder={`补充${feature.name}的重点、关键词或需要检查的项目…`}/></section>
     </div><footer className="ecommerce-controls-footer"><span className="ecommerce-quote">{quote.isPending?'查询报价中…':quote.error?(quote.error as Error).message:quote.data?`${quote.data.modelName} · 预估上限 ${quote.data.estimated.toFixed(4)} 算力`:'报价不可用'}</span><Button disabled={submitting||active||!quote.data?.affordable||(!draft.name.trim()&&!draft.facts.trim()&&!draft.assetIds.length)} onClick={()=>setConfirm(true)}><Sparkles/>准备文案 · 查询报价<ArrowRight/></Button></footer></aside>
-    <EcommerceOutput feature={feature} onExample={()=>void loadExample()} hasResults={!!jobId}>{jobId&&<div className="ecommerce-output-toolbar"><strong>AI 创作结果</strong><Button size="sm" variant="ghost" onClick={()=>void job.refetch()}><RefreshCw/>刷新</Button></div>}{!jobId&&<div className="ecommerce-empty-result"><FileText/><p>暂无生成记录</p></div>}
+    <EcommerceOutput feature={feature} onExample={()=>void loadExample()} hasResults={!!jobId}>{jobId&&<div className="ecommerce-output-toolbar"><strong>分析结果</strong><Button size="sm" variant="ghost" onClick={()=>void job.refetch()}><RefreshCw/>刷新</Button></div>}{!jobId&&<div className="ecommerce-empty-result"><FileText/><p>暂无生成记录</p></div>}
       {jobId&&<section className="ecommerce-text-result" aria-live="polite"><div className="ecommerce-text-result-heading"><FileText/><strong>{feature.name}</strong><span>{job.error?'查询失败':job.data?.status==='completed'?'已完成':job.data?.status==='failed'?'失败':job.data?.status==='unknown'?'待核实':'生成中'}</span></div>{job.error&&<p role="alert">{(job.error as Error).message}，请点击刷新重试。</p>}{job.data?.error&&<p role="alert">{job.data.error}</p>}{active&&<p><LoaderCircle className="spin"/>正在处理，请稍候。切换页面不会中断任务。</p>}{job.data?.result&&<><pre>{job.data.result}</pre><Button variant="outline" onClick={()=>void copy(job.data!.result||'')}><Copy/>复制结果</Button></>}</section>}
     </EcommerceOutput></div><Modal open={confirm} onClose={()=>!submitting&&setConfirm(false)} title={`确认${feature.name}`} description="确认后调用真实聊天模型，结果会计费。"><p>模型：{quote.data?.modelName||'未配置'}</p><p>预估最高费用：{quote.data?.estimated.toFixed(4)||'—'} 算力 · 当前可用：{quote.data?.available.toFixed(4)||'—'}</p><div className="modal-actions"><Button variant="outline" onClick={()=>setConfirm(false)}>返回编辑</Button><Button disabled={submitting||!quote.data?.affordable} onClick={()=>void submit()}>{submitting?<LoaderCircle className="spin"/>:<Sparkles/>}确认生成</Button></div></Modal></div>;
 }

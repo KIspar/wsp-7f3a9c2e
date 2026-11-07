@@ -35,12 +35,12 @@ export function useToken01Account(enabled=true){
 }
 export function Token01AccountLogin(){
   const account=useToken01Account(),cache=useQueryClient();
-  const [open,setOpen]=useState(false),[phone,setPhone]=useState(''),[code,setCode]=useState(''),[busy,setBusy]=useState<'sms'|'login'|'logout'>(),[sentPhone,setSentPhone]=useState(''),[until,setUntil]=useState(0),[seconds,setSeconds]=useState(0),[error,setError]=useState('');
+  const [open,setOpen]=useState(false),[phone,setPhone]=useState(''),[code,setCode]=useState(''),[busy,setBusy]=useState<'sms'|'login'|'logout'>(),[sentPhone,setSentPhone]=useState<string>(),[until,setUntil]=useState(0),[seconds,setSeconds]=useState(0),[error,setError]=useState('');
   const config=useQuery({queryKey:['token01-login-config'],queryFn:()=>api<Token01LoginConfig>('/token01/account/login-config'),enabled:open&&!account.data?.authenticated,retry:false,staleTime:60000});
   useEffect(()=>{const update=()=>setSeconds(Math.max(0,Math.ceil((until-Date.now())/1000)));update();if(until<=Date.now())return;const timer=window.setInterval(update,1000);return()=>window.clearInterval(timer);},[until]);
   const valid=/^1[3-9]\d{9}$/.test(phone);
   async function send(){
-    setBusy('sms');setError('');try{
+    setBusy('sms');setError('');setSentPhone(undefined);try{
       const settings=config.data||await config.refetch().then(result=>{if(!result.data)throw result.error;return result.data;});
       if(!settings)throw Error('登录配置读取失败，请重试');
       const challenge=settings.captchaEnabled?await captcha(settings.captchaAppId):{};
@@ -50,7 +50,7 @@ export function Token01AccountLogin(){
   }
   async function login(){
     setBusy('login');setError('');try{
-      const state=await api<Token01AccountState>('/token01/account/login',{phone,code});cache.setQueryData(['token01-account'],state);await cache.invalidateQueries({queryKey:['account','token01-balance']});setCode('');setPhone('');setSentPhone('');setOpen(false);toast.success('Token01 账户已登录');
+      const state=await api<Token01AccountState>('/token01/account/login',{phone,code});cache.setQueryData(['token01-account'],state);await cache.invalidateQueries({queryKey:['account','token01-balance']});setCode('');setPhone('');setSentPhone(undefined);setOpen(false);toast.success('Token01 账户已登录');
     }catch(e){setError((e as Error).message);setCode('');}finally{setBusy(undefined);}
   }
   async function logout(){
@@ -60,8 +60,8 @@ export function Token01AccountLogin(){
     <Sheet open={open} onOpenChange={next=>{if(!busy){setOpen(next);if(!next)setCode('');}}}><SheetContent aria-describedby={undefined} className="analysis-sheet"><SheetHeader><SheetTitle>登录 Token01 账户</SheetTitle></SheetHeader><div className="analysis-sheet-body">
       {account.data?.authenticated?<><p>已登录 {account.data.phone}</p><Button variant="outline" disabled={!!busy} onClick={()=>void logout()}>{busy&&<LoaderCircle className="spin"/>}退出账户登录</Button></>:<>
         {account.data?.expired&&<p role="status" className="muted">登录已过期，请重新获取验证码。</p>}
-        <Field><FieldLabel htmlFor="token01-login-phone">手机号</FieldLabel><Input id="token01-login-phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={11} placeholder="输入 Token01 账户手机号" value={phone} disabled={!!busy} onChange={event=>{setPhone(event.target.value);setCode('');setSentPhone('');}}/><FieldDescription>未注册手机号将由平台自动注册。</FieldDescription></Field>
-        <Field><FieldLabel htmlFor="token01-login-code">短信验证码</FieldLabel><div className="flex items-center gap-3"><Input id="token01-login-code" inputMode="numeric" autoComplete="one-time-code" maxLength={8} value={code} disabled={!!busy} placeholder="输入验证码" onChange={event=>setCode(event.target.value)}/><Button variant="outline" disabled={!valid||!!busy||seconds>0||config.isPending||config.data?.phoneEnabled===false||config.isError} onClick={()=>void send()}>{busy==='sms'&&<LoaderCircle className="spin"/>}{seconds?`${seconds} 秒后重发`:'获取验证码'}</Button></div>{sentPhone===phone&&<FieldDescription>验证码已发送，请查看短信。</FieldDescription>}</Field>
+        <Field><FieldLabel htmlFor="token01-login-phone">手机号</FieldLabel><Input id="token01-login-phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={11} placeholder="输入 Token01 账户手机号" value={phone} disabled={!!busy} onChange={event=>{setPhone(event.target.value);setCode('');setSentPhone(undefined);}}/><FieldDescription>未注册手机号将由平台自动注册。</FieldDescription></Field>
+        <Field><FieldLabel htmlFor="token01-login-code">短信验证码</FieldLabel><div className="flex items-center gap-3"><Input id="token01-login-code" inputMode="numeric" autoComplete="one-time-code" maxLength={8} value={code} disabled={!!busy} placeholder="输入验证码" onChange={event=>setCode(event.target.value)}/><Button variant="outline" disabled={!valid||!!busy||seconds>0||config.isPending||config.data?.phoneEnabled===false||config.isError} onClick={()=>void send()}>{busy==='sms'&&<LoaderCircle className="spin"/>}{seconds?`${seconds} 秒后重发`:'获取验证码'}</Button></div>{valid&&sentPhone===phone&&<FieldDescription>验证码已发送，请查看短信。</FieldDescription>}</Field>
         <Button disabled={!valid||!/^\d{4,8}$/.test(code)||!!busy||config.data?.phoneEnabled===false} onClick={()=>void login()}>{busy==='login'&&<LoaderCircle className="spin"/>}登录并查询余额</Button>
         {config.data?.phoneEnabled===false&&<p role="status">Token01 当前未开放手机号登录，请前往平台登录。</p>}
         {config.error&&<p role="alert">{(config.error as Error).message}<Button variant="link" onClick={()=>void config.refetch()}>重新读取</Button></p>}

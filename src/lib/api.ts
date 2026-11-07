@@ -1,15 +1,31 @@
 import type { Bootstrap, Snapshot } from "../../packages/contracts";
+import {backgroundRequest} from "./background-persistence";
 import { currentWorkspaceId } from "./workspace-scope";
 
 let token = "";
+// Ephemeral same-origin worker context; never persisted or logged.
+export const apiRequestContext=()=>({token,workspace:currentWorkspaceId()});
 export class ApiError extends Error {
   constructor(message: string, public status: number) { super(message); }
 }
 let sessionRefresh: Promise<Bootstrap & {token:string}> | undefined;
 async function request<T>(url:string,body:unknown,method:string,canRefresh:boolean):Promise<T>{
   const requestToken=token;
+  const headers={'Content-Type':'application/json','X-Studio-Token':requestToken,'X-Studio-Workspace':currentWorkspaceId()};
+  if(!(body instanceof FormData)){
+    let result:Awaited<ReturnType<typeof backgroundRequest<T>>>;
+    try{result=await backgroundRequest<T>(`/api${url}`,method,headers,body);}
+    catch{throw new ApiError('连接中断，本地输入已保留。请检查后台服务。',0);}
+    if(!result.ok){
+      if(canRefresh&&result.status===403&&result.value.code==='SESSION_EXPIRED'){
+        if(token===requestToken)await bootstrap();return request<T>(url,body,method,false);
+      }
+      throw new ApiError(result.value.message||'操作失败',result.status);
+    }
+    return result.value;
+  }
   let response:Response;
-  try{response=await fetch(`/api${url}`,{method,headers:{...(body instanceof FormData?{}:{'Content-Type':'application/json'}),'X-Studio-Token':requestToken,'X-Studio-Workspace':currentWorkspaceId()},body:body===undefined?undefined:body instanceof FormData?body:JSON.stringify(body)});}
+  try{response=await fetch(`/api${url}`,{method,headers:{'X-Studio-Token':requestToken,'X-Studio-Workspace':headers['X-Studio-Workspace']},body});}
   catch{throw new ApiError('连接中断，本地输入已保留。请检查后台服务。',0);}
   if(!response.ok){
     const error=await response.json().catch(()=>({message:`请求失败 (${response.status})`}));

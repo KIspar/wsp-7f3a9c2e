@@ -29,6 +29,18 @@ describe('persistent creative workflow',()=>{
    expect(second.batch.id).toBe(first.batch.id);expect(second.replayed).toBe(true);expect(store.snapshot().batches).toHaveLength(1);expect(first.draft.value.requirements).toBe('');
    expect(()=>submit(store,{...req,draft:{...value,requirements:'changed'}})).toThrow('接单凭据');
  });
+ it('binds canvas generation to its node without replacing the studio draft',()=>{
+   const studioDraft={...draft(),requirements:'工作区中尚未提交的创作要求'};
+   store.transaction(()=>store.saveDraft('image-generate',studioDraft,0));
+   const canvasDraft={...draft(),requirements:'画布节点自己的提示词'};
+   const canvasNodeId=crypto.randomUUID();
+   const req={...request(canvasDraft),canvasNodeId,expectedDraftRevision:undefined};
+   const result=submit(store,req);
+   expect(result.batch.canvasNodeId).toBe(canvasNodeId);
+   expect(store.readDraft('image-generate').value.requirements).toBe(studioDraft.requirements);
+   expect(submit(store,req).batch.id).toBe(result.batch.id);
+   expect(()=>submit(store,{...req,canvasNodeId:crypto.randomUUID()})).toThrow('接单凭据');
+ });
  it('rejects stale draft or plan without creating partial tasks',()=>{
    const value=draft();const req=request(value);store.transaction(()=>store.saveDraft('image-generate',value,0));
    expect(()=>submit(store,req)).toThrow('草稿版本');expect(store.snapshot().batches).toHaveLength(0);

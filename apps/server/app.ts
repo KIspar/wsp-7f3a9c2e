@@ -1,4 +1,6 @@
 import {registerResearchRoutes} from './research';
+import {registerCanvasRoutes} from './canvas';
+import {registerCanvasPreviewRoutes} from './canvas-preview';
 import {registerResearchGeneration} from './research-generation';
 import {registerResearchExtension,guardResearchExtension} from './research-extension';
 import type {AnalysisService} from './analysis';
@@ -112,6 +114,8 @@ export async function createApp(store: Store, options: { worker?: boolean; provi
   app.get("/api/snapshot", async () => store.snapshot());
   app.get('/api/history/compositions',async()=>store.list<import('../../packages/video-remake').VideoRemakeJob>('video-remake').flatMap(j=>j.compositions.map(c=>({id:c.id,jobId:j.id,name:j.productTitle,createdAt:c.createdAt,asset:store.get<Asset>('asset',c.assetId),prompt:c.shots.map(s=>`[${s.start}–${s.end}] ${s.text.videoPrompt}`).join('\n')}))).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)));
   registerCreativeRoutes(app,store);
+  registerCanvasRoutes(app,store);
+  registerCanvasPreviewRoutes(app,store);
   registerPromptRoutes(app,store);
   registerCatalogRoutes(app,store,generationPricing,{worker:options.worker});
   registerPromotionRoutes(app,store,generationPricing);
@@ -162,7 +166,8 @@ export async function createApp(store: Store, options: { worker?: boolean; provi
     return exportLayout(store,id,group,layoutSchema.parse(request.body));
   });
   app.get<{Params:{id:string}}>("/api/exports/:id/download",async(request,reply)=>{
-    const doc=store.get<{filename:string;mime?:string}>("export",request.params.id)||fail("导出文件不存在",404);
+    const scope=!request.headers['x-studio-workspace']&&store.workspaceOf('export',request.params.id);
+    const doc=(scope?store.withWorkspace(scope,()=>store.get<{filename:string;mime?:string}>("export",request.params.id)):store.get<{filename:string;mime?:string}>("export",request.params.id))||fail("导出文件不存在",404);
     return reply.type(doc.mime|| (doc.filename.endsWith(".png")?"image/png":"image/jpeg")).header("Content-Disposition",`attachment; filename="${path.basename(doc.filename)}"`).send(fs.createReadStream(path.join(store.dataDir,"exports",path.basename(doc.filename))));
   });
   const analysis=registerAnalysisRoutes(app, store, options.worker !== false,options.analysisService);

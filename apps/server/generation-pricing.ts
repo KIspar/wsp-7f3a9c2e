@@ -6,6 +6,7 @@ import type {Draft,PlanItem,Submission,Attempt,CreativeContext} from '../../pack
 import {validateWearContext} from './wear-context';
 import {fail} from './errors';
 import {prepareEcommerceFormat} from './ecommerce-format';
+import type {CanvasDocument} from '../../packages/canvas';
 
 export function createGenerationPricing(store:Store,transport?:ProviderTransport){
   const pricing=createPricingService(store,transport);
@@ -29,11 +30,17 @@ export function createGenerationPricing(store:Store,transport?:ProviderTransport
     if(request.wearContext&&request.creativeContext)fail('不能同时提交两种创作上下文');
     const previous=replaySubmission(store,request);if(previous)return previous;
     requireActive(request.skillId);
+    if(request.canvasNodeId){
+      if(request.wearContext||request.creativeContext)fail('画布节点不能同时绑定其他创作上下文');
+      const boardId=request.canvasBoardId||'main';
+      const node=store.get<CanvasDocument>('canvas',boardId)?.nodes.find(item=>item.id===request.canvasNodeId);
+      if(!node||node.toolId!==(request.skillId==='image-generate'?'ai-image':request.skillId==='video-generate'?'ai-video':''))fail('画布生成节点已变化，请重新预览',409);
+    }
     await prepareEcommerceFormat(store,request.skillId,request.draft);
     const plan=compilePlan(store,request.skillId,request.draft,request.action,false,request.creativeContext,request.wearContext);
     if(plan.hash!==request.planHash)fail('技能、模型或计划已变更，请重新预览后提交',409);
     if(request.wearContext)validateWearContext(store,request.wearContext,request.draft,request.skillId);
-    if(!request.creativeContext&&!request.wearContext&&request.expectedDraftRevision!==store.readDraft(request.skillId).revision)fail('草稿版本已变更，请重新预览',409);
+    if(!request.creativeContext&&!request.wearContext&&!request.canvasNodeId&&request.expectedDraftRevision!==store.readDraft(request.skillId).revision)fail('草稿版本已变更，请重新预览',409);
     const quote=await pricing.quote(plan.items,undefined,true);
     if(!quote.affordable)fail(`可用余额不足：本次最多需要 ${quote.maximum} ${quote.unit}，当前可用 ${quote.available} ${quote.unit}`,402);
     if(request.maximumCost===undefined||quote.maximum>request.maximumCost+1e-9)fail('接口报价已变化，请重新预览本次费用后确认',409);

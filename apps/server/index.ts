@@ -1,3 +1,4 @@
+import {registerUpdateRoutes} from "./updates";
 import path from "node:path";
 import fs from "node:fs";
 import { createStore } from "./store";
@@ -26,6 +27,7 @@ fs.writeFileSync(lock, String(process.pid), { flag: "wx" });
 const store = createStore(dataDir, root);
 const app = await createApp(store);
 let closing = false;
+await registerUpdateRoutes(app,store,()=>void close().then(()=>process.exit(85)));
 if(process.env.STUDIO_PORTABLE==='1')app.post('/api/local/shutdown',async(_request,reply)=>{reply.send({stopping:true});setTimeout(()=>void close().then(()=>process.exit(0)),100);});
 async function close() {
   if (closing) return;

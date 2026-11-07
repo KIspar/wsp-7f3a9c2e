@@ -1,0 +1,42 @@
+import {afterEach,describe,it,expect} from 'vitest';
+import {promises as fs} from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {gzipSync} from 'node:zlib';
+import {compareVersions,validateManifest,safeArchivePath,unpackArchive,applyUpdate,rollbackUpdate} from '../scripts/update-manager.mjs';
+const dirs=[];afterEach(async()=>{await Promise.all(dirs.splice(0).map(dir=>fs.rm(dir,{recursive:true,force:true})));});
+async function temporary(){const dir=await fs.mkdtemp(path.join(os.tmpdir(),'studio-update-'));dirs.push(dir);return dir;}
+function tarEntry(name,content,type='0'){
+ const header=Buffer.alloc(512);header.write(name,0,100);header.write('0000644\0',100);header.write('0000000\0',108);header.write('0000000\0',116);header.write(content.length.toString(8).padStart(11,'0')+'\0',124);header.write('00000000000\0',136);header.fill(32,148,156);header.write(type,156);header.write('ustar\0',257);const sum=header.reduce((a,b)=>a+b,0);header.write(sum.toString(8).padStart(6,'0')+'\0 ',148);return Buffer.concat([header,Buffer.from(content),Buffer.alloc((512-content.length%512)%512)]);
+}
+describe('GitHub update contract',()=>{
+ it('compares full numeric versions and rejects ambiguous or injected versions',()=>{
+   expect(compareVersions('0.10.0','0.9.9')).toBe(1);expect(compareVersions('1.0.0','1.0.0')).toBe(0);expect(compareVersions('0.1.1','1.0.0')).toBe(-1);
+   for(const invalid of ['v1.0.0','1.0','01.1.0','1.0.0;rm','1.0.0-beta'])expect(()=>compareVersions(invalid,'1.0.0')).toThrow();
+ });
+ it('requires matching release tag, checksum, asset name and size',()=>{
+   const manifest={version:'0.2.0',tag:'v0.2.0',minimumNode:24,assets:{app:{name:'studio-app.tar.gz',sha256:'a'.repeat(64),size:100}}};
+   expect(validateManifest(manifest,{tag_name:'v0.2.0'})).toBe(manifest);
+   expect(()=>validateManifest(manifest,{tag_name:'v0.3.0'})).toThrow();
+   expect(()=>validateManifest({...manifest,assets:{app:{...manifest.assets.app,sha256:'bad'}}},{tag_name:'v0.2.0'})).toThrow();
+ });
+ it('allows only application files and rejects data, secrets, traversal and links',async()=>{
+   expect(safeArchivePath('apps/video-worker/worker.py')).toBe('apps/video-worker/worker.py');
+   for(const name of ['../data/a','dist/../../data','data/studio.sqlite','.env','/dist/a','C:/dist/a','scripts\\evil','node_modules/a','dist//a'])expect(()=>safeArchivePath(name)).toThrow();
+   const dir=await temporary(),archive=path.join(dir,'bad.tar.gz');await fs.writeFile(archive,gzipSync(tarEntry('dist/link','', '2')));
+   await expect(unpackArchive(archive,path.join(dir,'stage'))).rejects.toThrow('链接');
+ });
+ it('extracts regular USTAR files and rejects truncated archives',async()=>{
+   const dir=await temporary(),archive=path.join(dir,'good.tar.gz');await fs.writeFile(archive,gzipSync(Buffer.concat([tarEntry('dist/index.html','hello'),Buffer.alloc(1024)])));
+   await unpackArchive(archive,path.join(dir,'stage'));expect(await fs.readFile(path.join(dir,'stage/dist/index.html'),'utf8')).toBe('hello');
+   const truncated=tarEntry('dist/index.html','hello').subarray(0,514);await fs.writeFile(archive,gzipSync(truncated));await expect(unpackArchive(archive,path.join(dir,'other'))).rejects.toThrow('不完整');
+ });
+ it('backs up closed local data, applies code only, and rolls back program plus data on failed startup',async()=>{
+   const root=await temporary(),data=path.join(root,'data'),updates=path.join(data,'updates');await fs.mkdir(path.join(root,'dist'),{recursive:true});await fs.writeFile(path.join(root,'dist/index.html'),'old');
+   await fs.mkdir(path.join(data,'media'),{recursive:true});await fs.writeFile(path.join(data,'studio.sqlite'),'database-before');await fs.writeFile(path.join(data,'media/keep.png'),'asset');
+   await fs.mkdir(path.join(updates,'staged/dist'),{recursive:true});await fs.writeFile(path.join(updates,'staged/dist/index.html'),'new');await fs.writeFile(path.join(updates,'state.json'),JSON.stringify({phase:'ready',version:'0.2.0'}));await fs.writeFile(path.join(updates,'pending.json'),'{}');
+   expect(await applyUpdate(root,data)).toBe(true);expect(await fs.readFile(path.join(root,'dist/index.html'),'utf8')).toBe('new');expect(await fs.readFile(path.join(data,'media/keep.png'),'utf8')).toBe('asset');
+   await fs.writeFile(path.join(data,'studio.sqlite'),'migration-failed');await fs.writeFile(path.join(data,'studio.sqlite-wal'),'bad-wal');
+   await rollbackUpdate(root,data);expect(await fs.readFile(path.join(root,'dist/index.html'),'utf8')).toBe('old');expect(await fs.readFile(path.join(data,'studio.sqlite'),'utf8')).toBe('database-before');await expect(fs.access(path.join(data,'studio.sqlite-wal'))).rejects.toThrow();
+ });
+});

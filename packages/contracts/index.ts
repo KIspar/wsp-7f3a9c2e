@@ -162,6 +162,8 @@ export type CreativeContext=z.infer<typeof creativeContextSchema>;
 export const submissionSchema = z.object({
   creativeContext:creativeContextSchema.optional(),
   wearContext:wearContextSchema.optional(),
+  canvasNodeId: z.string().uuid().optional(),
+  canvasBoardId: z.union([z.literal('main'),z.string().uuid()]).optional(),
   skillId: z.string(),
   draft: draftSchema,
   action: z.enum(["generate", "prepareWhite", "replaceSelected"]).default("generate"),
@@ -201,6 +203,8 @@ export type Attempt = {
 };
 export type Batch = {
   id: string; skillId: string; skillName: string; skillRevision: number;
+  canvasNodeId?: string;
+  canvasBoardId?: string;
   action: Submission["action"]; createdAt: string; draft: Draft;
   attempts: Attempt[]; simulated: boolean; wearContext?:WearContext; creativeContext?:CreativeContext; productSnapshot?:unknown;
 };

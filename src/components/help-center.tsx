@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect,useRef} from 'react';
 import {Link,useSearchParams} from 'react-router-dom';
 import {ArrowUpRight,BookOpen,ChevronDown,Search,X} from 'lucide-react';
 import {helpTopics,type HelpArticle,type HelpTopic} from '@/lib/help';
@@ -16,6 +16,7 @@ function Article({article,topic,open,showTopic}:{article:HelpArticle;topic:HelpT
 
 export function HelpCenter(){
   const [params,setParams]=useSearchParams();
+  const searchInput=useRef<HTMLInputElement>(null);
   const topic=helpTopics.find(topic=>topic.id===params.get('topic'))||helpTopics[0];
   useEffect(()=>{window.scrollTo(0,0);},[topic.id]);
   const value=params.get('q')||'',query=value.trim().toLocaleLowerCase();
@@ -27,7 +28,7 @@ export function HelpCenter(){
   function search(q:string){setParams(previous=>{const next=new URLSearchParams(previous);if(q)next.set('q',q);else next.delete('q');return next;},{replace:true});}
   return <div className="management-page help-center">
     <section className="management-heading"><div className="page-eyebrow">工作台管理 <span>/</span> HELP</div><h1>帮助中心</h1></section>
-    <Field className="help-search"><FieldLabel htmlFor="help-search" className="sr-only">搜索帮助</FieldLabel><InputGroup><InputGroupInput id="help-search" type="search" placeholder="搜索功能、模型、分组或操作问题…" value={value} onChange={event=>search(event.target.value)}/><InputGroupAddon>{value?<InputGroupButton aria-label="清除搜索" onClick={()=>search('')}><X/></InputGroupButton>:<Search aria-hidden="true"/>}</InputGroupAddon></InputGroup></Field>
+    <Field className="help-search"><FieldLabel htmlFor="help-search" className="sr-only">搜索帮助</FieldLabel><InputGroup><InputGroupInput ref={searchInput} id="help-search" type="search" className="[&::-webkit-search-cancel-button]:appearance-none" placeholder="搜索功能、模型、分组或操作问题…" value={value} onChange={event=>search(event.target.value)}/><InputGroupAddon>{value?<InputGroupButton aria-label="清除搜索" onClick={()=>{search('');searchInput.current?.focus();}}><X/></InputGroupButton>:<Search aria-hidden="true"/>}</InputGroupAddon></InputGroup></Field>
     <div className="help-layout">
       <nav className="help-topics" aria-label="帮助主题"><span className="help-nav-label">浏览主题</span>{helpTopics.map(item=><Link to={`/help?topic=${item.id}`} key={item.id} aria-current={!query&&topic.id===item.id?'page':undefined}><span>{item.title}</span><span>{item.articles.length}</span></Link>)}</nav>
       <section className="help-content" aria-label={query?'帮助搜索结果':topic.title}>
