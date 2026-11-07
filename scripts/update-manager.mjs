@@ -59,29 +59,39 @@ const exists=async file=>fs.access(file).then(()=>true,()=>false);
 async function json(file){return JSON.parse(await fs.readFile(file,'utf8'));}
 async function writeJson(file,value){await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file+'.tmp',JSON.stringify(value,null,2));await fs.rename(file+'.tmp',file);}
 function run(command,args,options={}){return new Promise((resolve,reject)=>{const child=spawn(command,args,{...options,windowsHide:true,stdio:options.capture?['ignore','pipe','pipe']:'inherit'});let output='',error='';if(options.capture){child.stdout.on('data',b=>{output+=b;if(output.length>4*1024*1024)child.kill();});child.stderr.on('data',b=>{error+=b;});}child.on('error',reject);child.on('close',code=>code===0?resolve(output):reject(Error(options.capture?error||'GitHub 操作失败':`${command} 执行失败 (${code})`)));});}
-async function github(repository,endpoint,destination){
+async function github(repository,endpoint,destination,access='public',downloadUrl){
   const token=process.env.GH_TOKEN||process.env.GITHUB_TOKEN;
-  if(!token){
+  if(access==='private'&&!token){
     const args=['api',`repos/${repository}/${endpoint}`];if(destination)args.push('-H','Accept: application/octet-stream');
     if(!destination){try{return JSON.parse(await run('gh',args,{capture:true}));}catch{throw Error('无法读取私有 GitHub 仓库，请在本机执行 gh auth login，或配置只读 GH_TOKEN');}}
     await new Promise((resolve,reject)=>{const child=spawn('gh',args,{stdio:['ignore','pipe','ignore'],windowsHide:true});const output=createWriteStream(destination,{flags:'wx'});const transfer=pipeline(child.stdout,output);child.on('error',reject);child.on('close',async code=>{try{await transfer;if(code!==0)throw Error('无法从 GitHub 下载更新，请检查登录权限');resolve();}catch(e){reject(e);}});});return;
   }
-  const response=await fetch(`https://api.github.com/repos/${repository}/${endpoint}`,{headers:{Authorization:`Bearer ${token}`,Accept:destination?'application/octet-stream':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},signal:AbortSignal.timeout(180000)});
-  if(!response.ok)throw Error(response.status===404?'GitHub 尚未发布版本，或当前账号没有私有仓库读取权限':`GitHub 检查失败 (${response.status})`);
+  const headers={Accept:destination?'application/octet-stream':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+  if(access==='private'&&token)headers.Authorization=`Bearer ${token}`;
+  const response=await fetch(access==='public'&&destination?downloadUrl:`https://api.github.com/repos/${repository}/${endpoint}`,{headers,signal:AbortSignal.timeout(180000)});
+  if(!response.ok){
+    if(response.status===403&&response.headers.get('x-ratelimit-remaining')==='0')throw Error('GitHub 版本查询次数暂时用尽，请稍后重试');
+    if(response.status===404)throw Error(access==='private'?'GitHub 尚未发布版本，或当前账号没有私有仓库读取权限':'GitHub 尚未发布可用更新，或版本附件尚未就绪');
+    throw Error(`GitHub 检查失败 (${response.status})`);
+  }
   if(destination)await pipeline(Readable.fromWeb(response.body),createWriteStream(destination,{flags:'wx'}));else return response.json();
 }
 export async function checkUpdate(root,dataDir){
   const source=await json(path.join(root,'updates/source.json'));
   if(!/^[\w.-]+\/[\w.-]+$/.test(source.repository))throw Error('更新仓库配置无效');
+  if(source.access!==undefined&&!['public','private'].includes(source.access))throw Error('更新仓库访问方式无效');
+  const access=source.access||'public';
   const current=(await json(path.join(root,'package.json'))).version;
-  const release=await github(source.repository,'releases/latest');
+  const release=await github(source.repository,'releases/latest',undefined,access);
   if(release.draft||release.prerelease)throw Error('没有可用的稳定版');
+  if(!/^v\d+\.\d+\.\d+$/.test(release.tag_name))throw Error('GitHub 发布标签格式无效');
+  const assetUrl=name=>`https://github.com/${source.repository}/releases/download/${release.tag_name}/${name}`;
   const metadata=release.assets?.find(a=>a.name==='latest.json');if(!metadata)throw Error('此 GitHub Release 尚未包含 latest.json');
   const dir=path.join(dataDir,'updates');await fs.mkdir(dir,{recursive:true});
   const temporary=path.join(dir,`manifest-${process.pid}.json`);let manifest;
-  try{await github(source.repository,`releases/assets/${metadata.id}`,temporary);if((await fs.stat(temporary)).size>128*1024)throw Error('版本信息过大');manifest=validateManifest(await json(temporary),release);}finally{await fs.rm(temporary,{force:true});}
+  try{await github(source.repository,`releases/assets/${metadata.id}`,temporary,access,assetUrl('latest.json'));if((await fs.stat(temporary)).size>128*1024)throw Error('版本信息过大');manifest=validateManifest(await json(temporary),release);}finally{await fs.rm(temporary,{force:true});}
   const asset=release.assets.find(a=>a.name===manifest.assets.app.name);if(!asset||asset.size!==manifest.assets.app.size)throw Error('GitHub 更新包缺失或大小不一致');
-  const result={currentVersion:current,latestVersion:manifest.version,available:compareVersions(manifest.version,current)>0,notes:String(manifest.notes||release.body||'').slice(0,12000),publishedAt:release.published_at,releaseUrl:release.html_url,repository:source.repository,manifest,assetId:asset.id,checkedAt:new Date().toISOString()};
+  const result={currentVersion:current,latestVersion:manifest.version,available:compareVersions(manifest.version,current)>0,notes:String(manifest.notes||release.body||'').slice(0,12000),publishedAt:release.published_at,releaseUrl:release.html_url,repository:source.repository,access,manifest,assetId:asset.id,assetUrl:assetUrl(manifest.assets.app.name),checkedAt:new Date().toISOString()};
   await writeJson(path.join(dir,'check.json'),result);return result;
 }
 export async function stageUpdate(root,dataDir){
@@ -90,7 +100,7 @@ export async function stageUpdate(root,dataDir){
   const dir=path.join(dataDir,'updates'),stage=path.join(dir,'staged'),archive=path.join(dir,'studio-app.tar.gz');
   await fs.rm(archive,{force:true});await fs.rm(stage,{recursive:true,force:true});
   await writeJson(path.join(dir,'state.json'),{phase:'downloading',version:check.latestVersion});
-  await github(check.repository,`releases/assets/${check.assetId}`,archive);
+  await github(check.repository,`releases/assets/${check.assetId}`,archive,check.access,check.assetUrl);
   const hash=createHash('sha256');let bytes=0;for await(const chunk of createReadStream(archive)){hash.update(chunk);bytes+=chunk.length;}
   if(bytes!==check.manifest.assets.app.size||hash.digest('hex')!==check.manifest.assets.app.sha256)throw Error('更新包 SHA-256 校验失败，已拒绝安装');
   await writeJson(path.join(dir,'state.json'),{phase:'preparing',version:check.latestVersion});

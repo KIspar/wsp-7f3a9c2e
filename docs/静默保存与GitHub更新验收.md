@@ -1,6 +1,6 @@
 # 静默保存与 GitHub 更新验收
 
-版本：0.1.1，补丁 0.1.2。环境：本机 Node.js 24，BrowserOS neo 可见浏览器。无需自有服务器。
+版本：0.1.1，补丁 0.1.2、0.1.3。环境：本机 Node.js 24，BrowserOS neo 可见浏览器。无需自有服务器。
 
 ## 保存行为
 
@@ -29,10 +29,10 @@
 
 ## GitHub 与本机职责
 
-GitHub 私有仓库保存源代码；标签触发 Actions 生成 Release 附件 `latest.json` 与 `studio-app.tar.gz`。工作台、数据库、素材和中转站凭据留在用户电脑。无需 Railway、Render、VPS 或 GitHub Pages。
+用户后续授权于 2026-11-07 将仓库改为公开并使用中性代号 `KIspar/wsp-7f3a9c2e`。标签触发 Actions 生成 Release 附件 `latest.json` 与 `studio-app.tar.gz`。工作台、数据库、素材和中转站凭据留在用户电脑。无需 Railway、Render、VPS 或 GitHub Pages。
 
-每台电脑首次需通过 `gh auth login` 授权读取私有 Release，或在启动环境设置仅目标仓库 Contents 读取权限的 `GH_TOKEN`。SSH 上传权限与 Release API 读取授权相互独立。没有更新器的更早版本需要手动安装一次，之后通过正式版 `npm start` 进行界面更新。
+v0.1.3 起公开更新源使用匿名 API 与 Release 附件地址。客户端不需要 GitHub CLI、账号或令牌。新增测试验证：即使本机存在失效令牌，也不会发往公开接口；404 和匿名 API 限流分别给出实际错误，不要求用户登录。更新相关 3 个文件、14 项测试通过。
 
-本机无 GitHub CLI 授权时，尚不能完成私有 Release 下载到安装的整条实机验证；隔离安装与回滚测试已通过。发布结果应在 GitHub Release 页面核实两个附件是否齐全。
+隔离安装与回滚测试已通过。发布结果应在 GitHub Release 页面核实两个附件是否齐全。没有更新器或仍使用旧版私有源逻辑的安装需要先手动升级一次，之后通过正式版 `npm start` 进行界面更新。
 
 v0.1.1 的 GitHub Actions 已成功完成，确认无需其他服务器即可构建、发布；后续补丁使用递增标签，保留既有发布版本。

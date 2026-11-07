@@ -1,78 +1,38 @@
-# AI 创作工作台 · 灵感工坊
+# Workspace
 
-面向商品运营的本地 AI 创作工作台，提供商品素材管理、图片与视频创作、提示词工作台、任务队列和中转站模型配置。
+Local workspace utilities. Node.js 24 or later is required.
 
-## 功能
-
-- 商品库：商品信息、SKU、素材、采集及创作结果管理。
-- 图片：通用生成、图像编辑、爆款复刻、商品套图、详情设计、模特换装和长图排版。
-- 视频：视频生成、参考视频反推、商品推广视频及本地视频处理。
-- 提示词：创作工作台、模板收藏和可选 AI 辅助。
-- 模型：初和中转站与 Token01，支持密钥、模型、分组、价格及各站账户余额配置与查询；实际可用能力取决于供应商和密钥权限。
-- 任务：草稿、后台队列、历史记录、媒体预览、下载、交付及用量查询。
-- 管理：技能校验与发布、系统设置、帮助中心和本地备份导出。
-
-媒体生成已接入真实供应商，提交任务可能产生费用。历史规划文档和验收记录反映各自记录日期的状态，不代表所有规划均已实现。
-
-## 本地运行
-
-需要 **Node.js 24 或更新版本**。
+## Run
 
 ```sh
 npm ci
 npm run dev
 ```
 
-开发页面默认地址为 `http://127.0.0.1:5173`，后台默认端口为 `4310`。以启动终端打印的实际地址为准。
-
-构建并运行：
+The development interface runs at `http://127.0.0.1:5173`. Use the address printed by the launcher if a port is occupied.
 
 ```sh
 npm run build
 npm start
 ```
 
-生产页面默认地址为 `http://127.0.0.1:4310`；端口被占用时启动器会选择下一个可用端口。Windows 源码运行可使用 `run.bat`。完整 Windows 文件夹包的说明见[发布记录](docs/reports/Windows文件夹发布-20261101.md)。
+The production launcher serves the application locally, starting at port `4310`. Closing the launcher stops its background service.
 
-首次运行后，在「模型配置」中添加中转站 API Key 并选择可用模型和分组。账号权限与模型支持以中转站实际返回为准。
+## Updates
 
-视频本地处理另需 Python 及视频运行环境，准备脚本为 `node scripts/prepare-video-runtime.mjs`；该脚本会安装依赖并下载语音模型。普通页面运行不要求先执行此脚本。
+Stable releases include `latest.json` and `studio-app.tar.gz`. The local version panel checks and downloads public releases without a GitHub login. Installation saves pending changes, backs up local files, and restarts the application. Failed startup restores the previous version.
 
-## 数据与配置
+Use `npm start` for installation; development mode supports checking and downloading only. Earlier installations without an updater require one manual upgrade.
 
-前后端默认仅监听本机。数据默认保存在 `data/`，包含数据库、素材和本地凭据文件；可以通过 `STUDIO_DATA` 指定独立数据目录。不要让多个后台进程使用同一个数据目录。关闭启动终端会停止后台服务。
+## Local files
 
-Git 仓库不包含本地 API 密钥、账户登录状态、数据库、生成结果、依赖目录或发布包。换电脑后需要重新安装依赖，并配置模型或另行迁移本地数据。备份恢复前应停止后台并保留原数据副本。
+Runtime data stays in `data/`, or the directory selected with `STUDIO_DATA`. Keep credentials, databases, generated files and backups out of Git. Stop the service before restoring a backup. Do not share a data directory between running services.
 
-## 验证
+## Checks
 
 ```sh
 npm run typecheck
-npm test -- --maxWorkers=2
+npm test -- --maxWorkers=4
 ```
 
-单元测试使用临时数据目录。浏览器验收统一使用 **BrowserOS neo 的可见界面**，以鼠标、键盘操作并核对结果。仓库保留部分历史浏览器测试脚本供参考，不应据此认为当前页面已完成全面回归。
-
-## 私有仓库访问
-
-仓库地址：<https://github.com/KIspar/douyin-creative-studio>。
-
-这是私有代码仓库。仓库所有者可登录后通过链接查看；其他人员需要由所有者在仓库的 **Settings → Collaborators** 中邀请并接受邀请。单独转发链接不会授予访问权限。
-
-GitHub 仓库链接用于访问代码和文档，工作台继续在本机运行；不需要自有服务器。
-
-## GitHub 本地更新
-
-版本标签触发 GitHub Actions 构建，在私有 Release 中发布 `latest.json` 和应用更新包。本机工作台可静默检查、下载，安装时先保存、备份并重启，启动失败自动回滚。数据库、素材和模型凭据留在本机。
-
-每台电脑首次执行 `gh auth login` 授权读取私有仓库。使用 `npm start` 启动后可在侧栏「版本」中安装更新；开发模式只检查和下载。更早且没有更新器的版本需要先手动安装一次。详见[GitHub 本地更新说明](docs/GitHub本地更新说明.md)。
-
-## 文档
-
-- [产品需求](PRD.md)与[领域术语](CONTEXT.md)
-- [全局视觉与组件规范](docs/全局视觉与组件规范.md)
-- [工作台结果流与输入区交互规范](docs/工作台结果流与输入区交互规范.md)
-- [商品套图、A+ 详情与复刻统一方案](docs/商品套图与A+详情及爆款复刻统一方案.md)
-- [Token01 模型接入记录](docs/Token01模型接入-20261102.md)
-- [全站测试与 UI/UX 评审（2026-11-03）](docs/全站测试与UIUX评审-20261103.md)
-- [GitHub 发布与访问说明](docs/GitHub发布与访问说明.md)
+Additional operational notes are in `docs/`.

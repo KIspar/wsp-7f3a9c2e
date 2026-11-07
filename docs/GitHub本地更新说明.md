@@ -2,10 +2,10 @@
 
 ## 使用范围
 
-用户没有云服务器。工作台仍在本机运行，GitHub 只存私有代码、发布版本和安装更新包，不承担工作台运行或用户数据存储。无需购买服务器，也不使用 GitHub Pages 承载本地 API。
+用户没有云服务器。工作台仍在本机运行，GitHub 只存代码、发布版本和安装更新包，不承担工作台运行或用户数据存储。仓库使用中性代号并公开，终端用户无需 GitHub 登录。无需购买服务器，也不使用 GitHub Pages 承载本地 API。
 
 ```text
-私有 GitHub 仓库 → 推送 vX.Y.Z 标签 → GitHub Actions 构建
+公开 GitHub 仓库 → 推送 vX.Y.Z 标签 → GitHub Actions 构建
                                       ↓
                         GitHub Release: latest.json + studio-app.tar.gz
                                       ↓
@@ -14,20 +14,21 @@
                                                      启动失败自动回滚
 ```
 
-## 私有仓库权限
+## 免登录读取
 
-仓库配置在 `updates/source.json`。每台电脑必须具备该私有仓库的读取权限；私有版本 JSON 不是无需授权的公共网址。
+仓库配置在 `updates/source.json`，当前为 `KIspar/wsp-7f3a9c2e`，`access` 为 `public`。检查和下载不需要安装 GitHub CLI，也不需要 `GH_TOKEN`；已有或失效的环境令牌不会被发送到公开更新接口。
 
-推荐在本机安装 GitHub CLI 并执行 `gh auth login`，用有仓库访问权限的账号登录。更新程序复用 CLI 凭据，不把 GitHub Token 写进前端、版本 JSON 或发布包。也可由启动环境提供仅该仓库 Contents 读取权限的 `GH_TOKEN`。
+匿名 GitHub API 有频率限制，默认每 6 小时检查一次。达到限制时显示稍后重试，不再要求登录。如果以后主动切回私有仓库，需将 `access` 改为 `private` 并配置维护者授权。
 
 在线接口是 GitHub 自己的 REST API：
 
 ```text
-GET https://api.github.com/repos/KIspar/douyin-creative-studio/releases/latest
-GET https://api.github.com/repos/KIspar/douyin-creative-studio/releases/assets/{asset_id}
+GET https://api.github.com/repos/KIspar/wsp-7f3a9c2e/releases/latest
+GET https://github.com/KIspar/wsp-7f3a9c2e/releases/download/vX.Y.Z/latest.json
+GET https://github.com/KIspar/wsp-7f3a9c2e/releases/download/vX.Y.Z/studio-app.tar.gz
 ```
 
-先查询最新稳定 Release，从 assets 中找到 `latest.json`，再下载其声明的应用包。私有附件通过授权 API 读取，不能假定浏览器登录会自动授权本地 Node 程序。
+先查询最新稳定 Release，从 assets 中找到 `latest.json`，再通过公开附件链接下载版本清单和应用包。保留版本、文件大小、SHA-256 和归档路径校验。
 
 ## 发布步骤
 
@@ -37,7 +38,7 @@ GET https://api.github.com/repos/KIspar/douyin-creative-studio/releases/assets/{
 4. Actions 在 GitHub 上构建，并生成两个 Release 附件：`latest.json` 与 `studio-app.tar.gz`。版本 JSON 包含版本号、Node 要求、文件大小及 SHA-256。
 5. 在 GitHub Actions/Release 确认发布成功后，旧版工作台即可检查到更新。不能修改已经发布的同名版本来代替递增版本号。
 
-Actions 使用 GitHub 提供的临时 `github.token` 发布附件，不需要配置另一台服务器。私有仓库的 Actions 存储、运行时间和网络限制仍遵循账号额度。
+Actions 使用 GitHub 提供的临时 `github.token` 发布同仓库附件，不需要配置另一台服务器。Actions 存储、运行时间和网络限制仍遵循账号额度。
 
 ## 本机更新行为
 
@@ -57,6 +58,6 @@ Actions 使用 GitHub 提供的临时 `github.token` 发布附件，不需要配
 
 ## 首次启用
 
-从 v0.1.1 起包含本地更新器。首次安装后，在本机完成 `gh auth login`，并用 `npm start` 启动正式版。浏览器登录 GitHub 与本机 CLI 授权相互独立。
+从 v0.1.1 起包含本地更新器，从 v0.1.3 起默认匿名读取公开版本。首次升级到该版本后，使用 `npm start` 启动正式版即可，不需要执行 `gh auth login`。更早的更新器若仍要求 CLI 登录，需要先手动更换一次新版程序或更新本地源码。
 
 发布结果以仓库 Releases 页面为准：必须能看到该版本的 `latest.json` 和 `studio-app.tar.gz` 两个附件。本地 `release/update/` 中生成的文件只用于打包验证。

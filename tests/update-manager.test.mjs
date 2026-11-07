@@ -1,15 +1,31 @@
-import {afterEach,describe,it,expect} from 'vitest';
+import {afterEach,describe,it,expect,vi} from 'vitest';
 import {promises as fs} from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import {gzipSync} from 'node:zlib';
-import {compareVersions,validateManifest,safeArchivePath,unpackArchive,applyUpdate,rollbackUpdate} from '../scripts/update-manager.mjs';
-const dirs=[];afterEach(async()=>{await Promise.all(dirs.splice(0).map(dir=>fs.rm(dir,{recursive:true,force:true})));});
+import {compareVersions,validateManifest,safeArchivePath,unpackArchive,applyUpdate,rollbackUpdate,checkUpdate} from '../scripts/update-manager.mjs';
+const dirs=[];afterEach(async()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();await Promise.all(dirs.splice(0).map(dir=>fs.rm(dir,{recursive:true,force:true})));});
 async function temporary(){const dir=await fs.mkdtemp(path.join(os.tmpdir(),'studio-update-'));dirs.push(dir);return dir;}
 function tarEntry(name,content,type='0'){
  const header=Buffer.alloc(512);header.write(name,0,100);header.write('0000644\0',100);header.write('0000000\0',108);header.write('0000000\0',116);header.write(content.length.toString(8).padStart(11,'0')+'\0',124);header.write('00000000000\0',136);header.fill(32,148,156);header.write(type,156);header.write('ustar\0',257);const sum=header.reduce((a,b)=>a+b,0);header.write(sum.toString(8).padStart(6,'0')+'\0 ',148);return Buffer.concat([header,Buffer.from(content),Buffer.alloc((512-content.length%512)%512)]);
 }
 describe('GitHub update contract',()=>{
+ it('reads public releases and version JSON without CLI or credentials, even when a stale token exists',async()=>{
+   const root=await temporary();await fs.mkdir(path.join(root,'updates'));await fs.writeFile(path.join(root,'updates/source.json'),JSON.stringify({repository:'example/workspace',access:'public'}));await fs.writeFile(path.join(root,'package.json'),JSON.stringify({version:'0.1.0'}));
+   const manifest={version:'0.2.0',tag:'v0.2.0',minimumNode:24,assets:{app:{name:'studio-app.tar.gz',sha256:'a'.repeat(64),size:100}}};
+   const release={tag_name:'v0.2.0',html_url:'https://github.com/example/workspace/releases/tag/v0.2.0',assets:[{id:1,name:'latest.json'},{id:2,name:'studio-app.tar.gz',size:100}]};
+   vi.stubEnv('GH_TOKEN','stale-test-token');vi.stubEnv('GITHUB_TOKEN','stale-other-token');
+   const transport=vi.fn(async url=>Response.json(String(url).endsWith('/releases/latest')?release:manifest));vi.stubGlobal('fetch',transport);
+   const result=await checkUpdate(root,path.join(root,'data'));
+   expect(result.available).toBe(true);expect(result.assetUrl).toBe('https://github.com/example/workspace/releases/download/v0.2.0/studio-app.tar.gz');
+   expect(transport.mock.calls.map(([url])=>url)).toEqual(['https://api.github.com/repos/example/workspace/releases/latest','https://github.com/example/workspace/releases/download/v0.2.0/latest.json']);
+   for(const [,init]of transport.mock.calls)expect(new Headers(init.headers).has('authorization')).toBe(false);
+ });
+ it.each([[404,{},'尚未发布可用更新'],[403,{'x-ratelimit-remaining':'0'},'次数暂时用尽']])('reports public GitHub failure %s without requesting login',async(status,headers,message)=>{
+   const root=await temporary();await fs.mkdir(path.join(root,'updates'));await fs.writeFile(path.join(root,'updates/source.json'),JSON.stringify({repository:'example/workspace',access:'public'}));await fs.writeFile(path.join(root,'package.json'),JSON.stringify({version:'0.1.0'}));
+   vi.stubGlobal('fetch',vi.fn(async()=>new Response('',{status,headers})));
+   await expect(checkUpdate(root,path.join(root,'data'))).rejects.toThrow(message);
+ });
  it('compares full numeric versions and rejects ambiguous or injected versions',()=>{
    expect(compareVersions('0.10.0','0.9.9')).toBe(1);expect(compareVersions('1.0.0','1.0.0')).toBe(0);expect(compareVersions('0.1.1','1.0.0')).toBe(-1);
    for(const invalid of ['v1.0.0','1.0','01.1.0','1.0.0;rm','1.0.0-beta'])expect(()=>compareVersions(invalid,'1.0.0')).toThrow();
