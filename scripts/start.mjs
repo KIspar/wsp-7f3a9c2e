@@ -24,6 +24,7 @@ const dataDir=path.resolve(process.env.STUDIO_DATA||'data');
 let child,stopping=false;
 function manager(command){return new Promise((resolve,reject)=>{const task=spawn(process.execPath,['scripts/update-manager.mjs',command,process.cwd(),dataDir],{stdio:'inherit'});task.on('error',reject);task.on('exit',code=>code===0?resolve():reject(Error('更新操作未完成')));});}
 async function launch(updated=false){
+  if(stopping)return;
   child=spawn(process.execPath,['dist-server/index.js'],{env:{...process.env,PORT:String(port),STUDIO_UPDATE_SUPERVISED:'1'},stdio:'inherit'});
   let exited=false;child.on('error',error=>{console.error(error.message);process.exitCode=1;});
   child.on('exit',async code=>{
@@ -40,10 +41,11 @@ async function launch(updated=false){
     if(!exited)child.kill('SIGTERM');
   }
 }
+// Handle shutdown during recovery/first health checks as well as normal operation.
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{stopping=true;child?.kill(signal);});
 // Finish an explicitly requested update after a power interruption, with a closed database.
 if(fs.existsSync(path.join(dataDir,'updates/applied.json')))await manager('rollback');
 const pendingUpdate=fs.existsSync(path.join(dataDir,'updates/pending.json'));
 if(pendingUpdate)await manager('apply');
 await launch(pendingUpdate);
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{stopping=true;child?.kill(signal);});
 console.log(`浏览器访问：http://127.0.0.1:${port} · 关闭此窗口将停止后台任务`);
