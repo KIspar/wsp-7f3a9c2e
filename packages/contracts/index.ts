@@ -64,6 +64,7 @@ export const modelSchema = z.object({
   category: z.enum(["image", "video"]),
   upstreamId: z.string().min(1),
   enabled: z.boolean(),
+  recommended: z.boolean().optional(),
   provider: z.enum(["chuhe", "token01", "simulator"]),
   credentialConfigured: z.boolean().optional(),
   relayAvailable: z.boolean().optional(),
@@ -223,7 +224,8 @@ export type Bootstrap = {
 };
 
 export function defaultDraft(skill: Skill, models: Model[]): Draft {
-  const model = models.find((m) => m.id === skill.model.defaultId && m.enabled)
+  const model = models.find((m) => m.recommended && m.category === skill.model.category && m.enabled)
+    || models.find((m) => m.id === skill.model.defaultId && m.enabled)
     || models.find((m) => m.category === skill.model.category && m.enabled);
   return {
     requirements: "", modelId: model?.id || "",

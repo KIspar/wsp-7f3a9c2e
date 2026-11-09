@@ -6,6 +6,7 @@ import type {AccountBalance} from '../../packages/account';
 import {api,dateTime} from '@/lib/api';
 import {formatPower,accountQueryOptions} from '@/lib/account';
 import {Button} from './ui/button';
+import {RelayKeyGuide} from './model-setup';
 import {Token01AccountLogin,useToken01Account} from './token01-account';
 
 export function RelayAccount({relay}:{relay:RelayState}){
@@ -20,7 +21,7 @@ export function RelayAccount({relay}:{relay:RelayState}){
       {relay.id==='token01'&&<Token01AccountLogin/>}
       <Button size="sm" variant="outline" disabled={!canRead||query.isFetching} onClick={()=>void query.refetch()}><RefreshCw data-icon="inline-start"/>刷新余额</Button>
       <Button size="sm" variant="outline" asChild><a href={portal.wallet} target="_blank" rel="noreferrer">{relay.id==='token01'?'钱包 / 充值':'账户 / 充值'}<ExternalLink data-icon="inline-end"/></a></Button>
-      <Button size="sm" variant="outline" asChild><a href={portal.keys} target="_blank" rel="noreferrer">创建 API Key<ExternalLink data-icon="inline-end"/></a></Button>
+      <RelayKeyGuide relayId={relay.id}/>
       <Button size="sm" variant="ghost" asChild><a href={portal.usage} target="_blank" rel="noreferrer">使用记录<ExternalLink data-icon="inline-end"/></a></Button>
     </div>
   </div>;

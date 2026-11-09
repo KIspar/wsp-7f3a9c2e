@@ -129,3 +129,40 @@ input::placeholder,textarea::placeholder { opacity:1; }
   .prompt-page-heading { gap: 12px; margin-bottom: 20px; }
   .prompt-toolbar { padding-bottom: 16px; margin-bottom: 18px; }
 }
+
+/* Relay onboarding and explicit, permission-scoped recommended defaults. */
+.model-setup-panel { margin-bottom:24px; border-top:3px solid var(--primary); }
+.model-setup-panel h2 { display:flex; align-items:center; gap:9px; }
+.model-setup-panel h2>svg { width:20px; height:20px; color:var(--primary); }
+.model-setup-steps { display:flex; align-items:center; gap:30px; list-style:none; padding:0; margin:24px 0; }
+.model-setup-steps li { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted-foreground); }
+.model-setup-steps li>span { display:grid; place-items:center; width:26px; height:26px; border:1px solid var(--border); border-radius:50%; color:var(--foreground); font-size:12px; background:var(--background); }
+.model-setup-steps li>span>svg { width:14px; height:14px; }
+.model-setup-steps li.is-done>span { background:var(--primary); color:var(--primary-foreground); border-color:var(--primary); }
+.model-setup-choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.model-setup-choices article { padding:18px; border:1px solid var(--border); border-radius:10px; background:var(--background); min-width:0; }
+.model-setup-role { display:flex; align-items:center; gap:8px; margin-bottom:16px; font-size:13px; font-weight:550; }
+.model-setup-role>svg { width:17px; height:17px; color:var(--primary); flex-shrink:0; }
+.model-setup-role>span:last-child { margin-left:auto; font-size:12px; font-weight:400; color:var(--muted-foreground); }
+.model-setup-choices strong { display:block; font-size:17px; overflow-wrap:anywhere; line-height:1.5; }
+.model-setup-choices p { margin:8px 0; font-size:12px; line-height:1.7; color:var(--muted-foreground); overflow-wrap:anywhere; }
+.model-setup-choices small { display:block; font-size:12px; line-height:1.7; color:var(--muted-foreground); }
+.model-setup-choices .is-unavailable { background:var(--muted); }
+.model-setup-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:20px; }
+.model-setup-actions>.muted { font-size:12px; margin-left:auto; }
+.model-advanced-settings { border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.model-advanced-settings>summary { display:flex; align-items:center; gap:12px; min-height:60px; padding:16px 22px; font-size:14px; font-weight:550; cursor:pointer; list-style:none; background:var(--card); }
+.model-advanced-settings>summary::-webkit-details-marker { display:none; }
+.model-advanced-settings>summary>span { margin-left:auto; color:var(--muted-foreground); font-size:12px; font-weight:400; }
+.model-advanced-settings>summary>svg { width:16px; height:16px; transition:transform 150ms; }
+.model-advanced-settings[open]>summary>svg { transform:rotate(180deg); }
+.model-advanced-settings>.settings-panel { margin:0; border:0; border-top:1px solid var(--border); border-radius:0; }
+.relay-key-guide ol { list-style:none; padding:0; margin:0; display:grid; gap:28px; }
+.relay-key-guide li { display:flex; gap:16px; }
+.relay-key-guide li>span { flex-shrink:0; display:grid; place-items:center; height:30px; width:30px; background:var(--secondary); color:var(--secondary-foreground); border:1px solid var(--border); border-radius:8px; font-size:12px; }
+.relay-key-guide h3 { font-size:15px; line-height:1.7; margin:0 0 8px; }
+.relay-key-guide p { font-size:13px; color:var(--muted-foreground); line-height:1.9; margin:0 0 14px; }
+.relay-help-link { display:inline-flex; align-items:center; gap:8px; margin-top:28px; min-height:44px; font-size:13px; color:var(--primary); }
+.relay-help-link>svg { width:14px; height:14px; }
+@media(max-width:800px) { .model-setup-choices { grid-template-columns:1fr; } .model-setup-actions>.muted { margin-left:0; flex-basis:100%; } }
+@media(max-width:520px) { .model-setup-steps { gap:14px; flex-wrap:wrap; } .model-setup-steps li { font-size:12px; } .model-setup-panel>.section-heading { align-items:flex-start; flex-direction:column; gap:12px; } }

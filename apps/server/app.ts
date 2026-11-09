@@ -42,6 +42,7 @@ import {relayIds} from '../../packages/relays';
 import {createToken01Account,token01SmsSchema,token01PhoneLoginSchema} from './token01-account';
 import {createRelayCatalog} from './relay-catalog';
 import {createToken01Keys} from './token01-keys';
+import {createModelSetup} from './model-setup';
 import {createToken01Routing} from './token01-routing';
 import {publicAccessFromEnv,validBasicAuth,type PublicAccess} from './access';
 
@@ -227,6 +228,10 @@ export async function createApp(store: Store, options: { worker?: boolean; provi
     const models=await Promise.all(token01ModelIds.map(async id=>({id,available:(await service.models(id)).includes(store.models().find(m=>m.id===id)!.upstreamId)})));
     return {models};
   });
+  const modelSetup=createModelSetup(store);
+  app.get('/api/model-setup',()=>modelSetup.preview());
+  app.post('/api/model-setup/apply',request=>modelSetup.apply(z.object({signature:z.string().regex(/^[a-f0-9]{64}$/)}).parse(request.body).signature));
+  app.put('/api/model-setup/manual',request=>modelSetup.manual(z.object({revision:z.number().int().nonnegative()}).parse(request.body).revision));
   app.get('/api/relays',async()=>relays.list());
   app.get('/api/relays/chuhe/catalog',()=>chuheCatalog.catalog());
   app.get('/api/relays/token01/balance',()=>token01Account.balance());

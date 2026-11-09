@@ -38,7 +38,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const [, rerender] = useState(0);
   if (boot.data) {
     for (const saved of boot.data.drafts) {
-      if (drafts.current.has(saved.skillId)) continue;
+      const existing=drafts.current.get(saved.skillId);
+      // Untouched, unsaved drafts may inherit newly connected default models.
+      if (existing && !(existing.revision===0 && existing.edit===0 && saved.revision===0)) continue;
       let value = saved.value;
       try {
         const local = JSON.parse(localStorage.getItem(`studio-draft-${workspaceId}-${saved.skillId}`) || (workspaceId === DEFAULT_WORKSPACE_ID ? localStorage.getItem(`studio-draft-${saved.skillId}`) : "null") || "null");

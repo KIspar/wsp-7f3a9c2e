@@ -15,7 +15,7 @@ export function Token01AdditionalKeys(){
  const config=useQuery({queryKey:['token01-routing'],queryFn:()=>api<Token01RoutingConfig>('/token01/routing'),retry:false});
  const [open,setOpen]=useState(false),[name,setName]=useState(''),[key,setKey]=useState(''),[group,setGroup]=useState('unknown'),[busy,setBusy]=useState(false);
  const groups=[...new Set(config.data?.models.flatMap(model=>model.groups.map(group=>group.group))||[])];
- async function action(run:()=>Promise<unknown>,message:string){setBusy(true);try{await run();toast.success(message);}catch(error){toast.error((error as Error).message);}finally{await Promise.all([cache.invalidateQueries({queryKey:['token01-keys']}),cache.invalidateQueries({queryKey:['relays']}),studio.refresh()]);setBusy(false);}}
+ async function action(run:()=>Promise<unknown>,message:string){setBusy(true);try{await run();toast.success(message);}catch(error){toast.error((error as Error).message);}finally{await Promise.all([cache.invalidateQueries({queryKey:['token01-keys']}),cache.invalidateQueries({queryKey:['model-setup']}),cache.invalidateQueries({queryKey:['relays']}),studio.refresh()]);setBusy(false);}}
  return <div className="mt-5 flex flex-col gap-4">
   <div className="flex flex-wrap items-center justify-between gap-3"><p className="muted">附加 API Key · {query.data?.length||0} 把</p><Button size="sm" variant="outline" disabled={busy} onClick={()=>setOpen(!open)}><Plus data-icon="inline-start"/>{open?'收起添加':'添加 API Key'}</Button></div>
   {open&&<div className="flex flex-col gap-4 rounded-lg border p-4">

@@ -29,7 +29,7 @@ function useToken01Settings(){
   const studio=useStudio(),cache=useQueryClient();
   const query=useQuery({queryKey:['token01-routing'],queryFn:()=>api<Token01RoutingConfig>('/token01/routing'),retry:false});
   const [busy,setBusy]=useState(false);
-  const refresh=()=>Promise.all([cache.invalidateQueries({queryKey:['token01-routing']}),cache.invalidateQueries({queryKey:['relays']}),studio.refresh()]);
+  const refresh=()=>Promise.all([cache.invalidateQueries({queryKey:['token01-routing']}),cache.invalidateQueries({queryKey:['model-setup']}),cache.invalidateQueries({queryKey:['relays']}),studio.refresh()]);
   async function action(run:()=>Promise<unknown>,message:string){setBusy(true);try{await run();await refresh();toast.success(message);}catch(error){await refresh();toast.error((error as Error).message);}finally{setBusy(false);}}
   return {studio,query,busy,action};
 }

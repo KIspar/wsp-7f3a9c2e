@@ -14,7 +14,7 @@ import {ecommerceCommonKeys,ecommerceImageRatios} from '../../packages/ecommerce
 
 export const DEFAULT_WORKSPACE_ID = "douyin-cn-fashion";
 const GLOBAL_DOCUMENT_KINDS = new Set([
-  "analysis-model", "analysis-settings", "model", "settings", "skill", "skill-history", "bundled-skill",
+  "model-setup", "analysis-model", "analysis-settings", "model", "settings", "skill", "skill-history", "bundled-skill",
   "prompt-template", "prompt-version", "prompt-save", "relay-catalog", "token01-account",
   "token01-group", "token01-key", "token01-routing", "token01-user-session",
   "research-extension-code", "research-extension-pair",
@@ -249,7 +249,10 @@ export function createStore(dataDir: string, projectRoot: string) {
     return batch;
   }
   const settings = () => get<Settings>("settings", "global")!;
-  const models = () => list<Model>("model");
+  const models = () => {
+    const setup=get<import('../../packages/model-setup').ModelSetup>('model-setup','global');
+    return list<Model>("model").map(model=>({...model,recommended:setup?.mode==='recommended'&&setup.defaults[model.category]===model.id})).sort((a,b)=>Number(b.recommended)-Number(a.recommended));
+  };
   const skills = () => list<Skill>("skill").map((skill) => {
     const file = path.join(projectRoot, "skills", skill.id, "技能提示词.md");
     return { ...skill, ...(skill.id==='model-outfit'?{name:'服饰穿戴'}:{}), unpublished: fs.existsSync(file) && fs.readFileSync(file, "utf8") !== skill.source };
