@@ -1,0 +1,34 @@
+name: Publish download page
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: download-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Export latest release metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq '{tag_name,published_at,assets:[.assets[]|{name,size}]}' > site/release.json
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy download page
+        id: deployment
+        uses: actions/deploy-pages@v4

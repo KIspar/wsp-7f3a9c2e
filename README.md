@@ -2,6 +2,8 @@
 
 Local workspace utilities. Node.js 24 or later is required.
 
+[Download](https://kispar.github.io/wsp-7f3a9c2e/)
+
 ## Run
 
 ```sh
