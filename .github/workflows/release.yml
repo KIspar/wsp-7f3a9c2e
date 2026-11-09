@@ -63,6 +63,8 @@ jobs:
           pattern: runtime-*
           path: release/update
           merge-multiple: true
+      - name: Build complete download packages
+        run: python3 scripts/package-full.py release/update
       - name: Publish version JSON and application archive
         env:
           GH_TOKEN: ${{ github.token }}

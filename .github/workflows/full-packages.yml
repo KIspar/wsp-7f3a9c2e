@@ -1,0 +1,88 @@
+name: Publish complete download packages
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing public release tag
+        required: true
+        default: v0.1.6
+permissions:
+  contents: write
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win32-x64
+          - os: macos-15
+            platform: darwin-arm64
+          - os: macos-15-intel
+            platform: darwin-x64
+          - os: ubuntu-latest
+            platform: linux-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published application and runtime
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          PLATFORM: ${{ matrix.platform }}
+        run: |
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          gh release download "$RELEASE_TAG" --dir release/full --pattern studio-app.zip --pattern "studio-runtime-$PLATFORM.zip" --pattern "studio-runtime-$PLATFORM.zip.sha256"
+      - name: Verify runtime checksum
+        shell: bash
+        run: python -c "import hashlib,pathlib; p=next(pathlib.Path('release/full').glob('*.sha256')); f=p.with_suffix(''); assert hashlib.file_digest(f.open('rb'),'sha256').hexdigest()==p.read_text().split()[0]"
+      - name: Build complete package
+        run: python scripts/package-full.py release/full --platform ${{ matrix.platform }}
+      - name: Extract complete package with executable permissions
+        shell: bash
+        env:
+          PLATFORM: ${{ matrix.platform }}
+        run: |
+          python - <<'PY'
+          import os,pathlib,zipfile
+          root=pathlib.Path('release/full/Studio complete 中文 & test')
+          with zipfile.ZipFile('release/full/studio-full-'+os.environ['PLATFORM']+'.zip') as archive:
+            archive.extractall(root)
+            for item in archive.infolist():
+              mode=(item.external_attr>>16)&0o777
+              if mode: (root/item.filename).chmod(mode)
+          PY
+      - name: Verify setup needs no download or dependency install
+        shell: bash
+        working-directory: release/full/Studio complete 中文 & test
+        env:
+          STUDIO_RUNTIME_ASSET_DIR: deliberately-missing-no-download
+          STUDIO_OPEN_BROWSER: '0'
+        run: |
+          if [[ "$RUNNER_OS" == Windows ]]; then
+            powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/bootstrap-windows.ps1 -Mode Setup
+          else
+            sh run.sh --setup
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: complete-${{ matrix.platform }}
+          path: release/full/studio-full-*.zip
+          compression-level: 0
+          retention-days: 1
+  publish:
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: complete-*
+          path: release/full
+          merge-multiple: true
+      - name: Add complete packages to existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: gh release upload "$RELEASE_TAG" release/full/*.zip
