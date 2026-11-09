@@ -49,3 +49,22 @@ const pendingUpdate=fs.existsSync(path.join(dataDir,'updates/pending.json'));
 if(pendingUpdate)await manager('apply');
 await launch(pendingUpdate);
 console.log(`浏览器访问：http://127.0.0.1:${port} · 关闭此窗口将停止后台任务`);
+if (process.env.STUDIO_OPEN_BROWSER === '1') {
+  // Only the one-click launcher opens a browser, once the local server is ready.
+  for (let attempt = 0; attempt < 60 && !stopping && child?.exitCode === null; attempt++) {
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/healthz`, {signal: AbortSignal.timeout(1000)});
+      if (response.ok) {
+        const url = `http://127.0.0.1:${port}`;
+        const [command, args] = process.platform === 'win32'
+          ? ['cmd.exe', ['/d', '/c', 'start', '', url]]
+          : process.platform === 'darwin' ? ['open', [url]] : ['xdg-open', [url]];
+        const opener = spawn(command, args, {stdio: 'ignore', windowsHide: true});
+        opener.on('error', () => console.log(`请手动在浏览器打开：${url}`));
+        opener.unref();
+        break;
+      }
+    } catch { /* The server is still starting. */ }
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+}

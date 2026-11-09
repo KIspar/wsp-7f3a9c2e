@@ -6,6 +6,15 @@ Local workspace utilities. Node.js 24 or later is required.
 
 ## Run
 
+Download and fully extract `studio-app.zip`. Install Node.js 24 or later, then
+double-click `run.bat` on Windows or `Start.command` on macOS. On Linux, run
+`sh run.sh` in the extracted folder. The launcher installs production dependencies
+on the first run and opens the local interface when it is ready. Keep the terminal
+open; use Ctrl+C to stop. See `START-HERE.txt` for details and the manual fallback.
+The ZIP does not include Node.js or optional local video processing tools.
+
+For source development:
+
 ```sh
 npm ci
 npm run dev

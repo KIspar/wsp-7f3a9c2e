@@ -1,0 +1,21 @@
+Workspace — 启动说明
+
+1. 安装 Node.js 24 或更新版本（包含 npm）：https://nodejs.org/
+2. 完整解压 studio-app.zip 到固定文件夹，不要在压缩包内直接运行。
+3. Windows：双击 run.bat。
+   macOS：双击 Start.command；若系统不允许双击，在该文件夹打开终端运行 sh run.sh。
+   Linux：在该文件夹打开终端运行 sh run.sh。
+
+首次启动需要联网安装依赖，可能需要几分钟。以后直接运行启动脚本即可，正常情况下不再安装或构建。
+启动成功会打开本机浏览器；若未打开，请访问窗口中显示的 http://127.0.0.1:端口。
+使用期间保留启动窗口，按 Ctrl+C 安全停止工作台。
+
+下载包不包含 Node.js、Python、FFmpeg 或离线语音模型。
+需要本地视频处理等功能时，请按工作台帮助页完成对应环境配置。
+模型 API Key 在工作台中自行配置，数据和凭据保存在本机 data/。
+工作台的版本页面支持从 GitHub 检查和下载安装更新，无需登录 GitHub。
+
+如果之前下载的是不含根目录启动脚本的 studio-app.tar.gz：
+可在完整解压后的文件夹打开终端，依次执行 npm ci --omit=dev 和 npm start；
+或从下载页重新下载 studio-app.zip 到新文件夹使用。
+已有数据请先停止旧程序，再单独备份 data/；不要同时运行两个程序共用一份数据。

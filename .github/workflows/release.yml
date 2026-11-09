@@ -8,7 +8,18 @@ concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  windows-launcher:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test -- tests/launcher.test.mjs
   release:
+    needs: windows-launcher
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,14 +29,16 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-policy.test.ts tests/update-supervisor.test.mjs
+      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-policy.test.ts tests/update-supervisor.test.mjs tests/launcher.test.mjs
       - run: npm run build
       - run: node scripts/release-update.mjs
+        env:
+          RELEASE_NOTES: '提供 Windows、macOS 和 Linux 启动脚本；首次自动安装依赖，后续直接启动并打开浏览器。'
       - name: Publish version JSON and application archive
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" release/update/latest.json release/update/studio-app.tar.gz --verify-tag --generate-notes
+          gh release create "$GITHUB_REF_NAME" release/update/latest.json release/update/studio-app.tar.gz release/update/studio-app.zip --verify-tag --notes-file START-HERE.txt --generate-notes
   download-page:
     needs: release
     permissions:
