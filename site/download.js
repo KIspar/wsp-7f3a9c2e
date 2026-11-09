@@ -16,13 +16,47 @@ async function loadRelease() {
     status.textContent = '版本信息暂不可用，仍可下载 GitHub 最新稳定版。';
   }
 }
+let copyReset;
 document.querySelector('#copy').addEventListener('click', async () => {
   const feedback = document.querySelector('#copy-status');
+  const label = document.querySelector('#copy span');
+  clearTimeout(copyReset);
   try {
     await navigator.clipboard.writeText('npm ci --omit=dev\nnpm start');
     feedback.textContent = '启动命令已复制';
+    label.textContent = '已复制';
   } catch {
     feedback.textContent = '无法访问剪贴板，请选中上方命令复制。';
   }
+  copyReset = setTimeout(() => { feedback.textContent = ''; label.textContent = '复制'; }, 3500);
+});
+
+// LeiBox Glass Folder interaction adapted to three real links. Native buttons keep
+// touch and keyboard behavior; the sheets leave the tab order while closed.
+const folder = document.querySelector('#package');
+const folderToggle = document.querySelector('#package-toggle');
+const folderFiles = document.querySelector('#package-files');
+function setFolderOpen(open, restoreFocus = false) {
+  if (restoreFocus) folderToggle.focus({preventScroll: true});
+  folder.toggleAttribute('data-open', open);
+  folderToggle.setAttribute('aria-expanded', String(open));
+  folderToggle.setAttribute('aria-label', open ? '收起程序包内容' : '展开程序包内容');
+  folderFiles.inert = !open;
+  folderFiles.setAttribute('aria-hidden', String(!open));
+}
+folderToggle.addEventListener('click', () => setFolderOpen(!folder.hasAttribute('data-open')));
+folder.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && folder.hasAttribute('data-open')) {
+    event.preventDefault();
+    setFolderOpen(false, true);
+  }
+});
+document.addEventListener('pointerdown', event => {
+  if (!folder.contains(event.target) && folder.hasAttribute('data-open')) {
+    setFolderOpen(false, folderFiles.contains(document.activeElement));
+  }
+});
+folderFiles.addEventListener('click', event => {
+  if (event.target.closest('a')) setFolderOpen(false, true);
 });
 void loadRelease();
