@@ -31,11 +31,16 @@ async function fixture() {
 }
 function launch(dir, env = {}) {
   const windows = process.platform === 'win32';
+  // Windows environment keys are case-insensitive. Deduplicate npm's inherited
+  // mixed-case npm_execpath before passing the fixture CLI to cmd.exe.
+  const overrides = {npm_execpath: path.join(dir, 'npm-cli.js'), STUDIO_OPEN_BROWSER: '0', ...env};
+  const overridden = new Set(Object.keys(overrides).map(key => key.toLowerCase()));
+  const inherited = Object.fromEntries(Object.entries(process.env).filter(([key]) => !overridden.has(key.toLowerCase())));
   const child = spawn(windows ? 'cmd.exe' : '/bin/sh', windows
     ? ['/d', '/s', '/c', `""${path.join(dir, 'run.bat')}""`]
     : [path.join(dir, 'run.sh')], {
     cwd: os.tmpdir(), windowsVerbatimArguments: windows,
-    env: {...process.env, npm_execpath: path.join(dir, 'npm-cli.js'), STUDIO_OPEN_BROWSER: '0', ...env},
+    env: {...inherited, ...overrides},
     stdio: ['pipe', 'pipe', 'pipe'],
   });
   child.stdin.on('error', () => {}); child.stdin.end('\r\n');
