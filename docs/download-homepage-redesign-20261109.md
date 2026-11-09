@@ -32,3 +32,11 @@
 ## 发布范围
 
 仅更新 site/ 首页及本记录，不修改工作台版本或 Release 安装包，不上传 data/ 或任何凭据。GitHub Pages 工作流在推送后自动部署，并从最新 Release 生成 release.json。线上版本与体积需要在部署后实页复核。
+
+## 线上复核结果
+
+- 首页提交：c5b5553；GitHub Pages 工作流 #9 成功（23 秒）。
+- 部署记录：https://github.com/KIspar/wsp-7f3a9c2e/actions/runs/42578506207
+- 公开首页已显示新设计；在线元数据读取 v0.1.6、发布日期 2026/11/9。
+- 下载卡片显示 Windows 311 MB、Mac Apple 芯片 321 MB、Mac Intel 芯片 324 MB。
+- 线上真实点击视频预览及第 3 个分镜，标题切换为“03 / 细节有声”。
