@@ -1,5 +1,12 @@
-Workspace download page — interaction credits
+Workspace download page — design and asset notes
 
+Current homepage: original HTML/CSS implementation inspired by the visual direction
+of lite.ego.app; no reference-site logos, copy, images or source code are included.
+Demo photographs: copied from public/examples/10-1.jpg through 10-4.jpg in this
+project. See public/examples/sources.json for provenance; these are prototype
+examples, not evidence of model-generated output.
+
+Legacy component stylesheet (leibox.css, not loaded by the current homepage):
 Adapted from LeiBox:
 - Tactile Push Button, community submission by 少荃（宝龙体育优品小铺）
   https://leibox.pantoria.cn/docs/animations/tactile-push-button
@@ -9,7 +16,7 @@ Adapted from LeiBox:
 Source snapshots: official standalone HTML downloads, retrieved 2026-11-09.
 Changes: page-specific links, copy and keyboard behavior, orange surfaces,
 responsive layout; procedural artwork, demo menus and file creation omitted.
-No third-party fonts, photographs or brand illustrations are included.
+The legacy adaptations include no third-party fonts or brand illustrations.
 
 MIT + Commons Clause License Condition v1.0
 
