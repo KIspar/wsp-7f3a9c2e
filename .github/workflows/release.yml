@@ -45,6 +45,12 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: runtime
     runs-on: ubuntu-latest
+    env:
+      RELEASE_NOTES: |
+        新增模型配置一键推荐：连接初和或 Token01 后，分别启用图片、视频与 AI 辅助模型，沿用密钥权限和已有分组。
+        新增 API Key 创建指引，保留高级手动配置；已有草稿和任务保持原配置。
+        首次使用请下载对应系统的 studio-full 完整包，解压后双击 Windows-启动.bat 或 Mac-启动.command，无需手动安装 Node.js。
+        已安装用户可在工作台版本面板检查更新；本地数据和密钥保留。
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -53,11 +59,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-policy.test.ts tests/update-supervisor.test.mjs tests/launcher.test.mjs
+      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-policy.test.ts tests/update-supervisor.test.mjs tests/launcher.test.mjs tests/model-setup.test.ts tests/relays.test.ts tests/token01-routing.test.ts tests/relay-catalog.test.ts
       - run: npm run build
       - run: node scripts/release-update.mjs
-        env:
-          RELEASE_NOTES: '双击即可安装本机运行环境并启动；新增 Windows 和 Mac 的安装、修复入口，无需手动安装 Node.js 或输入命令。'
       - uses: actions/download-artifact@v4
         with:
           pattern: runtime-*
@@ -69,4 +73,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" release/update/* --verify-tag --notes-file START-HERE.txt --generate-notes
+          gh release create "$GITHUB_REF_NAME" release/update/* --verify-tag --notes "$RELEASE_NOTES" --generate-notes
