@@ -21,3 +21,9 @@
 - 可见界面验证校验、解压及准备就绪阶段；未点击安装、未更改真实数据和凭据。
 
 发布产物沿用 GitHub Actions：四个平台运行环境和完整包、应用更新包、`latest.json`，成功后同步 GitHub Pages。
+
+## 发布结果
+
+- [v0.1.8 发布](https://github.com/KIspar/wsp-7f3a9c2e/releases/tag/v0.1.8)及[发布工作流](https://github.com/KIspar/wsp-7f3a9c2e/actions/runs/42595498049)成功，17 个附件（含 GitHub 自动源码包）齐全。
+- BrowserOS neo 下载在线 `latest.json` 成功，版本／标签为 0.1.8／v0.1.8；应用包声明大小 102734862 字节，SHA256 为 `e004c26ba0fbf03f77c45be20905e970b7caba18b8933dff14ba45b5f5338be4`。
+- 下载页部署成功。浏览器复验发现旧版本元数据可能被缓存，改为不缓存读取并按分钟更新请求地址，避免长期显示上一版本。

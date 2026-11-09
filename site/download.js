@@ -1,7 +1,7 @@
 const releaseStatus = document.querySelector('#release-status');
 async function loadRelease() {
   try {
-    const response = await fetch('./release.json', {signal: AbortSignal.timeout(8000)});
+    const response = await fetch('./release.json?minute=' + Math.floor(Date.now() / 60000), {cache: 'no-store', signal: AbortSignal.timeout(8000)});
     if (!response.ok) throw new Error('metadata unavailable');
     const release = await response.json();
     if (!/^v\d+\.\d+\.\d+$/.test(release.tag_name)) throw new Error('invalid version');
