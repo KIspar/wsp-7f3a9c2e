@@ -110,7 +110,11 @@ export async function stageUpdate(root,dataDir){
   // Install platform-specific production dependencies in isolation, never in the running application.
   const npmCli=path.resolve(path.dirname(process.execPath),'../lib/node_modules/npm/bin/npm-cli.js');
   const bundledNpm=path.join(path.dirname(process.execPath),'node_modules/npm/bin/npm-cli.js');
-  if(await exists(npmCli)||await exists(bundledNpm))await run(process.execPath,[await exists(npmCli)?npmCli:bundledNpm,'ci','--omit=dev','--no-audit','--no-fund'],{cwd:stage});
+  if(await exists(npmCli)||await exists(bundledNpm)){
+    await run(process.execPath,[await exists(npmCli)?npmCli:bundledNpm,'ci','--omit=dev','--no-audit','--no-fund'],{cwd:stage});
+    const fingerprint=createHash('sha256').update(await fs.readFile(path.join(stage,'package-lock.json'))).update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
+    await fs.writeFile(path.join(stage,'node_modules/.studio-launch-ready'),fingerprint);
+  }
   else if(await fs.readFile(path.join(root,'package-lock.json'),'utf8')!==await fs.readFile(path.join(stage,'package-lock.json'),'utf8'))throw Error('此便携版需要完整安装包才能升级依赖，请下载完整新版本并保留 data 目录');
   await writeJson(path.join(dir,'state.json'),{phase:'ready',version:check.latestVersion});return {phase:'ready',version:check.latestVersion};
 }

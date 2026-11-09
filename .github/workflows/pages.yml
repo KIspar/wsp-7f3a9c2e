@@ -5,6 +5,9 @@ on:
     paths: ['site/**', '.github/workflows/pages.yml']
   workflow_dispatch:
   workflow_call:
+  workflow_run:
+    workflows: ['Publish local workstation update']
+    types: [completed]
 permissions:
   contents: read
   pages: write
@@ -14,6 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -193,3 +193,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Downloaded private runtime bundles
+
+Platform runtime bundles redistribute the Node.js executable and npm together
+with production dependencies. The Node.js license is included at
+`.runtime/node/NODE-LICENSE.txt`; npm and dependency license files are retained
+inside their package directories. Bundles contain no local data or credentials.

@@ -9,8 +9,9 @@ afterEach(async () => { await Promise.all(directories.splice(0).map(dir => fs.rm
 async function fixture() {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'studio launch & 中文 '));
   directories.push(dir);
-  for (const name of ['scripts', 'dist', 'dist-server']) await fs.mkdir(path.join(dir, name));
-  for (const name of ['run.bat', 'run.sh', 'Start.command', 'scripts/launch.mjs']) {
+  for (const name of ['scripts', 'dist', 'dist-server', '.runtime']) await fs.mkdir(path.join(dir, name));
+  await fs.symlink(path.dirname(process.execPath), path.join(dir, '.runtime/node'), process.platform === 'win32' ? 'junction' : 'dir');
+  for (const name of ['run.bat', 'run.sh', 'Start.command', 'scripts/launch.mjs', 'scripts/bootstrap-posix.sh', 'scripts/bootstrap-windows.ps1']) {
     await fs.copyFile(path.join(import.meta.dirname, '..', name), path.join(dir, name));
   }
   await fs.writeFile(path.join(dir, 'package.json'), '{"type":"module"}');

@@ -17,7 +17,7 @@ export async function findNpm() {
     }
   }
   for (const file of candidates) if (file && path.basename(file) === 'npm-cli.js' && await exists(file)) return file;
-  throw Error('找不到 npm。请从 https://nodejs.org/ 安装包含 npm 的 Node.js 24 或更新版本，再重新启动。');
+  throw Error('运行组件不完整。请关闭工作台，再双击“修复环境”。');
 }
 
 function run(args, root, quiet = false) {
@@ -38,9 +38,9 @@ function run(args, root, quiet = false) {
 }
 
 export async function prepareLaunch(root) {
-  if (Number(process.versions.node.split('.')[0]) < 24) throw Error('需要 Node.js 24 或更新版本：https://nodejs.org/');
+  if (Number(process.versions.node.split('.')[0]) < 24) throw Error('运行组件版本不兼容，请双击“修复环境”。');
   for (const file of ['dist/index.html', 'dist-server/index.js', 'scripts/start.mjs', 'package-lock.json']) {
-    if (!await exists(path.join(root, file))) throw Error(`程序包缺少 ${file}。请先完整解压 studio-app.zip；源码目录需先执行 npm ci 和 npm run build。`);
+    if (!await exists(path.join(root, file))) throw Error(`程序包缺少 ${file}。请重新下载并完整解压 ZIP，再双击启动。`);
   }
   const fingerprint = createHash('sha256').update(await fs.readFile(path.join(root, 'package-lock.json')))
     .update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
@@ -51,12 +51,19 @@ export async function prepareLaunch(root) {
     catch (error) { if (error.cancelled) throw error; ready = false; }
   }
   if (!ready) {
+    const data = path.resolve(root, process.env.STUDIO_DATA || 'data');
+    const pid = await fs.readFile(path.join(data, 'server.lock'), 'utf8').then(value => Number(value.trim()), () => 0);
+    if (Number.isInteger(pid) && pid > 0) {
+      let running = true;
+      try { process.kill(pid, 0); } catch (error) { if (error.code === 'ESRCH') running = false; }
+      if (running) throw Error('工作台仍在运行，请先关闭启动窗口，再准备或修复环境。');
+    }
     console.log('首次启动或依赖发生变化，正在准备运行环境。需要联网，请保留此窗口。');
     try { await run([await findNpm(), 'ci', '--omit=dev', '--no-audit', '--no-fund'], root); }
-    catch (error) { if (error.cancelled) throw error; throw Error(`${error.message}\n依赖安装未完成。请检查网络、磁盘权限和 Node.js 安装，然后再次运行启动脚本。`); }
+    catch (error) { if (error.cancelled) throw error; throw Error(`${error.message}\n依赖安装未完成。请检查网络后重试，或双击“修复环境”。`); }
     await fs.writeFile(marker, fingerprint);
   }
-  console.log('运行环境已就绪，正在启动工作台……');
+  console.log('运行环境已就绪。');
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -64,8 +71,12 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const root = path.resolve(import.meta.dirname, '..');
     process.chdir(root);
     await prepareLaunch(root);
-    process.env.STUDIO_OPEN_BROWSER ??= '1';
-    await import(pathToFileURL(path.join(root, 'scripts/start.mjs')).href);
+    if (process.argv.includes('--setup')) console.log('环境检查通过。现在可以双击启动工作台。');
+    else {
+      console.log('正在启动工作台，请保留此窗口……');
+      process.env.STUDIO_OPEN_BROWSER ??= '1';
+      await import(pathToFileURL(path.join(root, 'scripts/start.mjs')).href);
+    }
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

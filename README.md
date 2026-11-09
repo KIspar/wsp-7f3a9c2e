@@ -1,17 +1,16 @@
 # Workspace
 
-Local workspace utilities. Node.js 24 or later is required.
+Local workspace utilities. Downloaded packages prepare their runtime automatically.
 
 [Download](https://kispar.github.io/wsp-7f3a9c2e/)
 
 ## Run
 
-Download and fully extract `studio-app.zip`. Install Node.js 24 or later, then
-double-click `run.bat` on Windows or `Start.command` on macOS. On Linux, run
-`sh run.sh` in the extracted folder. The launcher installs production dependencies
-on the first run and opens the local interface when it is ready. Keep the terminal
-open; use Ctrl+C to stop. See `START-HERE.txt` for details and the manual fallback.
-The ZIP does not include Node.js or optional local video processing tools.
+Download and fully extract `studio-app.zip`. Double-click `Windows-启动.bat` on
+Windows or `Mac-启动.command` on macOS. The launcher downloads a matching private
+runtime and production dependencies from GitHub, then opens the local interface.
+No system Node.js installation or terminal commands are required. Install and
+repair shortcuts are included; repair preserves local data. See `START-HERE.txt`.
 
 For source development:
 

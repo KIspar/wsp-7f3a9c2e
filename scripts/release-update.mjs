@@ -21,12 +21,13 @@ const download=path.join(output,'studio-app.zip'),zip=archiver('zip',{zlib:{leve
 const stream=createWriteStream(download);
 const completed=new Promise((resolve,reject)=>{stream.on('close',resolve);stream.on('error',reject);zip.on('error',reject);zip.on('warning',reject);});
 zip.pipe(stream);
-const required=['run.bat','run.sh','Start.command','START-HERE.txt'];
+const required=JSON.parse(await fs.readFile(path.join(root,'scripts/launcher-files.json'),'utf8'));
+if(!Array.isArray(required)||required.some(name=>typeof name!=='string'||path.basename(name)!==name))throw Error('启动文件清单无效');
 for(const name of required)await fs.access(path.join(root,name));
 for(const name of [...files,...required]){
   const stat=await fs.stat(path.join(root,name));
   if(stat.isDirectory())zip.glob('**/*',{cwd:path.join(root,name),dot:true,ignore:['**/__pycache__/**','**/*.pyc']},{prefix:name});
-  else zip.file(path.join(root,name),{name,mode:name==='run.sh'||name==='Start.command'?0o755:0o644});
+  else zip.file(path.join(root,name),{name,mode:/\.(sh|command)$/.test(name)?0o755:0o644});
 }
 await zip.finalize();await completed;
 console.log('Generated latest.json, studio-app.tar.gz and studio-app.zip for '+tag);

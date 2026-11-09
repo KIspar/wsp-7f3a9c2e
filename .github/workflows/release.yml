@@ -1,5 +1,6 @@
 name: Publish local workstation update
 on:
+  workflow_dispatch:
   push:
     tags: ['v[0-9]*.[0-9]*.[0-9]*']
 permissions:
@@ -8,8 +9,20 @@ concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  windows-launcher:
-    runs-on: windows-latest
+  runtime:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win32-x64
+          - os: macos-15
+            platform: darwin-arm64
+          - os: macos-15-intel
+            platform: darwin-x64
+          - os: ubuntu-latest
+            platform: linux-x64
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,8 +31,19 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test -- tests/launcher.test.mjs
+      - run: npm ci --omit=dev --no-audit --no-fund
+      - run: node scripts/package-runtime.mjs
+        env:
+          RUNTIME_PLATFORM: ${{ matrix.platform }}
+      - run: node scripts/test-runtime-bootstrap.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: runtime-${{ matrix.platform }}
+          path: release/runtime/*
+          retention-days: 1
   release:
-    needs: windows-launcher
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: runtime
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,16 +57,14 @@ jobs:
       - run: npm run build
       - run: node scripts/release-update.mjs
         env:
-          RELEASE_NOTES: '提供 Windows、macOS 和 Linux 启动脚本；首次自动安装依赖，后续直接启动并打开浏览器。'
+          RELEASE_NOTES: '双击即可安装本机运行环境并启动；新增 Windows 和 Mac 的安装、修复入口，无需手动安装 Node.js 或输入命令。'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: runtime-*
+          path: release/update
+          merge-multiple: true
       - name: Publish version JSON and application archive
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" release/update/latest.json release/update/studio-app.tar.gz release/update/studio-app.zip --verify-tag --notes-file START-HERE.txt --generate-notes
-  download-page:
-    needs: release
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    uses: ./.github/workflows/pages.yml
+          gh release create "$GITHUB_REF_NAME" release/update/* --verify-tag --notes-file START-HERE.txt --generate-notes
