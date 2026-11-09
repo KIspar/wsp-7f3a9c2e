@@ -44,6 +44,8 @@ git push origin main
 
 ## 本次检查
 
+2026-11-09 下载页：GitHub Actions `42545131143` 部署成功；BrowserOS neo 打开线上页面，确认显示 v0.1.3、98.0 MB，并实际点击复制与下载。取得 102,804,132 字节程序包，SHA-256 为 `2fff3f351ff6458cb38aaab76a136e674862cc82bbbad0ad5dfa927cfcf98c9b`，与 Release 一致；隔离安全解包通过，必要程序文件齐全。本轮没有在用户工作目录安装覆盖。
+
 2026-11-09：BrowserOS neo 确认仓库首页已显示 Public，v0.1.3 Release 两个更新附件齐全。本机通过「版本 → 检查更新」成功读取公开版本清单，显示当前及最新版本均为 v0.1.3，无需终端用户登录 GitHub。
 
 2026-11-05：TypeScript 检查通过；Vitest 36 个测试文件、389 项测试通过。执行过待提交文件中的凭据模式检查，未发现真实 API Key、GitHub Token、JWT 或私钥。该检查不代表网页和所有外部供应商能力都已完成回归。
