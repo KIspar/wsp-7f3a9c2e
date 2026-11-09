@@ -57,7 +57,9 @@ try {
       Invoke-WebRequest -Uri "$Url.sha256" -OutFile $Checksum -UseBasicParsing -TimeoutSec 60
     }
     $Expected = ((Get-Content -LiteralPath $Checksum -Raw).Trim() -split '\s+')[0]
-    $Actual = (Get-FileHash -LiteralPath $Archive -Algorithm SHA256).Hash
+    $Hasher = [Security.Cryptography.SHA256]::Create()
+    $ArchiveStream = [IO.File]::OpenRead($Archive)
+    try { $Actual = ([BitConverter]::ToString($Hasher.ComputeHash($ArchiveStream))).Replace('-', '') } finally { $ArchiveStream.Dispose(); $Hasher.Dispose() }
     if ($Expected -notmatch '^[a-fA-F0-9]{64}$' -or $Actual -ne $Expected) { throw '下载文件校验失败，已停止安装。请重新运行修复环境。' }
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $Zip = [IO.Compression.ZipFile]::OpenRead($Archive)

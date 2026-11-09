@@ -2,8 +2,8 @@ Workspace — 使用说明
 
 一、开始使用
 完整解压下载包到固定文件夹，不要在压缩包内直接运行。
-Windows：双击 Windows-启动.bat（也可以双击 run.bat）。
-Mac：双击 Mac-启动.command（也可以双击 Start.command）。
+Windows x64：双击 Windows-启动.bat（也可以双击 run.bat）。
+Mac（Intel / Apple Silicon）：双击 Mac-启动.command（也可以双击 Start.command）。
 程序会自动准备本机运行环境并打开浏览器，不需要手动安装 Node.js，也不用输入命令。
 首次准备需要联网，下载来自 GitHub；正常再次启动直接复用本机环境。
 使用时保留启动窗口；需要停止时在启动窗口按 Ctrl+C。
