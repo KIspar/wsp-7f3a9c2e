@@ -38,4 +38,6 @@ git push origin main
 
 ## 本次检查
 
+2026-11-09：BrowserOS neo 确认仓库首页已显示 Public，v0.1.3 Release 两个更新附件齐全。本机通过「版本 → 检查更新」成功读取公开版本清单，显示当前及最新版本均为 v0.1.3，无需终端用户登录 GitHub。
+
 2026-11-05：TypeScript 检查通过；Vitest 36 个测试文件、389 项测试通过。执行过待提交文件中的凭据模式检查，未发现真实 API Key、GitHub Token、JWT 或私钥。该检查不代表网页和所有外部供应商能力都已完成回归。
