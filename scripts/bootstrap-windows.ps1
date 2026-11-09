@@ -1,5 +1,7 @@
 ﻿param([ValidateSet('Start','Setup','Repair')][string]$Mode = 'Start')
 $ErrorActionPreference = 'Stop'
+# Explorer and PowerShell 7 can supply different module paths; always prefer this host's built-ins.
+$env:PSModulePath = (Join-Path $PSHOME 'Modules') + [IO.Path]::PathSeparator + $env:PSModulePath
 $Root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 Set-Location -LiteralPath $Root
 $Node = Join-Path $Root '.runtime\node\node.exe'
@@ -39,7 +41,7 @@ try {
     $Version = (Get-Content -LiteralPath (Join-Path $Root 'package.json') -Raw | ConvertFrom-Json).version
     if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw '程序版本信息不完整，请重新解压完整下载包。' }
     $Machine = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }
-    $Arch = switch ($Machine) { 'AMD64' { 'x64' } 'ARM64' { 'arm64' } default { throw '当前处理器暂不支持。' } }
+    $Arch = switch ($Machine) { 'AMD64' { 'x64' } 'ARM64' { throw '当前安装包支持 Windows x64；Windows ARM 版暂未提供。' } default { throw '当前处理器暂不支持。' } }
     $Asset = "studio-runtime-win32-$Arch.zip"
     $Archive = Join-Path $Stage $Asset
     $Checksum = "$Archive.sha256"

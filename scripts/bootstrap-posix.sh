@@ -6,6 +6,7 @@ studio_mode=${1:---start}
 case "$studio_mode" in --start|--setup|--repair) ;; *) printf '%s\n' '启动选项无效。'; exit 1;; esac
 case "$(uname -s)" in Darwin) studio_os=darwin;; Linux) studio_os=linux;; *) printf '%s\n' '当前系统暂不支持。'; exit 1;; esac
 case "$(uname -m)" in arm64|aarch64) studio_arch=arm64;; x86_64|amd64) studio_arch=x64;; *) printf '%s\n' '当前处理器暂不支持。'; exit 1;; esac
+if [ "$studio_os-$studio_arch" = linux-arm64 ]; then printf '%s\n' '当前安装包支持 Linux x64；Linux ARM 版暂未提供。'; exit 1; fi
 studio_node="$studio_root/.runtime/node/node"
 studio_stage=
 studio_lock=
