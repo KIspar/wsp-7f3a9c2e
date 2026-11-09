@@ -11,7 +11,7 @@
 
 免费下载页：<https://kispar.github.io/wsp-7f3a9c2e/>。GitHub Pages 托管 `site/` 中的静态页面，下载按钮指向最新 Release 的 `studio-app.zip`（首次安装包），`studio-app.tar.gz` 保留为应用内自动更新包。页面是下载安装入口，工作台仍在本机运行；无需 Cloudflare、个人域名或云服务器。页面包含 `noindex` 与 `robots.txt`，用于请求搜索引擎不收录，不能保证隐藏。
 
-下载并完整解压 ZIP，Windows 双击 `Windows-启动.bat`，macOS 双击 `Mac-启动.command`。首次自动从当前版本的 GitHub Release 下载匹配系统架构的独立运行环境（Node.js、npm 和生产依赖），校验 SHA-256 后安装到本机 `.runtime/` 与 `node_modules/`；无需系统预装 Node.js、管理员权限或手动输入命令。环境就绪后打开本机浏览器。使用期间保留启动窗口，Ctrl+C 停止。
+下载页优先提供各系统自带环境的完整 ZIP 包，解压后无需再次下载环境。轻量通用 ZIP 作为备选保留。下载并完整解压 ZIP，Windows 双击 `Windows-启动.bat`，macOS 双击 `Mac-启动.command`。首次自动从当前版本的 GitHub Release 下载匹配系统架构的独立运行环境（Node.js、npm 和生产依赖），校验 SHA-256 后安装到本机 `.runtime/` 与 `node_modules/`；无需系统预装 Node.js、管理员权限或手动输入命令。环境就绪后打开本机浏览器。使用期间保留启动窗口，Ctrl+C 停止。
 
 包内另有 Windows／Mac 的安装与修复入口；Mac 还提供执行权限修复。修复先检查运行中的服务，成功前保留旧环境，失败时恢复，且不改动 `data/`。支持 Windows x64、Mac Intel／Apple Silicon 和 Linux x64；运行包在各平台构建并测试。Mac 系统的来源确认仍由用户按系统提示完成，脚本不会关闭 Gatekeeper。可选本地视频工具的安装状态与工作台核心运行环境分开说明。
 
@@ -51,6 +51,8 @@ git push origin main
 BrowserOS neo 桌面实测发现并修正了展开卡片被相邻卡片遮挡的问题；已操作验证 Enter 展开、Esc 收起、安装卡片跳转、启动命令复制和 FAQ 展开。辅助文字同步加大并提高对比度。提供窄屏 CSS 适配，本次未以真实移动设备验收。
 
 ## 本次检查
+
+2026-11-09 完整包验收：Actions `42564999379` 四平台构建、无下载安装检查及发布均成功。新增 `studio-full-win32-x64.zip`、`studio-full-darwin-arm64.zip`、`studio-full-darwin-x64.zip`、`studio-full-linux-x64.zip`。完整包同时包含程序、私有 Node/npm 与生产依赖，启动不需要再下载环境；轻量 ZIP 仍保留自动安装和修复能力。本地使用公开的程序与环境资产合成 Mac Intel 完整包，在新的中文/空格/符号目录、环境资产目录故意不存在的条件下启动成功，BrowserOS 打开 4400 确认 v0.1.6。下载页改为按 Windows / Mac Apple 芯片 / Mac Intel 选择完整包。
 
 2026-11-09 发布验收：v0.1.6 发布工作流 `42561594092` 成功，公开 Release 含应用 ZIP、TAR、版本 JSON，以及 4 套环境 ZIP 与 SHA256。下载页部署 `42562406626` 成功；BrowserOS neo 在线核对 v0.1.6、ZIP 链接、安装入口与文件夹交互。实际下载应用 ZIP 为 103,485,740 字节，SHA256 `0913ca574a213b8623f8e7d866ab8c93d4f9c9f7bfaeb6fbceb504c664f460b0`；Mac Intel 环境为 240,106,814 字节，SHA256 `8b172847978fc4ef49ad055aaab2f60ea800803ac2e42db776de74cd49c472a7`，与公开校验文件匹配。
 

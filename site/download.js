@@ -9,7 +9,11 @@ async function loadRelease() {
     if (!asset || !Number.isSafeInteger(asset.size) || asset.size < 1) throw new Error('missing asset');
     document.querySelector('#version').textContent = release.tag_name + ' · 稳定版';
     for (const link of document.querySelectorAll('[data-app-download]')) link.href = 'https://github.com/KIspar/wsp-7f3a9c2e/releases/latest/download/' + asset.name;
-    document.querySelector('#size').textContent = (asset.size / 1024 / 1024).toFixed(1) + ' MB · 通用程序包';
+    document.querySelector('#size').textContent = '完整程序包 · 自带运行环境';
+    for (const label of document.querySelectorAll('[data-platform-size]')) {
+      const full = release.assets?.find(item => item.name === 'studio-full-' + label.dataset.platformSize + '.zip');
+      if (full && Number.isSafeInteger(full.size) && full.size > 0) label.textContent = (full.size / 1024 / 1024).toFixed(0) + ' MB · 自带运行环境';
+    }
     // The stable download URL follows GitHub's latest release even if this page is cached.
     const date = new Date(release.published_at);
     if (!Number.isNaN(date.getTime())) status.textContent = '发布于 ' + date.toLocaleDateString('zh-CN');
