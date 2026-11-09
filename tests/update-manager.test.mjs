@@ -3,13 +3,37 @@ import {promises as fs} from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import {gzipSync} from 'node:zlib';
-import {compareVersions,validateManifest,safeArchivePath,unpackArchive,applyUpdate,rollbackUpdate,checkUpdate} from '../scripts/update-manager.mjs';
+import {Readable} from 'node:stream';
+import {compareVersions,validateManifest,safeArchivePath,unpackArchive,applyUpdate,rollbackUpdate,checkUpdate,downloadToFile} from '../scripts/update-manager.mjs';
 const dirs=[];afterEach(async()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();await Promise.all(dirs.splice(0).map(dir=>fs.rm(dir,{recursive:true,force:true})));});
 async function temporary(){const dir=await fs.mkdtemp(path.join(os.tmpdir(),'studio-update-'));dirs.push(dir);return dir;}
 function tarEntry(name,content,type='0'){
  const header=Buffer.alloc(512);header.write(name,0,100);header.write('0000644\0',100);header.write('0000000\0',108);header.write('0000000\0',116);header.write(content.length.toString(8).padStart(11,'0')+'\0',124);header.write('00000000000\0',136);header.fill(32,148,156);header.write(type,156);header.write('ustar\0',257);const sum=header.reduce((a,b)=>a+b,0);header.write(sum.toString(8).padStart(6,'0')+'\0 ',148);return Buffer.concat([header,Buffer.from(content),Buffer.alloc((512-content.length%512)%512)]);
 }
 describe('GitHub update contract',()=>{
+ it('streams actual byte progress, throttles reports and records completion',async()=>{
+   const dir=await temporary(),reports=[];
+   const chunks=Array.from({length:100},()=>Buffer.alloc(1024));
+   await downloadToFile(Readable.from(chunks),path.join(dir,'download'),{totalBytes:102400,onProgress:async value=>{reports.push(value);}});
+   expect(reports[0]).toMatchObject({receivedBytes:0,totalBytes:102400,bytesPerSecond:0});
+   expect(reports.at(-1)).toMatchObject({receivedBytes:102400,totalBytes:102400});
+   expect(reports.at(-1).lastByteAt).toBeTruthy();expect(reports.length).toBeLessThan(10);
+   expect((await fs.stat(path.join(dir,'download'))).size).toBe(102400);
+ });
+ it('rejects short and oversized downloads instead of reporting success',async()=>{
+   const dir=await temporary();
+   await expect(downloadToFile(Readable.from([Buffer.alloc(2)]),path.join(dir,'short'),{totalBytes:3})).rejects.toThrow('不完整');
+   await expect(downloadToFile(Readable.from([Buffer.alloc(4)]),path.join(dir,'large'),{totalBytes:3})).rejects.toThrow('超出');
+ });
+ it('ends a stalled transfer after 60 seconds without incoming data',async()=>{
+   const dir=await temporary();vi.useFakeTimers();
+   try{
+    const source=new Readable({read(){}});
+    const transfer=downloadToFile(source,path.join(dir,'stalled'),{totalBytes:100});
+    const assertion=expect(transfer).rejects.toThrow('60 秒未收到数据');
+    await vi.advanceTimersByTimeAsync(60001);await assertion;
+   }finally{vi.useRealTimers();}
+ });
  it('reads public releases and version JSON without CLI or credentials, even when a stale token exists',async()=>{
    const root=await temporary();await fs.mkdir(path.join(root,'updates'));await fs.writeFile(path.join(root,'updates/source.json'),JSON.stringify({repository:'example/workspace',access:'public'}));await fs.writeFile(path.join(root,'package.json'),JSON.stringify({version:'0.1.0'}));
    const manifest={version:'0.2.0',tag:'v0.2.0',minimumNode:24,assets:{app:{name:'studio-app.tar.gz',sha256:'a'.repeat(64),size:100}}};

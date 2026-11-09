@@ -4,7 +4,7 @@ import {spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {createGunzip} from 'node:zlib';
 import {pipeline} from 'node:stream/promises';
-import {Readable} from 'node:stream';
+import {Readable,Transform} from 'node:stream';
 import {fileURLToPath} from 'node:url';
 
 export const managedFiles=['dist','dist-server','public','skills','resources','extensions','apps/video-worker','scripts','updates','package.json','package-lock.json','node_modules'];
@@ -59,22 +59,53 @@ const exists=async file=>fs.access(file).then(()=>true,()=>false);
 async function json(file){return JSON.parse(await fs.readFile(file,'utf8'));}
 async function writeJson(file,value){await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file+'.tmp',JSON.stringify(value,null,2));await fs.rename(file+'.tmp',file);}
 function run(command,args,options={}){return new Promise((resolve,reject)=>{const child=spawn(command,args,{...options,windowsHide:true,stdio:options.capture?['ignore','pipe','pipe']:'inherit'});let output='',error='';if(options.capture){child.stdout.on('data',b=>{output+=b;if(output.length>4*1024*1024)child.kill();});child.stderr.on('data',b=>{error+=b;});}child.on('error',reject);child.on('close',code=>code===0?resolve(output):reject(Error(options.capture?error||'GitHub 操作失败':`${command} 执行失败 (${code})`)));});}
-async function github(repository,endpoint,destination,access='public',downloadUrl){
+// Runs in the update child process; publish at most once per second, not per chunk.
+export async function downloadToFile(source,destination,{totalBytes,onProgress}={}){
+  let receivedBytes=0,lastBytes=0,lastReport=performance.now(),idle;
+  const startedAt=new Date().toISOString();
+  async function report(final=false){
+    if(!onProgress)return;
+    const now=performance.now(),elapsed=now-lastReport;
+    if(!final&&lastBytes>0&&elapsed<1000)return;
+    const timestamp=new Date().toISOString();
+    await onProgress({receivedBytes,totalBytes,bytesPerSecond:elapsed>0?Math.round((receivedBytes-lastBytes)*1000/elapsed):0,startedAt,updatedAt:timestamp,lastByteAt:receivedBytes?timestamp:undefined});
+    lastBytes=receivedBytes;lastReport=now;
+  }
+  function resetIdle(){clearTimeout(idle);idle=setTimeout(()=>source.destroy(Error('下载连续 60 秒未收到数据，请检查网络后重试')),60000);idle.unref();}
+  const meter=new Transform({transform(chunk,encoding,callback){
+    receivedBytes+=chunk.length;
+    if(totalBytes&&receivedBytes>totalBytes){callback(Error('下载大小超出版本声明，已拒绝更新包'));return;}
+    resetIdle();void report().then(()=>callback(null,chunk),callback);
+  }});
+  try{
+    await report(true);resetIdle();
+    await pipeline(source,meter,createWriteStream(destination,{flags:'wx'}));
+    if(totalBytes&&receivedBytes!==totalBytes)throw Error('更新包下载不完整，请重新下载');
+    await report(true);
+  }finally{clearTimeout(idle);}
+}
+async function github(repository,endpoint,destination,access='public',downloadUrl,progress){
   const token=process.env.GH_TOKEN||process.env.GITHUB_TOKEN;
   if(access==='private'&&!token){
     const args=['api',`repos/${repository}/${endpoint}`];if(destination)args.push('-H','Accept: application/octet-stream');
     if(!destination){try{return JSON.parse(await run('gh',args,{capture:true}));}catch{throw Error('无法读取私有 GitHub 仓库，请在本机执行 gh auth login，或配置只读 GH_TOKEN');}}
-    await new Promise((resolve,reject)=>{const child=spawn('gh',args,{stdio:['ignore','pipe','ignore'],windowsHide:true});const output=createWriteStream(destination,{flags:'wx'});const transfer=pipeline(child.stdout,output);child.on('error',reject);child.on('close',async code=>{try{await transfer;if(code!==0)throw Error('无法从 GitHub 下载更新，请检查登录权限');resolve();}catch(e){reject(e);}});});return;
+    const child=spawn('gh',args,{stdio:['ignore','pipe','ignore'],windowsHide:true});
+    const ended=new Promise((resolve,reject)=>{child.on('error',reject);child.on('close',code=>code===0?resolve():reject(Error('无法从 GitHub 下载更新，请检查登录权限')));});
+    try{await Promise.all([ended,downloadToFile(child.stdout,destination,progress)]);}finally{if(child.exitCode===null)child.kill();}return;
   }
   const headers={Accept:destination?'application/octet-stream':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
   if(access==='private'&&token)headers.Authorization=`Bearer ${token}`;
-  const response=await fetch(access==='public'&&destination?downloadUrl:`https://api.github.com/repos/${repository}/${endpoint}`,{headers,signal:AbortSignal.timeout(180000)});
+  const connecting=new AbortController(),connectionTimer=setTimeout(()=>connecting.abort(),60000);connectionTimer.unref();
+  let response;
+  try{response=await fetch(access==='public'&&destination?downloadUrl:`https://api.github.com/repos/${repository}/${endpoint}`,{headers,signal:AbortSignal.any([connecting.signal,AbortSignal.timeout(progress?30*60*1000:180000)])});}
+  catch(error){if(connecting.signal.aborted)throw Error('连接 GitHub 超时，请检查网络后重试');throw error;}
+  finally{clearTimeout(connectionTimer);}
   if(!response.ok){
     if(response.status===403&&response.headers.get('x-ratelimit-remaining')==='0')throw Error('GitHub 版本查询次数暂时用尽，请稍后重试');
     if(response.status===404)throw Error(access==='private'?'GitHub 尚未发布版本，或当前账号没有私有仓库读取权限':'GitHub 尚未发布可用更新，或版本附件尚未就绪');
     throw Error(`GitHub 检查失败 (${response.status})`);
   }
-  if(destination)await pipeline(Readable.fromWeb(response.body),createWriteStream(destination,{flags:'wx'}));else return response.json();
+  if(destination)await downloadToFile(Readable.fromWeb(response.body),destination,progress);else return response.json();
 }
 export async function checkUpdate(root,dataDir){
   const source=await json(path.join(root,'updates/source.json'));
@@ -95,15 +126,19 @@ export async function checkUpdate(root,dataDir){
   await writeJson(path.join(dir,'check.json'),result);return result;
 }
 export async function stageUpdate(root,dataDir){
+  const stateFile=path.join(dataDir,'updates/state.json');
+  await writeJson(stateFile,{phase:'downloading',step:'checking',startedAt:new Date().toISOString()});
   const check=await checkUpdate(root,dataDir);if(!check.available)throw Error('当前已是最新版本');
   if(Number(process.versions.node.split('.')[0])<check.manifest.minimumNode)throw Error(`请先升级本机 Node.js 至 ${check.manifest.minimumNode}`);
   const dir=path.join(dataDir,'updates'),stage=path.join(dir,'staged'),archive=path.join(dir,'studio-app.tar.gz');
   await fs.rm(archive,{force:true});await fs.rm(stage,{recursive:true,force:true});
-  await writeJson(path.join(dir,'state.json'),{phase:'downloading',version:check.latestVersion});
-  await github(check.repository,`releases/assets/${check.assetId}`,archive,check.access,check.assetUrl);
+  let state={phase:'downloading',step:'connecting',version:check.latestVersion,progress:{receivedBytes:0,totalBytes:check.manifest.assets.app.size,bytesPerSecond:0,startedAt:new Date().toISOString(),updatedAt:new Date().toISOString()}};
+  await writeJson(stateFile,state);
+  await github(check.repository,`releases/assets/${check.assetId}`,archive,check.access,check.assetUrl,{totalBytes:check.manifest.assets.app.size,onProgress:async progress=>{state={...state,step:progress.receivedBytes?'downloading':'connecting',progress};await writeJson(stateFile,state);}});
+  state={...state,phase:'preparing',step:'verifying'};await writeJson(stateFile,state);
   const hash=createHash('sha256');let bytes=0;for await(const chunk of createReadStream(archive)){hash.update(chunk);bytes+=chunk.length;}
   if(bytes!==check.manifest.assets.app.size||hash.digest('hex')!==check.manifest.assets.app.sha256)throw Error('更新包 SHA-256 校验失败，已拒绝安装');
-  await writeJson(path.join(dir,'state.json'),{phase:'preparing',version:check.latestVersion});
+  state={...state,step:'extracting'};await writeJson(stateFile,state);
   await unpackArchive(archive,stage);
   const pkg=await json(path.join(stage,'package.json'));if(pkg.version!==check.latestVersion)throw Error('安装包与声明的版本不一致');
   for(const file of ['dist/index.html','dist-server/index.js','scripts/start.mjs','package-lock.json'])if(!await exists(path.join(stage,file)))throw Error('更新包缺少必要程序文件');
@@ -111,6 +146,7 @@ export async function stageUpdate(root,dataDir){
   const npmCli=path.resolve(path.dirname(process.execPath),'../lib/node_modules/npm/bin/npm-cli.js');
   const bundledNpm=path.join(path.dirname(process.execPath),'node_modules/npm/bin/npm-cli.js');
   if(await exists(npmCli)||await exists(bundledNpm)){
+    state={...state,step:'dependencies'};await writeJson(stateFile,state);
     await run(process.execPath,[await exists(npmCli)?npmCli:bundledNpm,'ci','--omit=dev','--no-audit','--no-fund'],{cwd:stage});
     const fingerprint=createHash('sha256').update(await fs.readFile(path.join(stage,'package-lock.json'))).update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
     await fs.writeFile(path.join(stage,'node_modules/.studio-launch-ready'),fingerprint);

@@ -47,8 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RELEASE_NOTES: |
-        新增模型配置一键推荐：连接初和或 Token01 后，分别启用图片、视频与 AI 辅助模型，沿用密钥权限和已有分组。
-        新增 API Key 创建指引，保留高级手动配置；已有草稿和任务保持原配置。
+        更新下载新增真实进度条、百分比、已下载大小、传输速度和预计剩余时间。
+        明确显示连接、下载、校验、解压和运行依赖准备阶段；网络停滞时提示等待，连续 60 秒未收到数据可重试。
+        更新在后台子进程处理，可关闭窗口继续使用；保留模型一键推荐与密钥创建指引。
         首次使用请下载对应系统的 studio-full 完整包，解压后双击 Windows-启动.bat 或 Mac-启动.command，无需手动安装 Node.js。
         已安装用户可在工作台版本面板检查更新；本地数据和密钥保留。
     steps:
@@ -59,7 +60,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-policy.test.ts tests/update-supervisor.test.mjs tests/launcher.test.mjs tests/model-setup.test.ts tests/relays.test.ts tests/token01-routing.test.ts tests/relay-catalog.test.ts
+      - run: npm run test -- tests/api-session.test.ts tests/canvas-autosave.test.ts tests/canvas.test.ts tests/update-manager.test.mjs tests/update-progress.test.ts tests/update-policy.test.ts tests/update-supervisor.test.mjs tests/launcher.test.mjs tests/model-setup.test.ts tests/relays.test.ts tests/token01-routing.test.ts tests/relay-catalog.test.ts
       - run: npm run build
       - run: node scripts/release-update.mjs
       - uses: actions/download-artifact@v4
