@@ -9,11 +9,13 @@
 
 ## 通过链接访问
 
-免费下载页：<https://kispar.github.io/wsp-7f3a9c2e/>。GitHub Pages 托管 `site/` 中的静态页面，下载按钮指向最新 Release 的 `studio-app.tar.gz`。页面是下载安装入口，工作台仍在本机运行；无需 Cloudflare、个人域名或云服务器。页面包含 `noindex` 与 `robots.txt`，用于请求搜索引擎不收录，不能保证隐藏。
+免费下载页：<https://kispar.github.io/wsp-7f3a9c2e/>。GitHub Pages 托管 `site/` 中的静态页面，下载按钮指向最新 Release 的 `studio-app.zip`（首次安装包），`studio-app.tar.gz` 保留为应用内自动更新包。页面是下载安装入口，工作台仍在本机运行；无需 Cloudflare、个人域名或云服务器。页面包含 `noindex` 与 `robots.txt`，用于请求搜索引擎不收录，不能保证隐藏。
 
-下载已构建的程序包，安装 Node.js 24 或更新版本，解压后在程序目录依次执行 `npm ci --omit=dev` 和 `npm start`。此程序包不含 Node.js 运行时，也不是双击安装器；不需要重新构建源码。终端显示本机访问地址，保留启动窗口即可使用。
+下载并完整解压 ZIP，Windows 双击 `Windows-启动.bat`，macOS 双击 `Mac-启动.command`。首次自动从当前版本的 GitHub Release 下载匹配系统架构的独立运行环境（Node.js、npm 和生产依赖），校验 SHA-256 后安装到本机 `.runtime/` 与 `node_modules/`；无需系统预装 Node.js、管理员权限或手动输入命令。环境就绪后打开本机浏览器。使用期间保留启动窗口，Ctrl+C 停止。
 
-`pages.yml` 在下载页改动时部署，`release.yml` 发布成功后调用同一工作流刷新版本信息。只上传 `site/`，不上传应用数据。元数据来自构建时的 GitHub Release，访客不需要账号或令牌；版本信息加载失败时下载链接仍指向最新稳定版。
+包内另有 Windows／Mac 的安装与修复入口；Mac 还提供执行权限修复。修复先检查运行中的服务，成功前保留旧环境，失败时恢复，且不改动 `data/`。支持 Windows x64、Mac Intel／Apple Silicon 和 Linux x64；运行包在各平台构建并测试。Mac 系统的来源确认仍由用户按系统提示完成，脚本不会关闭 Gatekeeper。可选本地视频工具的安装状态与工作台核心运行环境分开说明。
+
+`pages.yml` 在下载页改动时部署；版本发布成功后由 `workflow_run` 在默认分支刷新页面，避免 Tag 被 GitHub Pages 的环境规则拒绝。只上传 `site/`，不上传应用数据。元数据来自构建时的 GitHub Release，访客不需要账号或令牌；版本信息加载失败时下载链接仍指向最新稳定版。
 
 公开仓库及 Release 可匿名读取；发布、推送和管理设置仍需要维护者权限。仓库使用中性代号、简短描述与无主题标签的首页，减少明确业务关键词。公开仓库仍可能被搜索引擎及 GitHub 索引，不能视为隐藏链接；旧仓库地址可能继续重定向。
 
@@ -49,6 +51,10 @@ git push origin main
 BrowserOS neo 桌面实测发现并修正了展开卡片被相邻卡片遮挡的问题；已操作验证 Enter 展开、Esc 收起、安装卡片跳转、启动命令复制和 FAQ 展开。辅助文字同步加大并提高对比度。提供窄屏 CSS 适配，本次未以真实移动设备验收。
 
 ## 本次检查
+
+2026-11-09：跨平台预检 Actions `42561015019` 四个平台全部通过（Windows x64、Mac Intel、Mac Apple Silicon、Linux x64）。本机 v0.1.6 完整 ZIP 在含空格、符号和中文的独立目录首次安装并启动成功，BrowserOS neo 打开 `4399` 工作台确认版本；环境测试覆盖复用、依赖修复、运行中阻止修复、错误校验拒绝与 data 保留。ZIP 已检查启动文件执行权限、BAT 换行与 PowerShell 中文编码。
+
+v0.1.6 增加私有运行环境自动安装、修复及各系统的双击入口。为兼容 v0.1.3 的更新包路径校验，TAR 更新包仍保持原有受控目录，不加入根目录启动脚本；更新后既有 ZIP 根目录入口继续调用新版 `scripts/launch.mjs`。
 
 2026-11-09 下载页改版：提交 `2df8aa7` 已部署，GitHub Actions `42549353725` 成功（23 秒）。BrowserOS neo 已打开公开页面并核对新设计、v0.1.3 / 98.0 MB，以及文件夹展开、安装卡片跳转和命令复制；程序包链接继续指向已验收的最新 Release。
 

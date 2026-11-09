@@ -5,9 +5,10 @@ async function loadRelease() {
     if (!response.ok) throw new Error('metadata unavailable');
     const release = await response.json();
     if (!/^v\d+\.\d+\.\d+$/.test(release.tag_name)) throw new Error('invalid version');
-    const asset = release.assets?.find(asset => asset.name === 'studio-app.tar.gz');
+    const asset = release.assets?.find(asset => asset.name === 'studio-app.zip') || release.assets?.find(asset => asset.name === 'studio-app.tar.gz');
     if (!asset || !Number.isSafeInteger(asset.size) || asset.size < 1) throw new Error('missing asset');
     document.querySelector('#version').textContent = release.tag_name + ' · 稳定版';
+    for (const link of document.querySelectorAll('[data-app-download]')) link.href = 'https://github.com/KIspar/wsp-7f3a9c2e/releases/latest/download/' + asset.name;
     document.querySelector('#size').textContent = (asset.size / 1024 / 1024).toFixed(1) + ' MB · 通用程序包';
     // The stable download URL follows GitHub's latest release even if this page is cached.
     const date = new Date(release.published_at);
@@ -16,21 +17,6 @@ async function loadRelease() {
     status.textContent = '版本信息暂不可用，仍可下载 GitHub 最新稳定版。';
   }
 }
-let copyReset;
-document.querySelector('#copy').addEventListener('click', async () => {
-  const feedback = document.querySelector('#copy-status');
-  const label = document.querySelector('#copy span');
-  clearTimeout(copyReset);
-  try {
-    await navigator.clipboard.writeText('npm ci --omit=dev\nnpm start');
-    feedback.textContent = '启动命令已复制';
-    label.textContent = '已复制';
-  } catch {
-    feedback.textContent = '无法访问剪贴板，请选中上方命令复制。';
-  }
-  copyReset = setTimeout(() => { feedback.textContent = ''; label.textContent = '复制'; }, 3500);
-});
-
 // LeiBox Glass Folder interaction adapted to three real links. Native buttons keep
 // touch and keyboard behavior; the sheets leave the tab order while closed.
 const folder = document.querySelector('#package');

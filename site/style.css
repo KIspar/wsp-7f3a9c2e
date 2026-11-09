@@ -104,15 +104,12 @@ h3 { font-size: 15px; letter-spacing: -.3px; font-weight: 600; margin: 0 0 12px;
 .step-link .icon { width: 13px; height: 13px; }
 .step-link:hover { color: #d45d30; }
 .launch-step { background: #f5f2eb; }
-.command-box { margin-top: 17px; border: 1px solid #ddd4c8; border-radius: 7px; overflow: hidden; background: #fbf9f5; position: relative; }
-.command-label { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e9e2d9; padding-left: 11px; font: 7px ui-monospace, monospace; color: #ac9f8d; letter-spacing: 1px; }
-.command-label > span { display: flex; align-items: center; gap: 5px; }
-.terminal-dot { width: 4px; height: 4px; border-radius: 50%; background: #bead94; }
-.command-label button { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 12px; border: 0; border-left: 1px solid #e9e2d9; padding: 8px 9px; background: transparent; color: #837360; cursor: pointer; min-height: 30px; }
-.command-label button:hover { background: #eee8df; }
-.command-label .icon { width: 10px; height: 10px; }
-pre { font-size: 12px; line-height: 1.95; margin: 0; padding: 11px 12px 13px; color: #655542; overflow-x: auto; }
-.copy-status { position: absolute; right: 9px; bottom: 8px; font-size: 11px; color: #52613c; background: #fbf9f5; }
+.launcher-list { margin-top: 20px; border: 1px solid #ddd4c8; border-radius: 9px; background: #fbf9f5; overflow: hidden; }
+.launcher-list > div { display: flex; align-items: center; gap: 12px; padding: 14px 12px; }
+.launcher-list > div + div { border-top: 1px solid #e6dfd4; }
+.launcher-list span { width: 78px; white-space: nowrap; color: #82735f; font-size: 11px; flex-shrink: 0; }
+.launcher-list strong { font-size: 12px; color: #4b4033; font-weight: 600; }
+.launcher-note { display: block; font-size: 11px; color: #756650; margin-top: 14px; line-height: 1.8; }
 .update-section { display: flex; align-items: center; gap: 24px; padding: 30px 0 34px; }
 .update-visual { width: 55px; height: 55px; border: 1px solid #e6dfd2; background: #f1ede3; border-radius: 16px; display: grid; place-items: center; flex-shrink: 0; transform: rotate(-7deg); box-shadow: inset 0 1px 0 #fff, 0 3px 5px #76500c05; }
 .update-visual .icon { width: 26px; height: 26px; color: #a29371; }
