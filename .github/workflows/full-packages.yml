@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing public release tag
         required: true
-        default: v0.1.9
+        default: v0.1.10
 permissions:
   contents: write
 jobs:

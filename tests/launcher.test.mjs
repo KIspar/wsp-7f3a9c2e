@@ -72,6 +72,14 @@ describe('download package launcher', () => {
     expect(await launch(dir, {LAUNCH_TEST_FAIL: '1'})).toMatchObject({code: 0});
     expect(await calls(dir)).toHaveLength(1);
   });
+  it('keeps bundled dependencies reusable when lockfile line endings change across operating systems', async () => {
+    const dir = await fixture();
+    await fs.writeFile(path.join(dir, 'package-lock.json'), '{\n  "version": "test"\n}\n');
+    expect(await launch(dir)).toMatchObject({code: 0});
+    await fs.writeFile(path.join(dir, 'package-lock.json'), '{\r\n  "version": "test"\r\n}\r\n');
+    expect(await launch(dir, {LAUNCH_TEST_FAIL: '1'})).toMatchObject({code: 0});
+    expect(await calls(dir)).toHaveLength(1);
+  });
   it('uses a compatible system Node when no private runtime was extracted', async () => {
     const dir = await fixture();
     await fs.rm(path.join(dir, '.runtime/node'));

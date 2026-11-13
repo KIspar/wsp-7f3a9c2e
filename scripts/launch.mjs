@@ -42,7 +42,7 @@ export async function prepareLaunch(root, {checkOnly = false} = {}) {
   for (const file of ['dist/index.html', 'dist-server/index.js', 'scripts/start.mjs', 'package-lock.json']) {
     if (!await exists(path.join(root, file))) throw Error(`程序包缺少 ${file}。请重新下载并完整解压 ZIP，再双击启动。`);
   }
-  const fingerprint = createHash('sha256').update(await fs.readFile(path.join(root, 'package-lock.json')))
+  const fingerprint = createHash('sha256').update((await fs.readFile(path.join(root, 'package-lock.json'), 'utf8')).replace(/\r\n/g, '\n'))
     .update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
   const marker = path.join(root, 'node_modules/.studio-launch-ready');
   const recorded = await fs.readFile(marker, 'utf8').catch(() => null);

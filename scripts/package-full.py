@@ -1,5 +1,6 @@
 """Combine published application and native runtime ZIPs without local data."""
 import argparse
+import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import shutil
@@ -19,6 +20,10 @@ for platform in platforms:
         info = json.loads(runtime.read('.runtime/node/runtime.json'))
         if info['version'] != pkg['version'] or info['platform'] + '-' + info['arch'] != platform:
             raise ValueError('Application/runtime version or platform mismatch')
+        lock = app.read('package-lock.json').decode('utf-8').replace('\r\n', '\n')
+        expected = hashlib.sha256((lock + info['platform'] + '/' + info['arch'] + '/' + info['node'].lstrip('v').split('.')[0]).encode('utf-8')).hexdigest()
+        if runtime.read('node_modules/.studio-launch-ready').decode('utf-8') != expected:
+            raise ValueError('Application/runtime dependency fingerprint mismatch')
         for archive, is_runtime in [(app, False), (runtime, True)]:
             for entry in archive.infolist():
                 name = entry.filename

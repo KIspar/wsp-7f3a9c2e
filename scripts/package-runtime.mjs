@@ -32,7 +32,7 @@ zip.file(process.execPath, {name: '.runtime/node/' + (process.platform === 'win3
 zip.file(license, {name: '.runtime/node/NODE-LICENSE.txt', mode: 0o644});
 await tree(path.resolve(path.dirname(await findNpm()), '..'), '.runtime/node/node_modules/npm');
 await tree(path.join(root, 'node_modules'), 'node_modules');
-const lock = await fs.readFile(path.join(root, 'package-lock.json'));
+const lock = (await fs.readFile(path.join(root, 'package-lock.json'), 'utf8')).replace(/\r\n/g, '\n');
 const fingerprint = createHash('sha256').update(lock).update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
 zip.append(fingerprint, {name: 'node_modules/.studio-launch-ready', mode: 0o644});
 zip.append(JSON.stringify({version: pkg.version, node: process.version, platform: process.platform, arch: process.arch}), {name: '.runtime/node/runtime.json', mode: 0o644});

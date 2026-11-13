@@ -1,3 +1,6 @@
 *.bat text eol=crlf
 *.sh text eol=lf
 *.command text eol=lf
+
+# Native runtime and application archives must hash the same lockfile bytes.
+package-lock.json text eol=lf
