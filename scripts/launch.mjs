@@ -37,7 +37,7 @@ function run(args, root, quiet = false) {
   });
 }
 
-export async function prepareLaunch(root) {
+export async function prepareLaunch(root, {checkOnly = false} = {}) {
   if (Number(process.versions.node.split('.')[0]) < 24) throw Error('运行组件版本不兼容，请双击“修复环境”。');
   for (const file of ['dist/index.html', 'dist-server/index.js', 'scripts/start.mjs', 'package-lock.json']) {
     if (!await exists(path.join(root, file))) throw Error(`程序包缺少 ${file}。请重新下载并完整解压 ZIP，再双击启动。`);
@@ -45,10 +45,17 @@ export async function prepareLaunch(root) {
   const fingerprint = createHash('sha256').update(await fs.readFile(path.join(root, 'package-lock.json')))
     .update(`${process.platform}/${process.arch}/${process.versions.node.split('.')[0]}`).digest('hex');
   const marker = path.join(root, 'node_modules/.studio-launch-ready');
-  let ready = await fs.readFile(marker, 'utf8').then(value => value === fingerprint, () => false);
-  if (ready) {
-    try { await run(['--input-type=module', '-e', "await import('fastify'); await import('node:sqlite'); const {default:sharp}=await import('sharp'); await sharp({create:{width:1,height:1,channels:3,background:'#fff'}}).png().toBuffer();"], root, true); }
+  const recorded = await fs.readFile(marker, 'utf8').catch(() => null);
+  let ready = recorded === fingerprint;
+  // An extracted or already installed environment can be valid without a marker.
+  if (ready || recorded === null) {
+    try { await run(['--input-type=module', '-e', "const {access,readFile}=await import('node:fs/promises'); const pkg=JSON.parse(await readFile('package.json','utf8')); for(const name of Object.keys(pkg.dependencies||{})) await access('node_modules/'+name+'/package.json'); await import('fastify'); await import('node:sqlite'); const {default:sharp}=await import('sharp'); await sharp({create:{width:1,height:1,channels:3,background:'#fff'}}).png().toBuffer();"], root, true); ready = true; }
     catch (error) { if (error.cancelled) throw error; ready = false; }
+  }
+  if (checkOnly) {
+    if (!ready) throw Error('本机运行环境缺失或损坏。');
+    console.log('本机运行环境检查通过，无需下载。');
+    return;
   }
   if (!ready) {
     const data = path.resolve(root, process.env.STUDIO_DATA || 'data');
@@ -61,8 +68,8 @@ export async function prepareLaunch(root) {
     console.log('首次启动或依赖发生变化，正在准备运行环境。需要联网，请保留此窗口。');
     try { await run([await findNpm(), 'ci', '--omit=dev', '--no-audit', '--no-fund'], root); }
     catch (error) { if (error.cancelled) throw error; throw Error(`${error.message}\n依赖安装未完成。请检查网络后重试，或双击“修复环境”。`); }
-    await fs.writeFile(marker, fingerprint);
   }
+  if (recorded !== fingerprint) await fs.writeFile(marker, fingerprint);
   console.log('运行环境已就绪。');
 }
 
@@ -70,8 +77,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   try {
     const root = path.resolve(import.meta.dirname, '..');
     process.chdir(root);
-    await prepareLaunch(root);
-    if (process.argv.includes('--setup')) console.log('环境检查通过。现在可以双击启动工作台。');
+    const checkOnly = process.argv.includes('--check-environment');
+    await prepareLaunch(root, {checkOnly});
+    if (checkOnly) { /* Read-only check used before any network recovery. */ }
+    else if (process.argv.includes('--setup')) console.log('环境检查通过。现在可以双击启动工作台。');
     else {
       console.log('正在启动工作台，请保留此窗口……');
       process.env.STUDIO_OPEN_BROWSER ??= '1';

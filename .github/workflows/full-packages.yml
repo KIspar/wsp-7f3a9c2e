@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing public release tag
         required: true
-        default: v0.1.8
+        default: v0.1.9
 permissions:
   contents: write
 jobs:
@@ -39,32 +39,11 @@ jobs:
         run: python -c "import hashlib,pathlib; p=next(pathlib.Path('release/full').glob('*.sha256')); f=p.with_suffix(''); assert hashlib.file_digest(f.open('rb'),'sha256').hexdigest()==p.read_text().split()[0]"
       - name: Build complete package
         run: python scripts/package-full.py release/full --platform ${{ matrix.platform }}
-      - name: Extract complete package with executable permissions
-        shell: bash
-        env:
-          PLATFORM: ${{ matrix.platform }}
-        run: |
-          python - <<'PY'
-          import os,pathlib,zipfile
-          root=pathlib.Path('release/full/Studio complete 中文 & test')
-          with zipfile.ZipFile('release/full/studio-full-'+os.environ['PLATFORM']+'.zip') as archive:
-            archive.extractall(root)
-            for item in archive.infolist():
-              mode=(item.external_attr>>16)&0o777
-              if mode: (root/item.filename).chmod(mode)
-          PY
-      - name: Verify setup needs no download or dependency install
-        shell: bash
-        working-directory: release/full/Studio complete 中文 & test
-        env:
-          STUDIO_RUNTIME_ASSET_DIR: deliberately-missing-no-download
-          STUDIO_OPEN_BROWSER: '0'
-        run: |
-          if [[ "$RUNNER_OS" == Windows ]]; then
-            powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/bootstrap-windows.ps1 -Mode Setup
-          else
-            sh run.sh --setup
-          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify complete package without system Node or dependency downloads
+        run: node scripts/test-full-package.mjs release/full/studio-full-${{ matrix.platform }}.zip
       - uses: actions/upload-artifact@v4
         with:
           name: complete-${{ matrix.platform }}

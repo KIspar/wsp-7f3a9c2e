@@ -30,8 +30,26 @@ trap studio_cleanup EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 studio_node_ready() { [ -x "$studio_node" ] && "$studio_node" -e 'process.exit(Number(process.versions.node.split(".")[0])>=24?0:1)' >/dev/null 2>&1; }
+studio_bundled_node=$studio_node
+if ! studio_node_ready; then
+  for studio_candidate in "$(command -v node 2>/dev/null || true)" /opt/homebrew/bin/node /usr/local/bin/node "${NVM_DIR:-${HOME:-}/.nvm}"/versions/node/*/bin/node; do
+    [ -n "$studio_candidate" ] || continue
+    studio_node=$studio_candidate
+    if studio_node_ready; then break; fi
+  done
+  if ! studio_node_ready; then studio_node=$studio_bundled_node; fi
+fi
+studio_repair_needed=0
+if [ "$studio_mode" = --repair ]; then
+  if [ -n "${STUDIO_RUNTIME_ASSET_DIR:-}" ] || ! studio_node_ready || ! "$studio_node" scripts/launch.mjs --check-environment >/dev/null 2>&1; then
+    studio_repair_needed=1
+  else
+    printf '%s\n' '本机运行环境检查通过，无需联网重新下载。'
+  fi
+fi
 
-if [ "$studio_mode" = --repair ] || ! studio_node_ready; then
+if [ "$studio_repair_needed" -eq 1 ] || ! studio_node_ready || { [ -n "${STUDIO_RUNTIME_ASSET_DIR:-}" ] && [ ! -x "$studio_bundled_node" ]; }; then
+  studio_node=$studio_bundled_node
   studio_data=${STUDIO_DATA:-"$studio_root/data"}
   if [ -f "$studio_data/server.lock" ]; then
     studio_pid=$(cat "$studio_data/server.lock")
@@ -62,7 +80,7 @@ if [ "$studio_mode" = --repair ] || ! studio_node_ready; then
     cp -- "$STUDIO_RUNTIME_ASSET_DIR/$studio_asset.sha256" "$studio_checksum"
   else
     studio_url="https://github.com/KIspar/wsp-7f3a9c2e/releases/download/v$studio_version/$studio_asset"
-    curl --fail --location --retry 2 --connect-timeout 20 --max-time 900 --progress-bar "$studio_url" -o "$studio_archive" || studio_fail '环境下载未完成。请检查网络后重试。'
+    curl --fail --location --retry 2 --connect-timeout 20 --max-time 900 --progress-bar "$studio_url" -o "$studio_archive" || studio_fail '无法从 GitHub 下载环境。可在能下载的电脑上取得对应系统的 studio-full 完整包，通过 U 盘传到本机，解压后启动。'
     curl --fail --location --retry 2 --connect-timeout 20 --max-time 60 --silent --show-error "$studio_url.sha256" -o "$studio_checksum" || studio_fail '无法取得环境校验文件，请稍后重试。'
   fi
   studio_expected=$(awk 'NR==1 {print $1}' "$studio_checksum" | tr 'A-F' 'a-f')
@@ -91,5 +109,5 @@ fi
 studio_cleanup
 studio_stage=; studio_lock=
 trap - EXIT INT TERM
-PATH="$studio_root/.runtime/node:$PATH"; export PATH
+PATH="$(dirname -- "$studio_node"):$PATH"; export PATH
 if [ "$studio_mode" = --start ]; then exec "$studio_node" scripts/launch.mjs; else exec "$studio_node" scripts/launch.mjs --setup; fi

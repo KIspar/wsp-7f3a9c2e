@@ -17,7 +17,26 @@ function Test-Node([string]$File) {
   try { & $File -e "process.exit(Number(process.versions.node.split('.')[0])>=24?0:1)" 2>$null; return $LASTEXITCODE -eq 0 } catch { return $false }
 }
 try {
-  if ($Mode -eq 'Repair' -or !(Test-Node $Node)) {
+  $BundledNode = $Node
+  if (!(Test-Node $Node)) {
+    $SystemNode = Get-Command node.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($SystemNode -and (Test-Node $SystemNode.Source)) { $Node = $SystemNode.Source }
+  }
+  $RepairNeeded = $false
+  if ($Mode -eq 'Repair') {
+    if ($env:STUDIO_RUNTIME_ASSET_DIR -or !(Test-Node $Node)) { $RepairNeeded = $true }
+    else {
+      $PreviousErrorAction = $ErrorActionPreference
+      try {
+        $ErrorActionPreference = 'Continue'
+        & $Node scripts/launch.mjs --check-environment *> $null
+        $RepairNeeded = $LASTEXITCODE -ne 0
+      } finally { $ErrorActionPreference = $PreviousErrorAction }
+      if (!$RepairNeeded) { Write-Host '本机运行环境检查通过，无需联网重新下载。' }
+    }
+  }
+  if ($RepairNeeded -or !(Test-Node $Node) -or ($env:STUDIO_RUNTIME_ASSET_DIR -and !(Test-Path -LiteralPath $BundledNode))) {
+    $Node = $BundledNode
     $Data = if ($env:STUDIO_DATA) { $env:STUDIO_DATA } else { Join-Path $Root 'data' }
     $ServerLock = Join-Path $Data 'server.lock'
     if (Test-Path -LiteralPath $ServerLock) {
@@ -53,8 +72,10 @@ try {
       [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
       $Url = "https://github.com/KIspar/wsp-7f3a9c2e/releases/download/v$Version/$Asset"
       $ProgressPreference = 'SilentlyContinue'
-      Invoke-WebRequest -Uri $Url -OutFile $Archive -UseBasicParsing -TimeoutSec 900
-      Invoke-WebRequest -Uri "$Url.sha256" -OutFile $Checksum -UseBasicParsing -TimeoutSec 60
+      try {
+        Invoke-WebRequest -Uri $Url -OutFile $Archive -UseBasicParsing -TimeoutSec 900
+        Invoke-WebRequest -Uri "$Url.sha256" -OutFile $Checksum -UseBasicParsing -TimeoutSec 60
+      } catch { throw '无法从 GitHub 下载环境。可在能下载的电脑上取得对应系统的 studio-full 完整包，通过 U 盘传到本机，解压后启动。' }
     }
     $Expected = ((Get-Content -LiteralPath $Checksum -Raw).Trim() -split '\s+')[0]
     $Hasher = [Security.Cryptography.SHA256]::Create()
@@ -88,7 +109,7 @@ try {
   }
   if ($Stage -and $Committed) { Remove-Item -LiteralPath $Stage -Recurse -Force; $Stage = $null }
   if ($Lock) { Remove-Item -LiteralPath $Lock -Recurse -Force; $Lock = $null }
-  $env:PATH = "$(Join-Path $Root '.runtime\node');$env:PATH"
+  $env:PATH = "$(Split-Path -Parent $Node);$env:PATH"
   if ($Mode -eq 'Start') { & $Node scripts/launch.mjs } else { & $Node scripts/launch.mjs --setup }
   $Result = $LASTEXITCODE
 } catch {

@@ -30,17 +30,19 @@ async function fixture() {
   `);
   return dir;
 }
-function launch(dir, env = {}) {
+function launch(dir, env = {}, mode = '--start') {
   const windows = process.platform === 'win32';
   // Windows environment keys are case-insensitive. Deduplicate npm's inherited
   // mixed-case npm_execpath before passing the fixture CLI to cmd.exe.
   const overrides = {npm_execpath: path.join(dir, 'npm-cli.js'), STUDIO_OPEN_BROWSER: '0', ...env};
   const overridden = new Set(Object.keys(overrides).map(key => key.toLowerCase()));
   const inherited = Object.fromEntries(Object.entries(process.env).filter(([key]) => !overridden.has(key.toLowerCase())));
-  const child = spawn(windows ? 'cmd.exe' : '/bin/sh', windows
-    ? ['/d', '/s', '/c', `""${path.join(dir, 'run.bat')}""`]
-    : [path.join(dir, 'run.sh')], {
-    cwd: os.tmpdir(), windowsVerbatimArguments: windows,
+  const useCmd = windows && mode === '--start';
+  const child = spawn(windows ? (useCmd ? 'cmd.exe' : 'powershell.exe') : '/bin/sh', windows
+    ? (useCmd ? ['/d', '/s', '/c', `""${path.join(dir, 'run.bat')}""`]
+      : ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(dir, 'scripts/bootstrap-windows.ps1'), '-Mode', mode === '--repair' ? 'Repair' : 'Setup'])
+    : [path.join(dir, 'run.sh'), mode], {
+    cwd: os.tmpdir(), windowsVerbatimArguments: useCmd,
     env: {...inherited, ...overrides},
     stdio: ['pipe', 'pipe', 'pipe'],
   });
@@ -55,6 +57,28 @@ function launch(dir, env = {}) {
 }
 const calls = async dir => (await fs.readFile(path.join(dir, 'npm-calls.txt'), 'utf8')).trim().split('\n').map(JSON.parse);
 describe('download package launcher', () => {
+  it('checks and reuses a healthy environment during repair without network or npm', async () => {
+    const dir = await fixture();
+    expect(await launch(dir)).toMatchObject({code: 0});
+    const result = await launch(dir, {LAUNCH_TEST_FAIL: '1', STUDIO_RUNTIME_ASSET_DIR: ''}, '--repair');
+    expect(result).toMatchObject({code: 0});
+    expect(result.output).toContain('无需联网重新下载');
+    expect(await calls(dir)).toHaveLength(1);
+  });
+  it('reuses installed dependencies without a marker instead of reinstalling them', async () => {
+    const dir = await fixture();
+    expect(await launch(dir)).toMatchObject({code: 0});
+    await fs.rm(path.join(dir, 'node_modules/.studio-launch-ready'));
+    expect(await launch(dir, {LAUNCH_TEST_FAIL: '1'})).toMatchObject({code: 0});
+    expect(await calls(dir)).toHaveLength(1);
+  });
+  it('uses a compatible system Node when no private runtime was extracted', async () => {
+    const dir = await fixture();
+    await fs.rm(path.join(dir, '.runtime/node'));
+    const result = await launch(dir, {PATH: path.dirname(process.execPath) + path.delimiter + process.env.PATH});
+    expect(result).toMatchObject({code: 0});
+    expect(await calls(dir)).toHaveLength(1);
+  });
   it('launches from a folder containing spaces, symbols and Chinese; installs only once and refreshes changed or broken dependencies', async () => {
     const dir = await fixture();
     expect(await launch(dir)).toMatchObject({code: 0});

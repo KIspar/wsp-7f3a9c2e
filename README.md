@@ -1,16 +1,25 @@
 # Workspace
 
-Local workspace utilities. Downloaded packages prepare their runtime automatically.
+Local workspace utilities. Complete downloads include their core runtime.
 
 [Download](https://kispar.github.io/wsp-7f3a9c2e/)
 
 ## Run
 
-Download and fully extract `studio-app.zip`. Double-click `Windows-启动.bat` on
-Windows or `Mac-启动.command` on macOS. The launcher downloads a matching private
-runtime and production dependencies from GitHub, then opens the local interface.
-No system Node.js installation or terminal commands are required. Install and
-repair shortcuts are included; repair preserves local data. See `START-HERE.txt`.
+Download the matching **`studio-full-<platform>.zip`** and fully extract it.
+Double-click `Windows-启动.bat` on Windows or `Mac-启动.command` on macOS.
+The complete package includes Node.js and production dependencies: even the
+first launch needs no environment download or system Node installation. It can
+be copied to a new computer using a USB drive. Each OS/CPU needs its own package.
+
+`studio-app.zip` and GitHub source archives do not bundle the runtime; avoid them
+for a new offline installation. Repair first checks and reuses a healthy local
+environment; missing/broken components require an online download or a fresh
+complete package. Local data is preserved. See `START-HERE.txt`.
+
+Optional Python video processing tools and speech models are not included in
+the core package. Online model calls, balances and GitHub updates need internet;
+offline installation does not make these services available offline.
 
 For source development:
 
