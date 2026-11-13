@@ -40,3 +40,17 @@ Windows 通过 `Windows-启动.bat` 启动整包服务，修复使用 Windows �
 ### Windows 整包测试发现与修复
 
 v0.1.9 的原生 Windows 启动器测试通过，但完整包离线关卡发现依赖指纹不一致，触发了被测试哨兵拦截的 npm 安装。该版本未创建 Release。已将打包、启动与更新的锁文件摘要统一为 LF 换行，并固定 Git 的 package-lock.json 行尾；新增跨 CRLF/LF 变化不应重复安装的回归测试。合并完整包时也会先检查程序与运行环境依赖指纹一致，再允许生成交付包。最终修复使用新标签 v0.1.10，不移动 v0.1.9 标签。
+
+
+## 最终发布结果
+
+2026-11-13，v0.1.10 已发布为 GitHub Latest：
+
+- Release：https://github.com/KIspar/wsp-7f3a9c2e/releases/tag/v0.1.10
+- 原生构建与验证：https://github.com/KIspar/wsp-7f3a9c2e/actions/runs/43397945355
+- 应用发布回归共 73 项测试；四个平台的运行环境恢复与完整包离线启动验证全部通过。
+- Windows 日志确认：`PASS complete win32/x64: packaged Node, offline setup, offline repair, Windows BAT service startup, Chinese path, no npm install, no local data bundled`。
+- Windows x64 完整 ZIP 为 325,849,415 字节，已上传公开 Release。
+- 在线下载的 latest.json 确认为 0.1.10；应用更新包大小 102,717,632 字节，SHA256 为 `19255ed4af4db8b6bb7418d02df16844f2ddbd03ba7f040fd5cc5dfee36cbdbe`。
+- BrowserOS neo 已检查在线下载页，版本显示 `v0.1.10 · 发布于 2026/11/13 · 无需登录 GitHub`，Windows、两种 Mac 及 Linux 链接均指向对应完整包。
+- 本轮发布未安装到用户现有工作台，也未迁移、清理用户数据或密钥；可选 Python 本地视频环境仍不包含在核心完整包中。
